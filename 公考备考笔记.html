@@ -124,9 +124,9 @@ a{color:var(--brand-1);text-decoration:none}
 .plus-box .plus-body .sub:first-child{margin-top:0}
 
 /* 补充说明框（自定义收缩） */
-.tip-box{margin:12px 0;background:var(--brand-soft);border-left:3px solid var(--brand-1);border-radius:0 8px 8px 0;overflow:hidden;transition:all .3s ease}
+.tip-box{margin:12px 0;background:var(--brand-soft);border-left:3px solid var(--brand-1);border-radius:0 8px 8px 0;overflow:hidden;transition:all .2s ease}
+.tip-box:not(.open){opacity:.5;max-height:40px}
 .tip-box.open{opacity:1;max-height:1000px}
-.tip-box:not(.open){opacity:.3;max-height:40px}
 .tip-title{cursor:pointer;padding:10px 12px;font-weight:700;font-size:13.5px;display:flex;justify-content:space-between;align-items:center;user-select:none}
 .tip-arrow{transition:transform .2s;font-size:12px;color:var(--brand-1)}
 .tip-box.open .tip-arrow{transform:rotate(90deg)}
