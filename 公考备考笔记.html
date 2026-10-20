@@ -88,6 +88,19 @@ a{color:var(--brand-1);text-decoration:none}
 .card-h h3{font-size:16.5px;font-weight:600;flex:1;min-width:0}
 .card-h .idx{color:var(--t3);font-size:13px}
 
+/* 近代史事件卡片：细一点、高度小一半、浅颜色 */
+.event-card{background:#f8f9f7;border:1px solid #e8ebe5;border-radius:6px;padding:8px 12px;margin-bottom:6px;transition:all .2s}
+.event-card:hover{border-color:#d0d5c8;background:#f3f5f0}
+.event-card summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--t1);padding:2px 0;user-select:none}
+.event-card summary::before{content:"▸ ";color:var(--green-1)}
+.event-card[open] summary::before{content:"▾ "}
+
+/* 大阶段收缩框 */
+.stage-box{background:#f5f7f3;border:1px solid #e0e5d8;border-radius:8px;padding:10px 14px;margin-bottom:16px}
+.stage-box summary{cursor:pointer;font-size:15px;font-weight:700;color:var(--t1);padding:4px 0;user-select:none}
+.stage-box summary::before{content:"▸ ";color:var(--green-1)}
+.stage-box[open] summary::before{content:"▾ "}
+
 .badges{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
 .badge{display:inline-block;border-radius:10px;padding:1px 9px;line-height:19px;font-size:11.5px;font-weight:600;white-space:nowrap}
 .badge.new{background:var(--green-soft);color:var(--green-1)}
@@ -1004,213 +1017,165 @@ a{color:var(--brand-1);text-decoration:none}
 
     <h3 style="font-size:15px;font-weight:700;margin:16px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--divider)">一、旧民主主义革命时期（1840-1919）</h3>
 
+    <details class="stage-box" open>
+      <summary>展开全部事件</summary>
+      <div style="margin-top:10px">
+
     <!-- 01 鸦片战争 -->
-    <details class="card" id="c-jd01" data-tags="new old inherit sediment">
-      <summary class="card-h"><span class="idx">01</span><h3>鸦片战争（1840）</h3></summary>
-      <div class="badges">
-        <span class="badge new">南京条约</span>
-        <span class="badge old">闭关锁国</span>
-        <span class="badge sediment">近代史开端</span>
+    <details class="event-card" id="c-jd01" data-tags="new old inherit sediment">
+      <summary>01 鸦片战争（1840）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>英国要打开中国市场，中国闭关锁国，贸易逆差。打输了，被迫签了第一个不平等条约。</p>
+        <p><span class="em-new">新增</span>：鸦片战争爆发，《南京条约》签订——中国近代史上第一个不平等条约（割香港岛、赔款2100万银元、五口通商、协定关税）。</p>
+        <p><strong>继承</strong>：中国还是封建社会，还是皇帝统治。</p>
+        <p><span class="em-old">废弃</span>：闭关锁国政策被打破。</p>
+        <p><span class="em-sed">沉淀</span>：中国开始沦为半殖民地半封建社会，近代史开端。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：《南京条约》是中国近代史上第一个不平等条约，不是《马关条约》。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：鸦片战争是中国近代史的开端，不是洋务运动。</div>
+            <div style="margin-top:4px"><strong>易错点3</strong>：《南京条约》割让的是香港岛，不是整个香港。</div>
+          </div>
+        </details>
       </div>
-      <div class="human">英国要打开中国市场，中国闭关锁国，贸易逆差。打输了，被迫签了第一个不平等条约。</div>
-      <div class="section-label new">新增</div>
-      <p><span class="em-new">鸦片战争爆发</span>，<span class="em-new">《南京条约》签订</span>——中国近代史上第一个不平等条约（割香港岛、赔款2100万银元、五口通商、协定关税）。</p>
-      <div class="section-label inherit">继承</div>
-      <p>中国还是封建社会，还是皇帝统治。</p>
-      <div class="section-label old">废弃</div>
-      <p><span class="em-old">闭关锁国政策被打破</span>。</p>
-      <div class="section-label sediment">沉淀</div>
-      <p><span class="em-sed">中国开始沦为半殖民地半封建社会，近代史开端</span>。</p>
-      <details class="plus-box">
-        <summary>考题链接 <span class="plus-tag">易错点</span></summary>
-        <div class="plus-body">
-          <div><strong>易错点1</strong>：《南京条约》是中国近代史上第一个不平等条约，不是《马关条约》。</div>
-          <div style="margin-top:4px"><strong>易错点2</strong>：鸦片战争是中国近代史的开端，不是洋务运动。</div>
-          <div style="margin-top:4px"><strong>易错点3</strong>：《南京条约》割让的是香港岛，不是整个香港。</div>
-        </div>
-      </details>
     </details>
 
     <!-- 02 太平天国 -->
-    <details class="card" id="c-jd02" data-tags="new old inherit sediment">
-      <summary class="card-h"><span class="idx">02</span><h3>太平天国运动（1851-1864）</h3></summary>
-      <div class="badges">
-        <span class="badge new">天朝田亩制度</span>
-        <span class="badge old">农民起义</span>
+    <details class="event-card" id="c-jd02" data-tags="new old inherit sediment">
+      <summary>02 太平天国运动（1851-1864）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>清政府腐败，农民活不下去了，洪秀全领着大家造反。最后失败了，证明农民阶级救不了中国。</p>
+        <p><span class="em-new">新增</span>：洪秀全领导太平天国运动，颁布《天朝田亩制度》（有田同耕，有饭同食）。</p>
+        <p><strong>继承</strong>：还是农民起义，和之前的陈胜吴广、李自成一样。</p>
+        <p><span class="em-old">废弃</span>：农民起义最终失败——证明农民阶级不能领导中国革命。</p>
+        <p><span class="em-sed">沉淀</span>：沉重打击了清王朝，也打击了外国侵略者。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：《天朝田亩制度》是太平天国的，不是洋务运动的。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：太平天国运动是农民阶级领导的，不是资产阶级。</div>
+          </div>
+        </details>
       </div>
-      <div class="human">清政府腐败，农民活不下去了，洪秀全领着大家造反。最后失败了，证明农民阶级救不了中国。</div>
-      <div class="section-label new">新增</div>
-      <p><span class="em-new">洪秀全领导太平天国运动</span>，颁布<span class="em-new">《天朝田亩制度》</span>（有田同耕，有饭同食）。</p>
-      <div class="section-label inherit">继承</div>
-      <p>还是农民起义，和之前的陈胜吴广、李自成一样。</p>
-      <div class="section-label old">废弃</div>
-      <p><span class="em-old">农民起义最终失败</span>——证明农民阶级不能领导中国革命。</p>
-      <div class="section-label sediment">沉淀</div>
-      <p><span class="em-sed">沉重打击了清王朝，也打击了外国侵略者</span>。</p>
-      <details class="plus-box">
-        <summary>考题链接 <span class="plus-tag">易错点</span></summary>
-        <div class="plus-body">
-          <div><strong>易错点1</strong>：《天朝田亩制度》是太平天国的，不是洋务运动的。</div>
-          <div style="margin-top:4px"><strong>易错点2</strong>：太平天国运动是农民阶级领导的，不是资产阶级。</div>
-        </div>
-      </details>
     </details>
 
     <!-- 03 洋务运动 -->
-    <details class="card" id="c-jd03" data-tags="new old inherit sediment">
-      <summary class="card-h"><span class="idx">03</span><h3>洋务运动（1861-1894）</h3></summary>
-      <div class="badges">
-        <span class="badge new">师夷长技以制夷</span>
-        <span class="badge new">中学为体西学为用</span>
-        <span class="badge sediment">近代化开端</span>
+    <details class="event-card" id="c-jd03" data-tags="new old inherit sediment">
+      <summary>03 洋务运动（1861-1894）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>清政府被打怕了，发现人家船坚炮利，自己冷兵器打不过，所以想学人家的技术来保命。但又不敢改制度，怕丢了江山，所以只学技术不改制度——就像给老房子刷层新漆，地基还是歪的。</p>
+        <p><span class="em-new">新增</span>：洋务派主张"师夷长技以制夷"，办工厂、建海军、办学堂。口号：前期"自强"，后期"求富"。</p>
+        <p><strong>继承</strong>：还是维护封建统治，"中学为体，西学为用"。</p>
+        <p><span class="em-old">废弃</span>：甲午战争失败，洋务运动破产——证明只学技术不改制度不行。</p>
+        <p><span class="em-sed">沉淀</span>：中国近代化的开端，培养了一批近代人才。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：洋务运动是地主阶级领导的，不是资产阶级。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：洋务运动失败的标志是甲午战争战败，不是戊戌变法失败。</div>
+            <div style="margin-top:4px"><strong>易错点3</strong>：洋务运动的指导思想是"中学为体，西学为用"，不是"师夷长技以制夷"（那是魏源提的）。</div>
+          </div>
+        </details>
       </div>
-      <div class="human">清政府被打怕了，发现人家船坚炮利，自己冷兵器打不过，所以想学人家的技术来保命。但又不敢改制度，怕丢了江山，所以只学技术不改制度——就像给老房子刷层新漆，地基还是歪的。</div>
-      <div class="section-label new">新增</div>
-      <p><span class="em-new">洋务派主张"师夷长技以制夷"</span>，办工厂、建海军、办学堂。口号：前期"自强"，后期"求富"。</p>
-      <div class="section-label inherit">继承</div>
-      <p>还是维护封建统治，"中学为体，西学为用"。</p>
-      <div class="section-label old">废弃</div>
-      <p><span class="em-old">甲午战争失败，洋务运动破产</span>——证明只学技术不改制度不行。</p>
-      <div class="section-label sediment">沉淀</div>
-      <p><span class="em-sed">中国近代化的开端，培养了一批近代人才</span>。</p>
-      <details class="plus-box">
-        <summary>考题链接 <span class="plus-tag">易错点</span></summary>
-        <div class="plus-body">
-          <div><strong>易错点1</strong>：洋务运动是地主阶级领导的，不是资产阶级。</div>
-          <div style="margin-top:4px"><strong>易错点2</strong>：洋务运动失败的标志是甲午战争战败，不是戊戌变法失败。</div>
-          <div style="margin-top:4px"><strong>易错点3</strong>：洋务运动的指导思想是"中学为体，西学为用"，不是"师夷长技以制夷"（那是魏源提的）。</div>
-        </div>
-      </details>
     </details>
 
     <!-- 04 甲午战争 -->
-    <details class="card" id="c-jd04" data-tags="new old inherit sediment">
-      <summary class="card-h"><span class="idx">04</span><h3>甲午战争（1894）</h3></summary>
-      <div class="badges">
-        <span class="badge new">马关条约</span>
-        <span class="badge old">洋务运动破产</span>
-        <span class="badge sediment">半殖民地加深</span>
+    <details class="event-card" id="c-jd04" data-tags="new old inherit sediment">
+      <summary>04 甲午战争（1894）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>日本要扩张，朝鲜是跳板。中国打输了，割地赔款，列强一看原来中国这么好欺负，就都来分蛋糕了。</p>
+        <p><span class="em-new">新增</span>：甲午战争爆发，中国战败，《马关条约》签订（割台湾、赔2亿两白银、允许日本在华设厂）。</p>
+        <p><strong>继承</strong>：还是清政府统治。</p>
+        <p><span class="em-old">废弃</span>：洋务运动彻底破产。</p>
+        <p><span class="em-sed">沉淀</span>：中国半殖民地化程度大大加深，列强掀起瓜分中国的狂潮。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：《马关条约》割让的是台湾，不是香港（香港是《南京条约》割的）。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：《马关条约》允许日本在华设厂，标志着列强对华经济侵略从商品输出转向资本输出。</div>
+          </div>
+        </details>
       </div>
-      <div class="human">日本要扩张，朝鲜是跳板。中国打输了，割地赔款，列强一看原来中国这么好欺负，就都来分蛋糕了。</div>
-      <div class="section-label new">新增</div>
-      <p><span class="em-new">甲午战争爆发</span>，中国战败，<span class="em-new">《马关条约》签订</span>（割台湾、赔2亿两白银、允许日本在华设厂）。</p>
-      <div class="section-label inherit">继承</div>
-      <p>还是清政府统治。</p>
-      <div class="section-label old">废弃</div>
-      <p><span class="em-old">洋务运动彻底破产</span>。</p>
-      <div class="section-label sediment">沉淀</div>
-      <p><span class="em-sed">中国半殖民地化程度大大加深，列强掀起瓜分中国的狂潮</span>。</p>
-      <details class="plus-box">
-        <summary>考题链接 <span class="plus-tag">易错点</span></summary>
-        <div class="plus-body">
-          <div><strong>易错点1</strong>：《马关条约》割让的是台湾，不是香港（香港是《南京条约》割的）。</div>
-          <div style="margin-top:4px"><strong>易错点2</strong>：《马关条约》允许日本在华设厂，标志着列强对华经济侵略从商品输出转向资本输出。</div>
-        </div>
-      </details>
     </details>
 
     <!-- 05 戊戌变法 -->
-    <details class="card" id="c-jd05" data-tags="new old inherit sediment">
-      <summary class="card-h"><span class="idx">05</span><h3>戊戌变法（1898）</h3></summary>
-      <div class="badges">
-        <span class="badge new">百日维新</span>
-        <span class="badge new">君主立宪</span>
-        <span class="badge old">改良道路失败</span>
+    <details class="event-card" id="c-jd05" data-tags="new old inherit sediment">
+      <summary>05 戊戌变法（1898）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>甲午战败，民族危机加深，维新派想通过皇帝变法，实行君主立宪。结果慈禧太后不同意，只搞了103天就失败了。证明改良道路在中国走不通，必须革命。</p>
+        <p><span class="em-new">新增</span>：维新派主张变法维新，实行君主立宪。代表人物：康有为、梁启超、谭嗣同。</p>
+        <p><strong>继承</strong>：还是皇帝主导，还是保留君主。</p>
+        <p><span class="em-old">废弃</span>：慈禧发动政变，变法失败，仅持续103天（百日维新）。</p>
+        <p><span class="em-sed">沉淀</span>：证明改良道路在中国走不通，必须革命。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：戊戌变法是资产阶级维新派领导的，不是革命派。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：戊戌变法主张的是君主立宪，不是民主共和。</div>
+          </div>
+        </details>
       </div>
-      <div class="human">甲午战败，民族危机加深，维新派想通过皇帝变法，实行君主立宪。结果慈禧太后不同意，只搞了103天就失败了。证明改良道路在中国走不通，必须革命。</div>
-      <div class="section-label new">新增</div>
-      <p><span class="em-new">维新派主张变法维新</span>，实行君主立宪。代表人物：康有为、梁启超、谭嗣同。</p>
-      <div class="section-label inherit">继承</div>
-      <p>还是皇帝主导，还是保留君主。</p>
-      <div class="section-label old">废弃</div>
-      <p><span class="em-old">慈禧发动政变，变法失败</span>，仅持续103天（百日维新）。</p>
-      <div class="section-label sediment">沉淀</div>
-      <p><span class="em-sed">证明改良道路在中国走不通，必须革命</span>。</p>
-      <details class="plus-box">
-        <summary>考题链接 <span class="plus-tag">易错点</span></summary>
-        <div class="plus-body">
-          <div><strong>易错点1</strong>：戊戌变法是资产阶级维新派领导的，不是革命派。</div>
-          <div style="margin-top:4px"><strong>易错点2</strong>：戊戌变法主张的是君主立宪，不是民主共和。</div>
-        </div>
-      </details>
     </details>
 
     <!-- 06 八国联军侵华 -->
-    <details class="card" id="c-jd06" data-tags="new old inherit sediment">
-      <summary class="card-h"><span class="idx">06</span><h3>八国联军侵华（1900）</h3></summary>
-      <div class="badges">
-        <span class="badge new">辛丑条约</span>
-        <span class="badge old">洋人的朝廷</span>
-        <span class="badge sediment">完全半殖民地</span>
+    <details class="event-card" id="c-jd06" data-tags="new old inherit sediment">
+      <summary>06 八国联军侵华（1900）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>义和团运动兴起，列强要镇压。八国联军打进北京，慈禧跑了。签了《辛丑条约》，清政府彻底成为"洋人的朝廷"。</p>
+        <p><span class="em-new">新增</span>：八国联军侵华，《辛丑条约》签订（赔4.5亿两白银、东交民巷划为使馆界、严禁人民参加反帝活动）。</p>
+        <p><strong>继承</strong>：还是清政府统治。</p>
+        <p><span class="em-old">废弃</span>：清政府彻底成为"洋人的朝廷"。</p>
+        <p><span class="em-sed">沉淀</span>：中国完全沦为半殖民地半封建社会。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：《辛丑条约》是赔款最多的条约（4.5亿两），不是《马关条约》。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：《辛丑条约》标志着中国完全沦为半殖民地半封建社会，不是《马关条约》。</div>
+          </div>
+        </details>
       </div>
-      <div class="human">义和团运动兴起，列强要镇压。八国联军打进北京，慈禧跑了。签了《辛丑条约》，清政府彻底成为"洋人的朝廷"。</div>
-      <div class="section-label new">新增</div>
-      <p><span class="em-new">八国联军侵华</span>，<span class="em-new">《辛丑条约》签订</span>（赔4.5亿两白银、东交民巷划为使馆界、严禁人民参加反帝活动）。</p>
-      <div class="section-label inherit">继承</div>
-      <p>还是清政府统治。</p>
-      <div class="section-label old">废弃</div>
-      <p><span class="em-old">清政府彻底成为"洋人的朝廷"</span>。</p>
-      <div class="section-label sediment">沉淀</div>
-      <p><span class="em-sed">中国完全沦为半殖民地半封建社会</span>。</p>
-      <details class="plus-box">
-        <summary>考题链接 <span class="plus-tag">易错点</span></summary>
-        <div class="plus-body">
-          <div><strong>易错点1</strong>：《辛丑条约》是赔款最多的条约（4.5亿两），不是《马关条约》。</div>
-          <div style="margin-top:4px"><strong>易错点2</strong>：《辛丑条约》标志着中国完全沦为半殖民地半封建社会，不是《马关条约》。</div>
-        </div>
-      </details>
     </details>
 
     <!-- 07 辛亥革命 -->
-    <details class="card" id="c-jd07" data-tags="new old inherit sediment">
-      <summary class="card-h"><span class="idx">07</span><h3>辛亥革命（1911）</h3></summary>
-      <div class="badges">
-        <span class="badge new">中华民国</span>
-        <span class="badge old">封建帝制结束</span>
-        <span class="badge sediment">资产阶级共和国尝试</span>
+    <details class="event-card" id="c-jd07" data-tags="new old inherit sediment">
+      <summary>07 辛亥革命（1911）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>清政府腐败，民族危机加深。孙中山领导辛亥革命，推翻了清王朝，建立了中华民国。但革命果实被袁世凯窃取了——证明资产阶级共和国道路在中国走不通。</p>
+        <p><span class="em-new">新增</span>：孙中山领导辛亥革命，推翻了清王朝，建立了中华民国。</p>
+        <p><strong>继承</strong>：还是资产阶级革命。</p>
+        <p><span class="em-old">废弃</span>：结束了中国两千多年的封建帝制。</p>
+        <p><span class="em-sed">沉淀</span>：建立了中华民国，但革命果实被袁世凯窃取——证明资产阶级共和国道路在中国走不通。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：辛亥革命推翻的是封建帝制，不是封建制度（封建制度直到土地改革才彻底废除）。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：辛亥革命没有完成反帝反封建的任务，不是成功的革命。</div>
+          </div>
+        </details>
       </div>
-      <div class="human">清政府腐败，民族危机加深。孙中山领导辛亥革命，推翻了清王朝，建立了中华民国。但革命果实被袁世凯窃取了——证明资产阶级共和国道路在中国走不通。</div>
-      <div class="section-label new">新增</div>
-      <p><span class="em-new">孙中山领导辛亥革命</span>，推翻了清王朝，<span class="em-new">建立了中华民国</span>。</p>
-      <div class="section-label inherit">继承</div>
-      <p>还是资产阶级革命。</p>
-      <div class="section-label old">废弃</div>
-      <p><span class="em-old">结束了中国两千多年的封建帝制</span>。</p>
-      <div class="section-label sediment">沉淀</div>
-      <p><span class="em-sed">建立了中华民国，但革命果实被袁世凯窃取——证明资产阶级共和国道路在中国走不通</span>。</p>
-      <details class="plus-box">
-        <summary>考题链接 <span class="plus-tag">易错点</span></summary>
-        <div class="plus-body">
-          <div><strong>易错点1</strong>：辛亥革命推翻的是封建帝制，不是封建制度（封建制度直到土地改革才彻底废除）。</div>
-          <div style="margin-top:4px"><strong>易错点2</strong>：辛亥革命没有完成反帝反封建的任务，不是成功的革命。</div>
-        </div>
-      </details>
     </details>
 
     <!-- 08 新文化运动 -->
-    <details class="card" id="c-jd08" data-tags="new old inherit sediment">
-      <summary class="card-h"><span class="idx">08</span><h3>新文化运动（1915）</h3></summary>
-      <div class="badges">
-        <span class="badge new">民主与科学</span>
-        <span class="badge old">封建思想动摇</span>
-        <span class="badge sediment">马克思主义传播</span>
+    <details class="event-card" id="c-jd08" data-tags="new old inherit sediment">
+      <summary>08 新文化运动（1915）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>袁世凯复辟帝制，尊孔复古。陈独秀创办《新青年》，主张"民主"与"科学"，动摇了封建思想的统治地位，为马克思主义在中国的传播创造了条件。</p>
+        <p><span class="em-new">新增</span>：陈独秀创办《新青年》，主张"民主"与"科学"（德先生和赛先生）。</p>
+        <p><strong>继承</strong>：还是思想文化领域的运动。</p>
+        <p><span class="em-old">废弃</span>：动摇了封建思想的统治地位。</p>
+        <p><span class="em-sed">沉淀</span>：为马克思主义在中国的传播创造了条件。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：新文化运动的口号是"民主"与"科学"，不是"自由"与"平等"。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：新文化运动为马克思主义在中国的传播创造了条件，不是直接传播马克思主义。</div>
+          </div>
+        </details>
       </div>
-      <div class="human">袁世凯复辟帝制，尊孔复古。陈独秀创办《新青年》，主张"民主"与"科学"，动摇了封建思想的统治地位，为马克思主义在中国的传播创造了条件。</div>
-      <div class="section-label new">新增</div>
-      <p><span class="em-new">陈独秀创办《新青年》</span>，主张<span class="em-new">"民主"与"科学"</span>（德先生和赛先生）。</p>
-      <div class="section-label inherit">继承</div>
-      <p>还是思想文化领域的运动。</p>
-      <div class="section-label old">废弃</div>
-      <p><span class="em-old">动摇了封建思想的统治地位</span>。</p>
-      <div class="section-label sediment">沉淀</div>
-      <p><span class="em-sed">为马克思主义在中国的传播创造了条件</span>。</p>
-      <details class="plus-box">
-        <summary>考题链接 <span class="plus-tag">易错点</span></summary>
-        <div class="plus-body">
-          <div><strong>易错点1</strong>：新文化运动的口号是"民主"与"科学"，不是"自由"与"平等"。</div>
-          <div style="margin-top:4px"><strong>易错点2</strong>：新文化运动为马克思主义在中国的传播创造了条件，不是直接传播马克思主义。</div>
-        </div>
-      </details>
+    </details>
+
+      </div>
     </details>
 
   </div>
