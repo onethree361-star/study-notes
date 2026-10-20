@@ -128,8 +128,10 @@ a{color:var(--brand-1);text-decoration:none}
 .tip-title{cursor:pointer;padding:10px 12px;font-weight:700;font-size:13.5px;display:flex;justify-content:space-between;align-items:center;user-select:none}
 .tip-arrow{transition:transform .2s;font-size:12px;color:var(--brand-1)}
 .tip-box.open .tip-arrow{transform:rotate(90deg)}
-.tip-content{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 12px;font-size:13px;line-height:1.8;color:var(--t2)}
-.tip-box.open .tip-content{max-height:500px;padding:0 12px 12px}
+.tip-content{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.tip-box.open .tip-content{grid-template-rows:1fr}
+.tip-content > div{overflow:hidden;font-size:13px;line-height:1.8;color:var(--t2);padding:0 12px}
+.tip-box.open .tip-content > div{padding:0 12px 12px}
 
 .xref{color:var(--brand-1);cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px;font-weight:500}
 .xref:hover{background:var(--brand-soft)}
