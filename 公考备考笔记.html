@@ -183,20 +183,24 @@ a{color:var(--brand-1);text-decoration:none}
       <div class="gt2" onclick="scrollToSec('sec-law')">法律 <i>1</i></div>
       <div class="group-inner2 open">
         <div class="gt2" onclick="toggleGroup(this)">宪法 <i>2</i> <span class="arrow">▾</span></div>
-        <div class="group-inner2" style="padding-left:20px">
+        <div class="group-inner2 open" style="padding-left:20px">
           <div class="sec-link" onclick="scrollToSec('sec-xianfa')">宪法谱系</div>
-          <div class="sec-link" onclick="scrollToSec('sec-xianfa')">八二宪法具体知识点</div>
+          <div class="sec-link" onclick="scrollToSec('sec-xianfa-detail')">八二宪法具体知识点</div>
         </div>
-        <div class="sec-link" onclick="scrollToSec('sec-minfa')">民法 <i>10</i></div>
+        <div class="gt2" onclick="toggleGroup(this)">民法 <i>10</i> <span class="arrow">▾</span></div>
+        <div class="group-inner2 open" style="padding-left:20px">
+          <div class="sec-link" onclick="scrollToSec('sec-minfa')">民法谱系</div>
+          <div class="sec-link" onclick="scrollToSec('sec-minfa-detail')">民法具体知识点</div>
+        </div>
         <div class="gt2" onclick="toggleGroup(this)">刑法 <i>2</i> <span class="arrow">▾</span></div>
-        <div class="group-inner2" style="padding-left:20px">
+        <div class="group-inner2 open" style="padding-left:20px">
           <div class="sec-link" onclick="scrollToSec('sec-xingfa')">刑法谱系</div>
-          <div class="sec-link" onclick="scrollToSec('sec-xingfa')">刑法具体知识点</div>
+          <div class="sec-link" onclick="scrollToSec('sec-xingfa-detail')">刑法具体知识点</div>
         </div>
         <div class="gt2" onclick="toggleGroup(this)">公司法 <i>3</i> <span class="arrow">▾</span></div>
-        <div class="group-inner2" style="padding-left:20px">
+        <div class="group-inner2 open" style="padding-left:20px">
           <div class="sec-link" onclick="scrollToSec('sec-gongsi')">公司法谱系</div>
-          <div class="sec-link" onclick="scrollToSec('sec-gongsi')">公司法具体知识点</div>
+          <div class="sec-link" onclick="scrollToSec('sec-gongsi-detail')">公司法具体知识点</div>
         </div>
       </div>
     </div>
@@ -1144,7 +1148,7 @@ a{color:var(--brand-1);text-decoration:none}
     </details>
 
     <!-- ====== 八二宪法具体知识点（结构化拆解法） ====== -->
-    <div style="margin-top:24px;padding-top:20px;border-top:2px solid var(--divider)">
+    <div id="sec-xianfa-detail" style="margin-top:24px;padding-top:20px;border-top:2px solid var(--divider)">
       <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">八二宪法具体知识点（结构化拆解）</h3>
 
       <!-- 模块一：国家的"身份" -->
@@ -1482,7 +1486,7 @@ a{color:var(--brand-1);text-decoration:none}
       </details>
 
       <!-- ====== 民法具体知识点 ====== -->
-      <div style="margin-top:24px;padding-top:20px;border-top:2px solid var(--divider)">
+      <div id="sec-minfa-detail" style="margin-top:24px;padding-top:20px;border-top:2px solid var(--divider)">
         <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">民法具体知识点（结构化拆解）</h3>
 
         <!-- 民法的本质 -->
@@ -1763,7 +1767,7 @@ a{color:var(--brand-1);text-decoration:none}
       </details>
 
       <!-- ====== 刑法具体知识点 ====== -->
-      <div style="margin-top:24px;padding-top:20px;border-top:2px solid var(--divider)">
+      <div id="sec-xingfa-detail" style="margin-top:24px;padding-top:20px;border-top:2px solid var(--divider)">
         <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">刑法具体知识点（结构化拆解）</h3>
 
         <details class="plus-box" style="margin-bottom:12px">
@@ -1864,7 +1868,7 @@ a{color:var(--brand-1);text-decoration:none}
       </details>
 
       <!-- ====== 公司法具体知识点 ====== -->
-      <div style="margin-top:24px;padding-top:20px;border-top:2px solid var(--divider)">
+      <div id="sec-gongsi-detail" style="margin-top:24px;padding-top:20px;border-top:2px solid var(--divider)">
         <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">公司法具体知识点（结构化拆解）</h3>
 
         <details class="plus-box" style="margin-bottom:12px">
