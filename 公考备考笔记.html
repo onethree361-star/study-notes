@@ -91,7 +91,8 @@ a{color:var(--brand-1);text-decoration:none}
 /* 近代史事件卡片：细一点、高度小一半、浅颜色 */
 .event-card{background:#f8f9f7;border:1px solid #e8ebe5;border-radius:6px;padding:8px 12px;margin-bottom:6px;transition:all .2s}
 .event-card:hover{border-color:#d0d5c8;background:#f3f5f0}
-.event-card summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--t1);padding:2px 0;user-select:none}
+.event-card summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--t1);padding:2px 0;user-select:none;list-style:none}
+.event-card summary::-webkit-details-marker{display:none}
 .event-card summary::before{content:"▸ ";color:var(--green-1)}
 .event-card[open] summary::before{content:"▾ "}
 
