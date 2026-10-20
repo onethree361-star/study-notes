@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>公考常识 · 谱系笔记</title>
+<style>
+:root{
+  --bg:#fafaf8;--bg-alt:#f4f3ef;--bg-mute:#eee;--bg-soft:#f8f7f4;
+  --t1:#1a1a1a;--t2:#555;--t3:#999;
+  --brand-1:#3b6b4f;--brand-soft:#e8f0ea;
+  --divider:#e5e3dd;
+  --nav-h:56px;--side-w:240px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--t1);line-height:1.6}
+
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg);border-bottom:1px solid var(--divider);display:flex;align-items:center;padding:0 24px;z-index:100}
+.logo{width:32px;height:32px;background:var(--brand-1);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;margin-right:12px}
+.nav-title{font-size:16px;font-weight:700}
+
+.content{max-width:960px;margin:0 auto;padding:calc(var(--nav-h) + 40px) 32px 80px}
+
+.hero{margin-bottom:40px}
+.hero h1{font-size:32px;line-height:40px;font-weight:800;margin-bottom:8px}
+.hero p{font-size:15px;color:var(--t2);max-width:640px}
+.hero .stat{margin-top:8px;font-size:13px;color:var(--t3)}
+.hero .stat b{color:var(--brand-1)}
+
+.method-box{background:var(--bg);border:1px solid var(--divider);border-radius:14px;padding:20px 22px;margin-bottom:36px}
+.method-box h2{font-size:15px;font-weight:700;margin-bottom:14px}
+.method-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.method-item{padding:10px 12px;background:var(--bg-alt);border-radius:8px;font-size:13px;line-height:1.7;color:var(--t2)}
+.method-item .num{font-weight:700;color:var(--brand-1);margin-bottom:2px}
+.method-item.full{grid-column:span 2}
+
+.section{margin-bottom:32px}
+.section-title{font-size:18px;font-weight:700;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--divider)}
+
+.chapter-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.chapter-card{background:var(--bg);border:1px solid var(--divider);border-radius:12px;padding:18px 20px;cursor:pointer;transition:all .15s;text-decoration:none;color:inherit;display:block}
+.chapter-card:hover{border-color:var(--brand-1);box-shadow:0 2px 12px rgba(59,107,79,.08)}
+.chapter-card .ch-title{font-size:15px;font-weight:700;margin-bottom:4px}
+.chapter-card .ch-desc{font-size:12.5px;color:var(--t2);margin-bottom:8px}
+.chapter-card .ch-count{font-size:11px;color:var(--t3)}
+.chapter-card .ch-count b{color:var(--brand-1)}
+.chapter-card.disabled{opacity:.5;cursor:default}
+.chapter-card.disabled:hover{border-color:var(--divider);box-shadow:none}
+
+.sub-list{margin-top:10px;padding-top:10px;border-top:1px solid var(--divider)}
+.sub-item{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:13px;color:var(--t2);cursor:pointer}
+.sub-item:hover{color:var(--brand-1)}
+.sub-item .badge{font-size:10.5px;color:var(--t3);background:var(--bg-alt);padding:1px 7px;border-radius:8px}
+.sub-item .badge.green{background:var(--brand-soft);color:var(--brand-1)}
+
+@media(max-width:720px){
+  .method-grid,.chapter-grid{grid-template-columns:1fr}
+  .method-item.full{grid-column:span 1}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="logo">谱</div>
+  <div class="nav-title">公考常识 · 谱系笔记</div>
+</div>
+
+<div class="content">
+
+  <div class="hero">
+    <h1>公考常识谱系笔记</h1>
+    <p>用「时序+谱系」沉淀法，把零散的常识知识点看成一条不断扬弃的养成线。每个知识点不是孤立的，而是从历史中生长出来、被淘汰、又被新的取代。</p>
+    <div class="stat">已收录 <b>22</b> 个章节 · 覆盖 <b>3</b> 大板块 · 每阶段标清「新增」「继承」「废弃/改革」「沉淀」</div>
+  </div>
+
+  <!-- 总论：方法论 -->
+  <div class="method-box">
+    <h2>方法论：五个逻辑工具</h2>
+    <div class="method-grid">
+      <div class="method-item">
+        <div class="num">① 发生学方法</div>
+        回到历史条件，追问"为什么会出现、要解决什么问题"。不记结论，先记背景。
+      </div>
+      <div class="method-item">
+        <div class="num">② 谱系学方法</div>
+        追踪一条主线从头到尾的演变——从哪来、继承什么、变异什么、被什么取代。
+      </div>
+      <div class="method-item">
+        <div class="num">③ 纵向时序专题法</div>
+        按时间顺序纵向推进，把零散知识点串成一条线，而不是横向平铺。
+      </div>
+      <div class="method-item">
+        <div class="num">④ 辩证否定（扬弃）</div>
+        旧事物被否定时，保留合理内核 + 抛弃过时部分 + 增加新内容。
+      </div>
+      <div class="method-item full">
+        <div class="num">⑤ 结构功能分析</div>
+        每个制度在当时的社会结构里承担什么功能，功能失效了为什么会被取代。
+      </div>
+    </div>
+  </div>
+
+  <!-- 公共基础 · 常识 -->
+  <div class="section">
+    <div class="section-title">公共基础 · 常识</div>
+    <div class="chapter-grid">
+      <a class="chapter-card" href="古代史谱系梳理.html">
+        <div class="ch-title">历史人文</div>
+        <div class="ch-desc">中国古代史、近代史、文学文化科技，按时间线谱系梳理</div>
+        <div class="ch-count">已收录 <b>16</b> 个阶段 · 待更新：近代史</div>
+        <div class="sub-list">
+          <div class="sub-item" onclick="location.href='古代史谱系梳理.html'">古代史谱系 <span class="badge green">已完成</span></div>
+          <div class="sub-item disabled">近代史 <span class="badge">待更新</span></div>
+        </div>
+      </a>
+      <a class="chapter-card" href="古代史谱系梳理.html#sec-xianfa">
+        <div class="ch-title">法律</div>
+        <div class="ch-desc">宪法、民法、刑法、公司法，按法条演变逻辑梳理</div>
+        <div class="ch-count">已收录 <b>6</b> 个阶段 · 待更新：民法·刑法·公司法</div>
+        <div class="sub-list">
+          <div class="sub-item" onclick="location.href='古代史谱系梳理.html#sec-xianfa'">宪法谱系 <span class="badge green">已完成</span></div>
+          <div class="sub-item disabled">民法 <span class="badge">待更新</span></div>
+          <div class="sub-item disabled">刑法 <span class="badge">待更新</span></div>
+          <div class="sub-item disabled">公司法 <span class="badge">待更新</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 政治理论 -->
+  <div class="section">
+    <div class="section-title">政治理论</div>
+    <div class="chapter-grid">
+      <div class="chapter-card disabled">
+        <div class="ch-title">党史</div>
+        <div class="ch-desc">历次代表大会、重要会议、关键转折</div>
+        <div class="ch-count">待更新</div>
+      </div>
+      <div class="chapter-card disabled">
+        <div class="ch-title">政策文件与重要讲话</div>
+        <div class="ch-desc">从《宣言》到二十大报告，理论演进谱系</div>
+        <div class="ch-count">待更新</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 行测 -->
+  <div class="section">
+    <div class="section-title">行测</div>
+    <div class="chapter-grid">
+      <div class="chapter-card disabled">
+        <div class="ch-title">言语理解</div>
+        <div class="ch-count">待更新</div>
+      </div>
+      <div class="chapter-card disabled">
+        <div class="ch-title">判断推理</div>
+        <div class="ch-count">待更新</div>
+      </div>
+      <div class="chapter-card disabled">
+        <div class="ch-title">数量关系</div>
+        <div class="ch-count">待更新</div>
+      </div>
+      <div class="chapter-card disabled">
+        <div class="ch-title">资料分析</div>
+        <div class="ch-count">待更新</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
