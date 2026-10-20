@@ -191,3 +191,27 @@ description: 面向公考行测常识/政治理论/历史备考的"时序+谱系
 - **编辑功能**：右上角有"编辑"按钮，点击后整个内容区变成可编辑状态，改完点"保存"自动存到浏览器本地。
 - **跳转效果**：点击导航跳转后，目标区域有淡入淡出闪烁效果（浅绿色背景渐变）。
 - **禁止**：不用 emoji、不用 AI slop 渐变、不用厚重卡片阴影。
+
+## 五、部署到GitHub Pages
+
+### 仓库信息
+- GitHub用户名：onethree361-star
+- 仓库名：study-notes
+- 仓库地址：https://github.com/onethree361-star/study-notes
+- 网站地址：https://onethree361-star.github.io/study-notes/公考备考笔记.html
+
+### 更新流程
+1. 修改 `E:\桌面\国考\05_理论学习\公考备考笔记.html`
+2. 运行命令：
+   ```
+   cd "E:\桌面\国考\05_理论学习"
+   git add .
+   git commit -m "更新笔记"
+   git push
+   ```
+3. 等1分钟，刷新网页就能看到最新版本
+
+### 注意事项
+- 公开仓库永久免费，没有时间限制
+- 私有仓库才需要付费（企业版30天试用）
+- GitHub Pages自动更新，push后等1分钟生效
