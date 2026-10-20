@@ -128,8 +128,8 @@ a{color:var(--brand-1);text-decoration:none}
 .tip-title{cursor:pointer;padding:10px 12px;font-weight:700;font-size:13.5px;display:flex;justify-content:space-between;align-items:center;user-select:none}
 .tip-arrow{transition:transform .2s;font-size:12px;color:var(--brand-1)}
 .tip-box.open .tip-arrow{transform:rotate(90deg)}
-.tip-content{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease}
-.tip-box.open .tip-content{max-height:1000px}
+.tip-content{max-height:0;overflow:hidden;opacity:0;transition:max-height .3s ease,opacity .2s ease}
+.tip-box.open .tip-content{max-height:1000px;opacity:1}
 .tip-content-inner{padding:0 12px;font-size:13px;line-height:1.8;color:var(--t2)}
 .tip-box.open .tip-content-inner{padding:0 12px 12px}
 
