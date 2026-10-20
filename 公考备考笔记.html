@@ -102,6 +102,10 @@ a{color:var(--brand-1);text-decoration:none}
 .stage-box summary::before{content:"▸ ";color:var(--green-1)}
 .stage-box[open] summary::before{content:"▾ "}
 
+/* 全局隐藏details默认三角符号 */
+details summary::-webkit-details-marker{display:none}
+details summary{list-style:none}
+
 .badges{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
 .badge{display:inline-block;border-radius:10px;padding:1px 9px;line-height:19px;font-size:11.5px;font-weight:600;white-space:nowrap}
 .badge.new{background:var(--green-soft);color:var(--green-1)}
