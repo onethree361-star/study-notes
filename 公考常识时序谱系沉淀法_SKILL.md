@@ -362,6 +362,23 @@ description: 面向公考行测常识/政治理论/历史/法律/经济/时政�
 - ❌ 某章节提前闭合 → 后面的章节跑到 `.doc` 外面，内容撑满全宽。
 - ❌ 某章节忘了闭合 → 把后面的章节吞进自己里面，嵌套错乱。
 
+### 11. 侧边栏导航与布局规范（防止收起生硬/跳转被挡）
+
+**布局模型**：`.nav`（顶部固定）＋ `.sidebar`（左侧固定，宽 `var(--side-w)`）＋ `.content`（正文，左距让出侧栏）＋ `.sidebar-backdrop`（移动端遮罩），四者是 body 的平级兄弟。
+
+**四条铁律**：
+
+1. **收起必须联动内容区**：侧栏收起（`.sidebar.collapsed`）时，`.content` 左距要同步收缩（`.sidebar.collapsed ~ .content{padding-left:32px}`）；否则收起后内容区留空白、不能全屏。
+2. **过渡要同步缓动**：侧栏（`transform`）与内容区（`padding-left`）用同一缓动 `cubic-bezier(.4,0,.2,1)`、同一时长，收起才顺滑不生硬。
+3. **跳转必须避让页眉**：所有滚动目标（`.sec-block`、`[id^="sec-"]`、`.card`）都要加 `scroll-margin-top:calc(var(--nav-h) + 20px)`；否则 `scrollIntoView` 后目标顶部被固定页眉（60px）挡住。
+4. **移动端是抽屉、不是停靠**：`@media(max-width:960px)` 下侧栏默认 `translateX(-100%)` 隐藏、`.open` 滑出为抽屉，配 `.sidebar-backdrop.show` 半透明遮罩；点遮罩或点导航项自动收起。
+
+**收起的 JS 分治**：
+- 桌面（>960px）：`toggleSidebar` 切换 `.collapsed`（停靠栏收起/展开）。
+- 移动端（≤960px）：`toggleSidebar` 切换 `.open`（抽屉开/关）；`scrollToSec` 跳转前先 `remove('open')` 收起抽屉。
+
+**改完必校验**：`scrollToSec('...')` 的每个目标 id 必须真实存在（无断链）；跳转后标题不被页眉遮挡。
+
 ## 十一、部署到GitHub Pages
 
 ### 仓库信息
