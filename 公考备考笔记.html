@@ -91,21 +91,15 @@ a{color:var(--brand-1);text-decoration:none}
 /* 近代史事件卡片：细一点、高度小一半、浅颜色 */
 .event-card{background:#f8f9f7;border:1px solid #e8ebe5;border-radius:6px;padding:8px 12px;margin-bottom:6px;transition:all .2s}
 .event-card:hover{border-color:#d0d5c8;background:#f3f5f0}
-.event-card summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--t1);padding:2px 0;user-select:none;list-style:none}
-.event-card summary::-webkit-details-marker{display:none}
+.event-card summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--t1);padding:2px 0;user-select:none}
 .event-card summary::before{content:"▸ ";color:var(--green-1)}
 .event-card[open] summary::before{content:"▾ "}
 
 /* 大阶段收缩框 */
 .stage-box{background:#f5f7f3;border:1px solid #e0e5d8;border-radius:8px;padding:10px 14px;margin-bottom:16px}
-.stage-box summary{cursor:pointer;font-size:15px;font-weight:700;color:var(--t1);padding:4px 0;user-select:none;list-style:none}
-.stage-box summary::-webkit-details-marker{display:none}
+.stage-box summary{cursor:pointer;font-size:15px;font-weight:700;color:var(--t1);padding:4px 0;user-select:none}
 .stage-box summary::before{content:"▸ ";color:var(--green-1)}
 .stage-box[open] summary::before{content:"▾ "}
-
-/* 全局隐藏details默认三角符号 */
-details summary::-webkit-details-marker{display:none}
-details summary{list-style:none}
 
 .badges{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
 .badge{display:inline-block;border-radius:10px;padding:1px 9px;line-height:19px;font-size:11.5px;font-weight:600;white-space:nowrap}
@@ -186,10 +180,10 @@ details summary{list-style:none}
   <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
   <div class="sec-link on" onclick="scrollToTop()">首页说明</div>
   <div class="group">
-    <div class="gt open" onclick="toggleGroup(this)">公共基础 · 常识 <span class="arrow">▾</span></div>
-    <div class="group-inner open">
-      <div class="gt2 open" onclick="toggleGroup(this)">历史人文 <span class="arrow">▾</span></div>
-      <div class="group-inner2 open">
+    <div class="gt" onclick="toggleGroup(this)">公共基础 · 常识 <span class="arrow">▾</span></div>
+    <div class="group-inner">
+      <div class="gt2" onclick="toggleGroup(this)">历史人文 <span class="arrow">▾</span></div>
+      <div class="group-inner2">
         <div class="sec-link" onclick="scrollToSec('sec-1')">远古与夏商西周 <i>5</i></div>
         <div class="sec-link" onclick="scrollToSec('sec-2')">春秋战国 <i>2</i></div>
         <div class="sec-link" onclick="scrollToSec('sec-3')">秦汉 <i>2</i></div>
@@ -197,7 +191,7 @@ details summary{list-style:none}
         <div class="sec-link" onclick="scrollToSec('sec-5')">隋唐 <i>2</i></div>
         <div class="sec-link" onclick="scrollToSec('sec-6')">宋元 <i>2</i></div>
         <div class="sec-link" onclick="scrollToSec('sec-7')">明清 <i>2</i></div>
-        <div class="sec-link" onclick="scrollToSec('sec-jindai')">近现代史 <i>42</i></div>
+        <div class="sec-link" onclick="scrollToSec('sec-jindai')">近现代史 <i>8</i></div>
       </div>
       <div class="gt2" onclick="toggleGroup(this)">法律 <i>4</i> <span class="arrow">▾</span></div>
       <div class="group-inner2 open">
@@ -1028,31 +1022,24 @@ details summary{list-style:none}
       <div style="margin-top:10px">
 
     <!-- 01 鸦片战争 -->
-    <div class="card" id="c-jd01" data-tags="new old inherit sediment">
-      <div class="card-h"><span class="idx">01</span><h3>鸦片战争（1840）</h3></div>
-      <div class="badges">
-        <span class="badge new">南京条约</span>
-        <span class="badge old">闭关锁国</span>
-        <span class="badge sediment">近代史开端</span>
+    <details class="event-card" id="c-jd01" data-tags="new old inherit sediment">
+      <summary>01 鸦片战争（1840）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>英国要打开中国市场，中国闭关锁国，贸易逆差。打输了，被迫签了第一个不平等条约。</p>
+        <p><span class="em-new">新增</span>：鸦片战争爆发，《南京条约》签订——中国近代史上第一个不平等条约（割香港岛、赔款2100万银元、五口通商、协定关税）。</p>
+        <p><strong>继承</strong>：中国还是封建社会，还是皇帝统治。</p>
+        <p><span class="em-old">废弃</span>：闭关锁国政策被打破。</p>
+        <p><span class="em-sed">沉淀</span>：中国开始沦为半殖民地半封建社会，近代史开端。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：《南京条约》是中国近代史上第一个不平等条约，不是《马关条约》。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：鸦片战争是中国近代史的开端，不是洋务运动。</div>
+            <div style="margin-top:4px"><strong>易错点3</strong>：《南京条约》割让的是香港岛，不是整个香港。</div>
+          </div>
+        </details>
       </div>
-      <div class="human">英国要打开中国市场，中国闭关锁国，贸易逆差。打输了，被迫签了第一个不平等条约。</div>
-      <div class="section-label new">新增</div>
-      <p><span class="em-new">鸦片战争爆发</span>，<span class="em-new">《南京条约》签订</span>——中国近代史上第一个不平等条约（割香港岛、赔款2100万银元、五口通商、协定关税）。</p>
-      <div class="section-label inherit">继承</div>
-      <p>中国还是封建社会，还是皇帝统治。</p>
-      <div class="section-label old">废弃</div>
-      <p><span class="em-old">闭关锁国政策被打破</span>。</p>
-      <div class="section-label sediment">沉淀</div>
-      <p><span class="em-sed">中国开始沦为半殖民地半封建社会，近代史开端</span>。</p>
-      <details class="plus-box">
-        <summary>考题链接 <span class="plus-tag">易错点</span></summary>
-        <div class="plus-body">
-          <div><strong>易错点1</strong>：《南京条约》是中国近代史上第一个不平等条约，不是《马关条约》。</div>
-          <div style="margin-top:4px"><strong>易错点2</strong>：鸦片战争是中国近代史的开端，不是洋务运动。</div>
-          <div style="margin-top:4px"><strong>易错点3</strong>：《南京条约》割让的是香港岛，不是整个香港。</div>
-        </div>
-      </details>
-    </div>
+    </details>
 
     <!-- 02 太平天国 -->
     <details class="event-card" id="c-jd02" data-tags="new old inherit sediment">
