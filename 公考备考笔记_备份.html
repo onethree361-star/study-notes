@@ -1,0 +1,3387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>公考备考笔记</title>
+<style>
+:root{
+  --bg:#fafaf8; --bg-alt:#f4f3ef; --bg-soft:#f8f7f4; --bg-mute:#eee;
+  --divider:#e5e3dd;
+  --t1:#1a1a1a; --t2:#555; --t3:#999;
+  --brand-1:#3b6b4f; --brand-soft:#e8f0ea;
+  --green-1:#18794e; --green-soft:#e8f5ee;
+  --yellow-1:#915930; --yellow-soft:#fdf3e3;
+  --red-1:#b8272c; --red-soft:#fde8e9;
+  --purple-1:#7c3aed; --purple-soft:#f3e8ff;
+  --purple-1:#6a1b9a; --purple-soft:rgba(156,39,176,.12);
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --nav-h:60px; --side-w:250px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--t1);font:14px/1.8 var(--font);-webkit-font-smoothing:antialiased}
+a{color:var(--brand-1);text-decoration:none}
+
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg);border-bottom:1px solid var(--divider);z-index:30;display:flex;align-items:center;padding:0 24px;gap:16px}
+.logo{width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,#5672cd,#3451b2);display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px;flex-shrink:0}
+.nav-title{font-weight:600;font-size:15px;white-space:nowrap}
+.search{flex:1;max-width:480px;margin-left:auto;position:relative}
+.search input{width:100%;height:38px;padding:0 14px;border-radius:8px;border:1px solid transparent;background:var(--bg-alt);font:inherit;font-size:13.5px;transition:all .2s}
+.search input:focus{outline:0;border-color:var(--brand-1);background:var(--bg)}
+
+.sidebar{position:fixed;top:var(--nav-h);bottom:0;left:0;width:var(--side-w);background:var(--bg-alt);padding:20px 16px 60px;overflow-y:auto;z-index:20;transition:transform .25s ease}
+.sidebar.collapsed{transform:translateX(calc(-1 * var(--side-w)))}
+.side-toggle{position:absolute;top:16px;right:-10px;width:20px;height:40px;background:var(--bg);border:1px solid var(--divider);border-left:none;border-radius:0 6px 6px 0;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:10px;color:var(--t2);z-index:21}
+.sidebar.collapsed .side-toggle{right:-30px;border-left:1px solid var(--divider);border-right:none;border-radius:6px 0 0 6px}
+.sidebar-resize{position:fixed;top:var(--nav-h);bottom:0;left:var(--side-w);width:4px;cursor:col-resize;z-index:21;background:transparent}
+.sidebar-resize:hover{background:var(--brand-soft)}
+.group{margin-bottom:14px}
+.gt{font-size:13px;font-weight:700;color:var(--t1);margin-bottom:4px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:3px 4px;border-radius:4px}
+.gt:hover{background:var(--bg-mute)}
+.gt .arrow{font-size:10px;color:var(--t3);transition:transform .15s}
+.gt.open .arrow{transform:rotate(180deg)}
+.group-inner{padding-left:10px;display:none}
+.group-inner.open{display:block}
+.gt2{font-size:12.5px;font-weight:600;color:var(--t2);padding:4px 6px;margin-top:2px;cursor:pointer;border-radius:4px;display:flex;justify-content:space-between;align-items:center}
+.gt2:hover{background:var(--bg-mute)}
+.gt2.disabled{color:var(--t3);cursor:default}
+.gt2.disabled:hover{background:none}
+.gt2 i{font-style:normal;font-size:10.5px;color:var(--t3)}
+.group-inner2{padding-left:10px;display:none}
+.group-inner2.open{display:block}
+.sec-link{display:flex;justify-content:space-between;align-items:center;padding:5px 8px;font-size:13px;font-weight:500;color:var(--t2);cursor:pointer;border-radius:6px;transition:all .15s}
+.sec-link:hover{background:var(--bg-mute);color:var(--t1)}
+.sec-link.on{color:var(--brand-1);background:var(--brand-soft)}
+.sec-link i{font-style:normal;font-size:11px;color:var(--t3)}
+.sec-link.disabled{color:var(--t3);cursor:default}
+.sec-link.disabled:hover{background:none;color:var(--t3)}
+
+/* 专业词汇解释 */
+.term{color:var(--brand-1) !important;text-decoration:underline dotted;cursor:pointer;font-weight:600 !important}
+.term-tip{position:fixed;background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;box-shadow:0 4px 16px rgba(0,0,0,.1);font-size:13px;line-height:1.6;color:var(--t2);z-index:1000;max-width:280px;display:none}
+.term-tip.show{display:block}
+
+/* 导航高亮：其他根目录变浅 */
+.sidebar .group.dimmed{opacity:0.35;transition:opacity 0.3s}
+.sidebar .group.active{opacity:1}
+
+.content{padding:calc(var(--nav-h) + 28px) 32px 80px calc(var(--side-w) + 32px)}
+.doc{max-width:820px;margin:0 auto}
+.doc-head{margin-bottom:24px}
+.doc-head h1{font-size:26px;line-height:34px;font-weight:700;margin-bottom:6px}
+.doc-head p{color:var(--t2);font-size:14.5px}
+.doc-head .stat{color:var(--t3);font-size:13px;margin-top:4px}
+.doc-head .stat b{color:var(--brand-1)}
+
+.filter-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.chip{border:1px solid var(--divider);background:var(--bg);color:var(--t2);border-radius:999px;padding:3px 11px;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s}
+.chip.on{background:var(--brand-soft);border-color:var(--brand-1);color:var(--brand-1)}
+
+.sec-block{margin-top:32px}
+.sec-h{display:flex;align-items:baseline;gap:10px;padding-top:18px;border-top:1px solid var(--divider);margin-bottom:12px}
+.sec-h h2{font-size:19px;font-weight:600}
+.sec-h .years{font-size:13px;color:var(--t3)}
+
+.card{background:var(--bg-soft);border:1px solid transparent;border-radius:10px;padding:14px 16px 12px;margin-bottom:10px;transition:border-color .2s}
+.card:hover{border-color:var(--divider)}
+.card-h{display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.card-h h3{font-size:16.5px;font-weight:600;flex:1;min-width:0}
+.card-h .idx{color:var(--t3);font-size:13px}
+
+/* 近代史事件卡片：细一点、高度小一半、浅颜色 */
+.event-card{background:#f8f9f7;border:1px solid #e8ebe5;border-radius:6px;padding:8px 12px;margin-bottom:6px;transition:all .2s}
+.event-card:hover{border-color:#d0d5c8;background:#f3f5f0}
+.event-card summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--t1);padding:2px 0;user-select:none}
+.event-card summary::before{content:"▸ ";color:var(--green-1)}
+.event-card[open] summary::before{content:"▾ "}
+
+/* 大阶段收缩框 */
+.stage-box{background:#f5f7f3;border:1px solid #e0e5d8;border-radius:8px;padding:10px 14px;margin-bottom:16px}
+.stage-box summary{cursor:pointer;font-size:15px;font-weight:700;color:var(--t1);padding:4px 0;user-select:none}
+.stage-box summary::before{content:"▸ ";color:var(--green-1)}
+.stage-box[open] summary::before{content:"▾ "}
+
+.badges{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.badge{display:inline-block;border-radius:10px;padding:1px 9px;line-height:19px;font-size:11.5px;font-weight:600;white-space:nowrap}
+.badge.new{background:var(--green-soft);color:var(--green-1)}
+.badge.old{background:var(--red-soft);color:var(--red-1)}
+.badge.inherit{background:var(--brand-soft);color:var(--brand-1)}
+.badge.sediment{background:var(--purple-soft);color:var(--purple-1)}
+.badge.exam{background:var(--yellow-soft);color:var(--yellow-1)}
+
+.human{margin:0 0 12px;padding:9px 13px;border-left:2px solid var(--brand-1);background:var(--brand-soft);border-radius:0 6px 6px 0;font-size:13.5px;line-height:1.75;color:var(--t1)}
+.human::before{content:"说人话 · ";font-weight:600;color:var(--brand-1)}
+
+.section-label{font-size:14px;font-weight:700;margin:18px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--divider);color:var(--t1)}
+.section-label.new{color:var(--green-1)}
+.section-label.old{color:var(--red-1)}
+.section-label.inherit{color:var(--brand-1)}
+.section-label.sediment{color:var(--purple-1)}
+
+.card p{font-size:13.5px;line-height:1.8;color:var(--t2);margin-bottom:6px}
+.card p strong{color:var(--t1);font-weight:600}
+.card .em-new{color:var(--green-1);font-weight:600}
+.card .em-old{color:var(--red-1);font-weight:600}
+.card .em-sed{color:var(--purple-1);font-weight:600}
+
+.exam-box{margin-top:12px;padding:9px 13px;background:var(--yellow-soft);border-left:2px solid var(--yellow-1);border-radius:0 6px 6px 0;font-size:12.5px;color:var(--t2);line-height:1.7}
+.exam-box::before{content:"考法对照 · ";font-weight:600;color:var(--yellow-1)}
+
+.plus-box{margin-top:12px;border:1px solid var(--divider);border-radius:8px;overflow:hidden}
+.plus-box summary{cursor:pointer;padding:8px 13px;font-size:13px;font-weight:600;color:var(--t2);background:var(--bg-alt);list-style:none;display:flex;align-items:center;gap:6px;user-select:none}
+.plus-box summary::-webkit-details-marker{display:none}
+.plus-box summary::before{content:"▸";transition:transform .2s;font-size:11px}
+.plus-box[open] summary::before{transform:rotate(90deg)}
+.plus-box .plus-body{padding:10px 13px;font-size:13px;line-height:1.8;color:var(--t2)}
+.plus-box .plus-body .sub{font-weight:600;color:var(--t1);margin:6px 0 2px}
+.plus-box .plus-body .sub:first-child{margin-top:0}
+
+/* 补充说明框（自定义收缩） */
+.tip-box{margin:12px 0;background:var(--brand-soft);border-left:3px solid var(--brand-1);border-radius:0 8px 8px 0;overflow:hidden;transition:all .2s ease}
+.tip-box:not(.open){opacity:.5;max-height:40px}
+.tip-box.open{opacity:1;max-height:1000px}
+.tip-title{cursor:pointer;padding:10px 12px;font-weight:700;font-size:13.5px;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.tip-arrow{transition:transform .2s;font-size:12px;color:var(--brand-1)}
+.tip-box.open .tip-arrow{transform:rotate(90deg)}
+.tip-content-inner{padding:0 12px;font-size:13px;line-height:1.8;color:var(--t2)}
+.tip-box.open .tip-content-inner{padding:0 12px 12px}
+
+.xref{color:var(--brand-1);cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px;font-weight:500}
+.xref:hover{background:var(--brand-soft)}
+.plus-tag{display:inline-block;padding:1px 7px;border-radius:8px;background:#fff;color:var(--t2);font-size:10.5px;font-weight:500;margin-left:4px;border:1px solid var(--divider)}
+
+.future-card{background:var(--bg-soft);border-radius:12px;padding:16px 18px;margin-bottom:10px}
+.future-card h4{font-size:14.5px;font-weight:600;margin-bottom:4px;color:var(--brand-1)}
+.future-card p{font-size:13px;color:var(--t2)}
+
+.menu-btn{font-size:18px;cursor:pointer;color:var(--t1);padding:4px 10px;border-radius:6px;margin-right:6px;transition:all .15s;user-select:none;background:var(--bg);border:1px solid var(--divider);line-height:1.4}
+.menu-btn:hover{background:var(--bg-mute);color:var(--t1)}
+
+.hidden-card{display:none!important}
+@media(max-width:960px){
+  .sidebar{transform:translateX(-100%)}
+  .content{padding:calc(var(--nav-h)+20px) 16px 60px 16px}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <div class="logo">古</div>
+  <div class="nav-title">公考备考笔记</div>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索关键词，如：科举、丞相、井田、摊丁入亩…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div class="sec-link on" onclick="scrollToTop()">首页说明</div>
+  <div class="group">
+    <div class="gt" onclick="toggleGroup(this)">公共基础 · 常识 <span class="arrow">▾</span></div>
+    <div class="group-inner">
+      <div class="gt2" onclick="toggleGroup(this)">历史人文 <span class="arrow">▾</span></div>
+      <div class="group-inner2">
+        <div class="sec-link" onclick="scrollToSec('sec-1')">远古与夏商西周 <i>5</i></div>
+        <div class="sec-link" onclick="scrollToSec('sec-2')">春秋战国 <i>2</i></div>
+        <div class="sec-link" onclick="scrollToSec('sec-3')">秦汉 <i>2</i></div>
+        <div class="sec-link" onclick="scrollToSec('sec-4')">魏晋南北朝 <i>1</i></div>
+        <div class="sec-link" onclick="scrollToSec('sec-5')">隋唐 <i>2</i></div>
+        <div class="sec-link" onclick="scrollToSec('sec-6')">宋元 <i>2</i></div>
+        <div class="sec-link" onclick="scrollToSec('sec-7')">明清 <i>2</i></div>
+        <div class="sec-link" onclick="scrollToSec('sec-jindai')">近现代史 <i>8</i></div>
+      </div>
+      <div class="gt2" onclick="toggleGroup(this)">法律 <i>4</i> <span class="arrow">▾</span></div>
+      <div class="group-inner2 open">
+        <div class="gt2" onclick="toggleGroup(this)">宪法 <i>2</i> <span class="arrow">▾</span></div>
+        <div class="group-inner2 open" style="padding-left:20px">
+          <div class="sec-link" onclick="scrollToSec('sec-xianfa')">宪法谱系</div>
+          <div class="sec-link" onclick="scrollToSec('sec-xianfa-detail')">八二宪法具体知识点</div>
+        </div>
+        <div class="gt2" onclick="toggleGroup(this)">民法 <i>10</i> <span class="arrow">▾</span></div>
+        <div class="group-inner2 open" style="padding-left:20px">
+          <div class="sec-link" onclick="scrollToSec('sec-minfa')">民法谱系</div>
+          <div class="sec-link" onclick="scrollToSec('sec-minfa-detail')">民法具体知识点</div>
+        </div>
+        <div class="gt2" onclick="toggleGroup(this)">刑法 <i>2</i> <span class="arrow">▾</span></div>
+        <div class="group-inner2 open" style="padding-left:20px">
+          <div class="sec-link" onclick="scrollToSec('sec-xingfa')">刑法谱系</div>
+          <div class="sec-link" onclick="scrollToSec('sec-xingfa-detail')">刑法具体知识点</div>
+        </div>
+        <div class="gt2" onclick="toggleGroup(this)">公司法 <i>3</i> <span class="arrow">▾</span></div>
+        <div class="group-inner2 open" style="padding-left:20px">
+          <div class="sec-link" onclick="scrollToSec('sec-gongsi')">公司法谱系</div>
+          <div class="sec-link" onclick="scrollToSec('sec-gongsi-detail')">公司法具体知识点</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="group">
+    <div class="gt" onclick="toggleGroup(this)">政治理论 <span class="arrow">▾</span></div>
+    <div class="group-inner">
+      <div class="gt2 disabled">党史（历次代表大会）<i>待更新</i></div>
+      <div class="gt2 disabled">政策文件与重要讲话 <i>待更新</i></div>
+      <div class="gt2 disabled">马克思主义中国化 <i>待更新</i></div>
+    </div>
+  </div>
+  <div class="group">
+    <div class="gt" onclick="toggleGroup(this)">行测 <span class="arrow">▾</span></div>
+    <div class="group-inner">
+      <div class="gt2 disabled">言语理解 <i>待更新</i></div>
+      <div class="gt2 disabled">判断推理 <i>待更新</i></div>
+      <div class="gt2 disabled">数量关系 <i>待更新</i></div>
+      <div class="gt2 disabled">资料分析 <i>待更新</i></div>
+    </div>
+  </div>
+  <div class="group">
+    <div class="gt" onclick="toggleGroup(this)">总结 <span class="arrow">▾</span></div>
+    <div class="group-inner">
+      <div class="sec-link" onclick="scrollToSec('sec-future')">未来时政联动 <i>6</i></div>
+    </div>
+  </div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+
+<div class="content">
+<div class="doc">
+
+  <!-- ====== 首页：总论 + 章节导航 ====== -->
+  <div id="home" style="margin-bottom:32px">
+    <h1 style="font-size:28px;line-height:36px;font-weight:800;margin-bottom:8px">公考备考笔记</h1>
+    <p style="font-size:14.5px;color:var(--t2);max-width:640px">
+      <strong>时序谱系法：</strong>用「时序+谱系」沉淀法，把零散的知识点看成一条不断扬弃的养成线。每个知识点不是孤立的，而是从历史中生长出来、被淘汰、又被新的取代。<br><br>
+      <strong>结构化拆解法：</strong>结构化拆解法（Structural Decomposition）。金字塔原理（Pyramid Principle）——麦肯锡的写作/思考方法。框架记忆法——认知心理学里的"图式"（Schema），用固定框架去套新内容，降低记忆负担。<br><br>
+      用「结构化拆解」法，把厚厚的政策文件看成一棵可以分层的大树。先根据文件类型搭好骨架（不同文件结构不一样），再往里面填内容。先记大标题，再填细节，不会漏点。
+    </p>
+    <div style="font-size:13px;color:var(--t3);margin-top:6px">已收录 <b style="color:var(--brand-1)">22</b> 个章节 · 覆盖 <b style="color:var(--brand-1)">3</b> 大板块</div>
+  </div>
+
+  <!-- 方法论 -->
+  <div style="background:var(--bg);border:1px solid var(--divider);border-radius:14px;padding:18px 20px;margin-bottom:24px">
+    <div style="font-size:14px;font-weight:700;margin-bottom:12px">方法论：五个逻辑工具</div>
+    <div <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12.5px;line-height:1.7;color:var(--t2)">
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">① 发生学方法</div>
+        回到历史条件，追问"为什么会出现、要解决什么问题"。
+      </div>
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">② 谱系学方法</div>
+        追踪一条主线从头到尾的演变——从哪来、继承什么、被什么取代。
+      </div>
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">③ 纵向时序专题法</div>
+        按时间顺序纵向推进，把零散知识点串成一条线。
+      </div>
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">④ 辩证否定（扬弃）</div>
+        旧事物被否定时，保留合理内核 + 抛弃过时部分 + 增加新内容。
+      </div>
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">⑤ 结构功能分析</div>
+        每个制度在当时的社会结构里承担什么功能，功能失效了为什么会被取代。
+      </div>
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">⑥ 结构化拆解法</div>
+        框架记忆法·金字塔原理：结论先行、以上统下、归类分组、逻辑递进。
+      </div>
+    </div>
+  </div>
+
+  <!-- 章节导航卡片 -->
+  <div style="margin-bottom:32px">
+    <div style="font-size:16px;font-weight:700;margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--divider)">公共基础 · 常识</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px">
+      <div style="background:var(--bg);border:1px solid var(--divider);border-radius:12px;padding:16px 18px;cursor:pointer" onclick="scrollToSec('sec-1')">
+        <div style="font-size:14.5px;font-weight:700;margin-bottom:4px">历史人文</div>
+        <div style="font-size:12px;color:var(--t2);margin-bottom:8px">中国古代史、近代史、文学文化科技</div>
+        <div style="font-size:11px;color:var(--t3)">已收录 <b style="color:var(--brand-1)">16</b> 个阶段</div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--divider);border-radius:12px;padding:16px 18px;cursor:pointer" onclick="scrollToSec('sec-xianfa')">
+        <div style="font-size:14.5px;font-weight:700;margin-bottom:4px">法律</div>
+        <div style="font-size:12px;color:var(--t2);margin-bottom:8px">宪法、民法、刑法、公司法</div>
+        <div style="font-size:11px;color:var(--t3)">已收录 <b style="color:var(--brand-1)">6</b> 个阶段</div>
+      </div>
+    </div>
+
+    <div style="font-size:16px;font-weight:700;margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--divider)">政治理论</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px">
+      <div style="background:var(--bg);border:1px solid var(--divider);border-radius:12px;padding:16px 18px;opacity:.5">
+        <div style="font-size:14.5px;font-weight:700;margin-bottom:4px">党史</div>
+        <div style="font-size:12px;color:var(--t2)">历次代表大会、重要会议</div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--divider);border-radius:12px;padding:16px 18px;opacity:.5">
+        <div style="font-size:14.5px;font-weight:700;margin-bottom:4px">政策文件</div>
+        <div style="font-size:12px;color:var(--t2)">理论演进谱系</div>
+      </div>
+    </div>
+
+    <div style="font-size:16px;font-weight:700;margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--divider)">行测</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div style="background:var(--bg);border:1px solid var(--divider);border-radius:12px;padding:16px 18px;opacity:.5">
+        <div style="font-size:14.5px;font-weight:700">言语理解</div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--divider);border-radius:12px;padding:16px 18px;opacity:.5">
+        <div style="font-size:14.5px;font-weight:700">判断推理</div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--divider);border-radius:12px;padding:16px 18px;opacity:.5">
+        <div style="font-size:14.5px;font-weight:700">数量关系</div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--divider);border-radius:12px;padding:16px 18px;opacity:.5">
+        <div style="font-size:14.5px;font-weight:700">资料分析</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 分隔线 -->
+  <div style="border-top:2px solid var(--divider);margin-bottom:24px"></div>
+
+  <!-- ====== 古代史正文 ====== -->
+  <div class="doc-head" id="top">
+    <h1>古代史谱系：元谋人到清朝</h1>
+    <p>用「时序+谱系」沉淀法，把两千年历史看成一条不断扬弃的养成线。</p>
+    <div class="stat">共 <b>16</b> 个阶段 · 每阶段标清「新增」「继承」「废弃/改革」「沉淀」四条线</div>
+  </div>
+
+  <!-- 总论：方法论（像论文摘要） -->
+  <div style="background:var(--bg);border-radius:12px;padding:16px 18px;margin-bottom:20px;border:1px solid var(--divider)">
+    <div style="font-size:13px;font-weight:700;color:var(--t1);margin-bottom:10px">方法论：五个逻辑工具</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12.5px;line-height:1.7;color:var(--t2)">
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">① 发生学方法</div>
+        回到历史条件，追问"为什么会出现、要解决什么问题"。不记结论，先记背景。
+      </div>
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">② 谱系学方法</div>
+        追踪一条主线从头到尾的演变——从哪来、继承什么、变异什么、被什么取代。
+      </div>
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">③ 纵向时序专题法</div>
+        按时间顺序纵向推进，把零散知识点串成一条线，而不是横向平铺。
+      </div>
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">④ 辩证否定（扬弃）</div>
+        旧事物被否定时，保留合理内核 + 抛弃过时部分 + 增加新内容。
+      </div>
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px;grid-column:span 2">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">⑤ 结构功能分析</div>
+        每个制度在当时的社会结构里承担什么功能，功能失效了为什么会被取代。
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--bg-alt);border-radius:12px;padding:12px 16px;margin-bottom:20px;border:1px solid var(--divider)">
+    <div style="font-size:11px;font-weight:700;color:var(--t2);margin-bottom:6px;letter-spacing:1px">历史朝代歌</div>
+    <div style="font-size:12px;line-height:1.8;color:var(--t1);font-weight:500;letter-spacing:0.3px;white-space:nowrap;overflow-x:auto">
+      夏商与西周，东周分两段 · 春秋和战国，一统秦两汉 · 三分魏蜀吴，二晋前后延 · 南北朝并立，隋唐五代传 · 宋元明清后，皇朝至此完
+    </div>
+    <div style="display:flex;flex-wrap:nowrap;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--t1);margin-top:8px;overflow-x:auto">
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">夏</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">商</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">西周</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--bg);border-radius:5px;border:1px solid var(--divider)">东周</span>
+      <span style="color:var(--t3);font-size:10px;margin:0 3px">（春秋战国）</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">秦</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">汉</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--bg);border-radius:5px;border:1px solid var(--divider)">三国两晋南北朝</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">隋</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">唐</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--bg);border-radius:5px;border:1px solid var(--divider)">五代十国</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">宋</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">元</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">明</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--red-soft);border-radius:5px;color:var(--red-1)">清</span>
+    </div>
+  </div>
+
+  <div class="filter-row">
+    <div class="chip on" onclick="filterAll(this)">全部</div>
+    <div class="chip" onclick="filterByTag(this,'new')">只看新增</div>
+    <div class="chip" onclick="filterByTag(this,'old')">只看废弃/改革</div>
+    <div class="chip" onclick="filterByTag(this,'exam')">只看考法</div>
+  </div>
+
+  <!-- ====== 第一组：远古与夏商西周 ====== -->
+  <div class="sec-block" id="sec-1">
+    <div class="sec-h"><h2>远古与夏商西周</h2><span class="years">约170万—前771年</span></div>
+
+    <!-- 01 远古 -->
+    <div class="card" id="c01" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">01</span><h3>远古人类与原始农耕</h3></div>
+      <div class="badges">
+        <span class="badge new">打制石器</span>
+        <span class="badge new">人工取火</span>
+        <span class="badge new">水稻/粟</span>
+        <span class="badge old">采集→农耕</span>
+      </div>
+      <div class="human">人类从动物界刚走出来，第一次学会"改造自然"而不是"适应自然"——从采集狩猎到种地定居，这是文明的第一步。</div>
+      <div class="section-label new">新增</div>
+      <p><strong>人类进化链：</strong><span class="em-new">元谋人</span>（约170万年前，云南，我国境内最早古人类，打制石器、用火）→ <span class="em-new">北京人</span>（约70-20万年前，周口店，打制石器=旧石器时代，使用天然火，群居）→ <span class="em-new">山顶洞人</span>（约3万年前，磨光钻孔技术，人工取火，按血缘组成氏族）。</p>
+      <p><strong>原始农耕（新石器时代）：</strong><span class="em-new">河姆渡</span>（约7000年前，浙江余姚，长江流域，种<strong>水稻</strong>，住干栏式房屋，黑陶）；<span class="em-new">半坡</span>（约6000年前，陕西西安，黄河流域，种<strong>粟</strong>，住半地穴式房屋，彩陶如人面鱼纹盆）。</p>
+      <div class="section-label inherit">继承</div>
+      <p>无——这是起点。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">采集狩猎 → 原始农业</span>：靠天吃饭到主动种地，定居之后才有村落、陶器、私有制。<span class="em-old">天然火 → 人工取火</span>：钻木取火让人随时能生火。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">火的使用、磨制石器、"南稻北粟"农业格局（延续至今）、陶器、氏族公社（国家雏形）</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">原始歌舞</span><span class="plus-tag">彩陶</span><span class="plus-tag">弓箭</span></summary>
+        <div class="plus-body">
+          <div class="sub">文化</div>
+          图腾崇拜、原始歌舞、岩画艺术（如贺兰山岩画）。
+          <div class="sub">科技</div>
+          弓箭发明、陶器制作（彩陶/黑陶）、原始纺织（纺轮）。
+        </div>
+      </details>
+      <div class="exam-box">给遗址问哪个在长江/黄河流域；给特征问是哪个遗址。常见设错：河姆渡和半坡作物搞反（水稻vs粟）；打制石器=旧石器，磨制石器=新石器。</div>
+    </div>
+
+    <!-- 02 传说时代 -->
+    <div class="card" id="c02" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">02</span><h3>传说时代（炎黄尧舜禹）</h3></div>
+      <div class="badges">
+        <span class="badge new">炎黄联盟</span>
+        <span class="badge new">禅让制</span>
+        <span class="badge new">大禹治水</span>
+        <span class="badge old">公天下→家天下</span>
+      </div>
+      <div class="human">部落联合成华夏，权力在"贤人"之间传递——这是中国最早的"公天下"理想。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">炎黄部落联盟</span>：涿鹿之战败蚩尤，炎黄融合形成华夏族主体。我们自称"炎黄子孙"从这里来。黄帝建宫室、制衣裳、挖井造车；妻子嫘祖养蚕缫丝；仓颉造文字。</p>
+      <p><span class="em-new">禅让制</span>：尧→舜→禹，选贤德之人传位，"传贤不传子"，天下是大家的——所以叫"公天下"。</p>
+      <p><span class="em-new">大禹治水</span>：父亲鲧用堵的方法失败，禹改堵为疏，开渠排水，三过家门而不入。治水需要组织大量人力，推动了公共权力机构形成——国家诞生的前奏。</p>
+      <div class="section-label inherit">继承</div>
+      <p>氏族公社集体议事传统——重大事情由各氏族首领商量决定。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">禅让制 → 被世袭制取代</span>（因果见夏朝阶段）。禅让制本身是对"强者为王"原始秩序的第一次制度选择。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">华夏认同（炎黄子孙）、禅让传说（后世儒家理想政治模式）、部落联盟向国家过渡</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">炎黄传说</span><span class="plus-tag">耒耜耕作</span><span class="plus-tag">蚕桑丝织</span></summary>
+        <div class="plus-body">
+          <div class="sub">文化</div>
+          炎黄传说、龙图腾、原始宗教（占卜萌芽）。
+          <div class="sub">科技</div>
+          耒耜耕作、水井开凿、蚕桑丝织（嫘祖）。
+        </div>
+      </details>
+      <div class="exam-box">禅让制内涵是"传贤不传子"。常见设错：把禅让说成世袭；混淆涿鹿之战（炎黄vs蚩尤）和阪泉之战（炎黄内部）。</div>
+    </div>
+
+    <!-- 03 夏 -->
+    <div class="card" id="c03" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">03</span><h3>夏（第一个王朝）</h3></div>
+      <div class="badges">
+        <span class="badge new">世袭制</span>
+        <span class="badge new">家天下</span>
+        <span class="badge new">二里头</span>
+        <span class="badge old">禅让→世袭</span>
+      </div>
+      <div class="human">私有制来了，权力自然跟着血缘走，"公天下"变成"家天下"。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">禹建夏</span>（约前2070年）——我国历史上第一个王朝，早期国家产生。<span class="em-new">禹传启，世袭制取代禅让制</span>——"公天下"变"家天下"。二里头遗址（河南偃师）被认为是夏文化重要遗址，有宫殿、墓葬、手工业作坊。</p>
+      <div class="section-label inherit">继承</div>
+      <p>部落联盟公共权力机构（军队、刑法等）。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">禅让 → 世袭</span>。因果：私有制确立后，财富集中在少数家族手里，禹积累了大量财富和奴隶，他的家族自然希望把权力和财富传给后代。禅让制的消失不是某个人的阴谋，而是私有制发展的必然结果。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">王位世袭制（父死子继、兄终弟及，延续近4000年）、国家机器雏形（军队、禹刑、监狱）</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">二里头</span><span class="plus-tag">夏小正</span><span class="plus-tag">青铜</span></summary>
+        <div class="plus-body">
+          <div class="sub">文化</div>
+          二里头文化（宫殿建筑群）、夏小正（最早的历书）。
+          <div class="sub">科技</div>
+          青铜铸造开始、原始瓷器。
+        </div>
+      </details>
+      <div class="exam-box">"公天下"变"家天下"标志是启继禹位。常见设错：把禹建夏和启开始世袭混淆。</div>
+    </div>
+
+    <!-- 04 商 -->
+    <div class="card" id="c04" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">04</span><h3>商</h3></div>
+      <div class="badges">
+        <span class="badge new">甲骨文</span>
+        <span class="badge new">后母戊鼎</span>
+        <span class="badge new">内外服</span>
+        <span class="badge old">方国→分封</span>
+      </div>
+      <div class="human">甲骨文让中国进入"信史时代"；但方国太松散，周本来就是商的"外服"，最后反灭了商。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">内外服制</span>：商王直接统治王畿（内服），其他方国（外服）有很大自主权。<span class="em-new">神权与王权结合</span>：遇事占卜，把结果刻在龟甲兽骨上。</p>
+      <p><span class="em-new">甲骨文</span>：刻在龟甲兽骨上的文字，已具备汉字基本结构，是成熟文字。<strong>我国有文字可考的历史从商朝开始</strong>。</p>
+      <p><span class="em-new">青铜文明</span>：后母戊鼎（世界现存最大青铜器）、四羊方尊。盘庚迁殷（前1300年，河南安阳），所以商朝又叫殷商。</p>
+      <div class="section-label inherit">继承</div>
+      <p>夏朝的国家机器（军队、刑法、监狱）和世袭制。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">内外服 → 西周分封</span>。因果：内外服制下方国太松散，商王实际控制不了外服。周本来就是商的一个外服方国（渭水流域），后来强大起来联合其他方国灭了商。周人吸取教训，用更紧密的分封+宗法取代松散方国联盟。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">成熟文字（汉字从甲骨文演变而来）、青铜铸造技术、信史时代开端</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">甲骨卜辞</span><span class="plus-tag">金文</span><span class="plus-tag">后母戊鼎</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          甲骨卜辞（中国最早的文字记录）。
+          <div class="sub">文化</div>
+          金文（青铜器铭文）、神权与王权结合。
+          <div class="sub">科技</div>
+          青铜铸造（后母戊鼎）、天文历法（日食月食记录）。
+        </div>
+      </details>
+      <div class="exam-box">甲骨文地位：有文字可考历史从商开始。常见设错：把内外服说成郡县；把甲骨文说成金文或小篆。</div>
+    </div>
+
+    <!-- 05 西周 -->
+    <div class="card" id="c05" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">05</span><h3>西周</h3></div>
+      <div class="badges">
+        <span class="badge new">分封制</span>
+        <span class="badge new">宗法制</span>
+        <span class="badge new">礼乐制</span>
+        <span class="badge new">井田制</span>
+        <span class="badge old">井田→私田</span>
+      </div>
+      <div class="human">周人用"分封+宗法+礼乐"三把锁，把血缘和政治绑在一起，这就是后世"家国同构"的源头。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">分封制</span>：周天子把土地和平民奴隶分给亲属功臣，封他们为诸侯。诸侯要服从命令、纳贡、镇守疆土、随从作战。主要对象是同姓王族（如周公封于鲁）。</p>
+      <p><span class="em-new">宗法制</span>：核心是<strong>嫡长子继承制</strong>。天子→诸侯→卿大夫→士，层层分封，用血缘亲疏确定权位继承。把"国"和"家"结合起来——家国同构。</p>
+      <p><span class="em-new">礼乐制</span>：不同等级用不同礼仪、音乐、器物（天子九鼎、诸侯七鼎、大夫五鼎），维护等级防止僭越。</p>
+      <p><span class="em-new">井田制</span>：土地国有，划成"井"字形，中间公田周围私田，农奴先种公田再种私田。前841年共和行政——<strong>我国历史有确切纪年开始</strong>。</p>
+      <div class="section-label inherit">继承</div>
+      <p>商朝的世袭制、神权与王权结合传统。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">井田 → 土地私有</span>：铁犁牛耕出现后私田大量开垦，前594年鲁国初税亩事实上承认土地私有。<span class="em-old">分封宗法 → 郡县</span>：血缘随世代疏远，加上井田瓦解经济基础断裂，分封制名存实亡。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">分封宗法礼乐井田四大制度，奠定家国同构政治文化基因；确切纪年开始</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">周易</span><span class="plus-tag">礼乐</span><span class="plus-tag">干支纪日</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          《周易》经文、金文（毛公鼎铭文最长）。
+          <div class="sub">文化</div>
+          礼乐制度（等级规范）、宗法制度。
+          <div class="sub">科技</div>
+          青铜铸造（司母戊鼎、四羊方尊）、天文历法（干支纪日法）。
+        </div>
+      </details>
+      <div class="exam-box">宗法制核心是嫡长子继承（不是长子继承）。常见设错：井田制是国有不是私有。</div>
+    </div>
+  </div>
+
+  <!-- ====== 第二组：春秋战国 ====== -->
+  <div class="sec-block" id="sec-2">
+    <div class="sec-h"><h2>春秋战国</h2><span class="years">前770—前221年</span></div>
+
+    <!-- 06 春秋 -->
+    <div class="card" id="c06" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">06</span><h3>春秋</h3></div>
+      <div class="badges">
+        <span class="badge new">铁犁牛耕</span>
+        <span class="badge new">初税亩</span>
+        <span class="badge new">孔子</span>
+        <span class="badge new">老子</span>
+        <span class="badge old">井田瓦解</span>
+      </div>
+      <div class="human">铁犁牛耕一来，井田制就崩了；孔子喊"克己复礼"，恰恰说明礼已经礼崩乐坏了。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">政治</span>：平王东迁洛邑（前770年），周天子地位一落千丈。<strong>春秋五霸</strong>：齐桓公（管仲改革，尊王攘夷，葵丘会盟第一个称霸）、晋文公（城濮之战败楚）、楚庄王、吴王阖闾、越王勾践。争霸过程中大国兼并小国，出现民族融合。</p>
+      <p><span class="em-new">经济</span>：<strong>铁农具和牛耕出现</strong>（春秋出现、战国推广）——牛耕是农业发展史上的革命。私田大量开垦，私田主人转化为地主。前594年鲁国<strong>初税亩</strong>——按亩征税，事实上承认土地私有。</p>
+      <p><span class="em-new">思想</span>：<strong>孔子</strong>（儒家创始人）——"仁"（爱人）、"为政以德"、创办私学打破贵族教育垄断、因材施教、《论语》。<strong>老子</strong>（道家创始人）——对立面相互转化（祸福相依）、"无为而治"、《道德经》。</p>
+      <div class="section-label inherit">继承</div>
+      <p>西周文化遗产（礼乐传统），但礼崩乐坏——孔子"克己复礼"恰恰说明礼已经崩了。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">井田制开始崩溃</span>（私田开垦、公田无人种）；<span class="em-old">分封制开始瓦解</span>（诸侯不听天子命令）。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">铁器时代开端、土地私有合法化趋势、百家争鸣序幕、民族融合</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">诗经</span><span class="plus-tag">孔老</span><span class="plus-tag">铁器牛耕</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          《诗经》（我国第一部诗歌总集，风、雅、颂）。
+          <div class="sub">文化</div>
+          孔子（儒家创始人，仁、礼）、老子（道家创始人，无为而治）。
+          <div class="sub">科技</div>
+          铁器使用、牛耕出现、日食彗星记录。
+        </div>
+      </details>
+      <div class="exam-box">生产力标志是铁犁牛耕（春秋出现战国推广）。常见设错：说成战国才有。</div>
+    </div>
+
+    <!-- 07 战国 -->
+    <div class="card" id="c07" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">07</span><h3>战国（商鞅变法与百家争鸣）</h3></div>
+      <div class="badges">
+        <span class="badge new">商鞅变法</span>
+        <span class="badge new">百家争鸣</span>
+        <span class="badge new">都江堰</span>
+        <span class="badge old">世卿→军功爵</span>
+      </div>
+      <div class="human">战争太残酷，各国都要富国强兵——世袭贵族不行了，按军功授爵才是硬道理。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">商鞅变法</span>（前356年，秦孝公支持）：①国家承认土地私有，允许买卖（废井田开阡陌）；②奖励耕战——耕织多的免徭役，按军功授爵，废除无军功旧贵族特权；③建立县制，国君直接派官治理。作用：秦国成为战国后期最富强国家，为统一六国奠定基础。</p>
+      <p><span class="em-new">都江堰</span>：秦国蜀郡太守李冰在岷江流域修建，防洪灌溉，使成都平原成"天府之国"，两千多年一直发挥作用。</p>
+      <p><span class="em-new">百家争鸣</span>：<strong>孟子</strong>（儒家，仁政、民贵君轻、性善论）；<strong>荀子</strong>（儒家，制天命而用之、性恶论）；<strong>庄子</strong>（道家，逍遥、顺其自然）；<strong>墨子</strong>（墨家，兼爱非攻、尚贤、节俭）；<strong>韩非</strong>（法家，主张改革、法治、建立君主专制中央集权——最适合战国兼并战争需要，后来被秦始皇采用）。</p>
+      <div class="section-label inherit">继承</div>
+      <p>春秋郡县萌芽、土地私有趋势。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">世卿世禄 → 军功爵</span>：战争需要能打仗的人，世袭贵族无能。商鞅按军功授爵，打破血缘对权力的垄断。<span class="em-old">废井田从法律上确立土地私有</span>。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">封建土地私有制确立、县制推广、百家争鸣（中国思想黄金时代）、法家思想成为秦国治国指导</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">楚辞</span><span class="plus-tag">百家争鸣</span><span class="plus-tag">都江堰</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          楚辞（屈原《离骚》，浪漫主义源头）。
+          <div class="sub">文化</div>
+          百家争鸣：孟子（仁政、民贵君轻、性善）、荀子（性恶、制天命而用之）、庄子（逍遥）、墨子（兼爱非攻）、韩非（法家集大成）。
+          <div class="sub">科技</div>
+          司南（最早指南仪器）、都江堰（李冰）、《甘石星经》（最早天文学著作）。
+        </div>
+      </details>
+      <div class="exam-box">商鞅变法内容；各派主张对应。常见设错：荀子说成性善论（孟子才是）；商鞅"行县制"不是"全国郡县制"（全国是秦统一后）。</div>
+    </div>
+  </div>
+
+  <!-- ====== 第三组：秦汉 ====== -->
+  <div class="sec-block" id="sec-3">
+    <div class="sec-h"><h2>秦汉</h2><span class="years">前221—220年</span></div>
+
+    <!-- 08 秦 -->
+    <div class="card" id="c08" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">08</span><h3>秦</h3></div>
+      <div class="badges">
+        <span class="badge new">皇帝制</span>
+        <span class="badge new">郡县制</span>
+        <span class="badge new">书同文</span>
+        <span class="badge new">万里长城</span>
+        <span class="badge old">分封→郡县</span>
+      </div>
+      <div class="human">秦制搭好骨架（皇帝+郡县+统一文字度量衡），但纯靠法家严刑峻法，"仁义不施"所以二世而亡。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">皇帝制度</span>：嬴政认为"德兼三皇功过五帝"，创"皇帝"称号，总揽全国军政大权。</p>
+      <p><span class="em-new">三公九卿</span>：丞相（行政）、太尉（军事）、御史大夫（监察），三者互不统属，都对皇帝负责。</p>
+      <p><span class="em-new">郡县制全国推行</span>：全国分36郡，郡守县令由皇帝直接任免不能世袭。从根本上否定了分封制，加强了中央对地方的控制。</p>
+      <p><span class="em-new">统一文字货币度量衡车轨</span>：小篆（后推广隶书）、半两钱、统一长度容量重量、车同轨修驰道。北击匈奴修长城、开灵渠沟通珠江水系。</p>
+      <p>前209年陈胜吴广<strong>大泽乡起义</strong>——中国历史上第一次大规模农民起义。</p>
+      <div class="section-label inherit">继承</div>
+      <p>战国县制（秦推广全国）、法家思想（秦自商鞅以来以法家治国）、土地私有制。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">分封 → 郡县全国推广</span>。<span class="em-old">专任法家 → 汉初黄老 → 汉武独尊儒术</span>：秦纯靠法家严刑峻法导致速亡，汉初用黄老无为与民休息，汉武帝时需要思想认同巩固大一统，于是"外儒内法"——儒家意识形态包装，法家制度骨架。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">皇帝制（延续2132年）、郡县制（中央垂直管理，一直用到今天）、大一统中央集权制度——"百代都行秦政法"</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">小篆</span><span class="plus-tag">焚书坑儒</span><span class="plus-tag">长城</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          小篆（李斯整理）、隶书推广。
+          <div class="sub">文化</div>
+          焚书坑儒（思想专制开端）。
+          <div class="sub">科技</div>
+          长城修筑、灵渠开凿、兵马俑。
+        </div>
+      </details>
+      <div class="exam-box">秦制创新。常见设错：郡县制说成秦创立（战国萌芽）；小篆说成隶书。</div>
+    </div>
+
+    <!-- 09 汉 -->
+    <div class="card" id="c09" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">09</span><h3>汉</h3></div>
+      <div class="badges">
+        <span class="badge new">推恩令</span>
+        <span class="badge new">独尊儒术</span>
+        <span class="badge new">西域都护府</span>
+        <span class="badge new">丝绸之路</span>
+        <span class="badge old">郡国→推恩</span>
+      </div>
+      <div class="human">汉承秦制，但补了两块：思想上"独尊儒术"包装合法性，制度上"推恩令"拆王国——外儒内法定型了。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">汉初休养生息</span>：刘邦减租减息；文景之治——轻徭薄赋、以德化民，社会安定百姓富裕。</p>
+      <p><span class="em-new">汉武帝大一统</span>：①<strong>推恩令</strong>（主父偃建议）——诸侯封地分给所有子弟，"不行黜陟而藩国自析"，王国自行瓦解；②<strong>独尊儒术</strong>（董仲舒建议）——罢黜百家，儒家学说成为正统思想，设太学以五经为教材；③<strong>中朝</strong>——重用身边侍从参与机要，削弱相权；④<strong>刺史制度</strong>——分全国13州部，派刺史监督地方；⑤<strong>盐铁官营</strong>——铸币权和盐铁经营权收归中央，统一五铢钱；⑥北击匈奴（卫青、霍去病）；⑦张骞通西域，前60年设<strong>西域都护府</strong>——<strong>今新疆地区正式归属中央管辖</strong>。</p>
+      <p><span class="em-new">东汉</span>：光武中兴；蔡伦改进造纸术（树皮破布麻头旧渔网，便宜质量好）；张衡地动仪；张仲景《伤寒杂病论》（医圣）；华佗麻沸散+五禽戏；司马迁《史记》（第一部纪传体通史）；佛教西汉末年传入、东汉道教产生。</p>
+      <div class="section-label inherit">继承</div>
+      <p>秦的皇帝制、郡县制、中央集权骨架——所谓"汉承秦制"。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">郡国并行 → 推恩令</span>：刘邦错误分封同姓王导致七国之乱，推恩令把王国越分越小。<span class="em-old">察举 → <a class="xref" href="#c10">九品中正</a></span>：汉末战乱人口流动，乡里清议失效。<span class="em-old">黄老无为 → <a class="xref" href="#c09">独尊儒术</a></span>：需要积极有为的巩固大一统的思想。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">儒家思想成为正统（主导两千年）、察举制（选官制度开端）、西域都护府（新疆纳入版图）、丝绸之路、造纸术改进</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">汉赋史记</span><span class="plus-tag">独尊儒术</span><span class="plus-tag">造纸术</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          汉赋（司马相如《子虚赋》）、《史记》（司马迁，第一部纪传体通史）、《汉书》（班固）。
+          <div class="sub">文化</div>
+          独尊儒术（董仲舒）、佛教传入（西汉末年）、道教产生（东汉）。
+          <div class="sub">科技</div>
+          造纸术（蔡伦改进）、地动仪（张衡）、《九章算术》、《黄帝内经》、《神农本草经》。
+        </div>
+      </details>
+      <div class="exam-box">新疆正式归属中央标志——前60年西域都护府。常见设错：推恩令是汉武帝不是汉景帝。</div>
+    </div>
+  </div>
+
+  <!-- ====== 第四组：魏晋南北朝 ====== -->
+  <div class="sec-block" id="sec-4">
+    <div class="sec-h"><h2>魏晋南北朝</h2><span class="years">220—589年</span></div>
+
+    <div class="card" id="c10" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">10</span><h3>三国两晋南北朝</h3></div>
+      <div class="badges">
+        <span class="badge new">九品中正</span>
+        <span class="badge new">孝文帝改革</span>
+        <span class="badge new">江南开发</span>
+        <span class="badge old">九品→科举</span>
+      </div>
+      <div class="human">战乱几百年，反而干成了两件大事：民族大融合（孝文帝汉化）和经济重心开始南移。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">重要战役</span>：官渡之战（200年，曹操vs袁绍，曹胜）；赤壁之战（208年，孙刘联军vs曹操，孙刘胜，奠定三国鼎立）；淝水之战（383年，东晋vs前秦，东晋胜，草木皆兵风声鹤唳）。</p>
+      <p><span class="em-new">政治</span>：西晋短暂统一后八王之乱→永嘉之乱→衣冠南渡（东晋都建康）。<strong>九品中正制</strong>：由中正官品评人物分九品授官，后期只看门第——"上品无寒门，下品无势族"。</p>
+      <p><span class="em-new">北魏孝文帝改革</span>：迁都洛阳；说汉语、穿汉服、改汉姓（拓跋→元）、与汉族通婚。作用：促进民族融合，加速北方少数民族封建化。</p>
+      <p><span class="em-new">经济</span>：江南开发——北方人南迁带去劳动力和技术，南方经济发展，<strong>经济重心南移开始</strong>。</p>
+      <p><span class="em-new">文化</span>：佛教兴盛（云冈石窟、龙门石窟）；范缜《神灭论》反佛；王羲之《兰亭序》（书圣）；顾恺之《女史箴图》；祖冲之圆周率（领先世界千年）；贾思勰《齐民要术》（现存最早完整农书）；郦道元《水经注》。</p>
+      <div class="section-label inherit">继承</div>
+      <p>汉的察举传统（升级为九品中正）、汉的制度骨架。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">九品中正 → 科举</span>：门阀垄断选官威胁皇权。<span class="em-old">三武一宗灭佛</span>：寺院经济膨胀占土地逃赋税，政府打击。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">民族大融合、江南开发（南移起点）、九品中正制、均田制、佛教中国化</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">建安文学</span><span class="plus-tag">石窟</span><span class="plus-tag">圆周率</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          建安文学（曹操三父子）、陶渊明（田园诗鼻祖）、《木兰诗》（南北朝民歌）。
+          <div class="sub">文化</div>
+          佛教兴盛（云冈石窟、龙门石窟）、玄学（魏晋风度）。
+          <div class="sub">科技</div>
+          祖冲之（圆周率领先世界千年）、《齐民要术》（贾思勰，最早完整农书）、《水经注》（郦道元）。
+        </div>
+      </details>
+      <div class="exam-box">孝文帝改革意义；九品中正选官标准是门第（不是才能）。常见设错：孝文帝改革是汉化不是胡化。</div>
+    </div>
+  </div>
+
+  <!-- ====== 第五组：隋唐 ====== -->
+  <div class="sec-block" id="sec-5">
+    <div class="sec-h"><h2>隋唐</h2><span class="years">581—907年</span></div>
+
+    <div class="card" id="c11" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">11</span><h3>隋</h3></div>
+      <div class="badges">
+        <span class="badge new">科举制</span>
+        <span class="badge new">大运河</span>
+        <span class="badge new">三省六部</span>
+        <span class="badge old">九品→科举</span>
+      </div>
+      <div class="human">隋和秦一样：制度超前但暴政速亡，遗产全被唐继承——科举、三省六部、大运河。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">三省六部制框架</span>：中书、门下、尚书三省，尚书下设六部。</p>
+      <p><span class="em-new">科举制诞生</span>：隋文帝分科考试；<strong>隋炀帝设进士科</strong>——科举制度正式诞生。改善了用人制度，有才识的读书人有机会做官。</p>
+      <p><span class="em-new">大运河</span>：以洛阳为中心，北达涿郡（北京），南至余杭（杭州），四段（永济渠、通济渠、邗沟、江南河），连接五大水系。大大促进了南北经济交流。</p>
+      <div class="section-label inherit">继承</div>
+      <p>北周的均田制和府兵制。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">九品中正 → <a class="xref" href="#c11">科举</a></span>：门阀垄断选官，皇帝想用寒门子弟制衡门阀。隋暴政速亡但制度遗产被唐全面继承。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">科举制（延续1300多年）、三省六部制框架、大运河（后世经济命脉）</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">科举</span><span class="plus-tag">大运河</span><span class="plus-tag">赵州桥</span></summary>
+        <div class="plus-body">
+          <div class="sub">文化</div>
+          科举制诞生（隋炀帝设进士科）。
+          <div class="sub">科技</div>
+          大运河（沟通五大水系）、赵州桥（李春，现存最早石拱桥）。
+        </div>
+      </details>
+      <div class="exam-box">科举诞生标志是隋炀帝设进士科。常见设错：说成唐太宗创立。</div>
+    </div>
+
+    <div class="card" id="c12" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">12</span><h3>唐</h3></div>
+      <div class="badges">
+        <span class="badge new">三省六部</span>
+        <span class="badge new">两税法</span>
+        <span class="badge new">安史之乱</span>
+        <span class="badge new">贞观之治</span>
+        <span class="badge old">均田→两税</span>
+      </div>
+      <div class="human">均田制一崩，租庸调和府兵制全跟着塌——杨炎两税法把征税从"按人头"改成"按资产"，这是转折。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">盛世</span>：贞观之治（唐太宗）→ 武则天（殿试、武举，政启开元治宏贞观）→ 开元盛世（唐玄宗前期全盛）。</p>
+      <p><span class="em-new">三省六部制完善</span>：中书省（草诏决策）→ 门下省（审核封驳）→ 尚书省（执行，下设六部）。三省互相牵制，大权归皇帝。</p>
+      <p><span class="em-new">两税法</span>（780年杨炎）：均田制瓦解后，按土地和财产多少征税，分夏秋两季征收。<strong>从"税人"（按人头）转向"税地"（按资产）——赋税制度重大转折</strong>。</p>
+      <p><span class="em-new">安史之乱</span>（755—763年）：节度使安禄山史思明叛乱，唐由盛转衰，之后藩镇割据。</p>
+      <p><span class="em-new">对外</span>：文成公主入藏（641年，唐蕃友好）；玄奘西行天竺取经（《大唐西域记》）；鉴真东渡日本传文化。</p>
+      <p><span class="em-new">科技文化</span>：曲辕犁、筒车；雕版印刷（《金刚经》现存最早标确切日期）；火药开始用于军事；唐诗（李白诗仙、杜甫诗圣、白居易）。</p>
+      <div class="section-label inherit">继承</div>
+      <p>隋的三省六部、科举、均田、大运河。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">均田制瓦解 → 租庸调 → 两税法</span>：土地兼并严重，政府无地可授，按人丁收税行不通。<span class="em-old">府兵 → 募兵</span>：兵农合一的府兵制失去均田经济基础，改为职业军人，但将帅专兵导致安史之乱。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">三省六部成熟、两税法（税人到税地转折）、文化繁荣、开放包容时代气质</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">唐诗</span><span class="plus-tag">玄奘</span><span class="plus-tag">雕版印刷</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          唐诗（李白"诗仙"、杜甫"诗圣"、白居易）。
+          <div class="sub">文化</div>
+          科举完善（殿试、武举）、丝绸之路文化交流（玄奘西行、鉴真东渡）。
+          <div class="sub">科技</div>
+          雕版印刷（《金刚经》现存最早标确切日期）、火药开始用于军事、曲辕犁筒车、僧一行测子午线。
+        </div>
+      </details>
+      <div class="exam-box">中书省草诏不是执行；两税法按资产不是按人丁。常见设错：把三省职能搞混。</div>
+    </div>
+  </div>
+
+  <!-- ====== 第六组：宋元 ====== -->
+  <div class="sec-block" id="sec-6">
+    <div class="sec-h"><h2>宋元</h2><span class="years">907—1368年</span></div>
+
+    <div class="card" id="c13" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">13</span><h3>五代辽宋夏金</h3></div>
+      <div class="badges">
+        <span class="badge new">二府三司</span>
+        <span class="badge new">王安石变法</span>
+        <span class="badge new">交子</span>
+        <span class="badge new">经济南移</span>
+        <span class="badge old">藩镇→收权</span>
+      </div>
+      <div class="human">宋初被藩镇割据吓怕了，拼命收权崇文抑武，结果"积贫积弱"——矫枉过正的典型。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">宋初加强中央集权</span>：杯酒释兵权收武将兵权；<strong>二府三司</strong>——中书门下（行政）、枢密院（军事）、三司（财政），分割相权；地方派文臣做知州、设通判监督、转运使收财权。结果中央集权大大加强，但也导致"积贫积弱"。</p>
+      <p><span class="em-new">王安石变法</span>（1069年，宋神宗支持）：青苗法（政府低息贷款给农民）、募役法（交钱代役）、方田均税法（按亩收税）、保甲法。增加了政府收入，但触动大官僚大地主利益，神宗死后司马光上台（元祐更化），新法大部分被废。</p>
+      <p><span class="em-new">经济</span>：<strong>交子</strong>（北宋四川，世界最早纸币）；坊市界限打破（街市合一、夜市晓市）；市舶司管理外贸；<strong>经济重心南移完成于南宋</strong>——政府财政收入主要来自南方。</p>
+      <p><span class="em-new">思想科技</span>：程朱理学（朱熹集大成，存天理灭人欲，南宋后官方哲学）；活字印刷术（毕昇）；指南针用于航海；火药武器广泛使用。</p>
+      <div class="section-label inherit">继承</div>
+      <p>唐的科举制、中央集权传统。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">藩镇 → 宋初收权</span>：矫枉过正导致积贫积弱。<span class="em-old">二府三司 → 元一省制</span>：分权过细冗官低效。<span class="em-old">王安石新法 → 元祐更化</span>：政策因人废立，党争消耗国力。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">重文轻武国策、经济重心南移完成、理学成为官方哲学、三大发明成熟应用</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">宋词</span><span class="plus-tag">活字印刷</span><span class="plus-tag">指南针</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          宋词（苏轼、李清照、辛弃疾）、《资治通鉴》（司马光，编年体通史）。
+          <div class="sub">文化</div>
+          程朱理学（朱熹集大成）、文人画。
+          <div class="sub">科技</div>
+          活字印刷（毕昇）、指南针用于航海、火药武器广泛使用、《梦溪笔谈》（沈括）。
+        </div>
+      </details>
+      <div class="exam-box">交子是世界最早纸币（北宋四川）；经济重心南移完成于南宋。常见设错：交子说成南宋。</div>
+    </div>
+
+    <div class="card" id="c14" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">14</span><h3>元</h3></div>
+      <div class="badges">
+        <span class="badge new">行省制度</span>
+        <span class="badge new">宣政院</span>
+        <span class="badge new">澎湖巡检司</span>
+        <span class="badge old">三省→一省</span>
+      </div>
+      <div class="human">疆域太大，必须搞行省——这就是今天"省"的由来；西藏和台湾第一次正式纳入中央管辖。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">行省制度</span>：中央设中书省，地方设行中书省（简称行省/省）。<strong>我国省级行政区设立始于元朝</strong>。</p>
+      <p><span class="em-new">宣政院</span>：管理全国佛教事务和西藏军政——<strong>西藏正式成为中央政府直接管辖的行政区域</strong>。</p>
+      <p><span class="em-new">澎湖巡检司</span>：管理澎湖和琉球（台湾）——<strong>台湾正式纳入中央管辖</strong>。</p>
+      <p>四等人制（蒙古人、色目人、汉人、南人）——民族分化政策。黄道婆改进棉纺织，松江成为棉纺中心。元曲（关汉卿《窦娥冤》）。</p>
+      <div class="section-label inherit">继承</div>
+      <p>宋的中央集权、科举（元中期恢复）。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">二府三司 → 一省中书</span>：简化机构提高效率，但相权集中，为后来明代废丞相埋下伏笔。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed"><a class="xref" href="#c14">行省制度</a>（沿用至今）、西藏正式归属中央、台湾纳入管辖、棉纺织推广</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">元曲</span><span class="plus-tag">宣政院</span><span class="plus-tag">授时历</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          元曲（关汉卿《窦娥冤》）。
+          <div class="sub">文化</div>
+          宣政院（管理佛教和西藏）。
+          <div class="sub">科技</div>
+          《授时历》（郭守敬，古代最优秀历法）、黄道婆改进棉纺织。
+        </div>
+      </details>
+      <div class="exam-box">西藏正式归属中央标志——元代设宣政院。常见设错：说成清代驻藏大臣。</div>
+    </div>
+  </div>
+
+  <!-- ====== 第七组：明清 ====== -->
+  <div class="sec-block" id="sec-7">
+    <div class="sec-h"><h2>明清</h2><span class="years">1368—1912年</span></div>
+
+    <div class="card" id="c15" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">15</span><h3>明</h3></div>
+      <div class="badges">
+        <span class="badge new">废丞相</span>
+        <span class="badge new">内阁</span>
+        <span class="badge new">八股取士</span>
+        <span class="badge new">一条鞭法</span>
+        <span class="badge old">丞相→废</span>
+      </div>
+      <div class="human">朱元璋直接把丞相杀了废了，1000多年的丞相制终结——但内阁和司礼监两头，实际上皇权更重了。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">废丞相权分六部</span>：1380年胡惟庸案，朱元璋废除丞相，六部直接对皇帝负责。<strong>秦以来1000多年丞相制度终结</strong>。</p>
+      <p><span class="em-new">内阁</span>：明成祖时正式形成，有票拟权（对奏章提处理意见），但最终要皇帝批红。内阁始终不是法定中央行政机构——<strong>内阁首辅不是宰相</strong>。司礼监太监代行批红权，导致宦官专权。</p>
+      <p><span class="em-new">厂卫特务</span>：锦衣卫（明太祖）、东厂（明成祖）——君主专制强化表现。</p>
+      <p><span class="em-new">八股取士</span>：科举只在四书五经范围内命题，文体必须写八股文，不能有自己见解。禁锢思想摧残人才。</p>
+      <p><span class="em-new">一条鞭法</span>（张居正，1581年）：赋役合并折银，按亩征收。赋役货币化，农民人身依附减弱。</p>
+      <p><span class="em-new">对外</span>：郑和下西洋（1405—1433年，七次，最远到红海沿岸和非洲东海岸，比欧洲早半个多世纪，目的是宣扬国威不是殖民）；戚继光抗倭；葡萄牙1553年占澳门。</p>
+      <p><span class="em-new">思想文化</span>：王阳明心学（致良知、知行合一）；李贽反教条；明末三大思想家——黄宗羲（批判君主专制，天下为主君为客）、顾炎武（经世致用）、王夫之（唯物）。李时珍《本草纲目》、宋应星《天工开物》、徐光启《农政全书》、《永乐大典》。</p>
+      <div class="section-label inherit">继承</div>
+      <p>元的行省制（改三司）、科举制（改八股）。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">丞相制 → 明废丞相</span>：1380年胡惟庸案，不许再立丞相。<span class="em-old">一条鞭法 → 摊丁入亩</span>：清代继承深化（彻底废人头税）。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">丞相制终结、内阁制度、八股取士、一条鞭法（赋役货币化）、早期启蒙思想</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">明清小说</span><span class="plus-tag">心学</span><span class="plus-tag">本草纲目</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          明清小说（《三国演义》《水浒传》《西游记》）、《永乐大典》。
+          <div class="sub">文化</div>
+          王阳明心学（致良知、知行合一）、明末三大思想家（黄宗羲、顾炎武、王夫之）。
+          <div class="sub">科技</div>
+          《本草纲目》（李时珍）、《天工开物》（宋应星，中国17世纪工艺百科全书）、《农政全书》（徐光启）。
+        </div>
+      </details>
+      <div class="exam-box">废丞相是明太祖朱元璋；内阁首辅不是宰相。常见设错：把内阁说成法定行政机构。</div>
+    </div>
+
+    <div class="card" id="c16" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">16</span><h3>清</h3></div>
+      <div class="badges">
+        <span class="badge new">军机处</span>
+        <span class="badge new">驻藏大臣</span>
+        <span class="badge new">摊丁入亩</span>
+        <span class="badge new">闭关锁国</span>
+        <span class="badge old">闭关→被打破</span>
+      </div>
+      <div class="human">军机处把专制推到顶峰，摊丁入亩把人头税彻底废除；但闭关锁国到极点，最后被大炮强行打开——制度僵化到不能自己改了。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">军机处</span>：雍正设立，大臣完全秉承皇帝旨意办事（跪受笔录）。<strong>标志着封建君主集权达到顶峰</strong>。</p>
+      <p><span class="em-new">边疆治理</span>：对西藏——顺治赐达赖喇嘛、康熙赐班禅额尔德尼、1727年设<strong>驻藏大臣</strong>、金瓶掣签制度；对新疆——康熙平噶尔丹、乾隆平大小和卓、设<strong>伊犁将军</strong>；对台湾——1683年入台、1684年设<strong>台湾府</strong>隶属福建；土尔扈特部回归（渥巴锡）。</p>
+      <p><span class="em-new">《尼布楚条约》</span>（1689年）：中俄第一个平等边界条约，从法律上肯定黑龙江乌苏里江流域包括库页岛都是中国领土。</p>
+      <p><span class="em-new">摊丁入亩</span>（雍正）：把丁税（人头税）全部摊入田赋，征收地丁银。<strong>彻底废除人头税</strong>，人口从一亿暴涨到四亿。</p>
+      <p><span class="em-new">闭关锁国</span>：只开广州一处通商，由<strong>广州十三行</strong>统一管理。对西方侵略起过自卫作用，但与世隔绝看不到世界变化，使中国在世界上逐渐落伍。文字狱禁锢思想。《四库全书》、《红楼梦》、京剧形成。</p>
+      <div class="section-label inherit">继承</div>
+      <p>明的内阁制（被军机处取代）、科举（八股延续）、行省制。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">一条鞭法 → 摊丁入亩</span>：彻底废人头税，地多多交地少少交。<span class="em-old">海禁/闭关 → 被1840鸦片战争强行打破</span>：制度僵化到内部无法自我改革，最后被外力终结。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">军机处（专制顶峰）、现代中国版图奠定（新疆西藏蒙古台湾纳入有效管辖）、摊丁入亩（人口爆炸）、闭关锁国（近代落后）</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">红楼梦</span><span class="plus-tag">四库全书</span><span class="plus-tag">京剧</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          《红楼梦》（曹雪芹，中国古典小说巅峰）、京剧形成。
+          <div class="sub">文化</div>
+          文字狱（禁锢思想）、《四库全书》（古代最大丛书）。
+          <div class="sub">科技</div>
+          传统科技总结（但开始落后于西方）。
+        </div>
+      </details>
+      <div class="exam-box">军机处是雍正设立（不是康熙）；闭关不是完全断贸是一口通商（广州十三行）。常见设错：君主专制顶峰标志说成设丞相。</div>
+    </div>
+  </div>
+
+  <!-- ====== 未来联动 ====== -->
+  <div class="sec-block" id="sec-future">
+    <div class="sec-h"><h2>未来时政联动</h2><span class="years">历史 → 现状 → 未来</span></div>
+    <div class="future-card"><h4>1. 中央集权与地方分权</h4><p>从分封→郡县→行省，贯穿两千年。今天的"中央与地方关系"改革、省直管县试点，仍是这条线的延续。每次地方权力过大就出问题（七国之乱、藩镇割据），收权过死又效率低下——如何平衡是永恒主题。</p></div>
+    <div class="future-card"><h4>2. 选官制度演变</h4><p>世卿→军功→察举→九品→科举→现代公务员考试。今天的公务员考试，本质上仍是"按考试选拔"这条线的最新形态。方向是从"按血缘"到"按才能"到"按考试"，越来越公平开放。</p></div>
+    <div class="future-card"><h4>3. 赋税制度演变</h4><p>租庸调（税人）→两税法（税地）→一条鞭法（折银）→摊丁入亩（废人头税）。方向是从"按人头"到"按资产"、从"收实物"到"收货币"。今天的减税降费、个税改革、房地产税试点，仍是这条线的延续。</p></div>
+    <div class="future-card"><h4>4. 边疆治理</h4><p>西域都护府→宣政院→驻藏大臣→今天的民族区域自治。西藏新疆纳入中央管辖从汉代开始，两千年未断。今天的西部大开发、对口支援，仍是这条线的延续。</p></div>
+    <div class="future-card"><h4>5. 闭关与开放</h4><p>海禁→闭关锁国→鸦片战争被打开→改革开放。历史反复证明：封闭必然落后，开放才能发展。今天的"一带一路"、RCEP、海南自贸港，都是这条历史逻辑的延续。</p></div>
+    <div class="future-card"><h4>6. 制度生命周期规律</h4><p>任何制度有效时都好，久了必然僵化制造新矛盾，必须改革。商鞅变法、王安石变法、张居正改革、摊丁入亩——成功的改革都是主动扬弃。今天的"全面深化改革"，本质上就是主动扬弃，避免等到被外力强行打破。</p></div>
+  </div>
+
+  <!-- ====== 近代史章节 ====== -->
+  <div class="sec-block" id="sec-jindai">
+    <div class="sec-h"><h2>中国近现代史</h2><span class="years">1840—至今</span></div>
+
+    <h3 style="font-size:15px;font-weight:700;margin:16px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--divider)">一、旧民主主义革命时期（1840-1919）</h3>
+
+    <details class="stage-box" open>
+      <summary>展开全部事件</summary>
+      <div style="margin-top:10px">
+
+    <!-- 01 鸦片战争 -->
+    <div class="card" id="c-jd01" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">01</span><h3>鸦片战争（1840）</h3></div>
+      <div class="badges">
+        <span class="badge new">南京条约</span>
+        <span class="badge old">闭关锁国</span>
+        <span class="badge sediment">近代史开端</span>
+      </div>
+      <div class="human">英国要打开中国市场，中国闭关锁国，贸易逆差。打输了，被迫签了第一个不平等条约。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">鸦片战争爆发</span>，<span class="em-new">《南京条约》签订</span>——中国近代史上第一个不平等条约（割香港岛、赔款2100万银元、五口通商、协定关税）。</p>
+      <div class="section-label inherit">继承</div>
+      <p>中国还是封建社会，还是皇帝统治。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">闭关锁国政策被打破</span>。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">中国开始沦为半殖民地半封建社会，近代史开端</span>。</p>
+      <details class="plus-box">
+        <summary>考题链接 <span class="plus-tag">易错点</span></summary>
+        <div class="plus-body">
+          <div><strong>易错点1</strong>：《南京条约》是中国近代史上第一个不平等条约，不是《马关条约》。</div>
+          <div style="margin-top:4px"><strong>易错点2</strong>：鸦片战争是中国近代史的开端，不是洋务运动。</div>
+          <div style="margin-top:4px"><strong>易错点3</strong>：《南京条约》割让的是香港岛，不是整个香港。</div>
+        </div>
+      </details>
+    </div>
+
+    <!-- 02 太平天国 -->
+    <details class="event-card" id="c-jd02" data-tags="new old inherit sediment">
+      <summary>02 太平天国运动（1851-1864）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>清政府腐败，农民活不下去了，洪秀全领着大家造反。最后失败了，证明农民阶级救不了中国。</p>
+        <p><span class="em-new">新增</span>：洪秀全领导太平天国运动，颁布《天朝田亩制度》（有田同耕，有饭同食）。</p>
+        <p><strong>继承</strong>：还是农民起义，和之前的陈胜吴广、李自成一样。</p>
+        <p><span class="em-old">废弃</span>：农民起义最终失败——证明农民阶级不能领导中国革命。</p>
+        <p><span class="em-sed">沉淀</span>：沉重打击了清王朝，也打击了外国侵略者。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：《天朝田亩制度》是太平天国的，不是洋务运动的。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：太平天国运动是农民阶级领导的，不是资产阶级。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 03 洋务运动 -->
+    <details class="event-card" id="c-jd03" data-tags="new old inherit sediment">
+      <summary>03 洋务运动（1861-1894）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>清政府被打怕了，发现人家船坚炮利，自己冷兵器打不过，所以想学人家的技术来保命。但又不敢改制度，怕丢了江山，所以只学技术不改制度——就像给老房子刷层新漆，地基还是歪的。</p>
+        <p><span class="em-new">新增</span>：洋务派主张"师夷长技以制夷"，办工厂、建海军、办学堂。口号：前期"自强"，后期"求富"。</p>
+        <p><strong>继承</strong>：还是维护封建统治，"中学为体，西学为用"。</p>
+        <p><span class="em-old">废弃</span>：甲午战争失败，洋务运动破产——证明只学技术不改制度不行。</p>
+        <p><span class="em-sed">沉淀</span>：中国近代化的开端，培养了一批近代人才。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：洋务运动是地主阶级领导的，不是资产阶级。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：洋务运动失败的标志是甲午战争战败，不是戊戌变法失败。</div>
+            <div style="margin-top:4px"><strong>易错点3</strong>：洋务运动的指导思想是"中学为体，西学为用"，不是"师夷长技以制夷"（那是魏源提的）。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 04 甲午战争 -->
+    <details class="event-card" id="c-jd04" data-tags="new old inherit sediment">
+      <summary>04 甲午战争（1894）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>日本要扩张，朝鲜是跳板。中国打输了，割地赔款，列强一看原来中国这么好欺负，就都来分蛋糕了。</p>
+        <p><span class="em-new">新增</span>：甲午战争爆发，中国战败，《马关条约》签订（割台湾、赔2亿两白银、允许日本在华设厂）。</p>
+        <p><strong>继承</strong>：还是清政府统治。</p>
+        <p><span class="em-old">废弃</span>：洋务运动彻底破产。</p>
+        <p><span class="em-sed">沉淀</span>：中国半殖民地化程度大大加深，列强掀起瓜分中国的狂潮。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：《马关条约》割让的是台湾，不是香港（香港是《南京条约》割的）。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：《马关条约》允许日本在华设厂，标志着列强对华经济侵略从商品输出转向资本输出。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 05 戊戌变法 -->
+    <details class="event-card" id="c-jd05" data-tags="new old inherit sediment">
+      <summary>05 戊戌变法（1898）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>甲午战败，民族危机加深，维新派想通过皇帝变法，实行君主立宪。结果慈禧太后不同意，只搞了103天就失败了。证明改良道路在中国走不通，必须革命。</p>
+        <p><span class="em-new">新增</span>：维新派主张变法维新，实行君主立宪。代表人物：康有为、梁启超、谭嗣同。</p>
+        <p><strong>继承</strong>：还是皇帝主导，还是保留君主。</p>
+        <p><span class="em-old">废弃</span>：慈禧发动政变，变法失败，仅持续103天（百日维新）。</p>
+        <p><span class="em-sed">沉淀</span>：证明改良道路在中国走不通，必须革命。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：戊戌变法是资产阶级维新派领导的，不是革命派。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：戊戌变法主张的是君主立宪，不是民主共和。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 06 八国联军侵华 -->
+    <details class="event-card" id="c-jd06" data-tags="new old inherit sediment">
+      <summary>06 八国联军侵华（1900）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>义和团运动兴起，列强要镇压。八国联军打进北京，慈禧跑了。签了《辛丑条约》，清政府彻底成为"洋人的朝廷"。</p>
+        <p><span class="em-new">新增</span>：八国联军侵华，《辛丑条约》签订（赔4.5亿两白银、东交民巷划为使馆界、严禁人民参加反帝活动）。</p>
+        <p><strong>继承</strong>：还是清政府统治。</p>
+        <p><span class="em-old">废弃</span>：清政府彻底成为"洋人的朝廷"。</p>
+        <p><span class="em-sed">沉淀</span>：中国完全沦为半殖民地半封建社会。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：《辛丑条约》是赔款最多的条约（4.5亿两），不是《马关条约》。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：《辛丑条约》标志着中国完全沦为半殖民地半封建社会，不是《马关条约》。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 07 辛亥革命 -->
+    <details class="event-card" id="c-jd07" data-tags="new old inherit sediment">
+      <summary>07 辛亥革命（1911）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>清政府腐败，民族危机加深。孙中山领导辛亥革命，推翻了清王朝，建立了中华民国。但革命果实被袁世凯窃取了——证明资产阶级共和国道路在中国走不通。</p>
+        <p><span class="em-new">新增</span>：孙中山领导辛亥革命，推翻了清王朝，建立了中华民国。</p>
+        <p><strong>继承</strong>：还是资产阶级革命。</p>
+        <p><span class="em-old">废弃</span>：结束了中国两千多年的封建帝制。</p>
+        <p><span class="em-sed">沉淀</span>：建立了中华民国，但革命果实被袁世凯窃取——证明资产阶级共和国道路在中国走不通。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：辛亥革命推翻的是封建帝制，不是封建制度（封建制度直到土地改革才彻底废除）。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：辛亥革命没有完成反帝反封建的任务，不是成功的革命。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 08 新文化运动 -->
+    <details class="event-card" id="c-jd08" data-tags="new old inherit sediment">
+      <summary>08 新文化运动（1915）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>袁世凯复辟帝制，尊孔复古。陈独秀创办《新青年》，主张"民主"与"科学"，动摇了封建思想的统治地位，为马克思主义在中国的传播创造了条件。</p>
+        <p><span class="em-new">新增</span>：陈独秀创办《新青年》，主张"民主"与"科学"（德先生和赛先生）。</p>
+        <p><strong>继承</strong>：还是思想文化领域的运动。</p>
+        <p><span class="em-old">废弃</span>：动摇了封建思想的统治地位。</p>
+        <p><span class="em-sed">沉淀</span>：为马克思主义在中国的传播创造了条件。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：新文化运动的口号是"民主"与"科学"，不是"自由"与"平等"。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：新文化运动为马克思主义在中国的传播创造了条件，不是直接传播马克思主义。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+      </div>
+    </details>
+
+    <h3 style="font-size:15px;font-weight:700;margin:20px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--divider)">二、新民主主义革命时期（1919-1949）</h3>
+
+    <details class="stage-box" open>
+      <summary>展开全部事件</summary>
+      <div style="margin-top:10px">
+
+    <!-- 09 五四运动 -->
+    <details class="event-card" id="c-jd09" data-tags="new old inherit sediment">
+      <summary>09 五四运动（1919）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>巴黎和会中国外交失败，学生上街游行，工人罢工。这是中国第一次彻底的反帝反封建爱国运动，无产阶级开始登上历史舞台。</p>
+        <p><span class="em-new">新增</span>：五四运动爆发，无产阶级开始登上历史舞台。</p>
+        <p><strong>继承</strong>：继承了新文化运动的民主科学精神。</p>
+        <p><span class="em-old">废弃</span>：旧民主主义革命结束，新民主主义革命开始。</p>
+        <p><span class="em-sed">沉淀</span>：为中国共产党成立做了思想上干部上的准备。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：五四运动是新民主主义革命的开端，不是旧民主主义革命的开端。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：五四运动中无产阶级开始登上历史舞台，不是资产阶级。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 10 中共一大 -->
+    <details class="event-card" id="c-jd10" data-tags="new old inherit sediment">
+      <summary>10 中共一大（1921）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>13个代表在上海开会，最后转到嘉兴南湖的游船上。中国共产党成立了，中国革命的面貌焕然一新。</p>
+        <p><span class="em-new">新增</span>：中国共产党成立。</p>
+        <p><strong>继承</strong>：继承了马克思主义。</p>
+        <p><span class="em-sed">沉淀</span>：中国革命的面貌焕然一新。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：中共一大召开的地点是上海，最后转到嘉兴南湖游船。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：中共一大标志着中国共产党成立，不是中共二大。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 11 中共二大 -->
+    <details class="event-card" id="c-jd11" data-tags="new old inherit sediment">
+      <summary>11 中共二大（1922）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>第一次提出了彻底的反帝反封建的民主革命纲领（最低纲领）。</p>
+        <p><span class="em-new">新增</span>：第一次提出彻底的反帝反封建的民主革命纲领。</p>
+        <p><span class="em-sed">沉淀</span>：制定了党的最高纲领和最低纲领。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：第一次提出彻底的反帝反封建的民主革命纲领是中共二大，不是中共一大。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 12 南昌起义 -->
+    <details class="event-card" id="c-jd12" data-tags="new old inherit sediment">
+      <summary>12 南昌起义（1927）★100周年</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>蒋介石、汪精卫背叛革命，大肆屠杀共产党员。周恩来、贺龙等人领导南昌起义，打响了武装反抗国民党反动派的第一枪。这是中国共产党独立领导武装斗争、创建人民军队的开始。</p>
+        <p><span class="em-new">新增</span>：南昌起义，打响了武装反抗国民党反动派的第一枪。</p>
+        <p><span class="em-sed">沉淀</span>：是中国共产党独立领导武装斗争、创建人民军队的开始。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：南昌起义打响了武装反抗国民党反动派的第一枪。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：南昌起义是创建人民军队的开始，不是秋收起义。</div>
+            <div style="margin-top:4px"><strong>27年考点</strong>：2027年是南昌起义100周年。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 13 八七会议 -->
+    <details class="event-card" id="c-jd13" data-tags="new old inherit sediment">
+      <summary>13 八七会议（1927）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>蒋介石背叛革命后，中共中央在汉口开会，纠正了陈独秀的右倾错误，确定了土地革命和武装反抗国民党反动派的总方针。毛泽东提出"枪杆子里面出政权"。</p>
+        <p><span class="em-new">新增</span>：确定了土地革命和武装反抗国民党反动派的总方针。</p>
+        <p><span class="em-old">废弃</span>：纠正了陈独秀的右倾错误。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>："枪杆子里面出政权"是毛泽东在八七会议上提出的。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 14 秋收起义 -->
+    <details class="event-card" id="c-jd14" data-tags="new old inherit sediment">
+      <summary>14 秋收起义（1927）★100周年</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>毛泽东领导秋收起义，打了败仗后，决定不去打大城市，转向农村进军，创建了第一个农村革命根据地——井冈山革命根据地。</p>
+        <p><span class="em-new">新增</span>：秋收起义，创建了第一个农村革命根据地——井冈山革命根据地。</p>
+        <p><span class="em-sed">沉淀</span>：开创了"农村包围城市、武装夺取政权"的道路。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：第一个农村革命根据地是井冈山革命根据地。</div>
+            <div style="margin-top:4px"><strong>27年考点</strong>：2027年是秋收起义100周年、井冈山革命根据地创建100周年。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 15 遵义会议 -->
+    <details class="event-card" id="c-jd15" data-tags="new old inherit sediment">
+      <summary>15 遵义会议（1935）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>长征途中，红军打了败仗，损失惨重。在遵义开会，纠正了王明的左倾错误，确立了毛泽东在党中央和红军的领导地位。这是中国共产党历史上一个生死攸关的转折点。</p>
+        <p><span class="em-new">新增</span>：确立了毛泽东在党中央和红军的领导地位。</p>
+        <p><span class="em-old">废弃</span>：纠正了王明的左倾错误。</p>
+        <p><span class="em-sed">沉淀</span>：是中国共产党历史上一个生死攸关的转折点，标志着中国共产党从幼年走向成熟。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：遵义会议是中国共产党历史上一个生死攸关的转折点。</div>
+            <div style="margin-top:4px"><strong>易错点2</strong>：遵义会议标志着中国共产党从幼年走向成熟。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 16 长征胜利 -->
+    <details class="event-card" id="c-jd16" data-tags="new old inherit sediment">
+      <summary>16 长征胜利（1936）★90周年</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>红军从江西出发，走了二万五千里，最后到达陕北。长征的胜利，保存了党和红军的基干力量，使中国革命转危为安。</p>
+        <p><span class="em-sed">沉淀</span>：长征的胜利，保存了党和红军的基干力量，使中国革命转危为安。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：长征胜利结束的标志是三大主力会师（1936年10月）。</div>
+            <div style="margin-top:4px"><strong>27年考点</strong>：2026年是长征胜利90周年。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 17 七七事变 -->
+    <details class="event-card" id="c-jd17" data-tags="new old inherit sediment">
+      <summary>17 七七事变（1937）★90周年</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>日本发动全面侵华战争，卢沟桥事变爆发。中国全民族抗战开始。</p>
+        <p><span class="em-new">新增</span>：日本发动全面侵华战争，中国全民族抗战开始。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：七七事变（卢沟桥事变）标志着中国全民族抗战开始。</div>
+            <div style="margin-top:4px"><strong>27年考点</strong>：2027年是七七事变90周年。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 18 中共七大 -->
+    <details class="event-card" id="c-jd18" data-tags="new old inherit sediment">
+      <summary>18 中共七大（1945）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>抗战胜利前夕，在延安开会，确立毛泽东思想为党的指导思想。</p>
+        <p><span class="em-new">新增</span>：确立毛泽东思想为党的指导思想。</p>
+        <p><span class="em-sed">沉淀</span>：为争取抗日战争的最后胜利准备了条件。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：确立毛泽东思想为党的指导思想是中共七大，不是遵义会议。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 19 新中国成立 -->
+    <details class="event-card" id="c-jd19" data-tags="new old inherit sediment">
+      <summary>19 新中国成立（1949）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>解放战争胜利，中华人民共和国成立。中国人民从此站起来了，中国进入新民主主义社会。</p>
+        <p><span class="em-new">新增</span>：中华人民共和国成立。</p>
+        <p><span class="em-old">废弃</span>：半殖民地半封建社会结束。</p>
+        <p><span class="em-sed">沉淀</span>：中国人民从此站起来了，中国进入新民主主义社会。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：新中国成立标志着中国新民主主义革命胜利，不是社会主义革命胜利。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+      </div>
+    </details>
+
+  </div>
+
+    <h3 style="font-size:15px;font-weight:700;margin:20px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--divider)">三、社会主义革命和建设时期（1949-1978）</h3>
+
+    <details class="stage-box" open>
+      <summary>展开全部事件</summary>
+      <div style="margin-top:10px">
+
+    <!-- 20 土地改革 -->
+    <details class="event-card" id="c-jd20" data-tags="new old inherit sediment">
+      <summary>20 土地改革（1950-1952）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>把地主的土地分给农民，废除封建土地制度，让农民有地种。</p>
+        <p><span class="em-new">新增</span>：土地改革，废除封建土地制度，实行农民土地所有制。</p>
+        <p><span class="em-old">废弃</span>：封建土地制度彻底废除。</p>
+        <p><span class="em-sed">沉淀</span>：彻底摧毁了我国存在2000多年的封建土地制度。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：土地改革废除的是封建土地制度，不是封建帝制（封建帝制是辛亥革命废除的）。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 21 抗美援朝 -->
+    <details class="event-card" id="c-jd21" data-tags="new old inherit sediment">
+      <summary>21 抗美援朝（1950-1953）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>美国打到朝鲜，威胁中国边境。中国人民志愿军跨过鸭绿江，抗美援朝，保家卫国。</p>
+        <p><span class="em-sed">沉淀</span>：大大提高了我国的国际地位。</p>
+      </div>
+    </details>
+
+    <!-- 22 三大改造 -->
+    <details class="event-card" id="c-jd22" data-tags="new old inherit sediment">
+      <summary>22 三大改造（1953-1956）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>把农业、手工业、资本主义工商业改造成社会主义公有制。改造完成后，社会主义制度在我国基本建立起来了。</p>
+        <p><span class="em-new">新增</span>：三大改造完成，社会主义制度基本建立。</p>
+        <p><span class="em-old">废弃</span>：生产资料私有制转变为社会主义公有制。</p>
+        <p><span class="em-sed">沉淀</span>：标志着我国进入社会主义初级阶段。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：三大改造完成标志着我国进入社会主义初级阶段，不是新中国成立。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 23 中共八大 -->
+    <details class="event-card" id="c-jd23" data-tags="new old inherit sediment">
+      <summary>23 中共八大（1956）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>三大改造完成后，开会分析国内主要矛盾。指出主要矛盾是人民对于经济文化迅速发展的需要，同当前经济文化不能满足人民需要的状况之间的矛盾。</p>
+        <p><span class="em-sed">沉淀</span>：是探索建设社会主义道路的良好开端。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：中共八大是探索建设社会主义道路的良好开端。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 24 大跃进 -->
+    <details class="event-card" id="c-jd24" data-tags="new old inherit sediment">
+      <summary>24 大跃进（1958）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>想快速发展，赶英超美，结果浮夸风、共产风盛行，经济遇到困难。</p>
+        <p><span class="em-old">废弃</span>：急于求成，忽视了客观经济规律。</p>
+      </div>
+    </details>
+
+    <!-- 25 文化大革命 -->
+    <details class="event-card" id="c-jd25" data-tags="new old inherit sediment">
+      <summary>25 文化大革命（1966-1976）★结束50周年</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>一场由领导者错误发动，被反革命集团利用，给党、国家和各族人民带来严重灾难的内乱。</p>
+        <p><span class="em-old">废弃</span>：1976年结束。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>27年考点</strong>：2026年是文化大革命结束50周年。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 26 恢复联合国席位 -->
+    <details class="event-card" id="c-jd26" data-tags="new old inherit sediment">
+      <summary>26 恢复联合国席位（1971）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>第26届联合国大会恢复中华人民共和国在联合国的一切合法权利。</p>
+        <p><span class="em-sed">沉淀</span>：是中国外交的重大胜利。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：恢复联合国席位是1971年，不是1972年。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 27 尼克松访华 -->
+    <details class="event-card" id="c-jd27" data-tags="new old inherit sediment">
+      <summary>27 尼克松访华（1972）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>美国总统尼克松访华，中美双方正式签署《联合公报》，两国关系开始走向正常化。</p>
+        <p><span class="em-sed">沉淀</span>：中美关系开始走向正常化。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：中美正式建交是1979年，尼克松访华是1972年。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+      </div>
+    </details>
+
+    <h3 style="font-size:15px;font-weight:700;margin:20px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--divider)">四、改革开放新时期（1978-2012）</h3>
+
+    <details class="stage-box" open>
+      <summary>展开全部事件</summary>
+      <div style="margin-top:10px">
+
+    <!-- 28 十一届三中全会 -->
+    <details class="event-card" id="c-jd28" data-tags="new old inherit sediment">
+      <summary>28 十一届三中全会（1978）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>文化大革命结束后，开会决定把工作重心转移到经济建设上来，实行改革开放。这是新中国成立以来党的历史上具有深远意义的伟大转折。</p>
+        <p><span class="em-new">新增</span>：实行改革开放。</p>
+        <p><span class="em-old">废弃</span>："以阶级斗争为纲"。</p>
+        <p><span class="em-sed">沉淀</span>：是新中国成立以来党的历史上具有深远意义的伟大转折。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：十一届三中全会是新中国成立以来党的历史上具有深远意义的伟大转折。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 29 农村改革 -->
+    <details class="event-card" id="c-jd29" data-tags="new old inherit sediment">
+      <summary>29 农村改革（包产到户）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>安徽小岗村18户农民秘密搞包产到户，后来推广到全国，实行家庭联产承包责任制。</p>
+        <p><span class="em-new">新增</span>：家庭联产承包责任制。</p>
+      </div>
+    </details>
+
+    <!-- 30 经济特区 -->
+    <details class="event-card" id="c-jd30" data-tags="new old inherit sediment">
+      <summary>30 经济特区（1980）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>设立深圳、珠海、汕头、厦门四个经济特区，对外开放的窗口。</p>
+        <p><span class="em-new">新增</span>：设立经济特区。</p>
+        <details class="plus-box" style="margin-top:6px">
+          <summary>考题链接</summary>
+          <div class="plus-body">
+            <div><strong>易错点1</strong>：最早设立的四个经济特区是深圳、珠海、汕头、厦门。</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- 31 十二大 -->
+    <details class="event-card" id="c-jd31" data-tags="new old inherit sediment">
+      <summary>31 十二大（1982）→ 建设有中国特色的社会主义</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><span class="em-new">新增</span>：提出"建设有中国特色的社会主义"。</p>
+      </div>
+    </details>
+
+    <!-- 32 十三大 -->
+    <details class="event-card" id="c-jd32" data-tags="new old inherit sediment">
+      <summary>32 十三大（1987）→ 社会主义初级阶段理论</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><span class="em-new">新增</span>：提出社会主义初级阶段理论，制定了基本路线。</p>
+      </div>
+    </details>
+
+    <!-- 33 南方谈话 -->
+    <details class="event-card" id="c-jd33" data-tags="new old inherit sediment">
+      <summary>33 南方谈话（1992）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><strong>说人话：</strong>邓小平到南方视察，发表谈话，解决了姓"资"还是姓"社"的问题，改革开放胆子要大一些。</p>
+        <p><span class="em-sed">沉淀</span>：进一步解放了人们的思想，推动改革开放和社会主义现代化建设进入新阶段。</p>
+      </div>
+    </details>
+
+    <!-- 34 十四大 -->
+    <details class="event-card" id="c-jd34" data-tags="new old inherit sediment">
+      <summary>34 十四大（1992）→ 建立社会主义市场经济体制</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><span class="em-new">新增</span>：提出建立社会主义市场经济体制。</p>
+      </div>
+    </details>
+
+    <!-- 35 十五大 -->
+    <details class="event-card" id="c-jd35" data-tags="new old inherit sediment">
+      <summary>35 十五大（1997）→ 邓小平理论确立为指导思想</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><span class="em-new">新增</span>：把邓小平理论确立为党的指导思想。</p>
+      </div>
+    </details>
+
+    <!-- 36 加入WTO -->
+    <details class="event-card" id="c-jd36" data-tags="new old inherit sediment">
+      <summary>36 加入WTO（2001）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><span class="em-sed">沉淀</span>：标志着中国对外开放进入新阶段。</p>
+      </div>
+    </details>
+
+    <!-- 37 十六大 -->
+    <details class="event-card" id="c-jd37" data-tags="new old inherit sediment">
+      <summary>37 十六大（2002）→ 三个代表重要思想</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><span class="em-new">新增</span>：把三个代表重要思想确立为党的指导思想。</p>
+      </div>
+    </details>
+
+    <!-- 38 十七大 -->
+    <details class="event-card" id="c-jd38" data-tags="new old inherit sediment">
+      <summary>38 十七大（2007）→ 科学发展观</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><span class="em-new">新增</span>：提出科学发展观。</p>
+      </div>
+    </details>
+
+      </div>
+    </details>
+
+    <h3 style="font-size:15px;font-weight:700;margin:20px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--divider)">五、新时代（2012-至今）</h3>
+
+    <details class="stage-box" open>
+      <summary>展开全部事件</summary>
+      <div style="margin-top:10px">
+
+    <!-- 39 十八大 -->
+    <details class="event-card" id="c-jd39" data-tags="new old inherit sediment">
+      <summary>39 十八大（2012）→ 科学发展观确立为指导思想</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><span class="em-new">新增</span>：把科学发展观确立为党的指导思想。</p>
+      </div>
+    </details>
+
+    <!-- 40 十九大 -->
+    <details class="event-card" id="c-jd40" data-tags="new old inherit sediment">
+      <summary>40 十九大（2017）→ 习近平新时代中国特色社会主义思想</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><span class="em-new">新增</span>：把习近平新时代中国特色社会主义思想确立为党的指导思想。</p>
+      </div>
+    </details>
+
+    <!-- 41 二十大 -->
+    <details class="event-card" id="c-jd41" data-tags="new old inherit sediment">
+      <summary>41 二十大（2022）→ 全面建设社会主义现代化国家</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><span class="em-new">新增</span>：提出全面建设社会主义现代化国家。</p>
+      </div>
+    </details>
+
+    <!-- 42 重要政策 -->
+    <details class="event-card" id="c-jd42" data-tags="new old inherit sediment">
+      <summary>42 重要政策（脱贫攻坚、一带一路、双循环）</summary>
+      <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2);line-height:1.7">
+        <p><span class="em-new">新增</span>：脱贫攻坚（2020年全面建成小康社会）、一带一路、双循环新发展格局。</p>
+      </div>
+    </details>
+
+      </div>
+    </details>
+
+  </div>
+
+  <!-- ====== 法律章节：宪法 ====== -->
+  <div class="sec-block" id="sec-law">
+    <div class="sec-h"><h2>法律</h2><span class="years">宪法 · 民法 · 刑法 · 公司法</span></div>
+  </div>
+
+  <div class="sec-block" id="sec-xianfa">
+    <div class="sec-h"><h2>宪法</h2><span class="years">1912—至今</span></div>
+
+    <h3 style="font-size:15px;font-weight:700;margin:16px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--divider)">宪法谱系</h3>
+
+    <details class="card" id="law01" data-tags="new old inherit sediment">
+      <summary style="cursor:pointer;list-style:none">
+        <div class="card-h"><span class="idx">01</span><h3>临时约法（1912）</h3></div>
+        <div class="badges">
+          <span class="badge new">第一部资产阶级宪法</span>
+          <span class="badge new">主权在民</span>
+          <span class="badge new">三权分立</span>
+          <span class="badge old">君主专制→民主共和</span>
+        </div>
+      </summary>
+      <div class="human"><a href="#sec-xinhai" style="color:var(--brand-1);text-decoration:underline dotted">辛亥革命</a>推翻帝制，革命派想用法律约束袁世凯——结果很快被撕毁。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">《中华民国临时约法》</span>：中国第一部资产阶级共和国宪法性质的文件。确立主权在民、三权分立、责任内阁制。</p>
+      <div class="section-label inherit">继承</div>
+      <p>西方资产阶级宪政原则（主权在民、分权制衡）。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">君主专制 → 民主共和</span>：两千多年帝制终结。但约法本身很快被袁世凯撕毁（袁记约法）。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">"宪法"概念引入中国；宪政开端。</span></p>
+      <div class="exam-box">第一部资产阶级宪法性质文件。常见设错：说成社会主义宪法。</div>
+    </details>
+
+    <details class="card" id="law02" data-tags="new old inherit sediment">
+      <summary style="cursor:pointer;list-style:none">
+        <div class="card-h"><span class="idx">02</span><h3>共同纲领（1949）</h3></div>
+        <div class="badges">
+          <span class="badge new">临时宪法</span>
+          <span class="badge new">人民民主专政</span>
+          <span class="badge new">人大制度</span>
+        </div>
+      </summary>
+      <div class="human">新中国成立，还不具备制定正式宪法的条件（普选没搞、人大没开）。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">《共同纲领》</span>：临时宪法作用。规定国体（人民民主专政）、政体（人民代表大会制度）。</p>
+      <div class="section-label inherit">继承</div>
+      <p>新民主主义革命成果。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">旧法统全部废除</span>：废除国民党六法全书。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">临时宪法过渡；政协代行人大职权。</span></p>
+      <div class="exam-box">临时宪法，不是正式宪法。常见设错：说成第一部正式宪法。</div>
+    </details>
+
+    <details class="card" id="law03" data-tags="new old inherit sediment">
+      <summary style="cursor:pointer;list-style:none">
+        <div class="card-h"><span class="idx">03</span><h3>五四宪法（1954）</h3></div>
+        <div class="badges">
+          <span class="badge new">第一部社会主义宪法</span>
+          <span class="badge new">人大制度确立</span>
+          <span class="badge new">民族区域自治</span>
+        </div>
+      </summary>
+      <div class="human">全国普选完成，人大召开，需要正式宪法。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">第一部社会主义类型宪法</span>：确立人民代表大会制度、民族区域自治制度、公民基本权利义务。<br>
+      <span class="em-new">国家机构体系</span>：全国人大（权力机关）、国家主席、国务院（行政机关）、人民法院、人民检察院。</p>
+      <div class="section-label inherit">继承</div>
+      <p>共同纲领的基本原则。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">临时宪法使命结束</span>：被正式宪法取代。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">四大基本原则；宪法框架。</span></p>
+      <div class="exam-box">第一部社会主义类型宪法。常见设错：说成第一部宪法（临时约法更早）。</div>
+    </details>
+
+    <details class="card" id="law04" data-tags="new old inherit sediment">
+      <summary style="cursor:pointer;list-style:none">
+        <div class="card-h"><span class="idx">04</span><h3>七五宪法（1975）</h3></div>
+        <div class="badges">
+          <span class="badge old">文革错误</span>
+          <span class="badge old">全面专政</span>
+        </div>
+      </summary>
+      <div class="human">文革时期，左倾错误严重。</div>
+      <div class="section-label new">新增</div>
+      <p>大量左倾错误内容（如"全面专政"）。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">五四宪法正确原则被破坏</span>。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">反面教材——宪法不能脱离法治轨道。</span></p>
+      <div class="exam-box">反面教材，不考正面内容。常见设错：说成好宪法。</div>
+    </details>
+
+    <details class="card" id="law05" data-tags="new old inherit sediment">
+      <summary style="cursor:pointer;list-style:none">
+        <div class="card-h"><span class="idx">05</span><h3>七八宪法（1978）</h3></div>
+        <div class="badges">
+          <span class="badge new">拨乱反正</span>
+          <span class="badge old">过渡性</span>
+        </div>
+      </summary>
+      <div class="human">文革结束，拨乱反正开始，但还没完全摆脱左倾。</div>
+      <div class="section-label new">新增</div>
+      <p>恢复部分国家机构设置。</p>
+      <div class="section-label old">废弃</div>
+      <p>部分左倾内容被清除。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">过渡性宪法，很快被八二宪法取代。</span></p>
+      <div class="exam-box">过渡性，不常考。常见设错：说成现行宪法。</div>
+    </details>
+
+    <details class="card" id="law06" data-tags="new old inherit sediment">
+      <summary style="cursor:pointer;list-style:none">
+        <div class="card-h"><span class="idx">06</span><h3>八二宪法（1982）——现行宪法</h3></div>
+        <div class="badges">
+          <span class="badge new">现行宪法</span>
+          <span class="badge new">改革开放</span>
+          <span class="badge new">五次修正案</span>
+        </div>
+      </summary>
+      <div class="human">改革开放，要重建法治，总结文革教训。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">现行宪法</span>：确立四项基本原则、改革开放、公民权利保障更加完善。<br>
+      <span class="em-new">新增国家机构</span>：中央军事委员会（党指挥枪入宪）。</p>
+      <div class="section-label inherit">继承</div>
+      <p>五四宪法的正确原则。</p>
+      <div class="section-label old">废弃</div>
+      <p>七五、七八宪法的错误内容。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">现行宪法文本；五次修正不断适应时代。</span></p>
+      <div class="exam-box">现行宪法是八二宪法。常见设错：说成五四宪法。</div>
+
+      <details class="plus-box">
+        <summary>五次修正案 <span class="plus-tag">88</span><span class="plus-tag">93</span><span class="plus-tag">99</span><span class="plus-tag">04</span><span class="plus-tag">18</span></summary>
+        <div class="plus-body">
+          <div class="sub">1988年</div>
+          土地使用权可依法转让；私营经济补充地位。
+          <div class="sub">1993年</div>
+          社会主义市场经济入宪；国有企业经营自主权。
+          <div class="sub">1999年</div>
+          邓小平理论入宪；依法治国入宪；非公有制经济是重要组成部分。
+          <div class="sub">2004年</div>
+          三个代表入宪；私有财产保护；人权保障入宪；土地征收补偿。
+          <div class="sub">2018年</div>
+          习近平新时代中国特色社会主义思想入宪；监察委员会设立；取消国家主席任期限制。
+        </div>
+      </details>
+    </details>
+
+    <!-- ====== 八二宪法具体知识点（结构化拆解法） ====== -->
+    <div id="sec-xianfa-detail" style="margin-top:24px;padding-top:20px;border-top:2px solid var(--divider)">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">八二宪法具体知识点（结构化拆解）</h3>
+
+      <!-- 模块一：国家的"身份" -->
+      <details class="plus-box" style="margin-bottom:12px">
+        <summary><strong>模块一：国家的"身份"</strong>（总纲）<span class="plus-tag">国体</span><span class="plus-tag">政体</span><span class="plus-tag">经济制度</span></summary>
+        <div class="plus-body">
+          <div class="sub">1. <span class="term" onclick="showTermTip(this, '国体：这个国家是谁的？谁当家作主？比如我国是人民民主专政——工人阶级领导、工农联盟为基础，人民当家作主。一句话：国家的阶级本质。')">国体</span>（国家性质）</div>
+          工人阶级领导的、以工农联盟为基础的人民民主专政的社会主义国家。<br>
+          根本制度：社会主义制度。<br>
+          最本质特征：中国共产党领导（2018年修正案新增）。
+
+          <div class="sub">2. 政治制度</div>
+          根本政治制度（<span class="term" onclick="showTermTip(this, '政体：人民怎么当家作主？权力怎么组织？比如我国是人民代表大会制度——人民选代表，代表组成人大，人大行使权力。一句话：政权的组织形式。')">政体</span>）：人民代表大会制度。<br>
+          基本政治制度（三个）：<br>
+          ① 中国共产党领导的多党合作和政治协商制度<br>
+          ② 民族区域自治制度<br>
+          ③ 基层群众自治制度（居委会、村委会）<br>
+          ④ 特别行政区制度（"一国两制"，香港、澳门）。
+
+          <div class="sub">3. 经济制度</div>
+          基础：生产资料的社会主义公有制（全民所有制 + 劳动群众集体所有制）。<br>
+          国有经济：国民经济中的主导力量。<br>
+          分配制度：按劳分配为主体、多种分配方式并存。<br>
+          土地制度：城市土地归国家所有；农村和城市郊区土地归集体所有。
+        </div>
+      </details>
+
+      <!-- 模块二：人民的"权利" -->
+      <details class="plus-box" style="margin-bottom:12px">
+        <summary><strong>模块二：人民的"权利"</strong>（公民基本权利和义务）<span class="plus-tag">政治权利</span><span class="plus-tag">人身权利</span><span class="plus-tag">社会经济</span></summary>
+        <div class="plus-body">
+          <div class="sub">1. 政治权利（管国家的权利）</div>
+          ① 选举权和被选举权：年满18周岁 + 中国国籍 + 未被剥夺政治权利。<br>
+          ② 政治自由：言论、出版、集会、结社、游行、示威自由。
+
+          <div class="sub">2. 人身权利（保护自己的权利）</div>
+          ① 人身自由不受侵犯：逮捕须检察院批准或决定 + 公安机关执行。<br>
+          ② 人格尊严不受侵犯：禁止侮辱、诽谤、诬告陷害。<br>
+          ③ 住宅不受侵犯：禁止非法搜查或非法侵入。<br>
+          ④ 通信自由和通信秘密受保护：除国家安全或追查刑事犯罪需要外，不得侵犯。
+
+          <div class="sub">3. 社会经济权利（吃饭过日子的权利）</div>
+          ① 财产权：公民的合法的私有财产不受侵犯。<br>
+          ② 劳动权：既是权利也是义务。<br>
+          ③ 休息权：劳动者的权利。<br>
+          ④ 社会保障权：年老、疾病、丧失劳动能力时获物质帮助。
+
+          <div class="sub">4. 其他权利</div>
+          ① 宗教信仰自由。<br>
+          ② 监督权：批评建议、申诉控告检举、取得国家赔偿。<br>
+          ③ 文化教育权利：受教育权（既是权利也是义务）、科研文艺创作自由。<br>
+          ④ 特定主体权利：妇女、儿童、老人、华侨、归侨、侨眷。
+
+          <div class="sub">基本义务（六项）</div>
+          ① 维护国家统一和民族团结<br>
+          ② 遵守宪法和法律<br>
+          ③ 维护国家安全、荣誉和利益<br>
+          ④ 依法服兵役<br>
+          ⑤ 依法纳税<br>
+          ⑥ 其他：劳动义务、受教育义务、计划生育、抚养子女、赡养父母
+        </div>
+      </details>
+
+      <!-- 模块三：国家的"管理者" -->
+      <details class="plus-box" style="margin-bottom:12px">
+        <summary><strong>模块三：国家的"管理者"</strong>（国家机构）<span class="plus-tag">权力机关</span><span class="plus-tag">行政机关</span><span class="plus-tag">司法机关</span></summary>
+        <div class="plus-body">
+
+          <!-- 1. 权力机关 -->
+          <div class="sub">1. 权力机关</div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px">全国人民代表大会（最高国家权力机关）</div>
+            <div style="font-weight:600;margin:8px 0 6px">组成</div>
+            由省、自治区、直辖市、特别行政区和军队选出的代表组成。
+            <div style="font-weight:600;margin:8px 0 6px">任期</div>
+            每届任期5年。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            ① 修改宪法、监督宪法实施<br>
+            ② 制定和修改基本法律<br>
+            ③ 选举国家主席、副主席<br>
+            ④ 决定国务院总理的人选<br>
+            ⑤ 审查和批准国民经济和社会发展计划
+          </div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px"><span class="term" onclick="showTermTip(this, '全国人大常委会是全国人大的常设机关。因为全国人大一年只开一次会，开完会就散了，平时谁来干活？就是全国人大常委会。打个比方：全国人大就像股东大会，一年开一次；全国人大常委会就像董事会，平时代表股东大会做决策。')">全国人民代表大会常务委员会</span>（常设机关）</div>
+            <div style="font-weight:600;margin:8px 0 6px">组成</div>
+            委员长、副委员长若干人、秘书长、委员若干人。
+            <div style="font-weight:600;margin:8px 0 6px">任期</div>
+            每届任期5年。委员长、副委员长连续任职不得超过两届。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            ① 解释宪法、解释法律<br>
+            ② 制定和修改非基本法律<br>
+            ③ 监督国务院、中央军委、国家监察委员会、最高法、最高检的工作<br>
+            ④ 任免最高人民法院副院长、最高人民检察院副检察长
+          </div>
+
+          <!-- 2. 元首机关 -->
+          <div class="sub">2. 元首机关</div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px">中华人民共和国主席（国家元首）</div>
+            <div style="font-weight:600;margin:8px 0 6px">当选条件</div>
+            有选举权和被选举权的年满45周岁的中华人民共和国公民。
+            <div style="font-weight:600;margin:8px 0 6px">任期</div>
+            每届任期5年（2018年修正案取消任期限制）。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            ① 公布法律、发布命令<br>
+            ② 任免国务院总理、副总理、国务委员、各部部长<br>
+            ③ 授予国家的勋章和荣誉称号<br>
+            ④ 代表中华人民共和国进行国事活动
+          </div>
+
+          <!-- 3. 行政机关 -->
+          <div class="sub">3. 行政机关</div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px">国务院（最高国家行政机关）</div>
+            <div style="font-weight:600;margin:8px 0 6px">组成</div>
+            总理、副总理若干人、国务委员若干人、各部部长、各委员会主任、审计长、秘书长。
+            <div style="font-weight:600;margin:8px 0 6px">任期</div>
+            每届任期5年。总理、副总理、国务委员连续任职不得超过两届。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            ① 制定行政法规<br>
+            ② 规定行政措施、发布决定和命令<br>
+            ③ 统一领导各部和各委员会的工作<br>
+            ④ 编制和执行国民经济和社会发展计划和国家预算
+          </div>
+
+          <!-- 4. 军事机关 -->
+          <div class="sub">4. 军事机关</div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px">中央军事委员会（最高军事领导机关）</div>
+            <div style="font-weight:600;margin:8px 0 6px">组成</div>
+            主席、副主席若干人、委员若干人。
+            <div style="font-weight:600;margin:8px 0 6px">任期</div>
+            每届任期5年。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            领导全国武装力量。
+          </div>
+
+          <!-- 5. 监察机关 -->
+          <div class="sub">5. 监察机关</div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px">国家监察委员会（最高监察机关，2018年新增）</div>
+            <div style="font-weight:600;margin:8px 0 6px">组成</div>
+            主任、副主任若干人、委员若干人。
+            <div style="font-weight:600;margin:8px 0 6px">任期</div>
+            每届任期5年。主任连续任职不得超过两届。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            ① 对所有行使公权力的公职人员进行监察<br>
+            ② 调查职务违法和职务犯罪<br>
+            ③ 开展廉政建设和反腐败工作
+          </div>
+
+          <!-- 6. 审判机关 -->
+          <div class="sub">6. 审判机关（司法机关）</div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px">人民法院（审判机关）</div>
+            <div style="font-weight:600;margin:8px 0 6px">体系</div>
+            最高人民法院、地方各级人民法院、专门人民法院。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            审判刑事、民事、行政案件。
+            <div style="font-weight:600;margin:8px 0 6px">上下级关系</div>
+            上级监督下级。
+          </div>
+
+          <!-- 7. 法律监督机关 -->
+          <div class="sub">7. 法律监督机关（司法机关）</div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px">人民检察院（法律监督机关）</div>
+            <div style="font-weight:600;margin:8px 0 6px">体系</div>
+            最高人民检察院、地方各级人民检察院、专门人民检察院。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            ① 对于刑事案件提起公诉<br>
+            ② 对于诉讼活动实行法律监督
+            <div style="font-weight:600;margin:8px 0 6px">上下级关系</div>
+            上级领导下级。
+          </div>
+
+          <!-- 补充说明：什么是行政？什么是司法？ -->
+          <details class="plus-box" style="margin:12px 0;border-radius:0">
+            <summary style="background:var(--brand-soft)">补充：什么是行政？什么是司法？</summary>
+            <div class="plus-body">
+              <div><strong>行政机关</strong>：管日常管理的，比如国务院、省政府、市政府。就像<strong>物业</strong>，管小区的卫生、保安、维修。</div>
+              <div style="margin-top:6px"><strong>司法机关</strong>：管打官司的，比如法院、检察院。就像<strong>法官</strong>，管判案的，谁对谁错，谁该赔钱。</div>
+              <div style="margin-top:6px">举个例子：你闯红灯被罚款 → 这是<strong>行政</strong>（交警管的，日常管理）；你不服罚款，去法院告 → 这是<strong>司法</strong>（法院管的，判案）。</div>
+            </div>
+          </details>
+
+          <!-- 补充说明：机关之间的逻辑关系 -->
+          <details class="plus-box" style="margin:12px 0;border-radius:0">
+            <summary style="background:var(--brand-soft)">补充：这几个机关之间的逻辑关系</summary>
+            <div class="plus-body">
+              <div><strong>一句话总结</strong>：人大是"老板"，其他机关都是"员工"，由人大产生、对人大负责、受人大监督。</div>
+              <div style="margin-top:6px"><strong>详细说</strong>：</div>
+              <div style="margin-top:4px">1. <strong>人民</strong>选举人大代表 → 组成<strong>全国人大</strong>（最高权力机关）</div>
+              <div style="margin-top:4px">2. <strong>全国人大</strong>产生：国家主席、国务院、中央军委、国家监察委员会、最高人民法院、最高人民检察院</div>
+              <div style="margin-top:4px">3. 这些机关都<strong>对人大负责</strong>，<strong>受人大监督</strong></div>
+              <div style="margin-top:6px"><strong>打个比方</strong>：全国人大就像<strong>股东大会</strong>，是最高权力机构；国务院就像<strong>总经理</strong>，管日常经营；法院就像<strong>监事会</strong>，管判案；检察院就像<strong>纪检委</strong>，管监督。</div>
+              <div style="margin-top:6px"><strong>和西方的区别</strong>：西方是<strong>三权分立</strong>，立法、行政、司法互相制衡，谁也不服谁；我国是<strong>民主集中制</strong>，人大统一行使权力，其他机关分工负责，都听人大的。</div>
+            </div>
+          </details>
+
+        </div>
+      </details>
+
+      <!-- 模块四：宪法的"成长" -->
+      <details class="plus-box">
+        <summary><strong>模块四：宪法的"成长"</strong>（五次修正案）<span class="plus-tag">88</span><span class="plus-tag">93</span><span class="plus-tag">99</span><span class="plus-tag">04</span><span class="plus-tag">18</span></summary>
+        <div class="plus-body">
+          <div class="sub">1988年：私营 + 土地</div>
+          私营经济是社会主义公有制经济的补充；土地的使用权可以依法转让。
+
+          <div class="sub">1993年：初级阶段 + 市场</div>
+          我国正处于社会主义初级阶段；坚持改革开放；国家实行社会主义市场经济。
+
+          <div class="sub">1999年：邓论 + 法治</div>
+          邓小平理论入宪；实行依法治国，建设社会主义法治国家；公有制为主体、多种所有制共同发展。
+
+          <div class="sub">2004年：三个代表 + 人权</div>
+          三个代表重要思想入宪；国家尊重和保障人权；公民的合法的私有财产不受侵犯；国歌是《义勇军进行曲》。
+
+          <div class="sub">2018年：习思想 + 监察委</div>
+          习近平新时代中国特色社会主义思想入宪；中国共产党领导是最本质特征；国家监察委员会设立；取消国家主席连续任职不得超过两届。
+        </div>
+      </details>
+    </div>
+
+    <!-- ====== 民法章节 ====== -->
+    <div class="sec-block" id="sec-minfa" style="margin-top:40px">
+      <div class="sec-h"><h2>民法</h2><span class="years">1911—至今</span></div>
+
+      <h3 style="font-size:15px;font-weight:700;margin:16px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--divider)">民法谱系</h3>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">01</span><h3>大清民律草案（1911）</h3></div>
+          <div class="badges">
+            <span class="badge new">第一次尝试民法典</span>
+          </div>
+        </summary>
+        <div class="human">西方入侵，传统律法不够用，要变法图强。</div>
+        <div class="section-label new">新增</div>
+        <p><span class="em-new">第一次尝试编纂民法典</span>：引入"民事主体"、"法律行为"等概念。</p>
+        <div class="section-label old">废弃</div>
+        <p><span class="em-old">传统"诸法合体"</span>的律法形式。</p>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">民法典概念引入中国。</span></p>
+        <div class="exam-box">中国第一次尝试编纂民法典。常见设错：说成第一部正式民法典。</div>
+      </details>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">02</span><h3>中华民国民法（1929-1930）</h3></div>
+          <div class="badges">
+            <span class="badge new">第一部正式民法典</span>
+          </div>
+        </summary>
+        <div class="human">民国建立，需要正式民法。</div>
+        <div class="section-label new">新增</div>
+        <p><span class="em-new">中国第一部正式民法典</span>：完整的物权、债权、合同体系。</p>
+        <div class="section-label inherit">继承</div>
+        <p>大清民律草案的框架。</p>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">六法体系确立。</span></p>
+        <div class="exam-box">中国第一部正式民法典。常见设错：说成新中国第一部民法典。</div>
+      </details>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">03</span><h3>多次起草未成（1954-1982）</h3></div>
+          <div class="badges">
+            <span class="badge old">三次中断</span>
+          </div>
+        </summary>
+        <div class="human">新中国成立，废除旧法，要立新法。但政治运动不断，民法典起草三次都中断。</div>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">有立法经验，但没成法典。</span></p>
+      </details>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">04</span><h3>民法通则（1986）</h3></div>
+          <div class="badges">
+            <span class="badge new">第一部民事基本法</span>
+          </div>
+        </summary>
+        <div class="human">改革开放，经济搞活，需要民事规则。</div>
+        <div class="section-label new">新增</div>
+        <p><span class="em-new">第一部民事基本法</span>（不是完整民法典，是"迷你版"）：<br>
+        民事主体（自然人、法人）、民事法律行为、诉讼时效。</p>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">民事法律制度框架建立。</span></p>
+        <div class="exam-box">第一部民事基本法（不是民法典）。常见设错：说成第一部民法典。</div>
+      </details>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">05</span><h3>单行法阶段（1999-2017）</h3></div>
+          <div class="badges">
+            <span class="badge new">合同法</span>
+            <span class="badge new">物权法</span>
+            <span class="badge new">民法总则</span>
+          </div>
+        </summary>
+        <div class="human">市场经济发展，需要更细的规则。</div>
+        <div class="section-label new">新增</div>
+        <p><span class="em-new">1999年：合同法</span>——合同的订立、效力、履行、违约责任。<br>
+        <span class="em-new">2007年：物权法</span>——所有权、用益物权、担保物权、物权法定原则。<br>
+        <span class="em-new">2017年：民法总则</span>——总则编（民事主体、法律行为、代理、诉讼时效）。</p>
+        <div class="section-label inherit">继承</div>
+        <p>民法通则的基本原则。</p>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">民法典各编逐步成熟。</span></p>
+      </details>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">06</span><h3>民法典（2020通过，2021实施）</h3></div>
+          <div class="badges">
+            <span class="badge new">新中国第一部民法典</span>
+            <span class="badge new">人格权独立成编</span>
+          </div>
+        </summary>
+        <div class="human">全面依法治国，需要一部完整的民法典。</div>
+        <div class="section-label new">新增</div>
+        <p><span class="em-new">新中国第一部正式民法典</span>：<br>
+        <span class="em-new">人格权编</span>（独立成编，世界首创）。<br>
+        结构：总则 + 物权 + 合同 + 人格权 + 婚姻家庭 + 继承 + 侵权责任（七编）。</p>
+        <div class="section-label inherit">继承</div>
+        <p>之前的单行法（合同法、物权法、民法总则）。</p>
+        <div class="section-label old">废弃</div>
+        <p><span class="em-old">民法通则、合同法、物权法等单行法</span>（被民法典吸收取代）。</p>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">中国民法典正式诞生。</span></p>
+        <div class="exam-box">新中国第一部正式民法典；人格权编独立成编是中国首创。</div>
+      </details>
+
+      <!-- ====== 民法具体知识点 ====== -->
+      <div id="sec-minfa-detail" style="margin-top:24px;padding-top:20px;border-top:2px solid var(--divider)">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">民法具体知识点（结构化拆解）</h3>
+
+        <!-- 民法的本质 -->
+        <div style="background:#f5f5f0;border:1px solid #e8e8e0;padding:14px;margin-bottom:16px;border-radius:8px">
+          <div style="font-weight:700;margin-bottom:8px;color:var(--t1)">民法的本质</div>
+          <div>通过规范行为，来调整<strong>平等主体</strong>之间的<strong>人身关系</strong>和<strong>财产关系</strong>的法律规范。</div>
+          <div style="margin-top:10px;font-size:13px;color:var(--t2)">
+            <div><strong>人身关系</strong>：跟人本身有关的，不是钱的事。比如：姓名权、肖像权、名誉权、婚姻、继承。</div>
+            <div style="margin-top:4px"><strong>财产关系</strong>：跟钱有关的。比如：买卖、租赁、借贷、侵权赔偿。</div>
+          </div>
+        </div>
+
+        <!-- 第一组：资格与行为 -->
+        <div style="font-weight:700;font-size:14px;color:var(--t1);margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--divider)">第一组：资格与行为（考点一、二）</div>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点一：民事主体</strong><span class="plus-tag">自然人</span><span class="plus-tag">法人</span><span class="plus-tag">非法人组织</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 自然人（1986年民法通则确立）</div>
+            民事权利能力：始于出生，终于死亡。<br>
+            民事行为能力：<br>
+            - 完全：18周岁以上；16周岁以上以自己劳动收入为主要生活来源。<br>
+            - 限制：8周岁以上的未成年人；不能完全辨认自己行为的成年人。<br>
+            - 无：不满8周岁；不能辨认自己行为的成年人。
+
+            <div class="sub">2. 法人（1986年民法通则确立）</div>
+            具有民事权利能力和民事行为能力，依法独立享有民事权利和承担民事义务的组织。<br>
+            分类：营利法人（公司）、非营利法人（事业单位、社会团体）、特别法人（机关、农村集体经济组织）。
+
+            <div class="sub">3. 非法人组织（2017年民法总则新增）</div>
+            不具有法人资格，但可以自己的名义从事民事活动的组织。<br>
+            比如：个人独资企业、合伙企业、不具有法人资格的专业服务机构。
+
+            <!-- 补充说明：为什么要区分三个民事主体 -->
+            <details class="plus-box" style="margin:12px 0;border-radius:0">
+              <summary style="background:var(--brand-soft)">补充：为什么要区分这三个民事主体？</summary>
+              <div class="plus-body">
+                <div>法律将社会上的人和组织抽象为三种"个体"——自然人（一个人）、法人（公司等机构抽象成的个体）、非法人组织（几个人合伙抽象成的个体）。这样做的目的，是为了消除模糊性，提升法律的明确性：明确谁能享有权利、谁能承担义务、出事了找谁负责。把复杂的社会关系简化成三种清晰的法律主体，法律才能有效运行。</div>
+              </div>
+            </details>
+
+            <!-- 思维提升：三个主体，谁负责？ -->
+            <details class="plus-box" style="margin:12px 0;border-radius:0">
+              <summary style="background:var(--brand-soft)">思维提升：三个主体，谁负责？</summary>
+              <div class="plus-body">
+                <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+                  <thead>
+                    <tr style="background:var(--bg-alt)">
+                      <th style="border:1px solid var(--divider);padding:6px;text-align:left">主体</th>
+                      <th style="border:1px solid var(--divider);padding:6px;text-align:left">谁签合同</th>
+                      <th style="border:1px solid var(--divider);padding:6px;text-align:left">出事谁负责</th>
+                      <th style="border:1px solid var(--divider);padding:6px;text-align:left">责任范围</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="border:1px solid var(--divider);padding:6px">自然人</td>
+                      <td style="border:1px solid var(--divider);padding:6px">一个人</td>
+                      <td style="border:1px solid var(--divider);padding:6px">这个人</td>
+                      <td style="border:1px solid var(--divider);padding:6px">无限责任——他有多少赔多少</td>
+                    </tr>
+                    <tr>
+                      <td style="border:1px solid var(--divider);padding:6px">法人</td>
+                      <td style="border:1px solid var(--divider);padding:6px">公司</td>
+                      <td style="border:1px solid var(--divider);padding:6px">公司</td>
+                      <td style="border:1px solid var(--divider);padding:6px">有限责任——只赔公司的钱，老板不掏钱</td>
+                    </tr>
+                    <tr>
+                      <td style="border:1px solid var(--divider);padding:6px">非法人组织</td>
+                      <td style="border:1px solid var(--divider);padding:6px">合伙企业</td>
+                      <td style="border:1px solid var(--divider);padding:6px">合伙人</td>
+                      <td style="border:1px solid var(--divider);padding:6px">无限责任——大家一起赔，谁也跑不掉</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div>这个设计很妙：如果你想保护自己的个人财产，就开公司（有限责任）；如果你想大家一起干、风险共担，就搞合伙（无限责任）；一个人单干，就自己负责。</div>
+                <div style="margin-top:4px">法律给你三种选择，你想承担多大风险，就选哪种方式。</div>
+              </div>
+            </details>
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点二：民事法律行为</strong><span class="plus-tag">有效</span><span class="plus-tag">无效</span><span class="plus-tag">可撤销</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 有效民事法律行为</div>
+            条件：行为人具有相应的民事行为能力；意思表示真实；不违反法律、行政法规的强制性规定，不违背公序良俗。
+
+            <div class="sub">2. 无效民事法律行为</div>
+            情形：<br>
+            - 无民事行为能力人实施的。<br>
+            - 行为人与相对人以虚假的意思表示实施的。<br>
+            - 违反法律、行政法规的强制性规定的。<br>
+            - 违背公序良俗的。<br>
+            - 行为人与相对人恶意串通，损害他人合法权益的。
+
+            <div class="sub">3. 可撤销民事法律行为</div>
+            情形：<br>
+            - 基于重大误解实施的。<br>
+            - 一方以欺诈手段，使对方在违背真实意思的情况下实施的。<br>
+            - 第三人实施欺诈行为，使一方在违背真实意思的情况下实施的，对方知道或者应当知道该欺诈行为的。<br>
+            - 一方或者第三人以胁迫手段，使对方在违背真实意思的情况下实施的。<br>
+            - 一方利用对方处于危困状态、缺乏判断能力等情形，致使民事法律行为成立时显失公平的。
+          </div>
+        </details>
+
+        <!-- 第二组：财产关系 -->
+        <div style="font-weight:700;font-size:14px;color:var(--t1);margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--divider)">第二组：财产关系（考点三至十）</div>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点三：物权</strong><span class="plus-tag">所有权</span><span class="plus-tag">用益物权</span><span class="plus-tag">担保物权</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 物权法定原则（2007年物权法确立）</div>
+            物权的种类和内容，由法律规定。
+
+            <div class="sub">2. 物权的分类</div>
+            - 所有权（自物权）：对自己的物享有占有、使用、收益、处分的权利。<br>
+            - 用益物权（他物权）：对他人所有的不动产或者动产，依法享有占有、使用、收益的权利。<br>
+            - 担保物权（他物权）：以担保债务履行为目的，在债务人或第三人的特定财产上设立的物权。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点四：所有权</strong><span class="plus-tag">国家所有</span><span class="plus-tag">集体所有</span><span class="plus-tag">私人所有</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 国家所有权</div>
+            矿藏、水流、海域属于国家所有。<br>
+            城市的土地，属于国家所有。
+
+            <div class="sub">2. 集体所有权</div>
+            法律规定属于集体所有的土地和森林、山岭、草原、荒地、滩涂。<br>
+            农村和城市郊区的土地，除由法律规定属于国家所有的以外，属于集体所有。
+
+            <div class="sub">3. 私人所有权</div>
+            私人对其合法的收入、房屋、生活用品、生产工具、原材料等不动产和动产享有所有权。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点五：用益物权</strong><span class="plus-tag">土地承包经营权</span><span class="plus-tag">建设用地使用权</span><span class="plus-tag">宅基地使用权</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 土地承包经营权</div>
+            农村集体经济组织成员有权依法承包由本集体经济组织发包的农村土地。
+
+            <div class="sub">2. 建设用地使用权</div>
+            建设用地使用权人依法对国家所有的土地享有占有、使用和收益的权利，有权利用该土地建造建筑物、构筑物及其附属设施。
+
+            <div class="sub">3. 宅基地使用权</div>
+            宅基地使用权人依法对集体所有的土地享有占有和使用的权利，有权依法利用该土地建造住宅及其附属设施。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点六：担保物权</strong><span class="plus-tag">抵押权</span><span class="plus-tag">质权</span><span class="plus-tag">留置权</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 抵押权</div>
+            为担保债务的履行，债务人或者第三人不转移财产的占有，将该财产抵押给债权人的，债务人不履行到期债务或者发生当事人约定的实现抵押权的情形，债权人有权就该财产优先受偿。
+
+            <div class="sub">2. 质权</div>
+            为担保债务的履行，债务人或者第三人将其动产出质给债权人占有的，债务人不履行到期债务或者发生当事人约定的实现质权的情形，债权人有权就该动产优先受偿。
+
+            <div class="sub">3. 留置权</div>
+            债务人不履行到期债务，债权人可以留置已经合法占有的债务人的动产，并有权就该动产优先受偿。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点七：债权</strong><span class="plus-tag">合同之债</span><span class="plus-tag">侵权之债</span><span class="plus-tag">无因管理</span><span class="plus-tag">不当得利</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 合同之债</div>
+            基于合同产生的债权债务关系。
+
+            <div class="sub">2. 侵权之债</div>
+            因侵权行为产生的债权债务关系。
+
+            <div class="sub">3. 无因管理</div>
+            没有法定的或者约定的义务，为避免他人利益受损失而进行管理的人，有权请求受益人偿还由此支出的必要费用。
+
+            <div class="sub">4. 不当得利</div>
+            得利人没有法律根据取得不当利益的，受损失的人可以请求得利人返还取得的利益。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点八：合同的订立及其效力</strong><span class="plus-tag">要约</span><span class="plus-tag">承诺</span><span class="plus-tag">成立</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 要约</div>
+            要约是希望与他人订立合同的意思表示，该意思表示应当符合下列条件：<br>
+            - 内容具体确定；<br>
+            - 表明经受要约人承诺，要约人即受该意思表示约束。
+
+            <div class="sub">2. 承诺</div>
+            承诺是受要约人同意要约的意思表示。
+
+            <div class="sub">3. 合同成立时间</div>
+            承诺生效时合同成立，但是法律另有规定或者当事人另有约定的除外。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点九：合同的履行</strong><span class="plus-tag">全面履行</span><span class="plus-tag">诚信原则</span><span class="plus-tag">情势变更</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 全面履行原则</div>
+            当事人应当按照约定全面履行自己的义务。
+
+            <div class="sub">2. 诚信原则</div>
+            当事人应当遵循诚信原则，根据合同的性质、目的和交易习惯履行通知、协助、保密等义务。
+
+            <div class="sub">3. 情势变更</div>
+            合同成立后，合同的基础条件发生了当事人在订立合同时无法预见的、不属于商业风险的重大变化，继续履行合同对于当事人一方明显不公平的，受不利影响的当事人可以与对方重新协商；在合理期限内协商不成的，当事人可以请求人民法院或者仲裁机构变更或者解除合同。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点十：重点合同</strong><span class="plus-tag">买卖合同</span><span class="plus-tag">借款合同</span><span class="plus-tag">租赁合同</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 买卖合同</div>
+            出卖人转移标的物的所有权于买受人，买受人支付价款的合同。
+
+            <div class="sub">2. 借款合同</div>
+            借款人向贷款人借款，到期返还借款并支付利息的合同。
+
+            <div class="sub">3. 租赁合同</div>
+            出租人将租赁物交付承租人使用、收益，承租人支付租金的合同。<br>
+            租赁期限不得超过二十年。超过二十年的，超过部分无效。
+          </div>
+        </details>
+
+        <!-- 第三组：人身关系（预留） -->
+        <div style="font-weight:700;font-size:14px;color:var(--t1);margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--divider)">第三组：人身关系（预留，待补充）</div>
+        <div style="font-size:13px;color:var(--t2);margin-bottom:12px;padding-left:12px">
+          <div>• 婚姻家庭（结婚、离婚、夫妻财产、抚养赡养）</div>
+          <div style="margin-top:4px">• 继承（法定继承、遗嘱继承、遗赠）</div>
+          <div style="margin-top:4px">• 人格权（姓名权、肖像权、名誉权、隐私权）</div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ====== 刑法章节 ====== -->
+    <div class="sec-block" id="sec-xingfa" style="margin-top:40px">
+      <div class="sec-h"><h2>刑法</h2><span class="years">1979—至今</span></div>
+
+      <h3 style="font-size:15px;font-weight:700;margin:16px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--divider)">刑法谱系</h3>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">01</span><h3>刑法（1979）</h3></div>
+          <div class="badges">
+            <span class="badge new">第一部刑法</span>
+          </div>
+        </summary>
+        <div class="human">新中国成立30年，终于有了第一部正式刑法。</div>
+        <div class="section-label new">新增</div>
+        <p><span class="em-new">第一部刑法典</span>：确立罪刑法定、法律面前人人平等、罪刑相适应三大原则。</p>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">刑事法律制度框架建立。</span></p>
+        <div class="exam-box">新中国第一部刑法典。常见设错：说成1997年刑法。</div>
+      </details>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">02</span><h3>修订刑法（1997）</h3></div>
+          <div class="badges">
+            <span class="badge new">现行刑法</span>
+            <span class="badge new">罪刑法定原则明确</span>
+          </div>
+        </summary>
+        <div class="human">改革开放后经济犯罪增多，需要修订刑法。</div>
+        <div class="section-label new">新增</div>
+        <p><span class="em-new">现行刑法典</span>：明确罪刑法定原则（废除类推制度）；完善社会主义市场经济犯罪。</p>
+        <div class="section-label old">废弃</div>
+        <p><span class="em-old">类推制度</span>（1979年刑法有，1997年废除）。</p>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">现行刑法典；之后通过11个修正案不断完善。</span></p>
+        <div class="exam-box">现行刑法是1997年修订的。常见设错：说成1979年刑法。</div>
+      </details>
+
+      <!-- ====== 刑法具体知识点 ====== -->
+      <div id="sec-xingfa-detail" style="margin-top:24px;padding-top:20px;border-top:2px solid var(--divider)">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">刑法具体知识点（结构化拆解）</h3>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点一：刑法总则</strong><span class="plus-tag">犯罪构成</span><span class="plus-tag">犯罪形态</span><span class="plus-tag">刑罚</span></summary>
+          <div class="plus-body">
+
+            <!-- 第一组：刑法基础 -->
+            <div style="font-weight:700;font-size:14px;color:var(--t1);margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--divider)">第一组：刑法基础</div>
+
+            <details style="margin:8px 0">
+              <summary style="cursor:pointer;font-weight:600;color:var(--t1);user-select:none">刑法是什么</summary>
+              <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2)">
+                规定什么行为是犯罪，以及犯罪了要受什么刑罚的法律。
+              </div>
+            </details>
+
+            <details style="margin:8px 0">
+              <summary style="cursor:pointer;font-weight:600;color:var(--t1);user-select:none">基本原则（1979年确立，1997年明确）</summary>
+              <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2)">
+                - 罪刑法定：法无明文规定不为罪，法无明文规定不处罚。<br>
+                - 法律面前人人平等：对任何人犯罪，在适用法律上一律平等。<br>
+                - 罪刑相适应：刑罚的轻重，应当与犯罪分子所犯罪行和承担的刑事责任相适应。
+              </div>
+            </details>
+
+            <!-- 第二组：犯罪论 -->
+            <div style="font-weight:700;font-size:14px;color:var(--t1);margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--divider)">第二组：犯罪论（什么是犯罪）</div>
+
+            <details style="margin:8px 0">
+              <summary style="cursor:pointer;font-weight:600;color:var(--t1);user-select:none">犯罪构成（四个部分）</summary>
+              <div style="padding:8px 0 0 12px">
+
+                <details style="margin:8px 0">
+                  <summary style="cursor:pointer;font-weight:600;color:var(--t1);user-select:none">主体（谁犯罪）</summary>
+                  <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2)">
+                    实施危害社会的行为、依法应当负刑事责任的自然人或单位。
+                    <div style="margin-top:6px"><strong>一句话记住</strong>：不是谁犯罪都要坐牢的，得满足两个条件——<strong>到年龄了</strong> + <strong>脑子清楚</strong>。</div>
+
+                    <div style="margin-top:10px"><strong>刑事责任年龄（多大年龄要坐牢？）：</strong></div>
+                    <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+                      <thead>
+                        <tr style="background:var(--bg-alt)">
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">年龄</th>
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">要负什么责任</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">不满12周岁</td>
+                          <td style="border:1px solid var(--divider);padding:6px">完全不负刑事责任，杀人都不用坐牢</td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">12-14周岁</td>
+                          <td style="border:1px solid var(--divider);padding:6px">只对两种罪负责：故意杀人、故意伤害致人重伤/死亡，而且要最高检核准才追诉</td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">14-16周岁</td>
+                          <td style="border:1px solid var(--divider);padding:6px">对8种罪负责：烧杀淫掠、伤贩爆投（放火、故意杀人、强奸、抢劫、故意伤害致人重伤死亡、贩卖毒品、爆炸、投放危险物质）</td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">16周岁以上</td>
+                          <td style="border:1px solid var(--divider);padding:6px">完全负刑事责任，犯什么罪都要负责</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <div style="margin-top:8px"><strong>刑事责任能力（脑子清楚吗？）：</strong></div>
+                    <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+                      <thead>
+                        <tr style="background:var(--bg-alt)">
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">精神状态</th>
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">要负什么责任</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">精神正常的人</td>
+                          <td style="border:1px solid var(--divider);padding:6px">完全负责</td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">间歇性精神病人</td>
+                          <td style="border:1px solid var(--divider);padding:6px">发病时犯罪不负责，正常时犯罪要负责</td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">半疯半傻的人</td>
+                          <td style="border:1px solid var(--divider);padding:6px">可以从轻或减轻处罚</td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">完全疯了的人</td>
+                          <td style="border:1px solid var(--divider);padding:6px">不负刑事责任，但要强制医疗</td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">醉酒的人</td>
+                          <td style="border:1px solid var(--divider);padding:6px">要负责！不能说"我喝多了不知道"</td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">又聋又哑的人/盲人</td>
+                          <td style="border:1px solid var(--divider);padding:6px">可以从轻、减轻或免除处罚</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <details class="plus-box" style="margin:12px 0;border-radius:0">
+                      <summary style="background:var(--brand-soft)">补充：为什么这样规定刑事责任年龄？</summary>
+                      <div class="plus-body">
+                        <div><strong>为什么12-14岁只有杀和伤？</strong>因为年龄太小，只对最严重、最能理解后果的行为负责。</div>
+                        <div style="margin-top:6px"><strong>为什么14-16岁是那8种？</strong>因为这8种都是最严重、最常见、最能理解后果的暴力犯罪。</div>
+                      </div>
+                    </details>
+
+                    <div style="margin-top:10px"><strong>单位犯罪主体（公司犯罪）：</strong></div>
+                    <div style="margin-top:4px">单位包括：公司、企业、事业单位、机关、团体。</div>
+
+                    <details class="plus-box" style="margin:12px 0;border-radius:0">
+                      <summary style="background:var(--brand-soft)">补充：单位犯罪怎么罚？</summary>
+                      <div class="plus-body">
+                        <div>• 罚公司（罚金）</div>
+                        <div style="margin-top:4px">• 罚人（老板、直接责任人要坐牢）</div>
+                        <div style="margin-top:6px">一句话：单位犯罪，既罚钱也罚人。</div>
+                      </div>
+                    </details>
+                  </div>
+                </details>
+
+                <details style="margin:8px 0">
+                  <summary style="cursor:pointer;font-weight:600;color:var(--t1);user-select:none">对象（犯罪对象）</summary>
+                  <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2)">
+                    <div><strong>什么是犯罪对象？</strong>犯罪行为直接作用的人或物。</div>
+
+                    <div style="margin-top:8px"><strong>犯罪对象 vs 犯罪客体（区别）：</strong></div>
+                    <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+                      <thead>
+                        <tr style="background:var(--bg-alt)">
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">对比项</th>
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">犯罪对象</th>
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">犯罪客体</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">是什么</td>
+                          <td style="border:1px solid var(--divider);padding:6px">具体的人或物</td>
+                          <td style="border:1px solid var(--divider);padding:6px">抽象的社会关系</td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">举例</td>
+                          <td style="border:1px solid var(--divider);padding:6px">张三、手机、钱包</td>
+                          <td style="border:1px solid var(--divider);padding:6px">生命权、财产权</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <div style="margin-top:8px"><strong>举例：</strong></div>
+                    <div style="margin-top:4px">• 故意杀人罪：对象=人，客体=生命权</div>
+                    <div style="margin-top:4px">• 盗窃罪：对象=财物，客体=财产权</div>
+                    <div style="margin-top:4px">• 强奸罪：对象=妇女，客体=性自主权</div>
+
+                    <details class="plus-box" style="margin:12px 0;border-radius:0">
+                      <summary style="background:var(--brand-soft)">补充：考法提醒</summary>
+                      <div class="plus-body">
+                        <div>考试最爱考：区分对象和客体，别搞混了。</div>
+                        <div style="margin-top:4px"><strong>一句话记住</strong>：对象是具体的（谁/什么东西），客体是抽象的（什么权利）。</div>
+                      </div>
+                    </details>
+                  </div>
+                </details>
+
+                <details style="margin:8px 0">
+                  <summary style="cursor:pointer;font-weight:600;color:var(--t1);user-select:none">动机（主观客观）</summary>
+                  <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2)">
+                    <div><strong>什么是犯罪主观方面？</strong>犯罪时的心理状态——你是故意的还是过失的。</div>
+
+                    <div style="margin-top:8px"><strong>1. 故意（明知故犯）</strong></div>
+                    <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+                      <thead>
+                        <tr style="background:var(--bg-alt)">
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">类型</th>
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">是什么</th>
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">举例</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">直接故意</td>
+                          <td style="border:1px solid var(--divider);padding:6px">明知会发生，还希望它发生</td>
+                          <td style="border:1px solid var(--divider);padding:6px">我就想杀他，一刀捅死</td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">间接故意</td>
+                          <td style="border:1px solid var(--divider);padding:6px">明知会发生，放任它发生</td>
+                          <td style="border:1px solid var(--divider);padding:6px">我往人群里扔炸弹，知道会炸死人，但我不管</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <div style="margin-top:8px"><strong>2. 过失（不小心）</strong></div>
+                    <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+                      <thead>
+                        <tr style="background:var(--bg-alt)">
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">类型</th>
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">是什么</th>
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">举例</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">疏忽大意的过失</td>
+                          <td style="border:1px solid var(--divider);padding:6px">应该预见，但没预见</td>
+                          <td style="border:1px solid var(--divider);padding:6px">我忘了检查刹车，结果撞死人了</td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">过于自信的过失</td>
+                          <td style="border:1px solid var(--divider);padding:6px">已经预见，但轻信能避免</td>
+                          <td style="border:1px solid var(--divider);padding:6px">我觉得我车技好，酒驾不会出事，结果撞死人了</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <details class="plus-box" style="margin:12px 0;border-radius:0">
+                      <summary style="background:var(--brand-soft)">补充：故意 vs 过失怎么区分？</summary>
+                      <div class="plus-body">
+                        <div><strong>一句话记住</strong>：故意是"我就想让它发生"，过失是"我没想到/我觉得不会发生"。</div>
+                        <div style="margin-top:6px"><strong>故意</strong>：明知会发生，还希望或放任它发生。</div>
+                        <div style="margin-top:4px"><strong>过失</strong>：应该想到但没想到，或者想到了但觉得不会发生。</div>
+                      </div>
+                    </details>
+                  </div>
+                </details>
+
+                <details style="margin:8px 0">
+                  <summary style="cursor:pointer;font-weight:600;color:var(--t1);user-select:none">行为（做了什么）</summary>
+                  <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2)">
+                    <div><strong>什么是犯罪客观方面？</strong>你具体做了什么——危害行为、危害结果、因果关系。</div>
+
+                    <div style="margin-top:8px"><strong>1. 危害行为（两种）</strong></div>
+                    <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+                      <thead>
+                        <tr style="background:var(--bg-alt)">
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">类型</th>
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">是什么</th>
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">举例</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">作为</td>
+                          <td style="border:1px solid var(--divider);padding:6px">主动去做法律禁止的事</td>
+                          <td style="border:1px solid var(--divider);padding:6px">拿刀杀人、偷东西</td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">不作为</td>
+                          <td style="border:1px solid var(--divider);padding:6px">该做的事不去做</td>
+                          <td style="border:1px solid var(--divider);padding:6px">父母不养孩子、警察不出警</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <div style="margin-top:8px"><strong>2. 危害结果</strong></div>
+                    <div style="margin-top:4px">犯罪行为造成的后果——人受伤了、财产损失了、社会秩序乱了。</div>
+
+                    <div style="margin-top:8px"><strong>3. 因果关系</strong></div>
+                    <div style="margin-top:4px">你的行为和结果之间有没有关系——是不是你造成的？</div>
+                    <div style="margin-top:4px">比如：你把人打伤了，他去医院路上被车撞了，那你只对打伤负责，不对被车撞负责。</div>
+
+                    <details class="plus-box" style="margin:12px 0;border-radius:0">
+                      <summary style="background:var(--brand-soft)">补充：不作为犯罪的条件</summary>
+                      <div class="plus-body">
+                        <div><strong>一句话记住</strong>：不作为犯罪，得有"该做的义务"。</div>
+                        <div style="margin-top:6px"><strong>义务来源：</strong></div>
+                        <div style="margin-top:4px">• 法律规定（父母养孩子）</div>
+                        <div style="margin-top:4px">• 职务要求（警察出警）</div>
+                        <div style="margin-top:4px">• 先前行为（你把人带河边，你就得保证他安全）</div>
+                      </div>
+                    </details>
+                  </div>
+                </details>
+
+              </div>
+            </details>
+
+            <details style="margin:8px 0">
+              <summary style="cursor:pointer;font-weight:600;color:var(--t1);user-select:none">犯罪形态（一个人犯罪的不同阶段）</summary>
+              <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2)">
+              <div><strong>一句话记住</strong>：犯罪发展到哪个阶段，处罚就不一样。</div>
+              
+              <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+                <thead>
+                  <tr style="background:var(--bg-alt)">
+                    <th style="border:1px solid var(--divider);padding:6px;text-align:left">形态</th>
+                    <th style="border:1px solid var(--divider);padding:6px;text-align:left">是什么</th>
+                    <th style="border:1px solid var(--divider);padding:6px;text-align:left">怎么罚</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="border:1px solid var(--divider);padding:6px">犯罪预备</td>
+                    <td style="border:1px solid var(--divider);padding:6px">准备工具、制造条件，但还没开始干</td>
+                    <td style="border:1px solid var(--divider);padding:6px">可以比照既遂犯从轻、减轻或免除处罚</td>
+                  </tr>
+                  <tr>
+                    <td style="border:1px solid var(--divider);padding:6px">犯罪未遂</td>
+                    <td style="border:1px solid var(--divider);padding:6px">已经开始干了，但没成功（意志以外的原因）</td>
+                    <td style="border:1px solid var(--divider);padding:6px">可以比照既遂犯从轻或减轻处罚</td>
+                  </tr>
+                  <tr>
+                    <td style="border:1px solid var(--divider);padding:6px">犯罪中止</td>
+                    <td style="border:1px solid var(--divider);padding:6px">已经开始干了，但自己主动停下来了</td>
+                    <td style="border:1px solid var(--divider);padding:6px">没有造成损害的，免除处罚；造成损害的，减轻处罚</td>
+                  </tr>
+                  <tr>
+                    <td style="border:1px solid var(--divider);padding:6px">犯罪既遂</td>
+                    <td style="border:1px solid var(--divider);padding:6px">已经干完了，成功了</td>
+                    <td style="border:1px solid var(--divider);padding:6px">按法律规定正常处罚</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <details class="plus-box" style="margin:12px 0;border-radius:0">
+                <summary style="background:var(--brand-soft)">补充：未遂 vs 中止怎么区分？</summary>
+                <div class="plus-body">
+                  <div><strong>一句话记住</strong>：未遂是"想干干不成"，中止是"能干但不干了"。</div>
+                  <div style="margin-top:6px"><strong>未遂</strong>：意志以外的原因——被人发现了、刀断了、跑了。</div>
+                  <div style="margin-top:4px"><strong>中止</strong>：自己主动放弃——良心发现、害怕了、可怜受害者。</div>
+                  <div style="margin-top:6px"><strong>为什么中止处罚轻？</strong>因为法律鼓励你"回头是岸"，主动停下来的，处罚就轻。</div>
+                </div>
+              </details>
+            </div>
+            </details>
+
+            <details style="margin:8px 0">
+              <summary style="cursor:pointer;font-weight:600;color:var(--t1);user-select:none">免责事由（为什么不处罚）</summary>
+              <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2)">
+              <div><strong>一句话记住</strong>：有些情况虽然看起来像犯罪，但法律不处罚你。</div>
+              
+              <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+                <thead>
+                  <tr style="background:var(--bg-alt)">
+                    <th style="border:1px solid var(--divider);padding:6px;text-align:left">事由</th>
+                    <th style="border:1px solid var(--divider);padding:6px;text-align:left">是什么</th>
+                    <th style="border:1px solid var(--divider);padding:6px;text-align:left">举例</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="border:1px solid var(--divider);padding:6px">意外事件</td>
+                    <td style="border:1px solid var(--divider);padding:6px">根本不可能预见，结果发生了</td>
+                    <td style="border:1px solid var(--divider);padding:6px">你正常开车，行人突然冲出来，你刹不住撞了他</td>
+                  </tr>
+                  <tr>
+                    <td style="border:1px solid var(--divider);padding:6px">正当防卫</td>
+                    <td style="border:1px solid var(--divider);padding:6px">别人正在侵害你，你反击保护自己</td>
+                    <td style="border:1px solid var(--divider);padding:6px">有人拿刀砍你，你夺刀把他打伤了</td>
+                  </tr>
+                  <tr>
+                    <td style="border:1px solid var(--divider);padding:6px">紧急避险</td>
+                    <td style="border:1px solid var(--divider);padding:6px">为了保护更大的利益，不得已损害小利益</td>
+                    <td style="border:1px solid var(--divider);padding:6px">为了躲失控的车，你撞了路边的小摊</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <details class="plus-box" style="margin:12px 0;border-radius:0">
+                <summary style="background:var(--brand-soft)">补充：正当防卫的条件</summary>
+                <div class="plus-body">
+                  <div><strong>一句话记住</strong>：正当防卫得是"正对不正"，你是对的，他是错的。</div>
+                  <div style="margin-top:6px"><strong>条件：</strong></div>
+                  <div style="margin-top:4px">• 起因：有真实的不法侵害</div>
+                  <div style="margin-top:4px">• 时间：侵害正在进行（不能事后报仇）</div>
+                  <div style="margin-top:4px">• 对象：只能针对侵害人本人</div>
+                  <div style="margin-top:4px">• 限度：不能超过必要限度（不然就是防卫过当）</div>
+                  <div style="margin-top:6px"><strong>特殊防卫（无限防卫）</strong>：对正在进行的行凶、杀人、抢劫、强奸、绑架等严重暴力犯罪，造成侵害人伤亡的，不算防卫过当，不负刑事责任。</div>
+                </div>
+              </details>
+
+              <details class="plus-box" style="margin:12px 0;border-radius:0">
+                <summary style="background:var(--brand-soft)">补充：正当防卫 vs 紧急避险</summary>
+                <div class="plus-body">
+                  <div><strong>一句话记住</strong>：正当防卫是"打坏人"，紧急避险是"损小保大"。</div>
+                  <div style="margin-top:6px"><strong>正当防卫</strong>：对不法侵害人本人，正对不正。</div>
+                  <div style="margin-top:4px"><strong>紧急避险</strong>：对无辜的第三人，为了保护大利益损害小利益。</div>
+                </div>
+              </details>
+            </div>
+            </details>
+
+            <details style="margin:8px 0">
+              <summary style="cursor:pointer;font-weight:600;color:var(--t1);user-select:none">共同犯罪（几个人一起犯罪）</summary>
+              <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2)">
+              <div><strong>什么是共同犯罪？</strong>两个人以上共同故意犯罪。</div>
+              
+              <div style="margin-top:8px"><strong>共同犯罪的条件：</strong></div>
+              <div style="margin-top:4px">• 人数：2人以上</div>
+              <div style="margin-top:4px">• 主观：共同故意（都知道在犯罪，都想干）</div>
+              <div style="margin-top:4px">• 客观：共同行为（都参与了）</div>
+
+              <div style="margin-top:8px"><strong>共同犯罪人的分类：</strong></div>
+              <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+                <thead>
+                  <tr style="background:var(--bg-alt)">
+                    <th style="border:1px solid var(--divider);padding:6px;text-align:left">类型</th>
+                    <th style="border:1px solid var(--divider);padding:6px;text-align:left">是什么</th>
+                    <th style="border:1px solid var(--divider);padding:6px;text-align:left">怎么罚</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="border:1px solid var(--divider);padding:6px">主犯</td>
+                    <td style="border:1px solid var(--divider);padding:6px">组织、领导犯罪的，或者主要作用的</td>
+                    <td style="border:1px solid var(--divider);padding:6px">按他参与的或组织、指挥的全部犯罪处罚</td>
+                  </tr>
+                  <tr>
+                    <td style="border:1px solid var(--divider);padding:6px">从犯</td>
+                    <td style="border:1px solid var(--divider);padding:6px">起次要或辅助作用的</td>
+                    <td style="border:1px solid var(--divider);padding:6px">从轻、减轻或免除处罚</td>
+                  </tr>
+                  <tr>
+                    <td style="border:1px solid var(--divider);padding:6px">胁从犯</td>
+                    <td style="border:1px solid var(--divider);padding:6px">被胁迫参加犯罪的</td>
+                    <td style="border:1px solid var(--divider);padding:6px">按照他的犯罪情节减轻或免除处罚</td>
+                  </tr>
+                  <tr>
+                    <td style="border:1px solid var(--divider);padding:6px">教唆犯</td>
+                    <td style="border:1px solid var(--divider);padding:6px">教唆别人犯罪的</td>
+                    <td style="border:1px solid var(--divider);padding:6px">按他在共同犯罪中所起的作用处罚</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <details class="plus-box" style="margin:12px 0;border-radius:0">
+                <summary style="background:var(--brand-soft)">补充：共同犯罪怎么记？</summary>
+                <div class="plus-body">
+                  <div><strong>一句话记住</strong>：主犯是老大，从犯是小弟，胁从犯是被逼的，教唆犯是挑事的。</div>
+                  <div style="margin-top:6px"><strong>处罚轻重</strong>：主犯最重，从犯轻，胁从犯更轻，教唆犯看作用。</div>
+                </div>
+              </details>
+            </div>
+            </details>
+
+            <!-- 第三组：刑罚论 -->
+            <div style="font-weight:700;font-size:14px;color:var(--t1);margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--divider)">第三组：刑罚论（犯罪了怎么罚）</div>
+
+            <details style="margin:8px 0">
+              <summary style="cursor:pointer;font-weight:600;color:var(--t1);user-select:none">主刑（5种）</summary>
+              <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2)">
+                <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+                  <thead>
+                    <tr style="background:var(--bg-alt)">
+                      <th style="border:1px solid var(--divider);padding:6px;text-align:left">刑罚</th>
+                      <th style="border:1px solid var(--divider);padding:6px;text-align:left">期限</th>
+                      <th style="border:1px solid var(--divider);padding:6px;text-align:left">在哪里执行</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="border:1px solid var(--divider);padding:6px">管制</td>
+                      <td style="border:1px solid var(--divider);padding:6px">3个月-2年，数罪并罚最高3年</td>
+                      <td style="border:1px solid var(--divider);padding:6px">社区矫正，不用坐牢</td>
+                    </tr>
+                    <tr>
+                      <td style="border:1px solid var(--divider);padding:6px">拘役</td>
+                      <td style="border:1px solid var(--divider);padding:6px">1个月-6个月，数罪并罚最高1年</td>
+                      <td style="border:1px solid var(--divider);padding:6px">看守所，每月可回家1-2天</td>
+                    </tr>
+                    <tr>
+                      <td style="border:1px solid var(--divider);padding:6px">有期徒刑</td>
+                      <td style="border:1px solid var(--divider);padding:6px">6个月-15年，数罪并罚最高25年</td>
+                      <td style="border:1px solid var(--divider);padding:6px">监狱</td>
+                    </tr>
+                    <tr>
+                      <td style="border:1px solid var(--divider);padding:6px">无期徒刑</td>
+                      <td style="border:1px solid var(--divider);padding:6px">终身</td>
+                      <td style="border:1px solid var(--divider);padding:6px">监狱</td>
+                    </tr>
+                    <tr>
+                      <td style="border:1px solid var(--divider);padding:6px">死刑</td>
+                      <td style="border:1px solid var(--divider);padding:6px">剥夺生命</td>
+                      <td style="border:1px solid var(--divider);padding:6px">死刑立即执行 / 死缓（缓期2年）</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <details class="plus-box" style="margin:12px 0;border-radius:0">
+                  <summary style="background:var(--brand-soft)">补充：主刑怎么记？</summary>
+                  <div class="plus-body">
+                    <div><strong>一句话记住</strong>：从轻到重——管制（不坐牢）→拘役（短时间）→有期徒刑（长期）→无期徒刑（终身）→死刑（剥夺生命）。</div>
+                    <div style="margin-top:6px"><strong>死缓</strong>：不是独立刑种，是死刑的一种执行方式。缓期2年，如果没有故意犯罪，2年后减为无期徒刑；如果有重大立功，减为25年有期徒刑。</div>
+                  </div>
+                </details>
+
+                <details class="plus-box" style="margin:12px 0;border-radius:0">
+                  <summary style="background:var(--brand-soft)">补充：数罪并罚怎么叠加？</summary>
+                  <div class="plus-body">
+                    <div><strong>一句话记住</strong>：单个刑期先记牢，数罪并罚看总和。</div>
+
+                    <div style="margin-top:8px"><strong>1. 管制数罪并罚</strong></div>
+                    <div style="margin-top:4px">单个最高2年，数罪并罚最高3年。</div>
+
+                    <div style="margin-top:8px"><strong>2. 拘役数罪并罚</strong></div>
+                    <div style="margin-top:4px">单个最高6个月，数罪并罚最高1年。</div>
+
+                    <div style="margin-top:8px"><strong>3. 有期徒刑数罪并罚（重点！）</strong></div>
+                    <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+                      <thead>
+                        <tr style="background:var(--bg-alt)">
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">总和刑期</th>
+                          <th style="border:1px solid var(--divider);padding:6px;text-align:left">最高刑期</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">不满35年</td>
+                          <td style="border:1px solid var(--divider);padding:6px">最高20年</td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid var(--divider);padding:6px">35年以上</td>
+                          <td style="border:1px solid var(--divider);padding:6px">最高25年</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div style="margin-top:4px"><strong>怎么记</strong>：总和＜35 → 最高20年；总和≥35 → 最高25年。分界线是35年，不是34年！</div>
+
+                    <div style="margin-top:8px"><strong>4. 其他</strong></div>
+                    <div style="margin-top:4px">• 无期徒刑 + 有期徒刑 → 还是无期徒刑</div>
+                    <div style="margin-top:4px">• 死刑 + 其他 → 还是死刑</div>
+                  </div>
+                </details>
+              </div>
+            </details>
+
+            <details style="margin:8px 0">
+              <summary style="cursor:pointer;font-weight:600;color:var(--t1);user-select:none">附加刑（4种）</summary>
+              <div style="padding:8px 0 0 12px;font-size:13px;color:var(--t2)">
+                <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+                  <thead>
+                    <tr style="background:var(--bg-alt)">
+                      <th style="border:1px solid var(--divider);padding:6px;text-align:left">附加刑</th>
+                      <th style="border:1px solid var(--divider);padding:6px;text-align:left">是什么</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="border:1px solid var(--divider);padding:6px">罚金</td>
+                      <td style="border:1px solid var(--divider);padding:6px">罚钱（不是罚款，是刑罚）</td>
+                    </tr>
+                    <tr>
+                      <td style="border:1px solid var(--divider);padding:6px">剥夺政治权利</td>
+                      <td style="border:1px solid var(--divider);padding:6px">剥夺选举权、被选举权、言论出版等自由、担任公职等权利</td>
+                    </tr>
+                    <tr>
+                      <td style="border:1px solid var(--divider);padding:6px">没收财产</td>
+                      <td style="border:1px solid var(--divider);padding:6px">没收犯罪分子个人所有财产的一部分或全部</td>
+                    </tr>
+                    <tr>
+                      <td style="border:1px solid var(--divider);padding:6px">驱逐出境</td>
+                      <td style="border:1px solid var(--divider);padding:6px">只适用于犯罪的外国人</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <details class="plus-box" style="margin:12px 0;border-radius:0">
+                  <summary style="background:var(--brand-soft)">补充：附加刑的特点</summary>
+                  <div class="plus-body">
+                    <div><strong>一句话记住</strong>：附加刑可以附加主刑用，也可以单独用。</div>
+                    <div style="margin-top:6px"><strong>罚金 vs 罚款</strong>：罚金是刑罚（犯罪了），罚款是行政处罚（违法但没犯罪）。</div>
+                  </div>
+                </details>
+              </div>
+            </details>
+
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点二：刑法分则</strong><span class="plus-tag">公职人员犯罪</span><span class="plus-tag">常见罪名</span><span class="plus-tag">公共安全</span></summary>
+          <div class="plus-body">
+
+            <!-- 第一组：公职人员犯罪类型 -->
+            <div style="font-weight:700;font-size:14px;color:var(--t1);margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--divider)">第一组：公职人员犯罪类型</div>
+
+            <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+              <thead>
+                <tr style="background:var(--bg-alt)">
+                  <th style="border:1px solid var(--divider);padding:6px;text-align:left">罪名</th>
+                  <th style="border:1px solid var(--divider);padding:6px;text-align:left">客观方面</th>
+                  <th style="border:1px solid var(--divider);padding:6px;text-align:left">主体</th>
+                  <th style="border:1px solid var(--divider);padding:6px;text-align:left">主观方面</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">贪污罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">利用职务上的便利非法占有公共财物</td>
+                  <td style="border:1px solid var(--divider);padding:6px">特殊主体</td>
+                  <td style="border:1px solid var(--divider);padding:6px">直接故意</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">挪用公款罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">利用职务上的便利，挪用公款归个人使用，进行非法活动；挪用公款数额较大进行营利活动；挪用公款数额较大超过三个月未还的</td>
+                  <td style="border:1px solid var(--divider);padding:6px">特殊主体</td>
+                  <td style="border:1px solid var(--divider);padding:6px">直接故意</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">受贿罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">利用职务上的便利，索取他人财物或非法收受他人财物，为他人谋取利益的行为</td>
+                  <td style="border:1px solid var(--divider);padding:6px">特殊主体</td>
+                  <td style="border:1px solid var(--divider);padding:6px">直接故意</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">滥用职权罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">行为人实施了滥用职权的行为，并导致了公共财产、国家和人民利益遭受重大损失</td>
+                  <td style="border:1px solid var(--divider);padding:6px">特殊主体</td>
+                  <td style="border:1px solid var(--divider);padding:6px">故意</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">玩忽职守罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">行为人实施了玩忽职守的行为，并使公共财产、国家和人民利益遭受了重大损失</td>
+                  <td style="border:1px solid var(--divider);padding:6px">特殊主体</td>
+                  <td style="border:1px solid var(--divider);padding:6px">过失</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- 第二组：扰乱市场秩序性质的犯罪 -->
+            <div style="font-weight:700;font-size:14px;color:var(--t1);margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--divider)">第二组：扰乱市场秩序性质的犯罪（刑法修正案十二）</div>
+
+            <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+              <thead>
+                <tr style="background:var(--bg-alt)">
+                  <th style="border:1px solid var(--divider);padding:6px;text-align:left">罪名</th>
+                  <th style="border:1px solid var(--divider);padding:6px;text-align:left">内容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">非法经营同类营业罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">国有公司、企业的董事、监事、高级管理人员，利用职务便利，自己经营或者为他人经营与其所任职公司、企业同类的营业，获取非法利益，数额巨大的，处三年以下有期徒刑或者拘役，并处或者单处罚金；数额特别巨大的，处三年以上七年以下有期徒刑，并处罚金。其他公司、企业的董事、监事、高级管理人员违反法律、行政法规规定，实施前款行为，致使公司、企业利益遭受重大损失的，依照前款的规定处罚</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">为亲友非法牟利罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">国有公司、企业、事业单位的工作人员，利用职务便利，有下列情形之一，致使国家利益遭受重大损失的，处三年以下有期徒刑或者拘役，并处或者单处罚金：1.将本单位的盈利业务交由自己的亲友进行经营的；2.以明显高于市场的价格从自己的亲友经营管理的单位采购商品、接受服务或者以明显低于市场的价格向自己的亲友经营管理的单位销售商品、提供服务的；3.从自己的亲友经营管理的单位采购、接受不合格商品、服务的。其他公司、企业的工作人员违反法律、行政法规规定，实施前款行为，致使公司、企业利益遭受重大损失的，依照前款的规定处罚</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">徇私舞弊低价折股、出售国有资产罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">国有公司、企业或者其上级主管部门直接负责的主管人员，徇私舞弊，将国有资产低价折股或者低价出售，致使国家利益遭受重大损失的，处三年以下有期徒刑或者拘役；致使国家利益遭受特别重大损失的，处三年以上七年以下有期徒刑。其他公司、企业直接负责的主管人员，徇私舞弊，将公司、企业资产低价折股或者低价出售，致使公司、企业利益遭受重大损失的，依照前款的规定处罚</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- 第三组：其他常见罪名 -->
+            <div style="font-weight:700;font-size:14px;color:var(--t1);margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--divider)">第三组：其他常见罪名</div>
+
+            <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+              <thead>
+                <tr style="background:var(--bg-alt)">
+                  <th style="border:1px solid var(--divider);padding:6px;text-align:left">罪名</th>
+                  <th style="border:1px solid var(--divider);padding:6px;text-align:left">区分</th>
+                  <th style="border:1px solid var(--divider);padding:6px;text-align:left">特殊情况</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">敲诈勒索罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">采用要挟或威胁方法，逼迫他人交出财产性利益；侵犯客体是财产性权利</td>
+                  <td style="border:1px solid var(--divider);padding:6px">无剥夺人身自由；与抢劫的区别：暴力要挟程度低，不需要当场性</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">抢劫罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">当场对人实施暴力、胁迫或其他行为（如迷晕）</td>
+                  <td style="border:1px solid var(--divider);padding:6px">加重情形：公交入户抢银行，冒充军警持真枪，数额巨大重伤亡，二救抢险穿军装；以抢劫定：聚众打砸抢，首要分子</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">盗窃罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">秘密窃取，被害人不知情</td>
+                  <td style="border:1px solid var(--divider);padding:6px">盗窃信用卡并使用的，以盗窃罪论处；以抢劫定：盗窃后窝赃、拒捕、毁证当场使用暴力或以暴力相威胁</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- 第四组：危害公共安全罪 -->
+            <div style="font-weight:700;font-size:14px;color:var(--t1);margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--divider)">第四组：危害公共安全罪</div>
+
+            <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+              <thead>
+                <tr style="background:var(--bg-alt)">
+                  <th style="border:1px solid var(--divider);padding:6px;text-align:left">罪名</th>
+                  <th style="border:1px solid var(--divider);padding:6px;text-align:left">构成要件</th>
+                  <th style="border:1px solid var(--divider);padding:6px;text-align:left">特殊情况</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">交通肇事罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">主体年满16周岁且精神正常；违反交通法规属于故意，但交通肇事本身是过失；后果严重，应追责</td>
+                  <td style="border:1px solid var(--divider);padding:6px">逃逸致人死亡的：行为人仅有逃逸行为，仍按交通肇事罪从重处罚。肇事后为逃避追究，将被害人带离现场后隐匿或者遗弃，致使被害人无法得到救助而死亡或严重残疾的，应以故意杀人罪或故意伤害罪定罪处罚。行为人交通肇事后，以为被害人已经死亡，为了隐匿罪迹，将被害人沉溺河中导致被害人溺死的，后行为成立过失致人死亡罪；如果前行为已经构成交通肇事罪，数罪并罚</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">危险驾驶罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">（1）追逐竞驶，情节恶劣的；（2）醉酒驾驶机动车的；（3）从事校车业务或者旅客运输，严重超过额定乘员载客，或者严重超过规定时速行驶的；（4）违反危险化学品安全管理规定运输危险化学品，危及公共安全的</td>
+                  <td style="border:1px solid var(--divider);padding:6px">机动车所有人、管理人对前款第三项、第四项行为负有直接责任的，依照前款的规定处罚。有前两款行为，同时构成其他犯罪的，依照处罚较重的规定定罪处罚</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">妨害安全驾驶罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">对行驶中的公共交通工具的驾驶人员使用暴力或者抢控驾驶操纵装置，干扰公共交通工具正常行驶，危及公共安全的，处一年以下有期徒刑、拘役或者管制，并处或者单处罚金</td>
+                  <td style="border:1px solid var(--divider);padding:6px">前款规定的驾驶人员在行驶的公共交通工具上擅离职守，与他人互殴或者殴打他人，危及公共安全的，依照前款的规定处罚。有前两款行为，同时构成其他犯罪的，依照处罚较重的规定定罪处罚</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">以危险方法危害公共安全罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">是一个概括性罪名，故意以放火、决水、爆炸以及投放危险物质以外的并与之相当的危险方法，危害公共安全</td>
+                  <td style="border:1px solid var(--divider);padding:6px">对于乘客实施"抢夺方向盘、变速杆等操纵装置，殴打、拉拽驾驶人员"等具有高度危险性的妨害安全驾驶行为的，按以危险方法危害公共安全罪定罪处罚</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- 第五组：洗钱罪 -->
+            <div style="font-weight:700;font-size:14px;color:var(--t1);margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--divider)">第五组：洗钱罪</div>
+
+            <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+              <thead>
+                <tr style="background:var(--bg-alt)">
+                  <th style="border:1px solid var(--divider);padding:6px;text-align:left">罪名</th>
+                  <th style="border:1px solid var(--divider);padding:6px;text-align:left">构成要件</th>
+                  <th style="border:1px solid var(--divider);padding:6px;text-align:left">行为方式</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border:1px solid var(--divider);padding:6px">洗钱罪</td>
+                  <td style="border:1px solid var(--divider);padding:6px">为掩饰、隐瞒毒品犯罪、黑社会性质的组织犯罪、恐怖活动犯罪、走私犯罪、贪污贿赂犯罪、破坏金融管理秩序犯罪、金融诈骗犯罪的所得及其产生的收益的来源和性质</td>
+                  <td style="border:1px solid var(--divider);padding:6px">（一）提供资金帐户的；（二）将财产转换为现金、金融票据、有价证券的；（三）通过转帐或者其他支付结算方式转移资金的；（四）跨境转移资产的；（五）以其他方法掩饰、隐瞒犯罪所得及其收益的来源和性质的</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+
+    <!-- ====== 公司法章节 ====== -->
+    <div class="sec-block" id="sec-gongsi" style="margin-top:40px">
+      <div class="sec-h"><h2>公司法</h2><span class="years">1993—至今</span></div>
+
+      <h3 style="font-size:15px;font-weight:700;margin:16px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--divider)">公司法谱系</h3>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">01</span><h3>公司法（1993）</h3></div>
+          <div class="badges">
+            <span class="badge new">第一部公司法</span>
+          </div>
+        </summary>
+        <div class="human">市场经济发展，公司增多，需要规范公司组织和行为。</div>
+        <div class="section-label new">新增</div>
+        <p><span class="em-new">第一部公司法</span>：确立有限责任公司和股份有限公司两种形式。</p>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">公司法律制度框架建立。</span></p>
+      </details>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">02</span><h3>现行公司法（2023修订）</h3></div>
+          <div class="badges">
+            <span class="badge new">2024年实施</span>
+            <span class="badge new">注册资本5年实缴</span>
+          </div>
+        </summary>
+        <div class="human">优化营商环境，完善公司治理。</div>
+        <div class="section-label new">新增</div>
+        <p><span class="em-new">2023年修订，2024年7月1日实施</span>：<br>
+        有限责任公司注册资本5年内实缴到位；<br>
+        完善公司治理结构；<br>
+        加强股东权利保护。</p>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">现行公司法。</span></p>
+        <div class="exam-box">现行公司法是2023年修订的，2024年7月1日实施。注册资本5年实缴是重点。</div>
+      </details>
+
+      <!-- ====== 公司法具体知识点 ====== -->
+      <div id="sec-gongsi-detail" style="margin-top:24px;padding-top:20px;border-top:2px solid var(--divider)">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">公司法具体知识点（结构化拆解）</h3>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点一：公司的种类</strong><span class="plus-tag">有限责任公司</span><span class="plus-tag">股份有限公司</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 有限责任公司</div>
+            - 由50个以下股东出资设立。<br>
+            - 股东以其认缴的出资额为限对公司承担责任。<br>
+            - 公司以其全部财产对公司的债务承担责任。
+
+            <div class="sub">2. 股份有限公司</div>
+            - 应当有2人以上200人以下为发起人。<br>
+            - 全部资本分为等额股份。<br>
+            - 股东以其认购的股份为限对公司承担责任。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点二：公司的设立</strong><span class="plus-tag">注册资本</span><span class="plus-tag">出资方式</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 注册资本（2023年修订）</div>
+            - 有限责任公司的注册资本为在公司登记机关登记的全体股东认缴的出资额。<br>
+            - 全体股东认缴的出资额由股东按照公司章程的规定自公司成立之日起五年内缴足。
+
+            <div class="sub">2. 出资方式</div>
+            股东可以用货币出资，也可以用实物、知识产权、土地使用权等可以用货币估价并可以依法转让的非货币财产作价出资。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点三：公司的组织机构</strong><span class="plus-tag">股东会</span><span class="plus-tag">董事会</span><span class="plus-tag">监事会</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 股东会（权力机构）</div>
+            由全体股东组成，决定公司的经营方针和投资计划，选举和更换董事、监事等。
+
+            <div class="sub">2. 董事会（执行机构）</div>
+            对股东会负责，执行股东会的决议，决定公司的经营计划和投资方案等。
+
+            <div class="sub">3. 监事会（监督机构）</div>
+            对董事、高级管理人员执行公司职务的行为进行监督，检查公司财务等。
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+
+  </div>
+
+<script>
+document.getElementById('searchInput').addEventListener('input', function(e){
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('.card').forEach(c => {
+    if(!q){ c.classList.remove('hidden-card'); return; }
+    c.classList.toggle('hidden-card', !c.textContent.toLowerCase().includes(q));
+  });
+});
+function filterAll(el){
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('hidden-card'));
+}
+function filterByTag(el, tag){
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  document.querySelectorAll('.card').forEach(c=>{
+    c.classList.toggle('hidden-card', !(c.dataset.tags||'').includes(tag));
+  });
+}
+function scrollToSec(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.scrollIntoView({behavior:'smooth',block:'start'});
+  // 跳转后淡入淡出闪烁
+  setTimeout(()=>{
+    const cards = el.querySelectorAll('.card, .plus-box');
+    cards.forEach(c => {
+      c.style.transition = 'background-color 0.6s ease-in-out';
+      c.style.backgroundColor = '#e8f0ea';
+      setTimeout(()=>{
+        c.style.backgroundColor = '';
+      }, 1500);
+    });
+  }, 300);
+}
+
+// 专业词汇解释
+function showTermTip(el, text){
+  // 先关闭所有已打开的
+  document.querySelectorAll('.term-tip').forEach(t => t.remove());
+  // 创建tooltip
+  const tip = document.createElement('div');
+  tip.className = 'term-tip show';
+  tip.textContent = text;
+  // 定位
+  const rect = el.getBoundingClientRect();
+  tip.style.left = rect.left + 'px';
+  tip.style.top = (rect.bottom + 8) + 'px';
+  document.body.appendChild(tip);
+  // 点击其他地方关闭
+  setTimeout(()=>{
+    document.addEventListener('click', function close(e){
+      if(!tip.contains(e.target) && e.target !== el){
+        tip.remove();
+        document.removeEventListener('click', close);
+      }
+    });
+  }, 0);
+}
+
+// 编辑功能
+let isEditing = false;
+function toggleEdit(){
+  isEditing = !isEditing;
+  const btn = document.getElementById('editBtn');
+  const content = document.querySelector('.doc');
+  if(isEditing){
+    content.setAttribute('contenteditable','true');
+    content.style.outline = '2px dashed var(--brand-1)';
+    btn.textContent = '保存';
+    btn.style.background = 'var(--brand-1)';
+    btn.style.color = '#fff';
+  } else {
+    content.removeAttribute('contenteditable');
+    content.style.outline = '';
+    btn.textContent = '编辑';
+    btn.style.background = 'var(--bg)';
+    btn.style.color = '';
+    // 保存到localStorage
+    localStorage.setItem('notesContent', content.innerHTML);
+    alert('已保存！');
+  }
+}
+// 页面加载时读取保存的内容
+window.addEventListener('load', function(){
+  const saved = localStorage.getItem('notesContent');
+  if(saved){
+    document.querySelector('.doc').innerHTML = saved;
+  }
+});
+function toggleSidebar(){ document.getElementById('sidebar').classList.toggle('collapsed'); }
+function toggleGroup(el){
+  el.classList.toggle('open');
+  const inner = el.nextElementSibling;
+  if(inner && inner.classList.contains('group-inner')) inner.classList.toggle('open');
+  if(inner && inner.classList.contains('group-inner2')) inner.classList.toggle('open');
+}
+// 侧边栏拖动调整宽度
+let isResizing = false;
+document.getElementById('sidebarResize').addEventListener('mousedown', function(e){
+  isResizing = true;
+  document.body.style.cursor = 'col-resize';
+});
+document.addEventListener('mousemove', function(e){
+  if(!isResizing) return;
+  const w = Math.max(180, Math.min(360, e.clientX));
+  document.documentElement.style.setProperty('--side-w', w + 'px');
+});
+document.addEventListener('mouseup', function(){
+  isResizing = false;
+  document.body.style.cursor = '';
+});
+// 默认展开第一组
+document.querySelector('.gt').classList.add('open');
+document.querySelector('.group-inner').classList.add('open');
+document.querySelector('.gt2').classList.add('open');
+document.querySelector('.group-inner2').classList.add('open');
+function scrollToTop(){ window.scrollTo({top:0,behavior:'smooth'}); }
+</script>
+
+</body>
+</html>
