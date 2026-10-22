@@ -98,6 +98,13 @@ details summary{list-style:none}
 .stage-box summary::before{content:"▸ ";color:var(--green-1)}
 .stage-box[open] summary::before{content:"▾ "}
 
+/* 卡片自带收缩框：无黑三角、绿色三角、无边框 */
+.fold-card summary{cursor:pointer;list-style:none;user-select:none}
+.fold-card summary::-webkit-details-marker{display:none}
+.fold-card .fold-arrow{color:var(--green-1);font-weight:700;display:inline-flex;align-items:center;margin-right:2px}
+.fold-card .fold-arrow::before{content:"▸"}
+.fold-card[open] .fold-arrow::before{content:"▾"}
+
 .badges{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
 .badge{display:inline-block;border-radius:10px;padding:1px 9px;line-height:19px;font-size:11.5px;font-weight:600;white-space:nowrap}
 .badge.new{background:var(--green-soft);color:var(--green-1)}
@@ -3396,13 +3403,15 @@ details summary{list-style:none}
         <h3 style="font-size:15px;font-weight:700;margin:16px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--divider)">宏观经济学</h3>
 
         <!-- 卡片1：发生学——宏观经济学的诞生 -->
-        <div class="card">
-          <div class="card-h"><span class="idx">01</span><h3>宏观经济学为什么会诞生（发生学）</h3></div>
-          <div class="badges">
-            <span class="badge old">大萧条</span>
-            <span class="badge new">凯恩斯《通论》</span>
-            <span class="badge sediment">政府干预</span>
-          </div>
+        <details class="card fold-card" open>
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>宏观经济学为什么会诞生（发生学）</h3></div>
+            <div class="badges">
+              <span class="badge old">大萧条</span>
+              <span class="badge new">凯恩斯《通论》</span>
+              <span class="badge sediment">政府干预</span>
+            </div>
+          </summary>
           <div class="human">市场这只"看不见的手"在大萧条里彻底失灵了，研究单个企业怎么降价救不了经济，凯恩斯于是提出政府要站出来"看得见的手"干预——宏观经济学诞生。</div>
           <div class="section-label old">大萧条之前：古典经济学的信念</div>
           <p>经济学主要研究<strong>微观</strong>（单个企业、单个消费者）。主流观点是<span class="em-old">"供给自动创造需求"（萨伊定律）</span>，市场像"看不见的手"，价格、工资灵活调整，自动调节到完美状态，政府不用管。</p>
@@ -3412,17 +3421,19 @@ details summary{list-style:none}
           <p><span class="em-new">《就业、利息和货币通论》</span>宣告宏观经济学诞生：价格和工资有<strong>黏性</strong>，短期中<strong>需求决定供给</strong>，有效需求不足会导致萧条；<span class="em-new">市场会失灵，政府必须干预</span>。</p>
           <div class="section-label sediment">宏观经济学的四大目标</div>
           <p>不是教人发财，而是研究"国家层面的生存与发展"：<span class="em-sed">① 经济增长（把蛋糕做大）② 充分就业（人人有活干）③ 物价稳定（别让钱变毛）④ 国际收支平衡（进出口别出大窟窿）</span>。</p>
-        </div>
+        </details>
 
         <!-- 卡片2：结构分解——四大模块 -->
-        <div class="card">
-          <div class="card-h"><span class="idx">02</span><h3>宏观经济的结构：四大模块（结构拆解）</h3></div>
-          <div class="badges">
-            <span class="badge new">仪表盘</span>
-            <span class="badge new">需求侧</span>
-            <span class="badge new">政策库</span>
-            <span class="badge sediment">AD-AS心脏</span>
-          </div>
+        <details class="card fold-card" open>
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>宏观经济的结构：四大模块（结构拆解）</h3></div>
+            <div class="badges">
+              <span class="badge new">仪表盘</span>
+              <span class="badge new">需求侧</span>
+              <span class="badge new">政策库</span>
+              <span class="badge sediment">AD-AS心脏</span>
+            </div>
+          </summary>
           <div class="human">宏观经济像一台巨型机器：仪表盘看状态、需求侧是发动机、政策库是调节工具、AD-AS 是底层心脏。</div>
           <div class="section-label new">模块一：仪表盘（衡量指标）</div>
           <p><strong>GDP</strong>（家底多大）、<strong>CPI</strong>（物价多高）、<strong>失业率</strong>（饭碗多稳）、<strong>基尼系数</strong>（贫富差距多大）。</p>
@@ -3432,11 +3443,13 @@ details summary{list-style:none}
           <p><span class="em-new">财政政策</span>（政府掏钱/收钱，<strong>财政部</strong>执行）；<span class="em-new">货币政策</span>（央行放水/抽水，<strong>中央银行</strong>执行）。</p>
           <div class="section-label sediment">模块四：心脏（底层逻辑模型）</div>
           <p><span class="em-sed">总需求（AD）与总供给（AS）的平衡</span>——这是宏观经济的"天平"。</p>
-        </div>
+        </details>
 
         <!-- 卡片3：发生学迭代——为什么有这些零件 -->
-        <div class="card">
-          <div class="card-h"><span class="idx">03</span><h3>为什么框架里会有这些零件（发生学迭代）</h3></div>
+        <details class="card fold-card" open>
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>为什么框架里会有这些零件（发生学迭代）</h3></div>
+          </summary>
           <div class="human">每个零件都不是凭空设计的，都是为了补上一个具体的缺口——没有尺子量不了经济，市场转不动了得有人填需求。</div>
           <div class="section-label new">为什么需要 GDP？</div>
           <p>国家要判断经济好坏，不能凭感觉，必须有一把尺子。<span class="em-new">GDP 就是这把尺子</span>——没有它，就没法制定政策，也没法判断政策有没有用。</p>
@@ -3446,16 +3459,18 @@ details summary{list-style:none}
           <p>政府搞建设、企业扩生产都需要钱。央行通过<span class="em-new">降息、降准，把利率压低</span>，让企业敢借钱扩大生产，让老百姓把钱从银行拿出来花。</p>
           <div class="section-label new">为什么需要 AD-AS 模型？</div>
           <p>这是宏观经济的"天平"：<span class="em-new">总需求大于总供给 → 通胀；总需求小于总供给 → 衰退/失业</span>。所有宏观政策，都是为了把天平拨平。</p>
-        </div>
+        </details>
 
         <!-- 卡片4：经济过冷的传导与救治 -->
-        <div class="card">
-          <div class="card-h"><span class="idx">04</span><h3>经济过冷（衰退/失业）怎么救（因果传导链）</h3></div>
-          <div class="badges">
-            <span class="badge new">降息降准</span>
-            <span class="badge new">减税扩基建</span>
-            <span class="badge sediment">逆周期调节</span>
-          </div>
+        <details class="card fold-card" open>
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>经济过冷（衰退/失业）怎么救（因果传导链）</h3></div>
+            <div class="badges">
+              <span class="badge new">降息降准</span>
+              <span class="badge new">减税扩基建</span>
+              <span class="badge sediment">逆周期调节</span>
+            </div>
+          </summary>
           <div class="human">东西卖不动，企业裁员，大家更没钱，越穷越不买——恶性循环。这时政府放水撒钱，把需求重新顶起来。</div>
           <div class="section-label old">病理：恶性循环</div>
           <div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 14px;font-size:13px;line-height:2;color:var(--t2);margin:6px 0">
@@ -3470,16 +3485,18 @@ details summary{list-style:none}
           </div>
           <div class="section-label sediment">乘数效应</div>
           <p><span class="em-sed">政府花 1 块钱，产出增加不止 1 块钱</span>——拿到钱的人又会花出去，一圈圈传下去，财政政策有放大作用。</p>
-        </div>
+        </details>
 
         <!-- 卡片5：经济过热的传导与压制 -->
-        <div class="card">
-          <div class="card-h"><span class="idx">05</span><h3>经济过热（通胀）怎么压（因果传导链）</h3></div>
-          <div class="badges">
-            <span class="badge new">加息提准</span>
-            <span class="badge new">加税减支</span>
-            <span class="badge sediment">软着陆</span>
-          </div>
+        <details class="card fold-card" open>
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>经济过热（通胀）怎么压（因果传导链）</h3></div>
+            <div class="badges">
+              <span class="badge new">加息提准</span>
+              <span class="badge new">加税减支</span>
+              <span class="badge sediment">软着陆</span>
+            </div>
+          </summary>
           <div class="human">钱太多、东西太少，抢购、物价飞涨，钱变毛了。这时政府抽水收钱，把需求压下去，让物价平稳回落。</div>
           <div class="section-label old">病理：抢购涨价</div>
           <div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 14px;font-size:13px;line-height:2;color:var(--t2);margin:6px 0">
@@ -3492,16 +3509,18 @@ details summary{list-style:none}
           <div style="background:var(--green-soft);border:1px solid #cfe6d8;border-radius:8px;padding:10px 14px;font-size:13px;line-height:2;color:var(--t1);margin:6px 0">
             利率↑ + 政府少花钱 → 企业缩减投资 → 居民消费↓ → 总需求↓ → <span class="em-new">物价回落（软着陆）</span> → CPI 稳定
           </div>
-        </div>
+        </details>
 
         <!-- 卡片6：滞胀难题与短期长期 -->
-        <div class="card">
-          <div class="card-h"><span class="idx">06</span><h3>滞胀难题与短期、长期的区别</h3></div>
-          <div class="badges">
-            <span class="badge old">滞胀</span>
-            <span class="badge new">价格黏性</span>
-            <span class="badge sediment">逆周期走钢丝</span>
-          </div>
+        <details class="card fold-card" open>
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">06</span><h3>滞胀难题与短期、长期的区别</h3></div>
+            <div class="badges">
+              <span class="badge old">滞胀</span>
+              <span class="badge new">价格黏性</span>
+              <span class="badge sediment">逆周期走钢丝</span>
+            </div>
+          </summary>
           <div class="human">滞胀是宏观调控的噩梦：救经济要放水，放水加重通胀；控通胀要收水，收水经济更死。</div>
           <div class="section-label old">滞胀：停滞 + 通胀</div>
           <p><span class="em-old">经济停滞（GDP 不涨）+ 通货膨胀（物价涨）</span>同时出现。20世纪70年代西方国家曾出现，凯恩斯主义因此受到挑战。</p>
@@ -3524,16 +3543,18 @@ details summary{list-style:none}
               <tr><td style="border:1px solid var(--divider);padding:6px 8px;font-weight:600;color:var(--t1)">刺激需求</td><td style="border:1px solid var(--divider);padding:6px 8px">产出↑、失业↓</td><td style="border:1px solid var(--divider);padding:6px 8px">只导致通胀</td></tr>
             </tbody>
           </table>
-        </div>
+        </details>
 
         <!-- 卡片7：IS-LM模型（发生学+结构） -->
-        <div class="card">
-          <div class="card-h"><span class="idx">07</span><h3>IS-LM 模型：宏观经济学的硬核心脏</h3></div>
-          <div class="badges">
-            <span class="badge new">希克斯-汉森 1937</span>
-            <span class="badge new">IS产品市场</span>
-            <span class="badge new">LM货币市场</span>
-          </div>
+        <details class="card fold-card" open>
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">07</span><h3>IS-LM 模型：宏观经济学的硬核心脏</h3></div>
+            <div class="badges">
+              <span class="badge new">希克斯-汉森 1937</span>
+              <span class="badge new">IS产品市场</span>
+              <span class="badge new">LM货币市场</span>
+            </div>
+          </summary>
           <div class="human">凯恩斯的理论全是文字，太抽象。希克斯和汉森把它图形化，把实体市场和金融市场缝在一起，找一个让两个市场同时平衡的点。</div>
           <div class="section-label new">发生学：为什么会有 IS-LM</div>
           <p>凯恩斯1936年提出政府要干预，但<strong>到底怎么干预、降息和增加政府支出哪个效果更好</strong>，没人说得清。1937年<span class="em-new">希克斯和汉森把凯恩斯理论数学化、图形化</span>，目的就是把"产品市场"和"货币市场"缝合，找让两个市场同时平衡的"完美点"。</p>
@@ -3545,11 +3566,13 @@ details summary{list-style:none}
           <p>L（货币需求）= M（货币供给）。收入↑ → 交易增加，需要更多钱 → 货币需求↑，钱供不应求 → 利率↑。<span class="em-new">向右上方倾斜</span>（收入越高，利率越高）。</p>
           <div class="section-label sediment">均衡点</div>
           <p>IS 和 LM 的<span class="em-sed">交点</span>同时决定了均衡的<strong>国民收入 Y 和利率 r</strong>——产品市场、货币市场都平衡的完美状态。</p>
-        </div>
+        </details>
 
         <!-- 卡片8：IS-LM政策机制 -->
-        <div class="card">
-          <div class="card-h"><span class="idx">08</span><h3>IS-LM 里政策怎么起作用（机制传导）</h3></div>
+        <details class="card fold-card" open>
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">08</span><h3>IS-LM 里政策怎么起作用（机制传导）</h3></div>
+          </summary>
           <div class="human">财政政策推 IS、货币政策推 LM；财政会挤出私人投资（利率涨），货币不挤出还能刺激投资；双管齐下效果最好。</div>
           <div class="section-label new">场景一：政府搞基建（财政扩张）</div>
           <p>政府增加支出 → 总需求↑ → <span class="em-new">IS 右移 → 国民收入 Y↑</span>。</p>
@@ -3579,7 +3602,7 @@ details summary{list-style:none}
               AD（总需求）从 IS-LM 推导出来，AS（总供给）加入物价变量。政策放水→产出增加，物价也跟着涨；如果生产跟不上（AS 垂直），放水只导致通胀。
             </div>
           </details>
-        </div>
+        </details>
 
         <!-- 应试心法 -->
         <div class="exam-box">

@@ -287,6 +287,12 @@ description: 面向公考行测常识/政治理论/历史/法律/经济/时政�
 - 底部：可展开的「文学·文化·科技」details 框（默认收起，标题后面跟三个小标签）
 - 最底部：考法对照框（黄色左边框）
 
+**可收缩卡片（fold-card，经济章节标配）**：当一张卡片本身需要收起/展开时，用 `<details class="card fold-card" open>`：
+- 把 `card-h`（含徽章 badges）包进 `<summary>`，其余内容（human、section-label、p、plus-box）留在 summary 外。
+- 三角放在 card-h 内部最前面：`<span class="fold-arrow"></span>`，会随展开在 ▸/▾ 间切换，绿色（var(--green-1)）。
+- **不要边框、不要浏览器默认黑三角**（summary 用 list-style:none、::-webkit-details-marker 隐藏）。
+- 对应 CSS：`.fold-card summary{cursor:pointer;list-style:none}`、`.fold-card .fold-arrow::before{content:"▸"}`、`.fold-card[open] .fold-arrow::before{content:"▾"}`。
+
 ### 5. 其他规范
 - **交叉引用**：关键术语加虚下划线链接，点击跳转到对应阶段卡片。
 - **全局搜索**：顶部搜索框，输入关键词实时过滤卡片。
