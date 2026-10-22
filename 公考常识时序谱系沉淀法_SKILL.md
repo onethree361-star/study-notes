@@ -287,6 +287,14 @@ description: 面向公考行测常识/政治理论/历史/法律/经济/时政�
 - 底部：可展开的「文学·文化·科技」details 框（默认收起，标题后面跟三个小标签）
 - 最底部：考法对照框（黄色左边框）
 
+**层级标题（layer-title，经济/金融章节标配）**：一张卡片只讲一个点，多个同层卡片前先放一个层级标题div，不要把"（发生学）""（结构拆解）"塞在卡片标题括号里：
+```html
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第二层 · 结构拆解</div>
+```
+- 四张层级：`第一层 · 发生学` / `第二层 · 结构拆解`（下面可能有2~5张卡片）/ `第三层 · 发生学迭代` / `第四层 · 因果传导链`。
+- 卡片标题里不要再写"（发生学）"等后缀——层级标题已经说过了，卡片标题只留具体主题。
+- 侧边目录默认所有分支收起（group-inner / group-inner2 不加 open），目录里按层级列出卡片锚点。
+
 **可收缩卡片（fold-card，经济/金融章节标配，默认收起）**：用 `<details class="card fold-card">`（**不要加 open 属性**，所有卡片默认只显示标题+徽章，点击展开）：
 - 把 `card-h`（含徽章 badges）包进 `<summary>`，其余内容（human、section-label、p、plus-box）留在 summary 外。
 - 三角放在 card-h 内部最前面：`<span class="fold-arrow"></span>`，会随展开在 ▸/▾ 间切换，绿色（var(--green-1)）。
