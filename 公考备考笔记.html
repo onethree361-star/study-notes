@@ -201,24 +201,24 @@ details summary{list-style:none}
         <div class="sec-link" onclick="scrollToSec('sec-jindai')">近现代史 <i>42</i></div>
       </div>
       <div class="gt2" onclick="toggleGroup(this)">法律 <i>4</i> <span class="arrow">▾</span></div>
-      <div class="group-inner2 open">
+      <div class="group-inner2">
         <div class="gt2" onclick="toggleGroup(this)">宪法 <i>2</i> <span class="arrow">▾</span></div>
-        <div class="group-inner2 open" style="padding-left:20px">
+        <div class="group-inner2" style="padding-left:20px">
           <div class="sec-link" onclick="scrollToSec('sec-xianfa')">宪法谱系</div>
           <div class="sec-link" onclick="scrollToSec('sec-xianfa-detail')">八二宪法具体知识点</div>
         </div>
         <div class="gt2" onclick="toggleGroup(this)">民法 <i>10</i> <span class="arrow">▾</span></div>
-        <div class="group-inner2 open" style="padding-left:20px">
+        <div class="group-inner2" style="padding-left:20px">
           <div class="sec-link" onclick="scrollToSec('sec-minfa')">民法谱系</div>
           <div class="sec-link" onclick="scrollToSec('sec-minfa-detail')">民法具体知识点</div>
         </div>
         <div class="gt2" onclick="toggleGroup(this)">刑法 <i>2</i> <span class="arrow">▾</span></div>
-        <div class="group-inner2 open" style="padding-left:20px">
+        <div class="group-inner2" style="padding-left:20px">
           <div class="sec-link" onclick="scrollToSec('sec-xingfa')">刑法谱系</div>
           <div class="sec-link" onclick="scrollToSec('sec-xingfa-detail')">刑法具体知识点</div>
         </div>
         <div class="gt2" onclick="toggleGroup(this)">公司法 <i>3</i> <span class="arrow">▾</span></div>
-        <div class="group-inner2 open" style="padding-left:20px">
+        <div class="group-inner2" style="padding-left:20px">
           <div class="sec-link" onclick="scrollToSec('sec-gongsi')">公司法谱系</div>
           <div class="sec-link" onclick="scrollToSec('sec-gongsi-detail')">公司法具体知识点</div>
         </div>
@@ -229,7 +229,7 @@ details summary{list-style:none}
     <div class="gt" onclick="toggleGroup(this)">经济 <span class="arrow">▾</span></div>
     <div class="group-inner">
       <div class="gt2" onclick="toggleGroup(this)">宏观经济 <i>1</i> <span class="arrow">▾</span></div>
-      <div class="group-inner2 open" style="padding-left:20px">
+      <div class="group-inner2" style="padding-left:20px">
         <div class="sec-link" onclick="scrollToSec('sec-hongguan')">宏观经济学完整框架</div>
       </div>
       <div class="gt2" onclick="toggleGroup(this)">微观经济 <i>1</i> <span class="arrow">▾</span></div>
@@ -241,9 +241,15 @@ details summary{list-style:none}
   <div class="group">
     <div class="gt" onclick="toggleGroup(this)">金融学 <span class="arrow">▾</span></div>
     <div class="group-inner">
-      <div class="gt2" onclick="toggleGroup(this)">金融体系 <i>4</i> <span class="arrow">▾</span></div>
-      <div class="group-inner2 open" style="padding-left:20px">
-        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">金融学完整框架</div>
+      <div class="gt2" onclick="toggleGroup(this)">金融体系 <i>7</i> <span class="arrow">▾</span></div>
+      <div class="group-inner2" style="padding-left:20px">
+        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">发生学：为什么有金融学</div>
+        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">结构拆解①：金融机构体系</div>
+        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">结构拆解②：金融市场体系</div>
+        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">结构拆解③：金融工具体系</div>
+        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">结构拆解④：定价与监管</div>
+        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">发生学迭代：四次进化</div>
+        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">因果传导链：三条链</div>
       </div>
     </div>
   </div>
@@ -3838,10 +3844,13 @@ details summary{list-style:none}
           经济学看"实体"（蛋糕怎么分），金融学看"虚拟"——核心是<span class="em-new">跨时空的价值交换</span>：把钱从盈余方转移到短缺方，并给风险定价。它的心脏是<span class="em-new">资产定价（Asset Pricing）</span>和<span class="em-new">现金流折现（DCF）</span>。
         </div>
 
+        <!-- 层级标题：发生学 -->
+        <div style="margin:20px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第一层 · 发生学</div>
+
         <!-- 卡片1：发生学——金融学为什么会诞生 -->
         <details class="card fold-card">
           <summary>
-            <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>金融学为什么会诞生（发生学）</h3></div>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>金融学为什么会诞生</h3></div>
             <div class="badges">
               <span class="badge old">时间错配</span>
               <span class="badge old">风险错配</span>
@@ -3868,10 +3877,13 @@ details summary{list-style:none}
           </details>
         </details>
 
-        <!-- 卡片2：结构拆解——金融机构体系 -->
+        <!-- 层级标题：结构拆解 -->
+        <div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第二层 · 结构拆解</div>
+
+        <!-- 卡片2：金融机构体系 -->
         <details class="card fold-card">
           <summary>
-            <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>金融机构体系：谁在做金融（结构拆解）</h3></div>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>金融机构体系：谁在做金融</h3></div>
             <div class="badges">
               <span class="badge new">监管机构</span>
               <span class="badge new">银行类</span>
@@ -3909,7 +3921,7 @@ details summary{list-style:none}
         <!-- 卡片3：结构拆解——金融市场体系 -->
         <details class="card fold-card">
           <summary>
-            <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>金融市场体系：在哪里交易（结构拆解）</h3></div>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>金融市场体系：在哪里交易</h3></div>
             <div class="badges">
               <span class="badge new">期限</span>
               <span class="badge new">发行 vs 流通</span>
@@ -3940,7 +3952,7 @@ details summary{list-style:none}
         <!-- 卡片4：结构拆解——金融工具体系 -->
         <details class="card fold-card">
           <summary>
-            <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>金融工具体系：交易什么产品（结构拆解）</h3></div>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>金融工具体系：交易什么产品</h3></div>
             <div class="badges">
               <span class="badge new">股票</span>
               <span class="badge new">债券</span>
@@ -3970,7 +3982,7 @@ details summary{list-style:none}
         <!-- 卡片5：结构拆解——定价与监管 -->
         <details class="card fold-card">
           <summary>
-            <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>定价与监管：怎么定价、怎么防爆胎（结构拆解）</h3></div>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>定价与监管：怎么定价、怎么防爆胎</h3></div>
             <div class="badges">
               <span class="badge new">DCF现金流折现</span>
               <span class="badge new">风险溢价</span>
@@ -3997,10 +4009,13 @@ details summary{list-style:none}
           </details>
         </details>
 
-        <!-- 卡片6：发生学迭代——金融学四个时代 -->
+        <!-- 层级标题：发生学迭代 -->
+        <div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第三层 · 发生学迭代</div>
+
+        <!-- 卡片6：四次进化 -->
         <details class="card fold-card">
           <summary>
-            <div class="card-h"><span class="fold-arrow"></span><span class="idx">06</span><h3>金融学的四次进化（发生学迭代）</h3></div>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">06</span><h3>金融学的四次进化</h3></div>
             <div class="badges">
               <span class="badge old">银行中介 1.0</span>
               <span class="badge new">MPT/CAPM 2.0</span>
@@ -4030,10 +4045,13 @@ details summary{list-style:none}
           </details>
         </details>
 
-        <!-- 卡片7：传导链——三条链+终极对比 -->
+        <!-- 层级标题：因果传导链 -->
+        <div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第四层 · 因果传导链</div>
+
+        <!-- 卡片7：三条传导链+终极对比 -->
         <details class="card fold-card">
           <summary>
-            <div class="card-h"><span class="fold-arrow"></span><span class="idx">07</span><h3>三条传导链与终极对比（因果传导链）</h3></div>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">07</span><h3>三条传导链与终极对比</h3></div>
             <div class="badges">
               <span class="badge new">利率传导</span>
               <span class="badge old">信用创造→泡沫</span>
