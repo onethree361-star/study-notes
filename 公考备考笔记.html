@@ -241,13 +241,17 @@ details summary{list-style:none}
   <div class="group">
     <div class="gt" onclick="toggleGroup(this)">金融学 <span class="arrow">▾</span></div>
     <div class="group-inner">
-      <div class="gt2" onclick="toggleGroup(this)">金融体系 <i>7</i> <span class="arrow">▾</span></div>
+      <div class="gt2" onclick="toggleGroup(this)">金融体系 <i>11</i> <span class="arrow">▾</span></div>
       <div class="group-inner2" style="padding-left:20px">
         <div class="sec-link" onclick="scrollToSec('sec-jinrong')">发生学：为什么有金融学</div>
-        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">结构拆解①：金融机构体系</div>
-        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">结构拆解②：金融市场体系</div>
-        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">结构拆解③：金融工具体系</div>
-        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">结构拆解④：定价与监管</div>
+        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">① 金融机构体系</div>
+        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">② 金融市场体系</div>
+        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">③ 金融工具体系</div>
+        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">④ 货币供求与乘数</div>
+        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">⑤ 货币政策与传导</div>
+        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">⑥ 资产定价机制</div>
+        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">⑦ 金融风险类型</div>
+        <div class="sec-link" onclick="scrollToSec('sec-jinrong')">⑧ 金融监管体系</div>
         <div class="sec-link" onclick="scrollToSec('sec-jinrong')">发生学迭代：四次进化</div>
         <div class="sec-link" onclick="scrollToSec('sec-jinrong')">因果传导链：三条链</div>
       </div>
@@ -3880,6 +3884,9 @@ details summary{list-style:none}
         <!-- 层级标题：结构拆解 -->
         <div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第二层 · 结构拆解</div>
 
+        <!-- 大类标题：资金融通篇 -->
+        <div style="margin:18px 0 10px;padding:6px 12px;background:var(--green-soft);border-left:3px solid var(--green-1);border-radius:0 6px 6px 0;font-size:13.5px;font-weight:700;color:var(--green-1)">一、资金融通篇（钱从哪来、到哪去）</div>
+
         <!-- 卡片2：金融机构体系 -->
         <details class="card fold-card">
           <summary>
@@ -3970,7 +3977,7 @@ details summary{list-style:none}
           </details>
         </details>
 
-        <!-- 卡片3：结构拆解——金融市场体系 -->
+        <!-- 卡片3：金融市场体系 -->
         <details class="card fold-card">
           <summary>
             <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>金融市场体系：在哪里交易</h3></div>
@@ -4001,7 +4008,7 @@ details summary{list-style:none}
           </details>
         </details>
 
-        <!-- 卡片4：结构拆解——金融工具体系 -->
+        <!-- 卡片4：金融工具体系 -->
         <details class="card fold-card">
           <summary>
             <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>金融工具体系：交易什么产品</h3></div>
@@ -4031,14 +4038,77 @@ details summary{list-style:none}
           </details>
         </details>
 
-        <!-- 卡片5：结构拆解——定价与监管 -->
+        <!-- 卡片5：货币供求与货币乘数（新增） -->
         <details class="card fold-card">
           <summary>
-            <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>定价与监管：怎么定价、怎么防爆胎</h3></div>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>货币供求与货币乘数：钱怎么被创造出来</h3></div>
+            <div class="badges">
+              <span class="badge new">M0/M1/M2</span>
+              <span class="badge new">货币乘数</span>
+              <span class="badge sediment">费雪方程</span>
+            </div>
+          </summary>
+          <div class="human">央行印的钱叫"基础货币"，但经过银行体系反复放贷，会变成好几倍的"广义货币"——这个放大倍数就是货币乘数。</div>
+          <div class="section-label new">货币层次（从窄到宽）</div>
+          <p><span class="em-new">M0</span>：流通中现金（你兜里的纸币硬币）；<span class="em-new">M1</span>=M0+企业活期存款（随时能花的钱）；<span class="em-new">M2</span>=M1+定期存款+居民储蓄（准货币，暂时不动的钱）。M2-M1=准货币，M1增速比M2快说明经济活跃。</p>
+          <div class="section-label new">货币需求：费雪方程</div>
+          <p><span class="em-new">MV = PT</span>（货币量×流通速度 = 物价×交易量）。意思：钱印多了、流通速度不变，物价就涨——这就是通货膨胀的根源。</p>
+          <div class="section-label new">货币供给：货币乘数</div>
+          <p>基础货币（央行印的）经过银行体系反复放贷放大：<span class="em-new">货币乘数 ≈ 1 ÷ 法定准备金率</span>。准备金率10%→乘数10倍，100块基础货币最终变成1000块M2。央行降准=乘数变大=放水。</p>
+          <details class="personal-box">
+            <summary><span class="pb-arrow"></span>个人视角：你怎么看</summary>
+            <div class="pb-body">
+              <ul>
+                <li>新闻里"M2增速12%"意味着市场上钱多了，通常利好资产价格；M1增速下滑说明企业不敢花钱了，经济偏冷。</li>
+                <li>央行降准0.5个百分点，释放的不是0.5%的钱，而是乘数放大后的好几千亿流动性。</li>
+              </ul>
+            </div>
+          </details>
+        </details>
+
+        <!-- 卡片6：货币政策与传导（新增） -->
+        <details class="card fold-card">
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">06</span><h3>货币政策与传导：央行怎么调节经济</h3></div>
+            <div class="badges">
+              <span class="badge new">三大法宝</span>
+              <span class="badge new">MLF/LPR</span>
+              <span class="badge old">宽紧周期</span>
+            </div>
+          </summary>
+          <div class="human">央行调节经济靠"三大法宝"+利率走廊，目标是让钱太多了就收一收、钱太少了就放一放。</div>
+          <div class="section-label new">三大法宝（传统工具）</div>
+          <ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+            <li><span class="em-new">法定存款准备金率</span>：银行必须把存款的一定比例存央行，降准=银行可贷钱变多（放水），升准=收紧。</li>
+            <li><span class="em-new">再贴现/再贷款</span>：缺钱的银行拿未到期票据找央行贴现，央行设定再贴现利率=给银行借钱的价格。</li>
+            <li><span class="em-new">公开市场操作（OMO）</span>：央行在市场上买卖国债——买国债=投放钱（放水），卖国债=收回钱（收水）。</li>
+          </ul>
+          <div class="section-label new">利率走廊（现代工具）</div>
+          <p><span class="em-new">MLF（中期借贷便利）</span>：央行给银行放中期钱，MLF利率是LPR的定价锚；<span class="em-new">LPR（贷款市场报价利率）</span>：银行给客户贷款的基准利率，LPR降=房贷利率降。</p>
+          <div class="section-label old">宽紧周期</div>
+          <p><span class="em-old">宽松周期</span>：降准+降息+OMO放水→钱多→资产涨价、股市涨、房贷便宜。<span class="em-old">紧缩周期</span>：升准+加息→钱少→资产承压、存款利息高。</p>
+          <details class="personal-box">
+            <summary><span class="pb-arrow"></span>个人视角：你怎么用</summary>
+            <div class="pb-body">
+              <ul>
+                <li>新闻里"央行降准0.5个百分点"→利好股市、楼市，别把钱全存定期。</li>
+                <li>LPR下调→你的房贷月供会减少（浮动利率），新贷款更便宜。</li>
+              </ul>
+            </div>
+          </details>
+        </details>
+
+        <!-- 大类标题：风险分配篇 -->
+        <div style="margin:22px 0 10px;padding:6px 12px;background:var(--red-soft);border-left:3px solid var(--red-1);border-radius:0 6px 6px 0;font-size:13.5px;font-weight:700;color:var(--red-1)">二、风险分配篇（风险怎么定价、转移、防控）</div>
+
+        <!-- 卡片7：资产定价机制 -->
+        <details class="card fold-card">
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">07</span><h3>资产定价机制：风险怎么变成价格</h3></div>
             <div class="badges">
               <span class="badge new">DCF现金流折现</span>
               <span class="badge new">风险溢价</span>
-              <span class="badge sediment">存款保险</span>
+              <span class="badge sediment">风险收益权衡</span>
             </div>
           </summary>
           <div class="human">一只股票值多少钱，不是拍脑袋——把它未来能赚的所有钱，按"今天值多少"折算回来，这就是DCF。</div>
@@ -4047,15 +4117,75 @@ details summary{list-style:none}
           <div class="section-label sediment">为什么降息股市会涨？</div>
           <p>央行降息 → 折现率（分母）变小 → 算出来的资产价格（分子）自然变高 → 股票、债券价格上涨。<span class="em-sed">这就是降息周期要配资产的底层逻辑</span>。</p>
           <div class="section-label new">风险与收益权衡</div>
-          <p>想赚高收益，必须承担高风险，多出来的那部分收益叫<span class="em-new">风险溢价</span>——国债无风险收益是基准，买企业债要多给你几个点补偿违约风险。</p>
-          <div class="section-label new">监管与防爆胎机制</div>
-          <p><span class="em-new">资本充足率（CAR）</span>：银行必须留够自有资本，防止储户挤兑时赔不起；<span class="em-new">存款保险制度</span>：单一银行50万以内全额赔付，避免银行倒闭引发恐慌。</p>
+          <p>想赚高收益，必须承担高风险，多出来的那部分收益叫<span class="em-new">风险溢价</span>——国债无风险收益是基准，买企业债要多给你几个点补偿违约风险；股票风险比债券大，长期收益也更高。</p>
           <details class="personal-box">
-            <summary><span class="pb-arrow"></span>个人视角：你能干什么</summary>
+            <summary><span class="pb-arrow"></span>个人视角：你怎么用</summary>
             <div class="pb-body">
               <ul>
                 <li><strong>消灭"瞎买"</strong>：买股票不是赌代码涨跌，是买这家公司未来能赚多少钱。未来不赚钱，折现到今天就不值钱——这就是价值投资的底层原理。</li>
-                <li><strong>安心存钱</strong>：知道存款保险保50万，钱特别多就分散存不同银行；知道资本充足率，就知道大银行倒闭概率极低。</li>
+                <li>承诺"高收益零风险"的一定是骗局——风险和收益永远对等。</li>
+              </ul>
+            </div>
+          </details>
+        </details>
+
+        <!-- 卡片8：金融风险类型（新增） -->
+        <details class="card fold-card">
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">08</span><h3>金融风险类型：风险长什么样</h3></div>
+            <div class="badges">
+              <span class="badge old">四大风险</span>
+              <span class="badge old">系统性风险</span>
+              <span class="badge new">不良贷款</span>
+            </div>
+          </summary>
+          <div class="human">金融风险不是一个笼统的词，它分四种类型，每种风险的来源和应对都不一样。</div>
+          <div class="section-label old">四大风险</div>
+          <ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+            <li><span class="em-old">信用风险</span>（违约风险）：借钱的人还不上钱——你买企业债它暴雷了、房贷断供了。这是银行最核心的风险。</li>
+            <li><span class="em-old">市场风险</span>：利率、汇率、股价变动导致资产贬值——你买的股票跌了、加息导致债券价格跌了。</li>
+            <li><span class="em-old">流动性风险</span>：资产卖不出去，要变现只能贱卖——你持有的房子急用钱时卖不掉。</li>
+            <li><span class="em-old">操作风险</span>：内部流程、人员、系统出错——柜员转错账、交易系统宕机、内部欺诈。</li>
+          </ul>
+          <div class="section-label old">系统性风险 vs 非系统性风险</div>
+          <p><span class="em-old">系统性风险</span>：整个市场都跌（金融危机、加息周期），没法靠分散投资规避；<span class="em-new">非系统性风险</span>：单个公司暴雷（财务造假），买一篮子股票就能分散掉。</p>
+          <div class="section-label new">不良贷款（NPL）</div>
+          <p>借款人逾期不还的贷款就是不良贷款，银行要计提损失拨备；<span class="em-new">不良率</span>=不良贷款÷总贷款，是衡量银行资产质量的核心指标。</p>
+          <details class="personal-box">
+            <summary><span class="pb-arrow"></span>个人视角：你怎么防</summary>
+            <div class="pb-body">
+              <ul>
+                <li>信用风险：别把钱借给没还款能力的人，信用卡别过度透支。</li>
+                <li>流动性风险：手里永远留3-6个月生活费的活钱，别全买成定期或房子。</li>
+                <li>分散投资：单只股票别重仓，买宽基指数ETF分散个股暴雷风险。</li>
+              </ul>
+            </div>
+          </details>
+        </details>
+
+        <!-- 卡片9：金融监管体系 -->
+        <details class="card fold-card">
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">09</span><h3>金融监管体系：怎么防爆雷</h3></div>
+            <div class="badges">
+              <span class="badge new">资本充足率</span>
+              <span class="badge new">巴塞尔协议</span>
+              <span class="badge new">存款保险</span>
+            </div>
+          </summary>
+          <div class="human">监管的目的就是防止银行太浪、爆雷后拖垮整个系统——巴塞尔协议是全球银行监管的统一规则。</div>
+          <div class="section-label new">巴塞尔协议（全球银行监管）</div>
+          <p><span class="em-new">资本充足率（CAR）≥8%</span>：银行的自有资本÷风险加权资产必须≥8%——意思是银行拿自己的钱当缓冲，哪怕亏掉8%也不至于破产、不至于让储户赔钱。</p>
+          <div class="section-label new">微观审慎 + 宏观审慎双支柱</div>
+          <p><span class="em-new">微观审慎</span>：管单个银行别出事（资本充足率、不良率监管）；<span class="em-new">宏观审慎</span>：管整个系统别出事——比如房地产过热时提高房贷首付、限制银行向房地产放贷，防止系统性风险积累。</p>
+          <div class="section-label new">存款保险制度</div>
+          <p>单一银行<span class="em-new">50万以内全额赔付</span>——你在同一家银行存款本息合计50万以内，就算银行破产也能全额拿回。目的是防止储户恐慌挤兑。</p>
+          <details class="personal-box">
+            <summary><span class="pb-arrow"></span>个人视角：你怎么用</summary>
+            <div class="pb-body">
+              <ul>
+                <li>存款超过50万就分散存不同银行，全额受保险。</li>
+                <li>知道资本充足率≥8%是全球规则，就知道大银行倒闭概率极低。</li>
               </ul>
             </div>
           </details>
@@ -4067,7 +4197,7 @@ details summary{list-style:none}
         <!-- 卡片6：四次进化 -->
         <details class="card fold-card">
           <summary>
-            <div class="card-h"><span class="fold-arrow"></span><span class="idx">06</span><h3>金融学的四次进化</h3></div>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">10</span><h3>金融学的四次进化</h3></div>
             <div class="badges">
               <span class="badge old">银行中介 1.0</span>
               <span class="badge new">MPT/CAPM 2.0</span>
@@ -4103,7 +4233,7 @@ details summary{list-style:none}
         <!-- 卡片7：三条传导链+终极对比 -->
         <details class="card fold-card">
           <summary>
-            <div class="card-h"><span class="fold-arrow"></span><span class="idx">07</span><h3>三条传导链与终极对比</h3></div>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">11</span><h3>三条传导链与终极对比</h3></div>
             <div class="badges">
               <span class="badge new">利率传导</span>
               <span class="badge old">信用创造→泡沫</span>
