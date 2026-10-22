@@ -222,7 +222,10 @@ details summary{list-style:none}
       <div class="group-inner2 open" style="padding-left:20px">
         <div class="sec-link" onclick="scrollToSec('sec-hongguan')">宏观经济学完整框架</div>
       </div>
-      <div class="gt2 disabled">微观经济 <i>待更新</i></div>
+      <div class="gt2" onclick="toggleGroup(this)">微观经济 <i>1</i> <span class="arrow">▾</span></div>
+      <div class="group-inner2" style="padding-left:20px">
+        <div class="sec-link" onclick="scrollToSec('sec-weiguan')">微观经济学完整框架</div>
+      </div>
     </div>
   </div>
   <div class="group">
@@ -328,10 +331,10 @@ details summary{list-style:none}
         <div style="font-size:12px;color:var(--t2);margin-bottom:8px">宪法、民法、刑法、公司法</div>
         <div style="font-size:11px;color:var(--t3)">已收录 <b style="color:var(--brand-1)">6</b> 个阶段</div>
       </div>
-      <div style="background:var(--bg);border:1px solid var(--divider);border-radius:12px;padding:16px 18px;cursor:pointer" onclick="scrollToSec('sec-hongguan')">
+      <div style="background:var(--bg);border:1px solid var(--divider);border-radius:12px;padding:16px 18px;cursor:pointer" onclick="scrollToSec('sec-economy')">
         <div style="font-size:14.5px;font-weight:700;margin-bottom:4px">经济</div>
-        <div style="font-size:12px;color:var(--t2);margin-bottom:8px">宏观经济学、微观经济、社会主义市场经济</div>
-        <div style="font-size:11px;color:var(--t3)">已收录 <b style="color:var(--brand-1)">1</b> 个章节 · 因果传导链 + 概念对偶</div>
+        <div style="font-size:12px;color:var(--t2);margin-bottom:8px">宏观经济学（IS-LM）、微观经济学（供需模型）</div>
+        <div style="font-size:11px;color:var(--t3)">已收录 <b style="color:var(--brand-1)">2</b> 个章节 · 因果传导链 + 概念对偶</div>
       </div>
     </div>
 
@@ -3607,6 +3610,174 @@ details summary{list-style:none}
         <!-- 应试心法 -->
         <div class="exam-box">
           公考极少直接考图形计算，但"灵魂"常考：① <strong>挤出效应</strong>——政府大规模借债搞基建，利率上升，民营企业借不到钱；② <strong>政策搭配</strong>——经济低迷央行降息，但若企业极度悲观（IS 垂直）则降息没用，要靠财政；③ <strong>政策张冠李戴</strong>——降息降准是货币政策，加税减支是财政政策，别搞混。
+        </div>
+      </div>
+
+      <!-- 微观经济学 -->
+      <div id="sec-weiguan" style="margin-top:24px">
+        <h3 style="font-size:15px;font-weight:700;margin:16px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--divider)">微观经济学</h3>
+        <div style="background:var(--green-soft);border-left:3px solid var(--green-1);padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:var(--t2);margin-bottom:14px">
+          宏观看<strong>森林</strong>（国家GDP、通胀、失业），微观看<strong>树木</strong>（单个消费者怎么花钱、单个企业怎么定价）。微观没有IS-LM，它的"心脏"是<span class="em-new">供需模型（Supply-Demand）</span>和<span class="em-new">边际革命（Marginal）</span>。
+        </div>
+
+        <!-- 卡片1：发生学——微观经济学的诞生 -->
+        <details class="card fold-card" open>
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>微观经济学为什么会诞生（发生学）</h3></div>
+            <div class="badges">
+              <span class="badge old">资源稀缺</span>
+              <span class="badge new">理性人假设</span>
+              <span class="badge sediment">资源配置</span>
+            </div>
+          </summary>
+          <div class="human">人类的终极矛盾是"东西不够分、欲望无限"，所以必须做选择——微观经济学就是教你怎么把有限的资源分到刀刃上。</div>
+          <div class="section-label old">历史痛点：资源稀缺（Scarcity）</div>
+          <p>社会的终极矛盾：<span class="em-old">资源有限 vs 欲望无限</span>。东西不够分，就必须做选择、做配置。</p>
+          <div class="section-label new">研究目的：资源配置（Resource Allocation）</div>
+          <p>研究<span class="em-new">单个经济单位</span>的行为：消费者怎么花最少的钱获得最大满足？企业怎么用最低成本赚最多利润？核心三大问题：<span class="em-new">生产什么（What）、怎么生产（How）、为谁生产（For Whom）</span>。</p>
+          <div class="section-label sediment">理论地基：理性人假设</div>
+          <p><span class="em-sed">每个人都是理性且自利的，追求自身利益最大化</span>——消费者追求效用最大化，企业追求利润最大化。</p>
+        </details>
+
+        <!-- 卡片2：结构拆解——四大模块 -->
+        <details class="card fold-card" open>
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>微观经济的结构：四大模块（结构拆解）</h3></div>
+            <div class="badges">
+              <span class="badge new">基础概念</span>
+              <span class="badge new">供需模型</span>
+              <span class="badge new">市场结构</span>
+            </div>
+          </summary>
+          <div class="human">微观是一台精密的"价格机器"：底座是三个基础概念，两大主角是消费者和企业，运行轨道是供需曲线，末端是四种市场结构。</div>
+          <div class="section-label new">模块一：核心底座（三个基础概念）</div>
+          <p><span class="em-new">机会成本（Opportunity Cost）</span>：为了得到某样东西，必须放弃的最大代价（上大学的机会成本是打工赚的钱）。<span class="em-new">边际分析（Marginal Analysis）</span>：微观的灵魂，不看总量，只看"多增加一个单位"的变化。<span class="em-new">弹性（Elasticity）</span>：价格变动1%，需求量变动百分之几——刚需弹性小，奢侈品弹性大。</p>
+          <div class="section-label new">模块二：两大主角</div>
+          <p><span class="em-new">消费者（Consumer）</span>：追求效用最大化，受预算约束。<span class="em-new">生产者（Producer/企业）</span>：追求利润最大化，受成本约束。</p>
+          <div class="section-label new">模块三：核心运行轨道——供需模型</div>
+          <p><span class="em-new">需求曲线</span>向右下倾斜（价格越低买的人越多）；<span class="em-new">供给曲线</span>向右上倾斜（价格越高企业越愿意生产）；<span class="em-new">均衡点（Equilibrium）</span>是两线交点，决定均衡价格 P 和均衡数量 Q。</p>
+          <div class="section-label sediment">模块四：四种市场结构</div>
+          <p><span class="em-sed">完全竞争</span>（卖白菜，无数卖家谁也不能定价）→ <span class="em-sed">垄断竞争</span>（卖衣服，品牌有差异）→ <span class="em-sed">寡头垄断</span>（卖手机飞机，几家巨头说了算）→ <span class="em-sed">完全垄断</span>（卖自来水电网，一家独大想定多高定多高）。</p>
+        </details>
+
+        <!-- 卡片3：发生学迭代——从看不见的手到市场失灵 -->
+        <details class="card fold-card" open>
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>从"看不见的手"到"市场失灵"（发生学迭代）</h3></div>
+            <div class="badges">
+              <span class="badge old">斯密 1.0</span>
+              <span class="badge new">马歇尔 2.0</span>
+              <span class="badge new">市场失灵 3.0</span>
+            </div>
+          </summary>
+          <div class="human">微观经济学不是一开始就完美的——从"政府啥都别管"到"该出手时就出手"，是被现实毒打后一步步迭代出来的。</div>
+          <div class="section-label old">1.0 古典经济学（亚当·斯密）</div>
+          <p><span class="em-old">看不见的手（Invisible Hand）</span>：只要自由竞争，供需自动平衡，政府什么都不用管（自由放任）。</p>
+          <div class="section-label new">2.0 边际革命（马歇尔等）</div>
+          <p>引入数学工具，用"边际"概念算出<span class="em-new">消费者剩余和生产者剩余</span>，证明市场能达到<span class="em-new">帕累托最优（Pareto Optimality）</span>——没人能在不损害别人的前提下变得更好。</p>
+          <div class="section-label new">3.0 现代微观：发现市场失灵</div>
+          <p>"看不见的手"会抽筋。当出现<span class="em-new">垄断、外部性（工厂排污）、公共物品、信息不对称</span>时，市场自动调节失效，必须引入"看得见的手"——政府干预（收庇古税、反垄断立法）。</p>
+        </details>
+
+        <!-- 卡片4：价格机制传导链 -->
+        <details class="card fold-card" open>
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>价格机制：看不见的手怎么调节资源（因果传导链）</h3></div>
+            <div class="badges">
+              <span class="badge new">价格信号</span>
+              <span class="badge new">资源流动</span>
+              <span class="badge sediment">供需平衡</span>
+            </div>
+          </summary>
+          <div class="human">价格是信号灯——它涨，资源就往这边流；它跌，资源就从这边跑。这就是"看不见的手"真正在干的事。</div>
+          <div class="section-label new">场景一：供不应求（比如猪肉涨价）</div>
+          <div style="background:var(--green-soft);border:1px solid #cfe6d8;border-radius:8px;padding:10px 14px;font-size:13px;line-height:2;color:var(--t1);margin:6px 0">
+            猪肉供不应求 → <span class="em-new">价格 P↑</span> → 养猪利润增加 → 吸引更多养殖户进入（资源流入） → 供给 S↑ → 价格回落，供需重新平衡
+          </div>
+          <div class="section-label new">场景二：供过于求（反向传导）</div>
+          <div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 14px;font-size:13px;line-height:2;color:var(--t2);margin:6px 0">
+            商品卖不动 → <span class="em-old">价格 P↓</span> → 企业亏损 → 生产者退出（资源流出） → 供给 S↓ → 价格回升
+          </div>
+          <div class="section-label sediment">底层逻辑</div>
+          <p><span class="em-sed">价格引导资源（钱和人）从利润低的行业流向利润高的行业</span>，这就是市场配置资源的核心机制。</p>
+        </details>
+
+        <!-- 卡片5：消费者选择机制——边际效用递减 -->
+        <details class="card fold-card" open>
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>消费者选择：边际效用递减（因果传导链）</h3></div>
+            <div class="badges">
+              <span class="badge new">边际效用</span>
+              <span class="badge new">预算分配</span>
+              <span class="badge sediment">效用最大化</span>
+            </div>
+          </summary>
+          <div class="human">吃第一个包子最香，第五个就撑了——这就是边际效用递减。懂了它，你就懂了为什么"第二杯半价"、为什么投资要分散。</div>
+          <div class="section-label new">传导链：吃包子</div>
+          <div style="background:var(--green-soft);border:1px solid #cfe6d8;border-radius:8px;padding:10px 14px;font-size:13px;line-height:2;color:var(--t1);margin:6px 0">
+            第一个包子很爽（<span class="em-new">边际效用高</span>） → 第二个还行 → 第五个撑了（<span class="em-old">边际效用递减</span>） → 再吃就吐了（边际效用为负）
+          </div>
+          <div class="section-label new">机制：均衡条件</div>
+          <p>因为边际效用递减，你必须把有限的工资分配给不同商品，直到<span class="em-new">每一块钱花在不同商品上的边际效用相等</span>——这样总效用才最大。</p>
+          <div class="section-label sediment">生活应用</div>
+          <p><span class="em-sed">商家为什么搞"第二杯半价"</span>：第一杯已经赚回成本，第二杯的边际成本极低，低价也划算。<span class="em-sed">为什么投资要分散</span>：把所有钱押一个资产，边际效用会暴跌、风险会暴涨。</p>
+        </details>
+
+        <!-- 卡片6：市场失灵——外部性与庇古税 -->
+        <details class="card fold-card" open>
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">06</span><h3>市场失灵：外部性与政府干预（因果传导链）</h3></div>
+            <div class="badges">
+              <span class="badge old">负外部性</span>
+              <span class="badge new">庇古税</span>
+              <span class="badge sediment">成本内部化</span>
+            </div>
+          </summary>
+          <div class="human">化工厂赚钱，但排污让下游居民买单——这就是负外部性。政府收庇古税，把污染成本塞回企业自己兜里。</div>
+          <div class="section-label old">病理：负外部性（Negative Externality）</div>
+          <div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 14px;font-size:13px;line-height:2;color:var(--t2);margin:6px 0">
+            化工厂生产赚钱 → 排污水害了下游居民 → <span class="em-old">私人成本 &lt; 社会成本</span> → 化工厂只顾自己，产量超出社会最优水平
+          </div>
+          <div class="section-label new">政府干预：庇古税（Pigouvian Tax）</div>
+          <div style="background:var(--green-soft);border:1px solid #cfe6d8;border-radius:8px;padding:10px 14px;font-size:13px;line-height:2;color:var(--t1);margin:6px 0">
+            政府按排污量征税 → 企业成本上升（<span class="em-new">成本内部化</span>） → 企业缩减产量 → 污染下降，社会福利恢复最优
+          </div>
+          <div class="section-label sediment">四大市场失灵类型</div>
+          <p><span class="em-sed">① 垄断</span>（一家独大抬高价）；<span class="em-sed">② 外部性</span>（排污/修路带邻居受益）；<span class="em-sed">③ 公共物品</span>（路灯、国防，人人白嫖没人愿出钱）；<span class="em-sed">④ 信息不对称</span>（二手车、保险，卖方比卖方懂太多）。</p>
+        </details>
+
+        <!-- 卡片7：微观vs宏观终极对比 -->
+        <details class="card fold-card" open>
+          <summary>
+            <div class="card-h"><span class="fold-arrow"></span><span class="idx">07</span><h3>微观 vs 宏观：一张表打通经济学（结构拆解）</h3></div>
+            <div class="badges">
+              <span class="badge new">树木 vs 森林</span>
+              <span class="badge sediment">效率 vs 稳定</span>
+            </div>
+          </summary>
+          <div class="human">微观教你"怎么精明地花钱赚钱"（个体生存法则），宏观教你"怎么顺应时代大潮"（顺势而为）。两个都懂，你就是经济世界的明白人。</div>
+          <table style="width:100%;border-collapse:collapse;font-size:12.5px;margin:6px 0">
+            <thead>
+              <tr style="background:var(--bg-alt)">
+                <th style="border:1px solid var(--divider);padding:6px 8px;text-align:left">维度</th>
+                <th style="border:1px solid var(--divider);padding:6px 8px;text-align:left">微观（树木）</th>
+                <th style="border:1px solid var(--divider);padding:6px 8px;text-align:left">宏观（森林）</th>
+              </tr>
+            </thead>
+            <tbody style="color:var(--t2)">
+              <tr><td style="border:1px solid var(--divider);padding:6px 8px;font-weight:600;color:var(--t1)">视角</td><td style="border:1px solid var(--divider);padding:6px 8px">单个消费者、企业</td><td style="border:1px solid var(--divider);padding:6px 8px">国家、GDP、失业、通胀</td></tr>
+              <tr><td style="border:1px solid var(--divider);padding:6px 8px;font-weight:600;color:var(--t1)">核心问题</td><td style="border:1px solid var(--divider);padding:6px 8px">资源配置（怎么分好东西）</td><td style="border:1px solid var(--divider);padding:6px 8px">经济稳定（不衰退不通胀）</td></tr>
+              <tr><td style="border:1px solid var(--divider);padding:6px 8px;font-weight:600;color:var(--t1)">核心模型</td><td style="border:1px solid var(--divider);padding:6px 8px">供需模型 Supply-Demand</td><td style="border:1px solid var(--divider);padding:6px 8px">IS-LM / AD-AS</td></tr>
+              <tr><td style="border:1px solid var(--divider);padding:6px 8px;font-weight:600;color:var(--t1)">主要工具</td><td style="border:1px solid var(--divider);padding:6px 8px">价格信号、边际分析</td><td style="border:1px solid var(--divider);padding:6px 8px">财政政策 + 货币政策</td></tr>
+              <tr><td style="border:1px solid var(--divider);padding:6px 8px;font-weight:600;color:var(--t1)">政府角色</td><td style="border:1px solid var(--divider);padding:6px 8px">守夜人（反垄断、治外部性）</td><td style="border:1px solid var(--divider);padding:6px 8px">调控者（逆周期调节）</td></tr>
+              <tr><td style="border:1px solid var(--divider);padding:6px 8px;font-weight:600;color:var(--t1)">解决什么</td><td style="border:1px solid var(--divider);padding:6px 8px"><span class="em-new">效率（Efficiency）</span></td><td style="border:1px solid var(--divider);padding:6px 8px"><span class="em-new">稳定（Stability）</span></td></tr>
+            </tbody>
+          </table>
+        </details>
+
+        <!-- 应试心法 -->
+        <div class="exam-box">
+          微观常识高频考点：① <strong>机会成本 vs 沉没成本</strong>——已经花掉收不回的钱不是成本，别因为"都亏了这么多"越陷越深；② <strong>弹性判断</strong>——生活必需品弹性小（涨价也得买），奢侈品弹性大（涨价就不买）；③ <strong>市场结构对应</strong>——完全竞争无定价权，完全垄断定价权最大；④ <strong>市场失灵四件套</strong>——垄断、外部性、公共物品、信息不对称，政府出手纠正；⑤ <strong>边际效用递减</strong>——"第二杯半价"的底层逻辑。
         </div>
       </div>
     </div>
