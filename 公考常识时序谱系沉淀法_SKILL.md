@@ -293,6 +293,12 @@ description: 面向公考行测常识/政治理论/历史/法律/经济/时政�
 - **不要边框、不要浏览器默认黑三角**（summary 用 list-style:none、::-webkit-details-marker 隐藏）。
 - 对应 CSS：`.fold-card summary{cursor:pointer;list-style:none}`、`.fold-card .fold-arrow::before{content:"▸"}`、`.fold-card[open] .fold-arrow::before{content:"▾"}`。
 
+**个人视角实操框（personal-box，经济章节标配）**：在每张经济卡片末尾加一个"个人视角：你能干什么"实操框，用 `<details class="personal-box">`（默认收起，不展开）：
+- 灰底（var(--bg-soft)）+ 细边框（var(--divider)）+ 圆角，**不要左边竖线**，不抢眼。
+- summary 里放绿色三角（`<span class="pb-arrow"></span>`，▸/▾ 切换）+ 标题"个人视角：xxx"。
+- 内容用 `<ul><li>` 列表，每条一个实操要点，不要人机符号（📌👤）。
+- 作用：把理论落地到个人生活/求职/消费/投资场景，和"说人话框"（绿色、本质解释）区分开。
+
 ### 5. 其他规范
 - **交叉引用**：关键术语加虚下划线链接，点击跳转到对应阶段卡片。
 - **全局搜索**：顶部搜索框，输入关键词实时过滤卡片。
