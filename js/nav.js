@@ -2,24 +2,34 @@
  * 规则（AI 添加内容时必须同步维护本文件）：
  * 1. 所有 URL 一律相对站点根目录书写（如 pages/finance/index.html#sec-jinrong-c2），
  *    渲染时由 app.js 自动加 SITE_ROOT 前缀，首页与各子页通用。
- * 2. 新增板块卡片 → 在对应领域 links 里加 {t:'标题', u:'页面路径#卡片id', n:'数量'}。
- * 3. 新增概念深潜页 → 在「概念深潜」对应域加链接，并在板块页加 deep-link 入口。
+ * 2. 新增板块卡片 → 在对应领域 links 里加 {t:'与页面 h3 一致的标题', u:'页面路径#卡片id'}。
+ * 3. 新增概念深挖页 → 在「概念深挖」对应域加链接，并在板块页加 deep-link 入口。
  * 4. 新增错题页 → 在「错题本」加链接。
  * 5. u 中 # 后面是目标锚点 id；与本页 PATH 相同的链接会自动转为页内平滑跳转。
+ * 6. 组顺序约定：内容板块在前，工具模块（概念深挖 / 错题本）固定在最下方。
  */
 const NAV_DATA = [
   { home: true, t: '首页说明', u: '公考备考笔记.html' },
 
   { t: '公共基础 · 常识', children: [
-    { t: '历史人文', links: [
-      { t: '远古与夏商西周', u: 'pages/history/ancient.html#sec-1', n: '5' },
-      { t: '春秋战国', u: 'pages/history/ancient.html#sec-2', n: '2' },
-      { t: '秦汉', u: 'pages/history/ancient.html#sec-3', n: '2' },
-      { t: '魏晋南北朝', u: 'pages/history/ancient.html#sec-4', n: '1' },
-      { t: '隋唐', u: 'pages/history/ancient.html#sec-5', n: '2' },
-      { t: '宋元', u: 'pages/history/ancient.html#sec-6', n: '2' },
-      { t: '明清', u: 'pages/history/ancient.html#sec-7', n: '2' },
-      { t: '近现代史', u: 'pages/history/modern.html#sec-jindai', n: '42' },
+    { t: '历史人文', children: [
+      { t: '古代史', links: [
+        { t: '远古与夏商西周', u: 'pages/history/ancient.html#sec-1', n: '5' },
+        { t: '春秋战国', u: 'pages/history/ancient.html#sec-2', n: '2' },
+        { t: '秦汉', u: 'pages/history/ancient.html#sec-3', n: '2' },
+        { t: '魏晋南北朝', u: 'pages/history/ancient.html#sec-4', n: '1' },
+        { t: '隋唐', u: 'pages/history/ancient.html#sec-5', n: '2' },
+        { t: '宋元', u: 'pages/history/ancient.html#sec-6', n: '2' },
+        { t: '明清', u: 'pages/history/ancient.html#sec-7', n: '2' },
+      ]},
+      { t: '近现代史', n: '42', links: [
+        { t: '总览', u: 'pages/history/modern.html#sec-jindai' },
+        { t: '一、旧民主主义革命时期', u: 'pages/history/modern.html#sec-jindai-p1' },
+        { t: '二、新民主主义革命时期', u: 'pages/history/modern.html#sec-jindai-p2' },
+        { t: '三、社会主义革命和建设时期', u: 'pages/history/modern.html#sec-jindai-p3' },
+        { t: '四、改革开放新时期', u: 'pages/history/modern.html#sec-jindai-p4' },
+        { t: '五、新时代', u: 'pages/history/modern.html#sec-jindai-p5' },
+      ]},
     ]},
     { t: '法律', n: '4', children: [
       { t: '宪法', n: '2', links: [
@@ -42,46 +52,41 @@ const NAV_DATA = [
   ]},
 
   { t: '经济', children: [
-    { t: '宏观经济', n: '1', links: [
-      { t: '宏观经济学完整框架', u: 'pages/economy/macro.html#sec-hongguan' },
+    { t: '宏观经济学', n: '8', links: [
+      { t: '01 宏观经济学为什么会诞生', u: 'pages/economy/macro.html#sec-hongguan-c1' },
+      { t: '02 宏观经济的结构', u: 'pages/economy/macro.html#sec-hongguan-c2' },
+      { t: '03 IS-LM 模型', u: 'pages/economy/macro.html#sec-hongguan-c3' },
+      { t: '04 为什么框架里会有这些零件', u: 'pages/economy/macro.html#sec-hongguan-c4' },
+      { t: '05 经济过冷怎么救', u: 'pages/economy/macro.html#sec-hongguan-c5' },
+      { t: '06 经济过热怎么压', u: 'pages/economy/macro.html#sec-hongguan-c6' },
+      { t: '07 滞胀难题与短期、长期的区别', u: 'pages/economy/macro.html#sec-hongguan-c7' },
+      { t: '08 IS-LM 里政策怎么起作用', u: 'pages/economy/macro.html#sec-hongguan-c8' },
     ]},
-    { t: '微观经济', n: '1', links: [
-      { t: '微观经济学完整框架', u: 'pages/economy/micro.html#sec-weiguan' },
+    { t: '微观经济学', n: '7', links: [
+      { t: '01 微观经济学为什么会诞生', u: 'pages/economy/micro.html#sec-weiguan-c1' },
+      { t: '02 微观经济的结构', u: 'pages/economy/micro.html#sec-weiguan-c2' },
+      { t: '03 从“看不见的手”到“市场失灵”', u: 'pages/economy/micro.html#sec-weiguan-c3' },
+      { t: '04 价格机制', u: 'pages/economy/micro.html#sec-weiguan-c4' },
+      { t: '05 消费者选择', u: 'pages/economy/micro.html#sec-weiguan-c5' },
+      { t: '06 市场失灵', u: 'pages/economy/micro.html#sec-weiguan-c6' },
+      { t: '07 微观 vs 宏观', u: 'pages/economy/micro.html#sec-weiguan-c7' },
     ]},
   ]},
 
   { t: '金融学', children: [
     { t: '金融体系', n: '12', links: [
-      { t: '发生学：为什么有金融学', u: 'pages/finance/index.html#sec-jinrong-c1' },
-      { t: '① 金融机构体系', u: 'pages/finance/index.html#sec-jinrong-c2' },
-      { t: '② 金融市场体系', u: 'pages/finance/index.html#sec-jinrong-c3' },
-      { t: '③ 金融工具体系', u: 'pages/finance/index.html#sec-jinrong-c4' },
-      { t: '④ 货币供求与乘数', u: 'pages/finance/index.html#sec-jinrong-c5' },
-      { t: '⑤ 货币政策与传导', u: 'pages/finance/index.html#sec-jinrong-c6' },
-      { t: '⑥ 国际金融', u: 'pages/finance/index.html#sec-jinrong-c7' },
-      { t: '⑦ 资产定价机制', u: 'pages/finance/index.html#sec-jinrong-c8' },
-      { t: '⑧ 金融风险类型', u: 'pages/finance/index.html#sec-jinrong-c9' },
-      { t: '⑨ 金融监管体系', u: 'pages/finance/index.html#sec-jinrong-c10' },
-      { t: '发生学迭代：四次进化', u: 'pages/finance/index.html#sec-jinrong-c11' },
-      { t: '因果传导链：三条链', u: 'pages/finance/index.html#sec-jinrong-c12' },
-    ]},
-  ]},
-
-  { t: '概念深潜', children: [
-    { t: '金融', links: [
-      { t: '商业银行的业务（三驾马车）', u: 'concepts/finance/commercial-bank.html' },
-    ]},
-  ]},
-
-  { t: '错题本', children: [
-    { t: '按考法分类', links: [
-      { t: '错题总览', u: 'errors/index.html' },
-    ]},
-    { t: '按领域分类', links: [
-      { t: '历史人文', u: 'errors/history.html' },
-      { t: '法律', u: 'errors/law.html' },
-      { t: '经济', u: 'errors/economy.html' },
-      { t: '金融', u: 'errors/finance.html' },
+      { t: '01 金融学为什么会诞生', u: 'pages/finance/index.html#sec-jinrong-c1' },
+      { t: '02 金融机构体系', u: 'pages/finance/index.html#sec-jinrong-c2' },
+      { t: '03 金融市场体系', u: 'pages/finance/index.html#sec-jinrong-c3' },
+      { t: '04 金融工具体系', u: 'pages/finance/index.html#sec-jinrong-c4' },
+      { t: '05 货币供求与货币乘数', u: 'pages/finance/index.html#sec-jinrong-c5' },
+      { t: '06 货币政策与传导', u: 'pages/finance/index.html#sec-jinrong-c6' },
+      { t: '07 国际金融', u: 'pages/finance/index.html#sec-jinrong-c7' },
+      { t: '08 资产定价机制', u: 'pages/finance/index.html#sec-jinrong-c8' },
+      { t: '09 金融风险类型', u: 'pages/finance/index.html#sec-jinrong-c9' },
+      { t: '10 金融监管体系', u: 'pages/finance/index.html#sec-jinrong-c10' },
+      { t: '11 金融学的四次进化', u: 'pages/finance/index.html#sec-jinrong-c11' },
+      { t: '12 三条传导链与终极对比', u: 'pages/finance/index.html#sec-jinrong-c12' },
     ]},
   ]},
 
@@ -100,5 +105,23 @@ const NAV_DATA = [
 
   { t: '总结', links: [
     { t: '未来时政联动', u: '公考备考笔记.html#sec-future', n: '6' },
+  ]},
+
+  { t: '概念深挖', children: [
+    { t: '金融', links: [
+      { t: '商业银行', u: 'concepts/finance/commercial-bank.html' },
+    ]},
+  ]},
+
+  { t: '错题本', children: [
+    { t: '按考法分类', links: [
+      { t: '错题总览', u: 'errors/index.html' },
+    ]},
+    { t: '按领域分类', links: [
+      { t: '历史人文', u: 'errors/history.html' },
+      { t: '法律', u: 'errors/law.html' },
+      { t: '经济', u: 'errors/economy.html' },
+      { t: '金融', u: 'errors/finance.html' },
+    ]},
   ]},
 ];

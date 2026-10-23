@@ -189,7 +189,11 @@ details summary{list-style:none}
 .crumb a{color:var(--brand-1)}
 .crumb a:hover{text-decoration:underline}
 
-/* 概念深潜入口按钮：板块页卡片内，指向 concepts/ 深潜页 */
+/* 返回按钮：子页面面包屑行首 */
+.back-btn{display:inline-block;margin-right:10px;padding:2px 12px;border:1px solid var(--divider);border-radius:6px;font-size:12px;font-weight:500;color:var(--t2);background:var(--bg);transition:all .15s}
+.back-btn:hover{color:var(--brand-1);border-color:var(--brand-1);text-decoration:none}
+
+/* 概念深挖入口按钮：板块页卡片内，指向 concepts/ 深挖页 */
 .deep-link{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px;padding:9px 14px;border:1.5px dashed var(--green-1);border-radius:8px;color:var(--green-1);font-size:13.5px;font-weight:600;transition:all .15s}
 .deep-link::after{content:"→";font-weight:700}
 .deep-link:hover{background:var(--green-soft);text-decoration:none}

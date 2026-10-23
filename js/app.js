@@ -166,6 +166,20 @@ function toggleEdit(){
 // ---------- 页面加载 ----------
 window.addEventListener('load', function(){
   renderNav();
+  // 子页面返回按钮：面包屑行首注入，优先浏览器历史返回，无历史则回首页
+  const crumb = document.querySelector('.crumb');
+  if(crumb && (window.SITE_ROOT || '') !== ''){
+    const back = document.createElement('a');
+    back.className = 'back-btn';
+    back.href = '#';
+    back.textContent = '← 返回';
+    back.onclick = function(e){
+      e.preventDefault();
+      if(history.length > 1){ history.back(); }
+      else { location.href = window.SITE_ROOT + encodeURIComponent('公考备考笔记.html'); }
+    };
+    crumb.insertBefore(back, crumb.firstChild);
+  }
   // 读取本页保存的编辑内容
   const saved = localStorage.getItem(editKey());
   if(saved){
