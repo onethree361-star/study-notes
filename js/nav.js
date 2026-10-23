@@ -108,8 +108,14 @@ const NAV_DATA = [
   ]},
 
   { t: '概念深挖', children: [
-    { t: '金融', links: [
-      { t: '商业银行', u: 'concepts/finance/commercial-bank.html' },
+    { t: '金融', children: [
+      { t: '商业银行', n: '4', links: [
+        { t: '页面总览', u: 'concepts/finance/commercial-bank.html' },
+        { t: '发生学', u: 'concepts/finance/commercial-bank.html#dk-syyh-l1' },
+        { t: '结构拆解', u: 'concepts/finance/commercial-bank.html#dk-syyh-l2' },
+        { t: '发生学迭代', u: 'concepts/finance/commercial-bank.html#dk-syyh-l3' },
+        { t: '因果传导链', u: 'concepts/finance/commercial-bank.html#dk-syyh-l4' },
+      ]},
     ]},
   ]},
 
