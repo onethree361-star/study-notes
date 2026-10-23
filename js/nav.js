@@ -113,12 +113,7 @@ const NAV_DATA = [
   ]},
 
   { t: '英语', children: [
-    { t: '语法结构', links: [
-      { t: '01 词义辨析（后缀分类速记）', u: 'pages/english/grammar.html#sec-yingyu-c1' },
-      { t: '02 动词时态（三层判断模型）', u: 'pages/english/grammar.html#sec-yingyu-c2' },
-      { t: '03 复合从句（缺啥补啥判断体系）', u: 'pages/english/grammar.html#sec-yingyu-c3' },
-      { t: '04 考场做题一步流', u: 'pages/english/grammar.html#sec-yingyu-c4' },
-    ]},
+    { t: '语法结构', u: 'pages/english/grammar.html' },
     { t: '单词每日记', u: 'pages/english/vocabulary.html', disabled: true, n: '待更新' },
   ]},
 
