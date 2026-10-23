@@ -52,30 +52,48 @@ const NAV_DATA = [
   ]},
 
   { t: '经济', children: [
-    { t: '宏观经济学', n: '8', links: [
-      { t: '01 宏观经济学为什么会诞生', u: 'pages/economy/macro.html#sec-hongguan-c1' },
-      { t: '02 宏观经济的结构', u: 'pages/economy/macro.html#sec-hongguan-c2' },
-      { t: '03 IS-LM 模型', u: 'pages/economy/macro.html#sec-hongguan-c3' },
-      { t: '04 为什么框架里会有这些零件', u: 'pages/economy/macro.html#sec-hongguan-c4' },
-      { t: '05 经济过冷怎么救', u: 'pages/economy/macro.html#sec-hongguan-c5' },
-      { t: '06 经济过热怎么压', u: 'pages/economy/macro.html#sec-hongguan-c6' },
-      { t: '07 滞胀难题与短期、长期的区别', u: 'pages/economy/macro.html#sec-hongguan-c7' },
-      { t: '08 IS-LM 里政策怎么起作用', u: 'pages/economy/macro.html#sec-hongguan-c8' },
+    { t: '宏观经济学', children: [
+      { t: '第一层 · 发生学', links: [
+        { t: '01 宏观经济学为什么会诞生', u: 'pages/economy/macro.html#sec-hongguan-c1' },
+      ]},
+      { t: '第二层 · 结构拆解', links: [
+        { t: '02 宏观经济的结构', u: 'pages/economy/macro.html#sec-hongguan-c2' },
+        { t: '03 IS-LM 模型', u: 'pages/economy/macro.html#sec-hongguan-c3' },
+      ]},
+      { t: '第三层 · 发生学迭代', links: [
+        { t: '04 为什么框架里会有这些零件', u: 'pages/economy/macro.html#sec-hongguan-c4' },
+      ]},
+      { t: '第四层 · 因果传导链', links: [
+        { t: '05 经济过冷怎么救', u: 'pages/economy/macro.html#sec-hongguan-c5' },
+        { t: '06 经济过热怎么压', u: 'pages/economy/macro.html#sec-hongguan-c6' },
+        { t: '07 滞胀难题与短期、长期的区别', u: 'pages/economy/macro.html#sec-hongguan-c7' },
+        { t: '08 IS-LM 里政策怎么起作用', u: 'pages/economy/macro.html#sec-hongguan-c8' },
+      ]},
     ]},
-    { t: '微观经济学', n: '7', links: [
-      { t: '01 微观经济学为什么会诞生', u: 'pages/economy/micro.html#sec-weiguan-c1' },
-      { t: '02 微观经济的结构', u: 'pages/economy/micro.html#sec-weiguan-c2' },
-      { t: '03 从“看不见的手”到“市场失灵”', u: 'pages/economy/micro.html#sec-weiguan-c3' },
-      { t: '04 价格机制', u: 'pages/economy/micro.html#sec-weiguan-c4' },
-      { t: '05 消费者选择', u: 'pages/economy/micro.html#sec-weiguan-c5' },
-      { t: '06 市场失灵', u: 'pages/economy/micro.html#sec-weiguan-c6' },
-      { t: '07 微观 vs 宏观', u: 'pages/economy/micro.html#sec-weiguan-c7' },
+    { t: '微观经济学', children: [
+      { t: '第一层 · 发生学', links: [
+        { t: '01 微观经济学为什么会诞生', u: 'pages/economy/micro.html#sec-weiguan-c1' },
+      ]},
+      { t: '第二层 · 结构拆解', links: [
+        { t: '02 微观经济的结构', u: 'pages/economy/micro.html#sec-weiguan-c2' },
+      ]},
+      { t: '第三层 · 发生学迭代', links: [
+        { t: '03 从"看不见的手"到"市场失灵"', u: 'pages/economy/micro.html#sec-weiguan-c3' },
+      ]},
+      { t: '第四层 · 因果传导链', links: [
+        { t: '04 价格机制', u: 'pages/economy/micro.html#sec-weiguan-c4' },
+        { t: '05 消费者选择', u: 'pages/economy/micro.html#sec-weiguan-c5' },
+        { t: '06 市场失灵', u: 'pages/economy/micro.html#sec-weiguan-c6' },
+        { t: '07 微观 vs 宏观', u: 'pages/economy/micro.html#sec-weiguan-c7' },
+      ]},
     ]},
   ]},
 
   { t: '金融学', children: [
-    { t: '金融体系', n: '12', links: [
+    { t: '第一层 · 发生学', links: [
       { t: '01 金融学为什么会诞生', u: 'pages/finance/index.html#sec-jinrong-c1' },
+    ]},
+    { t: '第二层 · 结构拆解', links: [
       { t: '02 金融机构体系', u: 'pages/finance/index.html#sec-jinrong-c2' },
       { t: '03 金融市场体系', u: 'pages/finance/index.html#sec-jinrong-c3' },
       { t: '04 金融工具体系', u: 'pages/finance/index.html#sec-jinrong-c4' },
@@ -85,7 +103,11 @@ const NAV_DATA = [
       { t: '08 资产定价机制', u: 'pages/finance/index.html#sec-jinrong-c8' },
       { t: '09 金融风险类型', u: 'pages/finance/index.html#sec-jinrong-c9' },
       { t: '10 金融监管体系', u: 'pages/finance/index.html#sec-jinrong-c10' },
+    ]},
+    { t: '第三层 · 发生学迭代', links: [
       { t: '11 金融学的四次进化', u: 'pages/finance/index.html#sec-jinrong-c11' },
+    ]},
+    { t: '第四层 · 因果传导链', links: [
       { t: '12 三条传导链与终极对比', u: 'pages/finance/index.html#sec-jinrong-c12' },
     ]},
   ]},
