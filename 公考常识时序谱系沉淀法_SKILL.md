@@ -477,7 +477,7 @@ description: 面向公考行测常识/政治理论/历史/法律/经济/时政�
 - **深色模式**：所有颜色必须走 CSS 变量（`:root` 定义浅色、`html[data-theme="dark"]` 整组覆盖），**禁止在页面/组件里硬编码浅色值**；切换按钮由 app.js 注入顶栏，记忆键 `theme`。
 - **搜索**：新增卡片/页面后必须同步 `search-index.json`（title/url/keywords），搜索下拉全站共享；url 相对根目录书写。
 - **侧边栏**：分组手动开合状态记忆在 `nav.open.v2`（键=分组标题路径）；新增分组无需额外处理，renderNav 自动接管。
-- **字体**：标题用霞鹜文楷屏幕版（CDN `lxgw-wenkai-screen-webfont`，app.js 注入，失败回退系统楷体）；正文保持黑体。新增标题样式不要重复声明 font-family。
+- **字体（用户确认喜欢的视觉基调，勿更换）**：标题用**霞鹜文楷屏幕版**——app.js 头部注入 CDN `https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont/style.css`，加载失败自动回退系统楷体（`--font-title:"LXGW WenKai Screen","LXGW WenKai","Kaiti SC","STKaiti","KaiTi",serif`）。应用范围：`h1,h2,h3,h4,.stage-box summary`（style.css 统一声明）；**正文/侧边栏/表格保持黑体（--font），不要扩大文楷使用范围**。新增任何标题类组件必须继承 `--font-title`，禁止另设 font-family；深浅两套主题共用同一字体。
 - **移动端**：底部工具栏（目录/搜索/顶部）由 app.js 注入；移动端新增内容注意不要依赖 hover。
 
 ### 6. 校验
