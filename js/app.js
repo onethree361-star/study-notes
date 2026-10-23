@@ -10,7 +10,7 @@ function renderNav(){
   const box = document.getElementById('sidebarNav');
   if(!box || typeof NAV_DATA === 'undefined') return;
   const root = window.SITE_ROOT || '';
-  const page = window.PAGE_PATH || '公考备考笔记.html';
+  const page = window.PAGE_PATH || 'index.html';
   const curHash = location.hash ? decodeURIComponent(location.hash.slice(1)) : '';
 
   function linkHtml(l){
@@ -141,7 +141,7 @@ function showTermTip(el, text){
 
 // ---------- 编辑功能（按页面独立存储，互不覆盖） ----------
 let isEditing = false;
-function editKey(){ return 'notesContent.v2:' + (window.PAGE_PATH || '公考备考笔记.html'); }
+function editKey(){ return 'notesContent.v2:' + (window.PAGE_PATH || 'index.html'); }
 function toggleEdit(){
   isEditing = !isEditing;
   const btn = document.getElementById('editBtn');
@@ -176,7 +176,7 @@ window.addEventListener('load', function(){
     back.onclick = function(e){
       e.preventDefault();
       if(history.length > 1){ history.back(); }
-      else { location.href = window.SITE_ROOT + encodeURIComponent('公考备考笔记.html'); }
+      else { location.href = window.SITE_ROOT + encodeURIComponent('index.html'); }
     };
     crumb.insertBefore(back, crumb.firstChild);
   }

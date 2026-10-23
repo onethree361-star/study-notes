@@ -9,7 +9,7 @@
  * 6. 组顺序约定：内容板块在前，工具模块（概念深挖 / 错题本）固定在最下方。
  */
 const NAV_DATA = [
-  { home: true, t: '首页说明', u: '公考备考笔记.html' },
+  { home: true, t: '首页说明', u: 'index.html' },
 
   { t: '公共基础 · 常识', children: [
     { t: '历史人文', children: [
@@ -126,25 +126,13 @@ const NAV_DATA = [
   ]},
 
   { t: '总结', links: [
-    { t: '未来时政联动', u: '公考备考笔记.html#sec-future', n: '6' },
+    { t: '未来时政联动', u: 'index.html#sec-future', n: '6' },
   ]},
 
   { t: '概念深挖', children: [
-    { t: '金融', children: [
-      { t: '商业银行', n: '4', links: [
-        { t: '页面总览', u: 'concepts/finance/commercial-bank.html' },
-        { t: '发生学', u: 'concepts/finance/commercial-bank.html#dk-syyh-l1' },
-        { t: '结构拆解', u: 'concepts/finance/commercial-bank.html#dk-syyh-l2' },
-        { t: '发生学迭代', u: 'concepts/finance/commercial-bank.html#dk-syyh-l3' },
-        { t: '因果传导链', u: 'concepts/finance/commercial-bank.html#dk-syyh-l4' },
-      ]},
-      { t: '股票', n: '4', links: [
-        { t: '页面总览', u: 'concepts/finance/stock.html' },
-        { t: '发生学', u: 'concepts/finance/stock.html#dk-gp-l1' },
-        { t: '结构拆解', u: 'concepts/finance/stock.html#dk-gp-l2' },
-        { t: '发生学迭代', u: 'concepts/finance/stock.html#dk-gp-l3' },
-        { t: '因果传导链', u: 'concepts/finance/stock.html#dk-gp-l4' },
-      ]},
+    { t: '金融', links: [
+      { t: '商业银行', u: 'concepts/finance/commercial-bank.html' },
+      { t: '股票', u: 'concepts/finance/stock.html' },
     ]},
   ]},
 
