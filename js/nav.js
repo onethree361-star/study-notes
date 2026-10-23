@@ -138,6 +138,13 @@ const NAV_DATA = [
         { t: '发生学迭代', u: 'concepts/finance/commercial-bank.html#dk-syyh-l3' },
         { t: '因果传导链', u: 'concepts/finance/commercial-bank.html#dk-syyh-l4' },
       ]},
+      { t: '股票', n: '4', links: [
+        { t: '页面总览', u: 'concepts/finance/stock.html' },
+        { t: '发生学', u: 'concepts/finance/stock.html#dk-gp-l1' },
+        { t: '结构拆解', u: 'concepts/finance/stock.html#dk-gp-l2' },
+        { t: '发生学迭代', u: 'concepts/finance/stock.html#dk-gp-l3' },
+        { t: '因果传导链', u: 'concepts/finance/stock.html#dk-gp-l4' },
+      ]},
     ]},
   ]},
 
