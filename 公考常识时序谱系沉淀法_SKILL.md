@@ -421,11 +421,11 @@ description: 面向公考行测常识/政治理论/历史/法律/经济/时政�
 
 ```
 05_理论学习/
-├── index.html        ← 首页：导航枢纽 + 方法论 + 统计 + 未来时政联动
+├── notes.html        ← 首页：导航枢纽 + 方法论 + 今日复习面板 + 未来时政联动
 ├── css/style.css            ← 全站共享样式（末尾为视觉降级/多页工程覆盖规则）
 ├── js/
 │   ├── nav.js               ← ★ 全站导航唯一数据源（NAV_DATA），增删页面/卡片必改
-│   └── app.js               ← 渲染侧边栏 + 搜索 + 跳转 + tooltip + 编辑
+│   └── app.js               ← 渲染侧边栏 + 全站搜索下拉 + scrollspy + 跳转 + tooltip + 逐卡编辑/掌握度/复习排期 + 传导链渲染 + 深色模式/进度条/回顶/移动工具栏注入
 ├── pages/                   ← 板块页（按导航层级分域）
 │   ├── history/ancient.html · modern.html
 │   ├── law/constitution.html · civil.html · criminal.html · company.html
@@ -493,10 +493,10 @@ description: 面向公考行测常识/政治理论/历史/法律/经济/时政�
 | 项 | 值 |
 |---|---|
 | 项目根 | `E:\桌面\国考\05_理论学习\`（下称根目录，所有相对路径基于它） |
-| 本地预览 | `cd 根目录` → `python -m http.server 8765 --bind 127.0.0.1` → 浏览器开 `http://127.0.0.1:8765/index.html`（首页固定名 index.html，线上 URL 即 `https://onethree361-star.github.io/study-notes/`） |
-| 全局资产 | 样式 `css/style.css`（新样式只加这里，禁止内联新造）；交互 `js/app.js`（侧边栏渲染/锚点跳转/返回按钮/编辑/tooltip）；**导航数据 `js/nav.js`（唯一事实来源）** |
+| 本地预览 | `cd 根目录` → `python -m http.server 8765 --bind 127.0.0.1` → 浏览器开 `http://127.0.0.1:8765/notes.html`（首页固定名 notes.html，线上 URL 即 `https://onethree361-star.github.io/study-notes/`） |
+| 全局资产 | 样式 `css/style.css`（新样式只加这里，禁止内联新造；深浅两套主题都走 CSS 变量）；交互 `js/app.js`（导航渲染/搜索/scrollspy/逐卡编辑/掌握度/复习/传导链/主题切换等，全部全局函数供 onclick 调用）；**导航数据 `js/nav.js`（唯一事实来源）** |
 | 动手前必读 | `js/nav.js` 头部注释规则 + 目标页面 1-2 张相邻卡片的完整 HTML（模仿结构） |
-| 命名 | **首页固定名 index.html**（GitHub Pages 根路径直达，禁止改回中文名）；其余文件名英文小写短横线；板块页卡片 id `sec-【板块拼音】-c【序号】`，板块页层级标题 id `sec-【板块拼音】-l1~l4`（四层页必加）；错题 id `err-【域拼音】-【3位序号】`；深挖页层级标题 id `dk-【概念名缩写】-l1~l4`（必加，模板已预置） |
+| 命名 | **首页固定名 notes.html**（用户指定入口，禁止改回 index.html 或中文名）；其余文件名英文小写短横线；板块页卡片 id `sec-【板块拼音】-c【序号】`，板块页层级标题 id `sec-【板块拼音】-l1~l4`（四层页必加）；错题 id `err-【域拼音】-【3位序号】`；深挖页层级标题 id `dk-【概念名缩写】-l1~l4`（必加，模板已预置） |
 
 ### 1. 收到内容先分类（决策树，按顺序判断，命中即停）
 
@@ -654,7 +654,7 @@ Agent 在操作中遇到以下情况，**无需请示，直接按规范修正**�
 - GitHub用户名：onethree361-star
 - 仓库名：study-notes
 - 仓库地址：https://github.com/onethree361-star/study-notes
-- 网站地址：https://onethree361-star.github.io/study-notes/index.html
+- 网站地址：https://onethree361-star.github.io/study-notes/（入口 notes.html）
 
 ### 更新流程
 1. 修改 `E:\桌面\国考\05_理论学习\` 下的文件（首页 / pages 板块页 / concepts 深挖页 / errors 错题页 / js / css）
