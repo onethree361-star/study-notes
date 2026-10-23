@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>单词每日记 · 英语 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/english/vocabulary.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 英语 › 单词每日记</div>
+<div class="doc-head"><h1>单词每日记</h1><p>按日期记录每日单词，配合间隔重复复习法。预留板块，后续填充内容。</p><div class="stat">共 <b>0</b> 个单词 · 待补充</div></div>
+
+<div style="text-align:center;padding:60px 20px;color:var(--t3);font-size:14px">
+  <p style="margin-bottom:12px">📌 预留板块</p>
+  <p>后续按日期记录每日单词，配合艾宾浩斯遗忘曲线安排复习。</p>
+  <p style="margin-top:20px;font-size:13px;color:var(--t4)">格式：日期 · 单词列表 · 音标 · 释义 · 例句 · 复习标记</p>
+</div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

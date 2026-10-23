@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>语法结构 · 英语 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/english/grammar.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 英语 › 语法结构</div>
+<div class="doc-head"><h1>语法结构</h1><p>英语语法核心三件套：词义辨析 → 动词时态 → 复合从句。从句判断的灵魂是「缺啥补啥」：缺成分用定语从句，缺意思用名词性从句，缺逻辑用状语从句。</p><div class="stat">共 <b>4</b> 个知识点 · 词义 · 时态 · 从句 · 做题流程</div></div>
+
+<!-- 卡片1：词义辨析 -->
+<details class="card fold-card" id="sec-yingyu-c1">
+  <summary>
+    <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>词义辨析（后缀分类速记）</h3></div>
+    <div class="badges">
+      <span class="badge new">后缀预判词性</span>
+      <span class="badge sediment">阅读·完形·写作</span>
+    </div>
+  </summary>
+  <div class="human-origin">看到一个陌生单词，先看后缀就能猜出它是动词还是名词——就像看到"化""性""者"就知道中文词的词性一样。</div>
+
+  <div class="section-label new">动词后缀（表动作、使…）</div>
+  <ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+    <li><span class="em-new">-en</span>：widen 拓宽，shorten 缩短，strengthen 加强</li>
+    <li><span class="em-new">-ify</span>：simplify 简化，classify 分类，beautify 美化</li>
+    <li><span class="em-new">-ate</span>：activate 激活，separate 分开，calculate 计算</li>
+  </ul>
+
+  <div class="section-label new">名词后缀（表人、物、行为、状态）</div>
+  <ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+    <li><span class="em-new">-tion / -sion</span>：action, decision（动作名词）</li>
+    <li><span class="em-new">-ment</span>：agreement, development, movement</li>
+    <li><span class="em-new">-er / -or</span>：worker 工人，inventor 发明者（人/工具）</li>
+    <li><span class="em-new">-ness</span>：happiness, darkness, kindness（抽象状态）</li>
+    <li><span class="em-new">-ity</span>：reality, possibility, ability（性质）</li>
+  </ul>
+
+  <div class="section-label new">形容词后缀（表属性、特征）</div>
+  <ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+    <li><span class="em-new">-ful</span>：helpful 有帮助的，careful 仔细的</li>
+    <li><span class="em-new">-less</span>：hopeless 无望的，careless 粗心的（无…）</li>
+    <li><span class="em-new">-able / -ible</span>：acceptable 可接受的，visible 可见的</li>
+    <li><span class="em-new">-ous</span>：dangerous 危险的，famous 著名的</li>
+  </ul>
+
+  <div class="section-label new">副词后缀</div>
+  <ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+    <li><span class="em-new">-ly</span>：大部分形容词 + ly → 副词（quick → quickly）</li>
+    <li><span class="em-sed">特例</span>：early、fast 形副同形（既可以做形容词也可以做副词）</li>
+  </ul>
+
+  <div class="section-label sediment">速记口诀</div>
+  <p style="font-size:13.5px;line-height:1.8;color:var(--t2)">en/ify/ate多是动；tion/ment是人物；ful/less/able做形容词；大多ly变副词。</p>
+</details>
+
+<!-- 卡片2：动词时态 -->
+<details class="card fold-card" id="sec-yingyu-c2">
+  <summary>
+    <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>动词时态（三层判断模型）</h3></div>
+    <div class="badges">
+      <span class="badge new">语态+体+时间轴</span>
+      <span class="badge old">主将从现</span>
+      <span class="badge sediment">完成时标志词</span>
+    </div>
+  </summary>
+  <div class="human-origin">英语时态不是16个孤立的公式，而是"主动还是被动 + 动作完没完 + 时间落在哪"三个维度的叠加组合。</div>
+
+  <div class="section-label new">三层判断模型</div>
+  <p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+    <span class="em-new">第一层：语态</span>（主动/被动）→ 决定用 be+done<br>
+    <span class="em-new">第二层：体</span>（动作状态）→ 完成体 have+done / 进行体 be+doing / 一般体 动词原形<br>
+    <span class="em-new">第三层：时间轴</span>（过去/现在/将来）→ 决定 have/be 的时态变形
+  </p>
+
+  <div class="section-label new">基础构件</div>
+  <ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+    <li><span class="em-new">完成体</span>：have / has / had + done</li>
+    <li><span class="em-new">进行体</span>：be + doing</li>
+    <li><span class="em-new">一般体</span>：动词原形 / 过去式</li>
+    <li><span class="em-new">被动</span>：be + done</li>
+  </ul>
+
+  <div class="section-label new">常见时态组合</div>
+  <ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+    <li><span class="em-old">had done</span>：过去完成时（过去的过去）</li>
+    <li><span class="em-old">was/were doing</span>：过去进行时（过去某刻正在做）</li>
+    <li><span class="em-new">have done</span>：现在完成时（截止现在已完成）</li>
+    <li><span class="em-new">am/is/are doing</span>：现在进行时</li>
+    <li><span class="em-sed">will do</span>：一般将来时</li>
+    <li><span class="em-sed">will be doing</span>：将来进行时</li>
+    <li><span class="em-sed">will have done</span>：将来完成时（截止将来某时已完成）</li>
+  </ul>
+
+  <div class="section-label old">做题红线</div>
+  <ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+    <li><span class="em-old">主将从现</span>：将来时主句，从句不能随意用过去时（if/when引导的时间/条件状语从句用一般现在时表将来）</li>
+    <li><span class="em-old">完成时标志词</span>：already, yet, since, for, up to now——看到这些词优先选完成时</li>
+  </ul>
+
+  <div class="section-label sediment">速记口诀</div>
+  <p style="font-size:13.5px;line-height:1.8;color:var(--t2)">先看主动还是被动，再看动作完没完、在不在进行，最后看时间落在哪一段。</p>
+</details>
+
+<!-- 卡片3：复合从句 -->
+<details class="card fold-card" id="sec-yingyu-c3">
+  <summary>
+    <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>复合从句（缺啥补啥判断体系）</h3></div>
+    <div class="badges">
+      <span class="badge new">缺成分→定从</span>
+      <span class="badge new">缺意思→名从</span>
+      <span class="badge new">缺逻辑→状从</span>
+      <span class="badge old">陈述语序铁律</span>
+    </div>
+  </summary>
+  <div class="human-origin">三大从句不是靠死记引导词区分，而是看"从句里缺什么"：缺成分补代词，缺意思补连接词，缺逻辑补连词。</div>
+
+  <div class="section-label new">总判断流水线（做题顺序固定）</div>
+  <p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+    ① 先看：从句内部缺不缺主语/宾语成分 → <span class="em-new">缺成分 → 定语从句</span><br>
+    ② 成分齐全，但语义不完整，需要补充解释信息 → <span class="em-new">缺意思 → 名词性从句</span>（陈述语序！禁止倒装）<br>
+    ③ 主从句成分、意思都完整，两个独立句子，只需要连接逻辑 → <span class="em-new">缺逻辑 → 状语从句</span>
+  </p>
+
+  <div class="section-label new">（1）缺成分 → 定语从句</div>
+  <p style="font-size:13.5px;line-height:1.8;color:var(--t2)">本质：从句相当于形容词，修饰前面的名词（先行词）。</p>
+  <ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+    <li><span class="em-new">指人作宾语</span>：whom</li>
+    <li><span class="em-new">指物</span>：which</li>
+    <li><span class="em-new">指时间</span>：when（=on which）</li>
+    <li><span class="em-new">指地点</span>：where（=in which）</li>
+    <li><span class="em-new">that</span>：人/物都可以，可做主/宾；可用于强调句型</li>
+  </ul>
+  <p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+    <span class="em-sed">区分</span>：关系代词（that/which/whom）在从句里充当主语、宾语（缺成分才上）；关系副词（when/where）从句本身主谓宾齐全，只缺时间/地点状语。
+  </p>
+
+  <div class="section-label new">（2）不缺成分、缺意思 → 名词性从句</div>
+  <p style="font-size:13.5px;line-height:1.8;color:var(--t2)">本质：从句整体充当主句里的名词（主语、宾语、表语、同位语）。</p>
+  <p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+    <span class="em-old">硬性铁律</span>：名词性从句一律用<strong>陈述句语序</strong>，不能疑问倒装！
+  </p>
+  <ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+    <li><span class="em-new">what</span>：什么（本身带含义，在从句可充当成分）</li>
+    <li><span class="em-new">whether</span>：是否（不能和if互换的场景：介词后、句首）</li>
+    <li><span class="em-new">why</span>：为何</li>
+    <li><span class="em-new">how</span>：如何、怎样</li>
+    <li><span class="em-new">when / where</span>：何时 / 何地</li>
+  </ul>
+  <p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+    <span class="em-sed">同位语 vs 定语从句</span>：同位语从句解释前面名词内容本身（The news that our team won is true.），定语从句是修饰限定名词。
+  </p>
+
+  <div class="section-label new">（3）不缺成分、不缺意思，缺逻辑 → 状语从句</div>
+  <p style="font-size:13.5px;line-height:1.8;color:var(--t2)">本质：从句相当于副词，修饰主句动作，交代主句的逻辑背景。</p>
+  <ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+    <li><span class="em-new">转折</span>：although/though（虽然）, but（但是）</li>
+    <li><span class="em-new">原因</span>：because, since, as</li>
+    <li><span class="em-new">条件</span>：if, unless（除非），主将从现考点</li>
+    <li><span class="em-new">让步</span>：even if（即使）</li>
+    <li><span class="em-new">目的</span>：so that（为了）</li>
+    <li><span class="em-new">结果</span>：so…that…（如此…以至于）</li>
+    <li><span class="em-new">时间</span>：when, while, before, after, until</li>
+    <li><span class="em-new">对比/方式</span>：as（像…一样）</li>
+  </ul>
+</details>
+
+<!-- 卡片4：考场做题一步流 -->
+<details class="card fold-card" id="sec-yingyu-c4">
+  <summary>
+    <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>考场做题一步流</h3></div>
+    <div class="badges">
+      <span class="badge sediment">长难句拆解</span>
+      <span class="badge new">固定流程</span>
+    </div>
+  </summary>
+  <div class="human-origin">拿到一个长难句不要慌，按四步走，再长的句子也能拆明白。</div>
+
+  <div class="section-label new">四步拆解流程</div>
+  <ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+    <li><span class="em-new">第一步</span>：划出主句、从句（找谓语动词，一个句子只有一个谓语）</li>
+    <li><span class="em-new">第二步</span>：判断从句内部：缺主/宾吗？→ 缺 = 定语从句，找先行词</li>
+    <li><span class="em-new">第三步</span>：不缺成分？意思讲完了吗？→ 意思没讲全 = 名词性从句，牢记陈述语序</li>
+    <li><span class="em-new">第四步</span>：意思完整通顺？→ 状语从句，判断逻辑关系（转折/原因/条件/时间…）</li>
+  </ul>
+
+  <div class="section-label sediment">速记口诀</div>
+  <p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+    缺成分找先行词（定从），缺意思补连接词（名从），缺逻辑加连词（状从）。<br>
+    两个句子都完整，连词只管逻辑，不充当句子成分。
+  </p>
+</details>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>
