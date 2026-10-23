@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>宪法 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/law/constitution.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../公考备考笔记.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../公考备考笔记.html">首页</a> › 公共基础 · 常识 › 法律 › 宪法</div>
+<div class="doc-head"><h1>宪法</h1><p>宪法谱系 + 八二宪法具体知识点：国家机构、基本权利、历次修正案。</p><div class="stat">1912—至今</div></div>
+  <div class="sec-block" id="sec-xianfa">
+
+    <h3 style="font-size:15px;font-weight:700;margin:16px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--divider)">宪法谱系</h3>
+
+    <details class="card" id="law01" data-tags="new old inherit sediment">
+      <summary style="cursor:pointer;list-style:none">
+        <div class="card-h"><span class="idx">01</span><h3>临时约法（1912）</h3></div>
+        <div class="badges">
+          <span class="badge new">第一部资产阶级宪法</span>
+          <span class="badge new">主权在民</span>
+          <span class="badge new">三权分立</span>
+          <span class="badge old">君主专制→民主共和</span>
+        </div>
+      </summary>
+      <div class="human-origin"><a href="../history/modern.html#c-jd07" style="color:var(--brand-1);text-decoration:underline dotted">辛亥革命</a>推翻帝制，革命派想用法律约束袁世凯——结果很快被撕毁。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">《中华民国临时约法》</span>：中国第一部资产阶级共和国宪法性质的文件。确立主权在民、三权分立、责任内阁制。</p>
+      <div class="section-label inherit">继承</div>
+      <p>西方资产阶级宪政原则（主权在民、分权制衡）。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">君主专制 → 民主共和</span>：两千多年帝制终结。但约法本身很快被袁世凯撕毁（袁记约法）。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">"宪法"概念引入中国；宪政开端。</span></p>
+      <div class="exam-box">第一部资产阶级宪法性质文件。常见设错：说成社会主义宪法。</div>
+    </details>
+
+    <details class="card" id="law02" data-tags="new old inherit sediment">
+      <summary style="cursor:pointer;list-style:none">
+        <div class="card-h"><span class="idx">02</span><h3>共同纲领（1949）</h3></div>
+        <div class="badges">
+          <span class="badge new">临时宪法</span>
+          <span class="badge new">人民民主专政</span>
+          <span class="badge new">人大制度</span>
+        </div>
+      </summary>
+      <div class="human-origin">新中国成立，还不具备制定正式宪法的条件（普选没搞、人大没开）。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">《共同纲领》</span>：临时宪法作用。规定国体（人民民主专政）、政体（人民代表大会制度）。</p>
+      <div class="section-label inherit">继承</div>
+      <p>新民主主义革命成果。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">旧法统全部废除</span>：废除国民党六法全书。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">临时宪法过渡；政协代行人大职权。</span></p>
+      <div class="exam-box">临时宪法，不是正式宪法。常见设错：说成第一部正式宪法。</div>
+    </details>
+
+    <details class="card" id="law03" data-tags="new old inherit sediment">
+      <summary style="cursor:pointer;list-style:none">
+        <div class="card-h"><span class="idx">03</span><h3>五四宪法（1954）</h3></div>
+        <div class="badges">
+          <span class="badge new">第一部社会主义宪法</span>
+          <span class="badge new">人大制度确立</span>
+          <span class="badge new">民族区域自治</span>
+        </div>
+      </summary>
+      <div class="human-origin">全国普选完成，人大召开，需要正式宪法。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">第一部社会主义类型宪法</span>：确立人民代表大会制度、民族区域自治制度、公民基本权利义务。<br>
+      <span class="em-new">国家机构体系</span>：全国人大（权力机关）、国家主席、国务院（行政机关）、人民法院、人民检察院。</p>
+      <div class="section-label inherit">继承</div>
+      <p>共同纲领的基本原则。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">临时宪法使命结束</span>：被正式宪法取代。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">四大基本原则；宪法框架。</span></p>
+      <div class="exam-box">第一部社会主义类型宪法。常见设错：说成第一部宪法（临时约法更早）。</div>
+    </details>
+
+    <details class="card" id="law04" data-tags="new old inherit sediment">
+      <summary style="cursor:pointer;list-style:none">
+        <div class="card-h"><span class="idx">04</span><h3>七五宪法（1975）</h3></div>
+        <div class="badges">
+          <span class="badge old">文革错误</span>
+          <span class="badge old">全面专政</span>
+        </div>
+      </summary>
+      <div class="human-origin">文革时期，左倾错误严重。</div>
+      <div class="section-label new">新增</div>
+      <p>大量左倾错误内容（如"全面专政"）。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">五四宪法正确原则被破坏</span>。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">反面教材——宪法不能脱离法治轨道。</span></p>
+      <div class="exam-box">反面教材，不考正面内容。常见设错：说成好宪法。</div>
+    </details>
+
+    <details class="card" id="law05" data-tags="new old inherit sediment">
+      <summary style="cursor:pointer;list-style:none">
+        <div class="card-h"><span class="idx">05</span><h3>七八宪法（1978）</h3></div>
+        <div class="badges">
+          <span class="badge new">拨乱反正</span>
+          <span class="badge old">过渡性</span>
+        </div>
+      </summary>
+      <div class="human-origin">文革结束，拨乱反正开始，但还没完全摆脱左倾。</div>
+      <div class="section-label new">新增</div>
+      <p>恢复部分国家机构设置。</p>
+      <div class="section-label old">废弃</div>
+      <p>部分左倾内容被清除。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">过渡性宪法，很快被八二宪法取代。</span></p>
+      <div class="exam-box">过渡性，不常考。常见设错：说成现行宪法。</div>
+    </details>
+
+    <details class="card" id="law06" data-tags="new old inherit sediment">
+      <summary style="cursor:pointer;list-style:none">
+        <div class="card-h"><span class="idx">06</span><h3>八二宪法（1982）——现行宪法</h3></div>
+        <div class="badges">
+          <span class="badge new">现行宪法</span>
+          <span class="badge new">改革开放</span>
+          <span class="badge new">五次修正案</span>
+        </div>
+      </summary>
+      <div class="human-origin">改革开放，要重建法治，总结文革教训。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">现行宪法</span>：确立四项基本原则、改革开放、公民权利保障更加完善。<br>
+      <span class="em-new">新增国家机构</span>：中央军事委员会（党指挥枪入宪）。</p>
+      <div class="section-label inherit">继承</div>
+      <p>五四宪法的正确原则。</p>
+      <div class="section-label old">废弃</div>
+      <p>七五、七八宪法的错误内容。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">现行宪法文本；五次修正不断适应时代。</span></p>
+      <div class="exam-box">现行宪法是八二宪法。常见设错：说成五四宪法。</div>
+
+      <details class="plus-box">
+        <summary>五次修正案 <span class="plus-tag">88</span><span class="plus-tag">93</span><span class="plus-tag">99</span><span class="plus-tag">04</span><span class="plus-tag">18</span></summary>
+        <div class="plus-body">
+          <div class="sub">1988年</div>
+          土地使用权可依法转让；私营经济补充地位。
+          <div class="sub">1993年</div>
+          社会主义市场经济入宪；国有企业经营自主权。
+          <div class="sub">1999年</div>
+          邓小平理论入宪；依法治国入宪；非公有制经济是重要组成部分。
+          <div class="sub">2004年</div>
+          三个代表入宪；私有财产保护；人权保障入宪；土地征收补偿。
+          <div class="sub">2018年</div>
+          习近平新时代中国特色社会主义思想入宪；监察委员会设立；取消国家主席任期限制。
+        </div>
+      </details>
+    </details>
+
+    <!-- ====== 八二宪法具体知识点（结构化拆解法） ====== -->
+    <div id="sec-xianfa-detail" style="margin-top:24px;padding-top:20px;border-top:2px solid var(--divider)">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">八二宪法具体知识点（结构化拆解）</h3>
+
+      <!-- 模块一：国家的"身份" -->
+      <details class="plus-box" style="margin-bottom:12px">
+        <summary><strong>模块一：国家的"身份"</strong>（总纲）<span class="plus-tag">国体</span><span class="plus-tag">政体</span><span class="plus-tag">经济制度</span></summary>
+        <div class="plus-body">
+          <div class="sub">1. <span class="term" onclick="showTermTip(this, '国体：这个国家是谁的？谁当家作主？比如我国是人民民主专政——工人阶级领导、工农联盟为基础，人民当家作主。一句话：国家的阶级本质。')">国体</span>（国家性质）</div>
+          工人阶级领导的、以工农联盟为基础的人民民主专政的社会主义国家。<br>
+          根本制度：社会主义制度。<br>
+          最本质特征：中国共产党领导（2018年修正案新增）。
+
+          <div class="sub">2. 政治制度</div>
+          根本政治制度（<span class="term" onclick="showTermTip(this, '政体：人民怎么当家作主？权力怎么组织？比如我国是人民代表大会制度——人民选代表，代表组成人大，人大行使权力。一句话：政权的组织形式。')">政体</span>）：人民代表大会制度。<br>
+          基本政治制度（三个）：<br>
+          ① 中国共产党领导的多党合作和政治协商制度<br>
+          ② 民族区域自治制度<br>
+          ③ 基层群众自治制度（居委会、村委会）<br>
+          ④ 特别行政区制度（"一国两制"，香港、澳门）。
+
+          <div class="sub">3. 经济制度</div>
+          基础：生产资料的社会主义公有制（全民所有制 + 劳动群众集体所有制）。<br>
+          国有经济：国民经济中的主导力量。<br>
+          分配制度：按劳分配为主体、多种分配方式并存。<br>
+          土地制度：城市土地归国家所有；农村和城市郊区土地归集体所有。
+        </div>
+      </details>
+
+      <!-- 模块二：人民的"权利" -->
+      <details class="plus-box" style="margin-bottom:12px">
+        <summary><strong>模块二：人民的"权利"</strong>（公民基本权利和义务）<span class="plus-tag">政治权利</span><span class="plus-tag">人身权利</span><span class="plus-tag">社会经济</span></summary>
+        <div class="plus-body">
+          <div class="sub">1. 政治权利（管国家的权利）</div>
+          ① 选举权和被选举权：年满18周岁 + 中国国籍 + 未被剥夺政治权利。<br>
+          ② 政治自由：言论、出版、集会、结社、游行、示威自由。
+
+          <div class="sub">2. 人身权利（保护自己的权利）</div>
+          ① 人身自由不受侵犯：逮捕须检察院批准或决定 + 公安机关执行。<br>
+          ② 人格尊严不受侵犯：禁止侮辱、诽谤、诬告陷害。<br>
+          ③ 住宅不受侵犯：禁止非法搜查或非法侵入。<br>
+          ④ 通信自由和通信秘密受保护：除国家安全或追查刑事犯罪需要外，不得侵犯。
+
+          <div class="sub">3. 社会经济权利（吃饭过日子的权利）</div>
+          ① 财产权：公民的合法的私有财产不受侵犯。<br>
+          ② 劳动权：既是权利也是义务。<br>
+          ③ 休息权：劳动者的权利。<br>
+          ④ 社会保障权：年老、疾病、丧失劳动能力时获物质帮助。
+
+          <div class="sub">4. 其他权利</div>
+          ① 宗教信仰自由。<br>
+          ② 监督权：批评建议、申诉控告检举、取得国家赔偿。<br>
+          ③ 文化教育权利：受教育权（既是权利也是义务）、科研文艺创作自由。<br>
+          ④ 特定主体权利：妇女、儿童、老人、华侨、归侨、侨眷。
+
+          <div class="sub">基本义务（六项）</div>
+          ① 维护国家统一和民族团结<br>
+          ② 遵守宪法和法律<br>
+          ③ 维护国家安全、荣誉和利益<br>
+          ④ 依法服兵役<br>
+          ⑤ 依法纳税<br>
+          ⑥ 其他：劳动义务、受教育义务、计划生育、抚养子女、赡养父母
+        </div>
+      </details>
+
+      <!-- 模块三：国家的"管理者" -->
+      <details class="plus-box" style="margin-bottom:12px">
+        <summary><strong>模块三：国家的"管理者"</strong>（国家机构）<span class="plus-tag">权力机关</span><span class="plus-tag">行政机关</span><span class="plus-tag">司法机关</span></summary>
+        <div class="plus-body">
+
+          <!-- 1. 权力机关 -->
+          <div class="sub">1. 权力机关</div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px">全国人民代表大会（最高国家权力机关）</div>
+            <div style="font-weight:600;margin:8px 0 6px">组成</div>
+            由省、自治区、直辖市、特别行政区和军队选出的代表组成。
+            <div style="font-weight:600;margin:8px 0 6px">任期</div>
+            每届任期5年。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            ① 修改宪法、监督宪法实施<br>
+            ② 制定和修改基本法律<br>
+            ③ 选举国家主席、副主席<br>
+            ④ 决定国务院总理的人选<br>
+            ⑤ 审查和批准国民经济和社会发展计划
+          </div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px"><span class="term" onclick="showTermTip(this, '全国人大常委会是全国人大的常设机关。因为全国人大一年只开一次会，开完会就散了，平时谁来干活？就是全国人大常委会。打个比方：全国人大就像股东大会，一年开一次；全国人大常委会就像董事会，平时代表股东大会做决策。')">全国人民代表大会常务委员会</span>（常设机关）</div>
+            <div style="font-weight:600;margin:8px 0 6px">组成</div>
+            委员长、副委员长若干人、秘书长、委员若干人。
+            <div style="font-weight:600;margin:8px 0 6px">任期</div>
+            每届任期5年。委员长、副委员长连续任职不得超过两届。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            ① 解释宪法、解释法律<br>
+            ② 制定和修改非基本法律<br>
+            ③ 监督国务院、中央军委、国家监察委员会、最高法、最高检的工作<br>
+            ④ 任免最高人民法院副院长、最高人民检察院副检察长
+          </div>
+
+          <!-- 2. 元首机关 -->
+          <div class="sub">2. 元首机关</div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px">中华人民共和国主席（国家元首）</div>
+            <div style="font-weight:600;margin:8px 0 6px">当选条件</div>
+            有选举权和被选举权的年满45周岁的中华人民共和国公民。
+            <div style="font-weight:600;margin:8px 0 6px">任期</div>
+            每届任期5年（2018年修正案取消任期限制）。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            ① 公布法律、发布命令<br>
+            ② 任免国务院总理、副总理、国务委员、各部部长<br>
+            ③ 授予国家的勋章和荣誉称号<br>
+            ④ 代表中华人民共和国进行国事活动
+          </div>
+
+          <!-- 3. 行政机关 -->
+          <div class="sub">3. 行政机关</div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px">国务院（最高国家行政机关）</div>
+            <div style="font-weight:600;margin:8px 0 6px">组成</div>
+            总理、副总理若干人、国务委员若干人、各部部长、各委员会主任、审计长、秘书长。
+            <div style="font-weight:600;margin:8px 0 6px">任期</div>
+            每届任期5年。总理、副总理、国务委员连续任职不得超过两届。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            ① 制定行政法规<br>
+            ② 规定行政措施、发布决定和命令<br>
+            ③ 统一领导各部和各委员会的工作<br>
+            ④ 编制和执行国民经济和社会发展计划和国家预算
+          </div>
+
+          <!-- 4. 军事机关 -->
+          <div class="sub">4. 军事机关</div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px">中央军事委员会（最高军事领导机关）</div>
+            <div style="font-weight:600;margin:8px 0 6px">组成</div>
+            主席、副主席若干人、委员若干人。
+            <div style="font-weight:600;margin:8px 0 6px">任期</div>
+            每届任期5年。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            领导全国武装力量。
+          </div>
+
+          <!-- 5. 监察机关 -->
+          <div class="sub">5. 监察机关</div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px">国家监察委员会（最高监察机关，2018年新增）</div>
+            <div style="font-weight:600;margin:8px 0 6px">组成</div>
+            主任、副主任若干人、委员若干人。
+            <div style="font-weight:600;margin:8px 0 6px">任期</div>
+            每届任期5年。主任连续任职不得超过两届。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            ① 对所有行使公权力的公职人员进行监察<br>
+            ② 调查职务违法和职务犯罪<br>
+            ③ 开展廉政建设和反腐败工作
+          </div>
+
+          <!-- 6. 审判机关 -->
+          <div class="sub">6. 审判机关（司法机关）</div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px">人民法院（审判机关）</div>
+            <div style="font-weight:600;margin:8px 0 6px">体系</div>
+            最高人民法院、地方各级人民法院、专门人民法院。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            审判刑事、民事、行政案件。
+            <div style="font-weight:600;margin:8px 0 6px">上下级关系</div>
+            上级监督下级。
+          </div>
+
+          <!-- 7. 法律监督机关 -->
+          <div class="sub">7. 法律监督机关（司法机关）</div>
+          <div style="background:var(--bg-soft);border-radius:8px;padding:12px;margin:8px 0">
+            <div style="font-weight:600;margin-bottom:6px">人民检察院（法律监督机关）</div>
+            <div style="font-weight:600;margin:8px 0 6px">体系</div>
+            最高人民检察院、地方各级人民检察院、专门人民检察院。
+            <div style="font-weight:600;margin:8px 0 6px">核心职权</div>
+            ① 对于刑事案件提起公诉<br>
+            ② 对于诉讼活动实行法律监督
+            <div style="font-weight:600;margin:8px 0 6px">上下级关系</div>
+            上级领导下级。
+          </div>
+
+          <!-- 补充说明：什么是行政？什么是司法？ -->
+          <details class="plus-box" style="margin:12px 0;border-radius:0">
+            <summary style="background:var(--brand-soft)">补充：什么是行政？什么是司法？</summary>
+            <div class="plus-body">
+              <div><strong>行政机关</strong>：管日常管理的，比如国务院、省政府、市政府。就像<strong>物业</strong>，管小区的卫生、保安、维修。</div>
+              <div style="margin-top:6px"><strong>司法机关</strong>：管打官司的，比如法院、检察院。就像<strong>法官</strong>，管判案的，谁对谁错，谁该赔钱。</div>
+              <div style="margin-top:6px">举个例子：你闯红灯被罚款 → 这是<strong>行政</strong>（交警管的，日常管理）；你不服罚款，去法院告 → 这是<strong>司法</strong>（法院管的，判案）。</div>
+            </div>
+          </details>
+
+          <!-- 补充说明：机关之间的逻辑关系 -->
+          <details class="plus-box" style="margin:12px 0;border-radius:0">
+            <summary style="background:var(--brand-soft)">补充：这几个机关之间的逻辑关系</summary>
+            <div class="plus-body">
+              <div><strong>一句话总结</strong>：人大是"老板"，其他机关都是"员工"，由人大产生、对人大负责、受人大监督。</div>
+              <div style="margin-top:6px"><strong>详细说</strong>：</div>
+              <div style="margin-top:4px">1. <strong>人民</strong>选举人大代表 → 组成<strong>全国人大</strong>（最高权力机关）</div>
+              <div style="margin-top:4px">2. <strong>全国人大</strong>产生：国家主席、国务院、中央军委、国家监察委员会、最高人民法院、最高人民检察院</div>
+              <div style="margin-top:4px">3. 这些机关都<strong>对人大负责</strong>，<strong>受人大监督</strong></div>
+              <div style="margin-top:6px"><strong>打个比方</strong>：全国人大就像<strong>股东大会</strong>，是最高权力机构；国务院就像<strong>总经理</strong>，管日常经营；法院就像<strong>监事会</strong>，管判案；检察院就像<strong>纪检委</strong>，管监督。</div>
+              <div style="margin-top:6px"><strong>和西方的区别</strong>：西方是<strong>三权分立</strong>，立法、行政、司法互相制衡，谁也不服谁；我国是<strong>民主集中制</strong>，人大统一行使权力，其他机关分工负责，都听人大的。</div>
+            </div>
+          </details>
+
+        </div>
+      </details>
+
+      <!-- 模块四：宪法的"成长" -->
+      <details class="plus-box">
+        <summary><strong>模块四：宪法的"成长"</strong>（五次修正案）<span class="plus-tag">88</span><span class="plus-tag">93</span><span class="plus-tag">99</span><span class="plus-tag">04</span><span class="plus-tag">18</span></summary>
+        <div class="plus-body">
+          <div class="sub">1988年：私营 + 土地</div>
+          私营经济是社会主义公有制经济的补充；土地的使用权可以依法转让。
+
+          <div class="sub">1993年：初级阶段 + 市场</div>
+          我国正处于社会主义初级阶段；坚持改革开放；国家实行社会主义市场经济。
+
+          <div class="sub">1999年：邓论 + 法治</div>
+          邓小平理论入宪；实行依法治国，建设社会主义法治国家；公有制为主体、多种所有制共同发展。
+
+          <div class="sub">2004年：三个代表 + 人权</div>
+          三个代表重要思想入宪；国家尊重和保障人权；公民的合法的私有财产不受侵犯；国歌是《义勇军进行曲》。
+
+          <div class="sub">2018年：习思想 + 监察委</div>
+          习近平新时代中国特色社会主义思想入宪；中国共产党领导是最本质特征；国家监察委员会设立；取消国家主席连续任职不得超过两届。
+        </div>
+      </details>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

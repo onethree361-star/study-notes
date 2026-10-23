@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>古代史 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/history/ancient.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../公考备考笔记.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../公考备考笔记.html">首页</a> › 公共基础 · 常识 › 历史人文 › 古代史</div>
+
+  <!-- ====== 古代史正文 ====== -->
+  <div class="doc-head" id="top">
+    <h1>古代史谱系：元谋人到清朝</h1>
+    <p>用「时序+谱系」沉淀法，把两千年历史看成一条不断扬弃的养成线。</p>
+    <div class="stat">共 <b>16</b> 个阶段 · 每阶段标清「新增」「继承」「废弃/改革」「沉淀」四条线</div>
+  </div>
+
+  <!-- 总论：方法论（像论文摘要） -->
+  <div style="background:var(--bg);border-radius:12px;padding:16px 18px;margin-bottom:20px;border:1px solid var(--divider)">
+    <div style="font-size:13px;font-weight:700;color:var(--t1);margin-bottom:10px">方法论：五个逻辑工具</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12.5px;line-height:1.7;color:var(--t2)">
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">① 发生学方法</div>
+        回到历史条件，追问"为什么会出现、要解决什么问题"。不记结论，先记背景。
+      </div>
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">② 谱系学方法</div>
+        追踪一条主线从头到尾的演变——从哪来、继承什么、变异什么、被什么取代。
+      </div>
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">③ 纵向时序专题法</div>
+        按时间顺序纵向推进，把零散知识点串成一条线，而不是横向平铺。
+      </div>
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">④ 辩证否定（扬弃）</div>
+        旧事物被否定时，保留合理内核 + 抛弃过时部分 + 增加新内容。
+      </div>
+      <div style="padding:8px 10px;background:var(--bg-alt);border-radius:8px;grid-column:span 2">
+        <div style="font-weight:700;color:var(--brand-1);margin-bottom:2px">⑤ 结构功能分析</div>
+        每个制度在当时的社会结构里承担什么功能，功能失效了为什么会被取代。
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--bg-alt);border-radius:12px;padding:12px 16px;margin-bottom:20px;border:1px solid var(--divider)">
+    <div style="font-size:11px;font-weight:700;color:var(--t2);margin-bottom:6px;letter-spacing:1px">历史朝代歌</div>
+    <div style="font-size:12px;line-height:1.8;color:var(--t1);font-weight:500;letter-spacing:0.3px;white-space:nowrap;overflow-x:auto">
+      夏商与西周，东周分两段 · 春秋和战国，一统秦两汉 · 三分魏蜀吴，二晋前后延 · 南北朝并立，隋唐五代传 · 宋元明清后，皇朝至此完
+    </div>
+    <div style="display:flex;flex-wrap:nowrap;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--t1);margin-top:8px;overflow-x:auto">
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">夏</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">商</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">西周</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--bg);border-radius:5px;border:1px solid var(--divider)">东周</span>
+      <span style="color:var(--t3);font-size:10px;margin:0 3px">（春秋战国）</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">秦</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">汉</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--bg);border-radius:5px;border:1px solid var(--divider)">三国两晋南北朝</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">隋</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">唐</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--bg);border-radius:5px;border:1px solid var(--divider)">五代十国</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">宋</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">元</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--brand-soft);border-radius:5px;color:var(--brand-1)">明</span>
+      <span style="color:var(--t3)">→</span>
+      <span style="padding:2px 7px;background:var(--red-soft);border-radius:5px;color:var(--red-1)">清</span>
+    </div>
+  </div>
+
+  <!-- ====== 第一组：远古与夏商西周 ====== -->
+  <div class="sec-block" id="sec-1">
+    <div class="sec-h"><h2>远古与夏商西周</h2><span class="years">约170万—前771年</span></div>
+
+    <!-- 01 远古 -->
+    <div class="card" id="c01" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">01</span><h3>远古人类与原始农耕</h3></div>
+      <div class="badges">
+        <span class="badge new">打制石器</span>
+        <span class="badge new">人工取火</span>
+        <span class="badge new">水稻/粟</span>
+        <span class="badge old">采集→农耕</span>
+      </div>
+      <div class="human">人类从动物界刚走出来，第一次学会"改造自然"而不是"适应自然"——从采集狩猎到种地定居，这是文明的第一步。</div>
+      <div class="section-label new">新增</div>
+      <p><strong>人类进化链：</strong><span class="em-new">元谋人</span>（约170万年前，云南，我国境内最早古人类，打制石器、用火）→ <span class="em-new">北京人</span>（约70-20万年前，周口店，打制石器=旧石器时代，使用天然火，群居）→ <span class="em-new">山顶洞人</span>（约3万年前，磨光钻孔技术，人工取火，按血缘组成氏族）。</p>
+      <p><strong>原始农耕（新石器时代）：</strong><span class="em-new">河姆渡</span>（约7000年前，浙江余姚，长江流域，种<strong>水稻</strong>，住干栏式房屋，黑陶）；<span class="em-new">半坡</span>（约6000年前，陕西西安，黄河流域，种<strong>粟</strong>，住半地穴式房屋，彩陶如人面鱼纹盆）。</p>
+      <div class="section-label inherit">继承</div>
+      <p>无——这是起点。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">采集狩猎 → 原始农业</span>：靠天吃饭到主动种地，定居之后才有村落、陶器、私有制。<span class="em-old">天然火 → 人工取火</span>：钻木取火让人随时能生火。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">火的使用、磨制石器、"南稻北粟"农业格局（延续至今）、陶器、氏族公社（国家雏形）</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">原始歌舞</span><span class="plus-tag">彩陶</span><span class="plus-tag">弓箭</span></summary>
+        <div class="plus-body">
+          <div class="sub">文化</div>
+          图腾崇拜、原始歌舞、岩画艺术（如贺兰山岩画）。
+          <div class="sub">科技</div>
+          弓箭发明、陶器制作（彩陶/黑陶）、原始纺织（纺轮）。
+        </div>
+      </details>
+      <div class="exam-box">给遗址问哪个在长江/黄河流域；给特征问是哪个遗址。常见设错：河姆渡和半坡作物搞反（水稻vs粟）；打制石器=旧石器，磨制石器=新石器。</div>
+    </div>
+
+    <!-- 02 传说时代 -->
+    <div class="card" id="c02" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">02</span><h3>传说时代（炎黄尧舜禹）</h3></div>
+      <div class="badges">
+        <span class="badge new">炎黄联盟</span>
+        <span class="badge new">禅让制</span>
+        <span class="badge new">大禹治水</span>
+        <span class="badge old">公天下→家天下</span>
+      </div>
+      <div class="human">部落联合成华夏，权力在"贤人"之间传递——这是中国最早的"公天下"理想。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">炎黄部落联盟</span>：涿鹿之战败蚩尤，炎黄融合形成华夏族主体。我们自称"炎黄子孙"从这里来。黄帝建宫室、制衣裳、挖井造车；妻子嫘祖养蚕缫丝；仓颉造文字。</p>
+      <p><span class="em-new">禅让制</span>：尧→舜→禹，选贤德之人传位，"传贤不传子"，天下是大家的——所以叫"公天下"。</p>
+      <p><span class="em-new">大禹治水</span>：父亲鲧用堵的方法失败，禹改堵为疏，开渠排水，三过家门而不入。治水需要组织大量人力，推动了公共权力机构形成——国家诞生的前奏。</p>
+      <div class="section-label inherit">继承</div>
+      <p>氏族公社集体议事传统——重大事情由各氏族首领商量决定。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">禅让制 → 被世袭制取代</span>（因果见夏朝阶段）。禅让制本身是对"强者为王"原始秩序的第一次制度选择。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">华夏认同（炎黄子孙）、禅让传说（后世儒家理想政治模式）、部落联盟向国家过渡</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">炎黄传说</span><span class="plus-tag">耒耜耕作</span><span class="plus-tag">蚕桑丝织</span></summary>
+        <div class="plus-body">
+          <div class="sub">文化</div>
+          炎黄传说、龙图腾、原始宗教（占卜萌芽）。
+          <div class="sub">科技</div>
+          耒耜耕作、水井开凿、蚕桑丝织（嫘祖）。
+        </div>
+      </details>
+      <div class="exam-box">禅让制内涵是"传贤不传子"。常见设错：把禅让说成世袭；混淆涿鹿之战（炎黄vs蚩尤）和阪泉之战（炎黄内部）。</div>
+    </div>
+
+    <!-- 03 夏 -->
+    <div class="card" id="c03" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">03</span><h3>夏（第一个王朝）</h3></div>
+      <div class="badges">
+        <span class="badge new">世袭制</span>
+        <span class="badge new">家天下</span>
+        <span class="badge new">二里头</span>
+        <span class="badge old">禅让→世袭</span>
+      </div>
+      <div class="human">私有制来了，权力自然跟着血缘走，"公天下"变成"家天下"。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">禹建夏</span>（约前2070年）——我国历史上第一个王朝，早期国家产生。<span class="em-new">禹传启，世袭制取代禅让制</span>——"公天下"变"家天下"。二里头遗址（河南偃师）被认为是夏文化重要遗址，有宫殿、墓葬、手工业作坊。</p>
+      <div class="section-label inherit">继承</div>
+      <p>部落联盟公共权力机构（军队、刑法等）。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">禅让 → 世袭</span>。因果：私有制确立后，财富集中在少数家族手里，禹积累了大量财富和奴隶，他的家族自然希望把权力和财富传给后代。禅让制的消失不是某个人的阴谋，而是私有制发展的必然结果。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">王位世袭制（父死子继、兄终弟及，延续近4000年）、国家机器雏形（军队、禹刑、监狱）</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">二里头</span><span class="plus-tag">夏小正</span><span class="plus-tag">青铜</span></summary>
+        <div class="plus-body">
+          <div class="sub">文化</div>
+          二里头文化（宫殿建筑群）、夏小正（最早的历书）。
+          <div class="sub">科技</div>
+          青铜铸造开始、原始瓷器。
+        </div>
+      </details>
+      <div class="exam-box">"公天下"变"家天下"标志是启继禹位。常见设错：把禹建夏和启开始世袭混淆。</div>
+    </div>
+
+    <!-- 04 商 -->
+    <div class="card" id="c04" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">04</span><h3>商</h3></div>
+      <div class="badges">
+        <span class="badge new">甲骨文</span>
+        <span class="badge new">后母戊鼎</span>
+        <span class="badge new">内外服</span>
+        <span class="badge old">方国→分封</span>
+      </div>
+      <div class="human">甲骨文让中国进入"信史时代"；但方国太松散，周本来就是商的"外服"，最后反灭了商。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">内外服制</span>：商王直接统治王畿（内服），其他方国（外服）有很大自主权。<span class="em-new">神权与王权结合</span>：遇事占卜，把结果刻在龟甲兽骨上。</p>
+      <p><span class="em-new">甲骨文</span>：刻在龟甲兽骨上的文字，已具备汉字基本结构，是成熟文字。<strong>我国有文字可考的历史从商朝开始</strong>。</p>
+      <p><span class="em-new">青铜文明</span>：后母戊鼎（世界现存最大青铜器）、四羊方尊。盘庚迁殷（前1300年，河南安阳），所以商朝又叫殷商。</p>
+      <div class="section-label inherit">继承</div>
+      <p>夏朝的国家机器（军队、刑法、监狱）和世袭制。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">内外服 → 西周分封</span>。因果：内外服制下方国太松散，商王实际控制不了外服。周本来就是商的一个外服方国（渭水流域），后来强大起来联合其他方国灭了商。周人吸取教训，用更紧密的分封+宗法取代松散方国联盟。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">成熟文字（汉字从甲骨文演变而来）、青铜铸造技术、信史时代开端</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">甲骨卜辞</span><span class="plus-tag">金文</span><span class="plus-tag">后母戊鼎</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          甲骨卜辞（中国最早的文字记录）。
+          <div class="sub">文化</div>
+          金文（青铜器铭文）、神权与王权结合。
+          <div class="sub">科技</div>
+          青铜铸造（后母戊鼎）、天文历法（日食月食记录）。
+        </div>
+      </details>
+      <div class="exam-box">甲骨文地位：有文字可考历史从商开始。常见设错：把内外服说成郡县；把甲骨文说成金文或小篆。</div>
+    </div>
+
+    <!-- 05 西周 -->
+    <div class="card" id="c05" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">05</span><h3>西周</h3></div>
+      <div class="badges">
+        <span class="badge new">分封制</span>
+        <span class="badge new">宗法制</span>
+        <span class="badge new">礼乐制</span>
+        <span class="badge new">井田制</span>
+        <span class="badge old">井田→私田</span>
+      </div>
+      <div class="human">周人用"分封+宗法+礼乐"三把锁，把血缘和政治绑在一起，这就是后世"家国同构"的源头。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">分封制</span>：周天子把土地和平民奴隶分给亲属功臣，封他们为诸侯。诸侯要服从命令、纳贡、镇守疆土、随从作战。主要对象是同姓王族（如周公封于鲁）。</p>
+      <p><span class="em-new">宗法制</span>：核心是<strong>嫡长子继承制</strong>。天子→诸侯→卿大夫→士，层层分封，用血缘亲疏确定权位继承。把"国"和"家"结合起来——家国同构。</p>
+      <p><span class="em-new">礼乐制</span>：不同等级用不同礼仪、音乐、器物（天子九鼎、诸侯七鼎、大夫五鼎），维护等级防止僭越。</p>
+      <p><span class="em-new">井田制</span>：土地国有，划成"井"字形，中间公田周围私田，农奴先种公田再种私田。前841年共和行政——<strong>我国历史有确切纪年开始</strong>。</p>
+      <div class="section-label inherit">继承</div>
+      <p>商朝的世袭制、神权与王权结合传统。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">井田 → 土地私有</span>：铁犁牛耕出现后私田大量开垦，前594年鲁国初税亩事实上承认土地私有。<span class="em-old">分封宗法 → 郡县</span>：血缘随世代疏远，加上井田瓦解经济基础断裂，分封制名存实亡。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">分封宗法礼乐井田四大制度，奠定家国同构政治文化基因；确切纪年开始</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">周易</span><span class="plus-tag">礼乐</span><span class="plus-tag">干支纪日</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          《周易》经文、金文（毛公鼎铭文最长）。
+          <div class="sub">文化</div>
+          礼乐制度（等级规范）、宗法制度。
+          <div class="sub">科技</div>
+          青铜铸造（司母戊鼎、四羊方尊）、天文历法（干支纪日法）。
+        </div>
+      </details>
+      <div class="exam-box">宗法制核心是嫡长子继承（不是长子继承）。常见设错：井田制是国有不是私有。</div>
+    </div>
+  </div>
+
+  <!-- ====== 第二组：春秋战国 ====== -->
+  <div class="sec-block" id="sec-2">
+    <div class="sec-h"><h2>春秋战国</h2><span class="years">前770—前221年</span></div>
+
+    <!-- 06 春秋 -->
+    <div class="card" id="c06" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">06</span><h3>春秋</h3></div>
+      <div class="badges">
+        <span class="badge new">铁犁牛耕</span>
+        <span class="badge new">初税亩</span>
+        <span class="badge new">孔子</span>
+        <span class="badge new">老子</span>
+        <span class="badge old">井田瓦解</span>
+      </div>
+      <div class="human">铁犁牛耕一来，井田制就崩了；孔子喊"克己复礼"，恰恰说明礼已经礼崩乐坏了。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">政治</span>：平王东迁洛邑（前770年），周天子地位一落千丈。<strong>春秋五霸</strong>：齐桓公（管仲改革，尊王攘夷，葵丘会盟第一个称霸）、晋文公（城濮之战败楚）、楚庄王、吴王阖闾、越王勾践。争霸过程中大国兼并小国，出现民族融合。</p>
+      <p><span class="em-new">经济</span>：<strong>铁农具和牛耕出现</strong>（春秋出现、战国推广）——牛耕是农业发展史上的革命。私田大量开垦，私田主人转化为地主。前594年鲁国<strong>初税亩</strong>——按亩征税，事实上承认土地私有。</p>
+      <p><span class="em-new">思想</span>：<strong>孔子</strong>（儒家创始人）——"仁"（爱人）、"为政以德"、创办私学打破贵族教育垄断、因材施教、《论语》。<strong>老子</strong>（道家创始人）——对立面相互转化（祸福相依）、"无为而治"、《道德经》。</p>
+      <div class="section-label inherit">继承</div>
+      <p>西周文化遗产（礼乐传统），但礼崩乐坏——孔子"克己复礼"恰恰说明礼已经崩了。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">井田制开始崩溃</span>（私田开垦、公田无人种）；<span class="em-old">分封制开始瓦解</span>（诸侯不听天子命令）。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">铁器时代开端、土地私有合法化趋势、百家争鸣序幕、民族融合</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">诗经</span><span class="plus-tag">孔老</span><span class="plus-tag">铁器牛耕</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          《诗经》（我国第一部诗歌总集，风、雅、颂）。
+          <div class="sub">文化</div>
+          孔子（儒家创始人，仁、礼）、老子（道家创始人，无为而治）。
+          <div class="sub">科技</div>
+          铁器使用、牛耕出现、日食彗星记录。
+        </div>
+      </details>
+      <div class="exam-box">生产力标志是铁犁牛耕（春秋出现战国推广）。常见设错：说成战国才有。</div>
+    </div>
+
+    <!-- 07 战国 -->
+    <div class="card" id="c07" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">07</span><h3>战国（商鞅变法与百家争鸣）</h3></div>
+      <div class="badges">
+        <span class="badge new">商鞅变法</span>
+        <span class="badge new">百家争鸣</span>
+        <span class="badge new">都江堰</span>
+        <span class="badge old">世卿→军功爵</span>
+      </div>
+      <div class="human">战争太残酷，各国都要富国强兵——世袭贵族不行了，按军功授爵才是硬道理。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">商鞅变法</span>（前356年，秦孝公支持）：①国家承认土地私有，允许买卖（废井田开阡陌）；②奖励耕战——耕织多的免徭役，按军功授爵，废除无军功旧贵族特权；③建立县制，国君直接派官治理。作用：秦国成为战国后期最富强国家，为统一六国奠定基础。</p>
+      <p><span class="em-new">都江堰</span>：秦国蜀郡太守李冰在岷江流域修建，防洪灌溉，使成都平原成"天府之国"，两千多年一直发挥作用。</p>
+      <p><span class="em-new">百家争鸣</span>：<strong>孟子</strong>（儒家，仁政、民贵君轻、性善论）；<strong>荀子</strong>（儒家，制天命而用之、性恶论）；<strong>庄子</strong>（道家，逍遥、顺其自然）；<strong>墨子</strong>（墨家，兼爱非攻、尚贤、节俭）；<strong>韩非</strong>（法家，主张改革、法治、建立君主专制中央集权——最适合战国兼并战争需要，后来被秦始皇采用）。</p>
+      <div class="section-label inherit">继承</div>
+      <p>春秋郡县萌芽、土地私有趋势。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">世卿世禄 → 军功爵</span>：战争需要能打仗的人，世袭贵族无能。商鞅按军功授爵，打破血缘对权力的垄断。<span class="em-old">废井田从法律上确立土地私有</span>。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">封建土地私有制确立、县制推广、百家争鸣（中国思想黄金时代）、法家思想成为秦国治国指导</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">楚辞</span><span class="plus-tag">百家争鸣</span><span class="plus-tag">都江堰</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          楚辞（屈原《离骚》，浪漫主义源头）。
+          <div class="sub">文化</div>
+          百家争鸣：孟子（仁政、民贵君轻、性善）、荀子（性恶、制天命而用之）、庄子（逍遥）、墨子（兼爱非攻）、韩非（法家集大成）。
+          <div class="sub">科技</div>
+          司南（最早指南仪器）、都江堰（李冰）、《甘石星经》（最早天文学著作）。
+        </div>
+      </details>
+      <div class="exam-box">商鞅变法内容；各派主张对应。常见设错：荀子说成性善论（孟子才是）；商鞅"行县制"不是"全国郡县制"（全国是秦统一后）。</div>
+    </div>
+  </div>
+
+  <!-- ====== 第三组：秦汉 ====== -->
+  <div class="sec-block" id="sec-3">
+    <div class="sec-h"><h2>秦汉</h2><span class="years">前221—220年</span></div>
+
+    <!-- 08 秦 -->
+    <div class="card" id="c08" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">08</span><h3>秦</h3></div>
+      <div class="badges">
+        <span class="badge new">皇帝制</span>
+        <span class="badge new">郡县制</span>
+        <span class="badge new">书同文</span>
+        <span class="badge new">万里长城</span>
+        <span class="badge old">分封→郡县</span>
+      </div>
+      <div class="human">秦制搭好骨架（皇帝+郡县+统一文字度量衡），但纯靠法家严刑峻法，"仁义不施"所以二世而亡。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">皇帝制度</span>：嬴政认为"德兼三皇功过五帝"，创"皇帝"称号，总揽全国军政大权。</p>
+      <p><span class="em-new">三公九卿</span>：丞相（行政）、太尉（军事）、御史大夫（监察），三者互不统属，都对皇帝负责。</p>
+      <p><span class="em-new">郡县制全国推行</span>：全国分36郡，郡守县令由皇帝直接任免不能世袭。从根本上否定了分封制，加强了中央对地方的控制。</p>
+      <p><span class="em-new">统一文字货币度量衡车轨</span>：小篆（后推广隶书）、半两钱、统一长度容量重量、车同轨修驰道。北击匈奴修长城、开灵渠沟通珠江水系。</p>
+      <p>前209年陈胜吴广<strong>大泽乡起义</strong>——中国历史上第一次大规模农民起义。</p>
+      <div class="section-label inherit">继承</div>
+      <p>战国县制（秦推广全国）、法家思想（秦自商鞅以来以法家治国）、土地私有制。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">分封 → 郡县全国推广</span>。<span class="em-old">专任法家 → 汉初黄老 → 汉武独尊儒术</span>：秦纯靠法家严刑峻法导致速亡，汉初用黄老无为与民休息，汉武帝时需要思想认同巩固大一统，于是"外儒内法"——儒家意识形态包装，法家制度骨架。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">皇帝制（延续2132年）、郡县制（中央垂直管理，一直用到今天）、大一统中央集权制度——"百代都行秦政法"</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">小篆</span><span class="plus-tag">焚书坑儒</span><span class="plus-tag">长城</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          小篆（李斯整理）、隶书推广。
+          <div class="sub">文化</div>
+          焚书坑儒（思想专制开端）。
+          <div class="sub">科技</div>
+          长城修筑、灵渠开凿、兵马俑。
+        </div>
+      </details>
+      <div class="exam-box">秦制创新。常见设错：郡县制说成秦创立（战国萌芽）；小篆说成隶书。</div>
+    </div>
+
+    <!-- 09 汉 -->
+    <div class="card" id="c09" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">09</span><h3>汉</h3></div>
+      <div class="badges">
+        <span class="badge new">推恩令</span>
+        <span class="badge new">独尊儒术</span>
+        <span class="badge new">西域都护府</span>
+        <span class="badge new">丝绸之路</span>
+        <span class="badge old">郡国→推恩</span>
+      </div>
+      <div class="human">汉承秦制，但补了两块：思想上"独尊儒术"包装合法性，制度上"推恩令"拆王国——外儒内法定型了。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">汉初休养生息</span>：刘邦减租减息；文景之治——轻徭薄赋、以德化民，社会安定百姓富裕。</p>
+      <p><span class="em-new">汉武帝大一统</span>：①<strong>推恩令</strong>（主父偃建议）——诸侯封地分给所有子弟，"不行黜陟而藩国自析"，王国自行瓦解；②<strong>独尊儒术</strong>（董仲舒建议）——罢黜百家，儒家学说成为正统思想，设太学以五经为教材；③<strong>中朝</strong>——重用身边侍从参与机要，削弱相权；④<strong>刺史制度</strong>——分全国13州部，派刺史监督地方；⑤<strong>盐铁官营</strong>——铸币权和盐铁经营权收归中央，统一五铢钱；⑥北击匈奴（卫青、霍去病）；⑦张骞通西域，前60年设<strong>西域都护府</strong>——<strong>今新疆地区正式归属中央管辖</strong>。</p>
+      <p><span class="em-new">东汉</span>：光武中兴；蔡伦改进造纸术（树皮破布麻头旧渔网，便宜质量好）；张衡地动仪；张仲景《伤寒杂病论》（医圣）；华佗麻沸散+五禽戏；司马迁《史记》（第一部纪传体通史）；佛教西汉末年传入、东汉道教产生。</p>
+      <div class="section-label inherit">继承</div>
+      <p>秦的皇帝制、郡县制、中央集权骨架——所谓"汉承秦制"。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">郡国并行 → 推恩令</span>：刘邦错误分封同姓王导致七国之乱，推恩令把王国越分越小。<span class="em-old">察举 → <a class="xref" href="#c10">九品中正</a></span>：汉末战乱人口流动，乡里清议失效。<span class="em-old">黄老无为 → <a class="xref" href="#c09">独尊儒术</a></span>：需要积极有为的巩固大一统的思想。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">儒家思想成为正统（主导两千年）、察举制（选官制度开端）、西域都护府（新疆纳入版图）、丝绸之路、造纸术改进</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">汉赋史记</span><span class="plus-tag">独尊儒术</span><span class="plus-tag">造纸术</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          汉赋（司马相如《子虚赋》）、《史记》（司马迁，第一部纪传体通史）、《汉书》（班固）。
+          <div class="sub">文化</div>
+          独尊儒术（董仲舒）、佛教传入（西汉末年）、道教产生（东汉）。
+          <div class="sub">科技</div>
+          造纸术（蔡伦改进）、地动仪（张衡）、《九章算术》、《黄帝内经》、《神农本草经》。
+        </div>
+      </details>
+      <div class="exam-box">新疆正式归属中央标志——前60年西域都护府。常见设错：推恩令是汉武帝不是汉景帝。</div>
+    </div>
+  </div>
+
+  <!-- ====== 第四组：魏晋南北朝 ====== -->
+  <div class="sec-block" id="sec-4">
+    <div class="sec-h"><h2>魏晋南北朝</h2><span class="years">220—589年</span></div>
+
+    <div class="card" id="c10" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">10</span><h3>三国两晋南北朝</h3></div>
+      <div class="badges">
+        <span class="badge new">九品中正</span>
+        <span class="badge new">孝文帝改革</span>
+        <span class="badge new">江南开发</span>
+        <span class="badge old">九品→科举</span>
+      </div>
+      <div class="human">战乱几百年，反而干成了两件大事：民族大融合（孝文帝汉化）和经济重心开始南移。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">重要战役</span>：官渡之战（200年，曹操vs袁绍，曹胜）；赤壁之战（208年，孙刘联军vs曹操，孙刘胜，奠定三国鼎立）；淝水之战（383年，东晋vs前秦，东晋胜，草木皆兵风声鹤唳）。</p>
+      <p><span class="em-new">政治</span>：西晋短暂统一后八王之乱→永嘉之乱→衣冠南渡（东晋都建康）。<strong>九品中正制</strong>：由中正官品评人物分九品授官，后期只看门第——"上品无寒门，下品无势族"。</p>
+      <p><span class="em-new">北魏孝文帝改革</span>：迁都洛阳；说汉语、穿汉服、改汉姓（拓跋→元）、与汉族通婚。作用：促进民族融合，加速北方少数民族封建化。</p>
+      <p><span class="em-new">经济</span>：江南开发——北方人南迁带去劳动力和技术，南方经济发展，<strong>经济重心南移开始</strong>。</p>
+      <p><span class="em-new">文化</span>：佛教兴盛（云冈石窟、龙门石窟）；范缜《神灭论》反佛；王羲之《兰亭序》（书圣）；顾恺之《女史箴图》；祖冲之圆周率（领先世界千年）；贾思勰《齐民要术》（现存最早完整农书）；郦道元《水经注》。</p>
+      <div class="section-label inherit">继承</div>
+      <p>汉的察举传统（升级为九品中正）、汉的制度骨架。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">九品中正 → 科举</span>：门阀垄断选官威胁皇权。<span class="em-old">三武一宗灭佛</span>：寺院经济膨胀占土地逃赋税，政府打击。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">民族大融合、江南开发（南移起点）、九品中正制、均田制、佛教中国化</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">建安文学</span><span class="plus-tag">石窟</span><span class="plus-tag">圆周率</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          建安文学（曹操三父子）、陶渊明（田园诗鼻祖）、《木兰诗》（南北朝民歌）。
+          <div class="sub">文化</div>
+          佛教兴盛（云冈石窟、龙门石窟）、玄学（魏晋风度）。
+          <div class="sub">科技</div>
+          祖冲之（圆周率领先世界千年）、《齐民要术》（贾思勰，最早完整农书）、《水经注》（郦道元）。
+        </div>
+      </details>
+      <div class="exam-box">孝文帝改革意义；九品中正选官标准是门第（不是才能）。常见设错：孝文帝改革是汉化不是胡化。</div>
+    </div>
+  </div>
+
+  <!-- ====== 第五组：隋唐 ====== -->
+  <div class="sec-block" id="sec-5">
+    <div class="sec-h"><h2>隋唐</h2><span class="years">581—907年</span></div>
+
+    <div class="card" id="c11" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">11</span><h3>隋</h3></div>
+      <div class="badges">
+        <span class="badge new">科举制</span>
+        <span class="badge new">大运河</span>
+        <span class="badge new">三省六部</span>
+        <span class="badge old">九品→科举</span>
+      </div>
+      <div class="human">隋和秦一样：制度超前但暴政速亡，遗产全被唐继承——科举、三省六部、大运河。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">三省六部制框架</span>：中书、门下、尚书三省，尚书下设六部。</p>
+      <p><span class="em-new">科举制诞生</span>：隋文帝分科考试；<strong>隋炀帝设进士科</strong>——科举制度正式诞生。改善了用人制度，有才识的读书人有机会做官。</p>
+      <p><span class="em-new">大运河</span>：以洛阳为中心，北达涿郡（北京），南至余杭（杭州），四段（永济渠、通济渠、邗沟、江南河），连接五大水系。大大促进了南北经济交流。</p>
+      <div class="section-label inherit">继承</div>
+      <p>北周的均田制和府兵制。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">九品中正 → <a class="xref" href="#c11">科举</a></span>：门阀垄断选官，皇帝想用寒门子弟制衡门阀。隋暴政速亡但制度遗产被唐全面继承。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">科举制（延续1300多年）、三省六部制框架、大运河（后世经济命脉）</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">科举</span><span class="plus-tag">大运河</span><span class="plus-tag">赵州桥</span></summary>
+        <div class="plus-body">
+          <div class="sub">文化</div>
+          科举制诞生（隋炀帝设进士科）。
+          <div class="sub">科技</div>
+          大运河（沟通五大水系）、赵州桥（李春，现存最早石拱桥）。
+        </div>
+      </details>
+      <div class="exam-box">科举诞生标志是隋炀帝设进士科。常见设错：说成唐太宗创立。</div>
+    </div>
+
+    <div class="card" id="c12" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">12</span><h3>唐</h3></div>
+      <div class="badges">
+        <span class="badge new">三省六部</span>
+        <span class="badge new">两税法</span>
+        <span class="badge new">安史之乱</span>
+        <span class="badge new">贞观之治</span>
+        <span class="badge old">均田→两税</span>
+      </div>
+      <div class="human">均田制一崩，租庸调和府兵制全跟着塌——杨炎两税法把征税从"按人头"改成"按资产"，这是转折。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">盛世</span>：贞观之治（唐太宗）→ 武则天（殿试、武举，政启开元治宏贞观）→ 开元盛世（唐玄宗前期全盛）。</p>
+      <p><span class="em-new">三省六部制完善</span>：中书省（草诏决策）→ 门下省（审核封驳）→ 尚书省（执行，下设六部）。三省互相牵制，大权归皇帝。</p>
+      <p><span class="em-new">两税法</span>（780年杨炎）：均田制瓦解后，按土地和财产多少征税，分夏秋两季征收。<strong>从"税人"（按人头）转向"税地"（按资产）——赋税制度重大转折</strong>。</p>
+      <p><span class="em-new">安史之乱</span>（755—763年）：节度使安禄山史思明叛乱，唐由盛转衰，之后藩镇割据。</p>
+      <p><span class="em-new">对外</span>：文成公主入藏（641年，唐蕃友好）；玄奘西行天竺取经（《大唐西域记》）；鉴真东渡日本传文化。</p>
+      <p><span class="em-new">科技文化</span>：曲辕犁、筒车；雕版印刷（《金刚经》现存最早标确切日期）；火药开始用于军事；唐诗（李白诗仙、杜甫诗圣、白居易）。</p>
+      <div class="section-label inherit">继承</div>
+      <p>隋的三省六部、科举、均田、大运河。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">均田制瓦解 → 租庸调 → 两税法</span>：土地兼并严重，政府无地可授，按人丁收税行不通。<span class="em-old">府兵 → 募兵</span>：兵农合一的府兵制失去均田经济基础，改为职业军人，但将帅专兵导致安史之乱。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">三省六部成熟、两税法（税人到税地转折）、文化繁荣、开放包容时代气质</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">唐诗</span><span class="plus-tag">玄奘</span><span class="plus-tag">雕版印刷</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          唐诗（李白"诗仙"、杜甫"诗圣"、白居易）。
+          <div class="sub">文化</div>
+          科举完善（殿试、武举）、丝绸之路文化交流（玄奘西行、鉴真东渡）。
+          <div class="sub">科技</div>
+          雕版印刷（《金刚经》现存最早标确切日期）、火药开始用于军事、曲辕犁筒车、僧一行测子午线。
+        </div>
+      </details>
+      <div class="exam-box">中书省草诏不是执行；两税法按资产不是按人丁。常见设错：把三省职能搞混。</div>
+    </div>
+  </div>
+
+  <!-- ====== 第六组：宋元 ====== -->
+  <div class="sec-block" id="sec-6">
+    <div class="sec-h"><h2>宋元</h2><span class="years">907—1368年</span></div>
+
+    <div class="card" id="c13" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">13</span><h3>五代辽宋夏金</h3></div>
+      <div class="badges">
+        <span class="badge new">二府三司</span>
+        <span class="badge new">王安石变法</span>
+        <span class="badge new">交子</span>
+        <span class="badge new">经济南移</span>
+        <span class="badge old">藩镇→收权</span>
+      </div>
+      <div class="human">宋初被藩镇割据吓怕了，拼命收权崇文抑武，结果"积贫积弱"——矫枉过正的典型。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">宋初加强中央集权</span>：杯酒释兵权收武将兵权；<strong>二府三司</strong>——中书门下（行政）、枢密院（军事）、三司（财政），分割相权；地方派文臣做知州、设通判监督、转运使收财权。结果中央集权大大加强，但也导致"积贫积弱"。</p>
+      <p><span class="em-new">王安石变法</span>（1069年，宋神宗支持）：青苗法（政府低息贷款给农民）、募役法（交钱代役）、方田均税法（按亩收税）、保甲法。增加了政府收入，但触动大官僚大地主利益，神宗死后司马光上台（元祐更化），新法大部分被废。</p>
+      <p><span class="em-new">经济</span>：<strong>交子</strong>（北宋四川，世界最早纸币）；坊市界限打破（街市合一、夜市晓市）；市舶司管理外贸；<strong>经济重心南移完成于南宋</strong>——政府财政收入主要来自南方。</p>
+      <p><span class="em-new">思想科技</span>：程朱理学（朱熹集大成，存天理灭人欲，南宋后官方哲学）；活字印刷术（毕昇）；指南针用于航海；火药武器广泛使用。</p>
+      <div class="section-label inherit">继承</div>
+      <p>唐的科举制、中央集权传统。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">藩镇 → 宋初收权</span>：矫枉过正导致积贫积弱。<span class="em-old">二府三司 → 元一省制</span>：分权过细冗官低效。<span class="em-old">王安石新法 → 元祐更化</span>：政策因人废立，党争消耗国力。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">重文轻武国策、经济重心南移完成、理学成为官方哲学、三大发明成熟应用</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">宋词</span><span class="plus-tag">活字印刷</span><span class="plus-tag">指南针</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          宋词（苏轼、李清照、辛弃疾）、《资治通鉴》（司马光，编年体通史）。
+          <div class="sub">文化</div>
+          程朱理学（朱熹集大成）、文人画。
+          <div class="sub">科技</div>
+          活字印刷（毕昇）、指南针用于航海、火药武器广泛使用、《梦溪笔谈》（沈括）。
+        </div>
+      </details>
+      <div class="exam-box">交子是世界最早纸币（北宋四川）；经济重心南移完成于南宋。常见设错：交子说成南宋。</div>
+    </div>
+
+    <div class="card" id="c14" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">14</span><h3>元</h3></div>
+      <div class="badges">
+        <span class="badge new">行省制度</span>
+        <span class="badge new">宣政院</span>
+        <span class="badge new">澎湖巡检司</span>
+        <span class="badge old">三省→一省</span>
+      </div>
+      <div class="human">疆域太大，必须搞行省——这就是今天"省"的由来；西藏和台湾第一次正式纳入中央管辖。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">行省制度</span>：中央设中书省，地方设行中书省（简称行省/省）。<strong>我国省级行政区设立始于元朝</strong>。</p>
+      <p><span class="em-new">宣政院</span>：管理全国佛教事务和西藏军政——<strong>西藏正式成为中央政府直接管辖的行政区域</strong>。</p>
+      <p><span class="em-new">澎湖巡检司</span>：管理澎湖和琉球（台湾）——<strong>台湾正式纳入中央管辖</strong>。</p>
+      <p>四等人制（蒙古人、色目人、汉人、南人）——民族分化政策。黄道婆改进棉纺织，松江成为棉纺中心。元曲（关汉卿《窦娥冤》）。</p>
+      <div class="section-label inherit">继承</div>
+      <p>宋的中央集权、科举（元中期恢复）。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">二府三司 → 一省中书</span>：简化机构提高效率，但相权集中，为后来明代废丞相埋下伏笔。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed"><a class="xref" href="#c14">行省制度</a>（沿用至今）、西藏正式归属中央、台湾纳入管辖、棉纺织推广</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">元曲</span><span class="plus-tag">宣政院</span><span class="plus-tag">授时历</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          元曲（关汉卿《窦娥冤》）。
+          <div class="sub">文化</div>
+          宣政院（管理佛教和西藏）。
+          <div class="sub">科技</div>
+          《授时历》（郭守敬，古代最优秀历法）、黄道婆改进棉纺织。
+        </div>
+      </details>
+      <div class="exam-box">西藏正式归属中央标志——元代设宣政院。常见设错：说成清代驻藏大臣。</div>
+    </div>
+  </div>
+
+  <!-- ====== 第七组：明清 ====== -->
+  <div class="sec-block" id="sec-7">
+    <div class="sec-h"><h2>明清</h2><span class="years">1368—1912年</span></div>
+
+    <div class="card" id="c15" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">15</span><h3>明</h3></div>
+      <div class="badges">
+        <span class="badge new">废丞相</span>
+        <span class="badge new">内阁</span>
+        <span class="badge new">八股取士</span>
+        <span class="badge new">一条鞭法</span>
+        <span class="badge old">丞相→废</span>
+      </div>
+      <div class="human">朱元璋直接把丞相杀了废了，1000多年的丞相制终结——但内阁和司礼监两头，实际上皇权更重了。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">废丞相权分六部</span>：1380年胡惟庸案，朱元璋废除丞相，六部直接对皇帝负责。<strong>秦以来1000多年丞相制度终结</strong>。</p>
+      <p><span class="em-new">内阁</span>：明成祖时正式形成，有票拟权（对奏章提处理意见），但最终要皇帝批红。内阁始终不是法定中央行政机构——<strong>内阁首辅不是宰相</strong>。司礼监太监代行批红权，导致宦官专权。</p>
+      <p><span class="em-new">厂卫特务</span>：锦衣卫（明太祖）、东厂（明成祖）——君主专制强化表现。</p>
+      <p><span class="em-new">八股取士</span>：科举只在四书五经范围内命题，文体必须写八股文，不能有自己见解。禁锢思想摧残人才。</p>
+      <p><span class="em-new">一条鞭法</span>（张居正，1581年）：赋役合并折银，按亩征收。赋役货币化，农民人身依附减弱。</p>
+      <p><span class="em-new">对外</span>：郑和下西洋（1405—1433年，七次，最远到红海沿岸和非洲东海岸，比欧洲早半个多世纪，目的是宣扬国威不是殖民）；戚继光抗倭；葡萄牙1553年占澳门。</p>
+      <p><span class="em-new">思想文化</span>：王阳明心学（致良知、知行合一）；李贽反教条；明末三大思想家——黄宗羲（批判君主专制，天下为主君为客）、顾炎武（经世致用）、王夫之（唯物）。李时珍《本草纲目》、宋应星《天工开物》、徐光启《农政全书》、《永乐大典》。</p>
+      <div class="section-label inherit">继承</div>
+      <p>元的行省制（改三司）、科举制（改八股）。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">丞相制 → 明废丞相</span>：1380年胡惟庸案，不许再立丞相。<span class="em-old">一条鞭法 → 摊丁入亩</span>：清代继承深化（彻底废人头税）。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">丞相制终结、内阁制度、八股取士、一条鞭法（赋役货币化）、早期启蒙思想</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">明清小说</span><span class="plus-tag">心学</span><span class="plus-tag">本草纲目</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          明清小说（《三国演义》《水浒传》《西游记》）、《永乐大典》。
+          <div class="sub">文化</div>
+          王阳明心学（致良知、知行合一）、明末三大思想家（黄宗羲、顾炎武、王夫之）。
+          <div class="sub">科技</div>
+          《本草纲目》（李时珍）、《天工开物》（宋应星，中国17世纪工艺百科全书）、《农政全书》（徐光启）。
+        </div>
+      </details>
+      <div class="exam-box">废丞相是明太祖朱元璋；内阁首辅不是宰相。常见设错：把内阁说成法定行政机构。</div>
+    </div>
+
+    <div class="card" id="c16" data-tags="new old inherit sediment">
+      <div class="card-h"><span class="idx">16</span><h3>清</h3></div>
+      <div class="badges">
+        <span class="badge new">军机处</span>
+        <span class="badge new">驻藏大臣</span>
+        <span class="badge new">摊丁入亩</span>
+        <span class="badge new">闭关锁国</span>
+        <span class="badge old">闭关→被打破</span>
+      </div>
+      <div class="human">军机处把专制推到顶峰，摊丁入亩把人头税彻底废除；但闭关锁国到极点，最后被大炮强行打开——制度僵化到不能自己改了。</div>
+      <div class="section-label new">新增</div>
+      <p><span class="em-new">军机处</span>：雍正设立，大臣完全秉承皇帝旨意办事（跪受笔录）。<strong>标志着封建君主集权达到顶峰</strong>。</p>
+      <p><span class="em-new">边疆治理</span>：对西藏——顺治赐达赖喇嘛、康熙赐班禅额尔德尼、1727年设<strong>驻藏大臣</strong>、金瓶掣签制度；对新疆——康熙平噶尔丹、乾隆平大小和卓、设<strong>伊犁将军</strong>；对台湾——1683年入台、1684年设<strong>台湾府</strong>隶属福建；土尔扈特部回归（渥巴锡）。</p>
+      <p><span class="em-new">《尼布楚条约》</span>（1689年）：中俄第一个平等边界条约，从法律上肯定黑龙江乌苏里江流域包括库页岛都是中国领土。</p>
+      <p><span class="em-new">摊丁入亩</span>（雍正）：把丁税（人头税）全部摊入田赋，征收地丁银。<strong>彻底废除人头税</strong>，人口从一亿暴涨到四亿。</p>
+      <p><span class="em-new">闭关锁国</span>：只开广州一处通商，由<strong>广州十三行</strong>统一管理。对西方侵略起过自卫作用，但与世隔绝看不到世界变化，使中国在世界上逐渐落伍。文字狱禁锢思想。《四库全书》、《红楼梦》、京剧形成。</p>
+      <div class="section-label inherit">继承</div>
+      <p>明的内阁制（被军机处取代）、科举（八股延续）、行省制。</p>
+      <div class="section-label old">废弃</div>
+      <p><span class="em-old">一条鞭法 → 摊丁入亩</span>：彻底废人头税，地多多交地少少交。<span class="em-old">海禁/闭关 → 被1840鸦片战争强行打破</span>：制度僵化到内部无法自我改革，最后被外力终结。</p>
+      <div class="section-label sediment">沉淀</div>
+      <p><span class="em-sed">军机处（专制顶峰）、现代中国版图奠定（新疆西藏蒙古台湾纳入有效管辖）、摊丁入亩（人口爆炸）、闭关锁国（近代落后）</span>。</p>
+      <details class="plus-box">
+        <summary>文学 · 文化 · 科技 <span class="plus-tag">红楼梦</span><span class="plus-tag">四库全书</span><span class="plus-tag">京剧</span></summary>
+        <div class="plus-body">
+          <div class="sub">文学</div>
+          《红楼梦》（曹雪芹，中国古典小说巅峰）、京剧形成。
+          <div class="sub">文化</div>
+          文字狱（禁锢思想）、《四库全书》（古代最大丛书）。
+          <div class="sub">科技</div>
+          传统科技总结（但开始落后于西方）。
+        </div>
+      </details>
+      <div class="exam-box">军机处是雍正设立（不是康熙）；闭关不是完全断贸是一口通商（广州十三行）。常见设错：君主专制顶峰标志说成设丞相。</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

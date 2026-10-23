@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>民法 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/law/civil.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../公考备考笔记.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../公考备考笔记.html">首页</a> › 公共基础 · 常识 › 法律 › 民法</div>
+<div class="doc-head"><h1>民法</h1><p>民法谱系 + 民法典具体知识点：物权、合同、侵权、婚姻继承。</p><div class="stat">1911—至今</div></div>
+    <div class="sec-block" id="sec-minfa" style="margin-top:40px">
+
+      <h3 style="font-size:15px;font-weight:700;margin:16px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--divider)">民法谱系</h3>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">01</span><h3>大清民律草案（1911）</h3></div>
+          <div class="badges">
+            <span class="badge new">第一次尝试民法典</span>
+          </div>
+        </summary>
+        <div class="human-origin">西方入侵，传统律法不够用，要变法图强。</div>
+        <div class="section-label new">新增</div>
+        <p><span class="em-new">第一次尝试编纂民法典</span>：引入"民事主体"、"法律行为"等概念。</p>
+        <div class="section-label old">废弃</div>
+        <p><span class="em-old">传统"诸法合体"</span>的律法形式。</p>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">民法典概念引入中国。</span></p>
+        <div class="exam-box">中国第一次尝试编纂民法典。常见设错：说成第一部正式民法典。</div>
+      </details>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">02</span><h3>中华民国民法（1929-1930）</h3></div>
+          <div class="badges">
+            <span class="badge new">第一部正式民法典</span>
+          </div>
+        </summary>
+        <div class="human-origin">民国建立，需要正式民法。</div>
+        <div class="section-label new">新增</div>
+        <p><span class="em-new">中国第一部正式民法典</span>：完整的物权、债权、合同体系。</p>
+        <div class="section-label inherit">继承</div>
+        <p>大清民律草案的框架。</p>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">六法体系确立。</span></p>
+        <div class="exam-box">中国第一部正式民法典。常见设错：说成新中国第一部民法典。</div>
+      </details>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">03</span><h3>多次起草未成（1954-1982）</h3></div>
+          <div class="badges">
+            <span class="badge old">三次中断</span>
+          </div>
+        </summary>
+        <div class="human-origin">新中国成立，废除旧法，要立新法。但政治运动不断，民法典起草三次都中断。</div>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">有立法经验，但没成法典。</span></p>
+      </details>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">04</span><h3>民法通则（1986）</h3></div>
+          <div class="badges">
+            <span class="badge new">第一部民事基本法</span>
+          </div>
+        </summary>
+        <div class="human-origin">改革开放，经济搞活，需要民事规则。</div>
+        <div class="section-label new">新增</div>
+        <p><span class="em-new">第一部民事基本法</span>（不是完整民法典，是"迷你版"）：<br>
+        民事主体（自然人、法人）、民事法律行为、诉讼时效。</p>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">民事法律制度框架建立。</span></p>
+        <div class="exam-box">第一部民事基本法（不是民法典）。常见设错：说成第一部民法典。</div>
+      </details>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">05</span><h3>单行法阶段（1999-2017）</h3></div>
+          <div class="badges">
+            <span class="badge new">合同法</span>
+            <span class="badge new">物权法</span>
+            <span class="badge new">民法总则</span>
+          </div>
+        </summary>
+        <div class="human-origin">市场经济发展，需要更细的规则。</div>
+        <div class="section-label new">新增</div>
+        <p><span class="em-new">1999年：合同法</span>——合同的订立、效力、履行、违约责任。<br>
+        <span class="em-new">2007年：物权法</span>——所有权、用益物权、担保物权、物权法定原则。<br>
+        <span class="em-new">2017年：民法总则</span>——总则编（民事主体、法律行为、代理、诉讼时效）。</p>
+        <div class="section-label inherit">继承</div>
+        <p>民法通则的基本原则。</p>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">民法典各编逐步成熟。</span></p>
+      </details>
+
+      <details class="card" style="margin-bottom:10px">
+        <summary style="cursor:pointer;list-style:none">
+          <div class="card-h"><span class="idx">06</span><h3>民法典（2020通过，2021实施）</h3></div>
+          <div class="badges">
+            <span class="badge new">新中国第一部民法典</span>
+            <span class="badge new">人格权独立成编</span>
+          </div>
+        </summary>
+        <div class="human-origin">全面依法治国，需要一部完整的民法典。</div>
+        <div class="section-label new">新增</div>
+        <p><span class="em-new">新中国第一部正式民法典</span>：<br>
+        <span class="em-new">人格权编</span>（独立成编，世界首创）。<br>
+        结构：总则 + 物权 + 合同 + 人格权 + 婚姻家庭 + 继承 + 侵权责任（七编）。</p>
+        <div class="section-label inherit">继承</div>
+        <p>之前的单行法（合同法、物权法、民法总则）。</p>
+        <div class="section-label old">废弃</div>
+        <p><span class="em-old">民法通则、合同法、物权法等单行法</span>（被民法典吸收取代）。</p>
+        <div class="section-label sediment">沉淀</div>
+        <p><span class="em-sed">中国民法典正式诞生。</span></p>
+        <div class="exam-box">新中国第一部正式民法典；人格权编独立成编是中国首创。</div>
+      </details>
+
+      <!-- ====== 民法具体知识点 ====== -->
+      <div id="sec-minfa-detail" style="margin-top:24px;padding-top:20px;border-top:2px solid var(--divider)">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">民法具体知识点（结构化拆解）</h3>
+
+        <!-- 民法的本质 -->
+        <div style="background:#f5f5f0;border:1px solid #e8e8e0;padding:14px;margin-bottom:16px;border-radius:8px">
+          <div style="font-weight:700;margin-bottom:8px;color:var(--t1)">民法的本质</div>
+          <div>通过规范行为，来调整<strong>平等主体</strong>之间的<strong>人身关系</strong>和<strong>财产关系</strong>的法律规范。</div>
+          <div style="margin-top:10px;font-size:13px;color:var(--t2)">
+            <div><strong>人身关系</strong>：跟人本身有关的，不是钱的事。比如：姓名权、肖像权、名誉权、婚姻、继承。</div>
+            <div style="margin-top:4px"><strong>财产关系</strong>：跟钱有关的。比如：买卖、租赁、借贷、侵权赔偿。</div>
+          </div>
+        </div>
+
+        <!-- 第一组：资格与行为 -->
+        <div style="font-weight:700;font-size:14px;color:var(--t1);margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--divider)">第一组：资格与行为（考点一、二）</div>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点一：民事主体</strong><span class="plus-tag">自然人</span><span class="plus-tag">法人</span><span class="plus-tag">非法人组织</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 自然人（1986年民法通则确立）</div>
+            民事权利能力：始于出生，终于死亡。<br>
+            民事行为能力：<br>
+            - 完全：18周岁以上；16周岁以上以自己劳动收入为主要生活来源。<br>
+            - 限制：8周岁以上的未成年人；不能完全辨认自己行为的成年人。<br>
+            - 无：不满8周岁；不能辨认自己行为的成年人。
+
+            <div class="sub">2. 法人（1986年民法通则确立）</div>
+            具有民事权利能力和民事行为能力，依法独立享有民事权利和承担民事义务的组织。<br>
+            分类：营利法人（公司）、非营利法人（事业单位、社会团体）、特别法人（机关、农村集体经济组织）。
+
+            <div class="sub">3. 非法人组织（2017年民法总则新增）</div>
+            不具有法人资格，但可以自己的名义从事民事活动的组织。<br>
+            比如：个人独资企业、合伙企业、不具有法人资格的专业服务机构。
+
+            <!-- 补充说明：为什么要区分三个民事主体 -->
+            <details class="plus-box" style="margin:12px 0;border-radius:0">
+              <summary style="background:var(--brand-soft)">补充：为什么要区分这三个民事主体？</summary>
+              <div class="plus-body">
+                <div>法律将社会上的人和组织抽象为三种"个体"——自然人（一个人）、法人（公司等机构抽象成的个体）、非法人组织（几个人合伙抽象成的个体）。这样做的目的，是为了消除模糊性，提升法律的明确性：明确谁能享有权利、谁能承担义务、出事了找谁负责。把复杂的社会关系简化成三种清晰的法律主体，法律才能有效运行。</div>
+              </div>
+            </details>
+
+            <!-- 思维提升：三个主体，谁负责？ -->
+            <details class="plus-box" style="margin:12px 0;border-radius:0">
+              <summary style="background:var(--brand-soft)">思维提升：三个主体，谁负责？</summary>
+              <div class="plus-body">
+                <table style="width:100%;border-collapse:collapse;font-size:13px;margin:8px 0">
+                  <thead>
+                    <tr style="background:var(--bg-alt)">
+                      <th style="border:1px solid var(--divider);padding:6px;text-align:left">主体</th>
+                      <th style="border:1px solid var(--divider);padding:6px;text-align:left">谁签合同</th>
+                      <th style="border:1px solid var(--divider);padding:6px;text-align:left">出事谁负责</th>
+                      <th style="border:1px solid var(--divider);padding:6px;text-align:left">责任范围</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="border:1px solid var(--divider);padding:6px">自然人</td>
+                      <td style="border:1px solid var(--divider);padding:6px">一个人</td>
+                      <td style="border:1px solid var(--divider);padding:6px">这个人</td>
+                      <td style="border:1px solid var(--divider);padding:6px">无限责任——他有多少赔多少</td>
+                    </tr>
+                    <tr>
+                      <td style="border:1px solid var(--divider);padding:6px">法人</td>
+                      <td style="border:1px solid var(--divider);padding:6px">公司</td>
+                      <td style="border:1px solid var(--divider);padding:6px">公司</td>
+                      <td style="border:1px solid var(--divider);padding:6px">有限责任——只赔公司的钱，老板不掏钱</td>
+                    </tr>
+                    <tr>
+                      <td style="border:1px solid var(--divider);padding:6px">非法人组织</td>
+                      <td style="border:1px solid var(--divider);padding:6px">合伙企业</td>
+                      <td style="border:1px solid var(--divider);padding:6px">合伙人</td>
+                      <td style="border:1px solid var(--divider);padding:6px">无限责任——大家一起赔，谁也跑不掉</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div>这个设计很妙：如果你想保护自己的个人财产，就开公司（有限责任）；如果你想大家一起干、风险共担，就搞合伙（无限责任）；一个人单干，就自己负责。</div>
+                <div style="margin-top:4px">法律给你三种选择，你想承担多大风险，就选哪种方式。</div>
+              </div>
+            </details>
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点二：民事法律行为</strong><span class="plus-tag">有效</span><span class="plus-tag">无效</span><span class="plus-tag">可撤销</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 有效民事法律行为</div>
+            条件：行为人具有相应的民事行为能力；意思表示真实；不违反法律、行政法规的强制性规定，不违背公序良俗。
+
+            <div class="sub">2. 无效民事法律行为</div>
+            情形：<br>
+            - 无民事行为能力人实施的。<br>
+            - 行为人与相对人以虚假的意思表示实施的。<br>
+            - 违反法律、行政法规的强制性规定的。<br>
+            - 违背公序良俗的。<br>
+            - 行为人与相对人恶意串通，损害他人合法权益的。
+
+            <div class="sub">3. 可撤销民事法律行为</div>
+            情形：<br>
+            - 基于重大误解实施的。<br>
+            - 一方以欺诈手段，使对方在违背真实意思的情况下实施的。<br>
+            - 第三人实施欺诈行为，使一方在违背真实意思的情况下实施的，对方知道或者应当知道该欺诈行为的。<br>
+            - 一方或者第三人以胁迫手段，使对方在违背真实意思的情况下实施的。<br>
+            - 一方利用对方处于危困状态、缺乏判断能力等情形，致使民事法律行为成立时显失公平的。
+          </div>
+        </details>
+
+        <!-- 第二组：财产关系 -->
+        <div style="font-weight:700;font-size:14px;color:var(--t1);margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--divider)">第二组：财产关系（考点三至十）</div>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点三：物权</strong><span class="plus-tag">所有权</span><span class="plus-tag">用益物权</span><span class="plus-tag">担保物权</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 物权法定原则（2007年物权法确立）</div>
+            物权的种类和内容，由法律规定。
+
+            <div class="sub">2. 物权的分类</div>
+            - 所有权（自物权）：对自己的物享有占有、使用、收益、处分的权利。<br>
+            - 用益物权（他物权）：对他人所有的不动产或者动产，依法享有占有、使用、收益的权利。<br>
+            - 担保物权（他物权）：以担保债务履行为目的，在债务人或第三人的特定财产上设立的物权。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点四：所有权</strong><span class="plus-tag">国家所有</span><span class="plus-tag">集体所有</span><span class="plus-tag">私人所有</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 国家所有权</div>
+            矿藏、水流、海域属于国家所有。<br>
+            城市的土地，属于国家所有。
+
+            <div class="sub">2. 集体所有权</div>
+            法律规定属于集体所有的土地和森林、山岭、草原、荒地、滩涂。<br>
+            农村和城市郊区的土地，除由法律规定属于国家所有的以外，属于集体所有。
+
+            <div class="sub">3. 私人所有权</div>
+            私人对其合法的收入、房屋、生活用品、生产工具、原材料等不动产和动产享有所有权。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点五：用益物权</strong><span class="plus-tag">土地承包经营权</span><span class="plus-tag">建设用地使用权</span><span class="plus-tag">宅基地使用权</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 土地承包经营权</div>
+            农村集体经济组织成员有权依法承包由本集体经济组织发包的农村土地。
+
+            <div class="sub">2. 建设用地使用权</div>
+            建设用地使用权人依法对国家所有的土地享有占有、使用和收益的权利，有权利用该土地建造建筑物、构筑物及其附属设施。
+
+            <div class="sub">3. 宅基地使用权</div>
+            宅基地使用权人依法对集体所有的土地享有占有和使用的权利，有权依法利用该土地建造住宅及其附属设施。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点六：担保物权</strong><span class="plus-tag">抵押权</span><span class="plus-tag">质权</span><span class="plus-tag">留置权</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 抵押权</div>
+            为担保债务的履行，债务人或者第三人不转移财产的占有，将该财产抵押给债权人的，债务人不履行到期债务或者发生当事人约定的实现抵押权的情形，债权人有权就该财产优先受偿。
+
+            <div class="sub">2. 质权</div>
+            为担保债务的履行，债务人或者第三人将其动产出质给债权人占有的，债务人不履行到期债务或者发生当事人约定的实现质权的情形，债权人有权就该动产优先受偿。
+
+            <div class="sub">3. 留置权</div>
+            债务人不履行到期债务，债权人可以留置已经合法占有的债务人的动产，并有权就该动产优先受偿。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点七：债权</strong><span class="plus-tag">合同之债</span><span class="plus-tag">侵权之债</span><span class="plus-tag">无因管理</span><span class="plus-tag">不当得利</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 合同之债</div>
+            基于合同产生的债权债务关系。
+
+            <div class="sub">2. 侵权之债</div>
+            因侵权行为产生的债权债务关系。
+
+            <div class="sub">3. 无因管理</div>
+            没有法定的或者约定的义务，为避免他人利益受损失而进行管理的人，有权请求受益人偿还由此支出的必要费用。
+
+            <div class="sub">4. 不当得利</div>
+            得利人没有法律根据取得不当利益的，受损失的人可以请求得利人返还取得的利益。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点八：合同的订立及其效力</strong><span class="plus-tag">要约</span><span class="plus-tag">承诺</span><span class="plus-tag">成立</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 要约</div>
+            要约是希望与他人订立合同的意思表示，该意思表示应当符合下列条件：<br>
+            - 内容具体确定；<br>
+            - 表明经受要约人承诺，要约人即受该意思表示约束。
+
+            <div class="sub">2. 承诺</div>
+            承诺是受要约人同意要约的意思表示。
+
+            <div class="sub">3. 合同成立时间</div>
+            承诺生效时合同成立，但是法律另有规定或者当事人另有约定的除外。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点九：合同的履行</strong><span class="plus-tag">全面履行</span><span class="plus-tag">诚信原则</span><span class="plus-tag">情势变更</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 全面履行原则</div>
+            当事人应当按照约定全面履行自己的义务。
+
+            <div class="sub">2. 诚信原则</div>
+            当事人应当遵循诚信原则，根据合同的性质、目的和交易习惯履行通知、协助、保密等义务。
+
+            <div class="sub">3. 情势变更</div>
+            合同成立后，合同的基础条件发生了当事人在订立合同时无法预见的、不属于商业风险的重大变化，继续履行合同对于当事人一方明显不公平的，受不利影响的当事人可以与对方重新协商；在合理期限内协商不成的，当事人可以请求人民法院或者仲裁机构变更或者解除合同。
+          </div>
+        </details>
+
+        <details class="plus-box" style="margin-bottom:12px">
+          <summary><strong>考点十：重点合同</strong><span class="plus-tag">买卖合同</span><span class="plus-tag">借款合同</span><span class="plus-tag">租赁合同</span></summary>
+          <div class="plus-body">
+            <div class="sub">1. 买卖合同</div>
+            出卖人转移标的物的所有权于买受人，买受人支付价款的合同。
+
+            <div class="sub">2. 借款合同</div>
+            借款人向贷款人借款，到期返还借款并支付利息的合同。
+
+            <div class="sub">3. 租赁合同</div>
+            出租人将租赁物交付承租人使用、收益，承租人支付租金的合同。<br>
+            租赁期限不得超过二十年。超过二十年的，超过部分无效。
+          </div>
+        </details>
+
+        <!-- 第三组：人身关系（预留） -->
+        <div style="font-weight:700;font-size:14px;color:var(--t1);margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--divider)">第三组：人身关系（预留，待补充）</div>
+        <div style="font-size:13px;color:var(--t2);margin-bottom:12px;padding-left:12px">
+          <div>• 婚姻家庭（结婚、离婚、夫妻财产、抚养赡养）</div>
+          <div style="margin-top:4px">• 继承（法定继承、遗嘱继承、遗赠）</div>
+          <div style="margin-top:4px">• 人格权（姓名权、肖像权、名誉权、隐私权）</div>
+        </div>
+
+      </div>
+
+    </div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>
