@@ -9,7 +9,7 @@
  * 6. 组顺序约定：内容板块在前，工具模块（概念深挖 / 错题本）固定在最下方。
  */
 const NAV_DATA = [
-  { home: true, t: '首页说明', u: 'index.html' },
+  { home: true, t: '首页说明', u: 'notes.html' },
 
   { t: '公共基础 · 常识', children: [
     { t: '历史人文', children: [
@@ -126,7 +126,7 @@ const NAV_DATA = [
   ]},
 
   { t: '总结', links: [
-    { t: '未来时政联动', u: 'index.html#sec-future', n: '6' },
+    { t: '未来时政联动', u: 'notes.html#sec-future', n: '6' },
   ]},
 
   { t: '概念深挖', children: [
