@@ -667,7 +667,9 @@ function renderConceptHub(){
              + `<span class="hub-name">${c.t}</span></a>`;
       });
       if(!cards) return;
-      subHtml+=`<div class="hub-l2"><span class="hub-gt">${g.card}</span><span class="hub-cnt">${(g.concepts||[]).length} 个概念</span>`
+      const numMatch=g.card.match(/^(\d+)\s*/);
+      const gname=numMatch?g.card.slice(numMatch[0].length):g.card;
+      subHtml+=`<div class="hub-l2">${numMatch?`<span class="hub-num">${numMatch[1]}</span>`:''}<span class="hub-gt">${gname}</span><span class="hub-cnt">${(g.concepts||[]).length} 个概念</span>`
               + `<a class="hub-jump" href="${siteRoot()+g.u}">跳正文 →</a></div>`
               + `<div class="hub-grid">${cards}</div>`;
     });
@@ -675,6 +677,8 @@ function renderConceptHub(){
     html+=`<div class="hub-subject"><span class="hub-ico">${sub.icon||sub.subject.slice(0,1)}</span>${sub.subject}</div>`+subHtml;
   });
   box.innerHTML=html;
+  // 入场 stagger：卡片依次浮出
+  box.querySelectorAll('.hub-card').forEach((el,i)=>{ el.style.animationDelay=Math.min(i*40,600)+'ms'; });
   renderHubStat();
 }
 // 总览页：点胶囊卡上的圆点循环标记掌握度（事件委托；需阻断卡片跳转）
