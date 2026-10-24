@@ -165,6 +165,16 @@
     "keywords": "市盈率 PE PEG 估值 回本年限 静态市盈率 滚动市盈率 TTM 动态市盈率 戴维斯双击 戴维斯双杀 周期股 彼得林奇"
   },
   {
+    "title": "概念深挖：市净率（PB）",
+    "url": "concepts/finance/pb.html",
+    "keywords": "市净率 PB 破净 净资产 所有者权益 每股净资产 ROE 捡烟蒂 格雷厄姆 重资产 周期股 隐蔽资产 资产重估 减值准备"
+  },
+  {
+    "title": "概念深挖：PE·PB·股息率：三把飞刀",
+    "url": "concepts/finance/pe-pb-dividend.html",
+    "keywords": "三把飞刀 PB等于PE乘ROE 股息率 分红率 成长黑马 白马贵族 现金奶牛 价值毁灭链 红利资产重估 高股息策略 类固收 投资流派 成长派 价值派 红利派"
+  },
+  {
     "title": "错题总览",
     "url": "errors/overview.html",
     "keywords": "错题 概念辨析 因果判断 张冠李戴 时间错位"

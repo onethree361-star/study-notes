@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>市净率（PB） · 概念深挖 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='concepts/finance/pb.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 概念深挖 › 金融 › 市净率（PB）</div>
+
+<div class="doc-head">
+  <h1>市净率（PB）</h1>
+  <p>如果说市盈率（PE）看的是<strong>"赚钱能力"</strong>，那么市净率（PB）看的就是公司的<strong>"家底厚不厚"</strong>。核心本质：<strong>你买这家公司，花了几倍的价钱买它的家当</strong>。</p>
+  <div class="stat">来源板块：<b><a href="../../pages/finance/finance.html#sec-jinrong-c4">金融学 · 金融工具体系</a></b> · 上级概念：<b><a href="stock.html">股票</a></b></div>
+</div>
+
+<div class="human-origin">PE用"利润"当尺子，可强周期行业的利润大起大落，一旦亏损每股收益变负数，PE直接失效（没法除）；重资产公司有几百亿厂房设备，轻资产公司就几台电脑，PE也难衡量重资产公司的真实底盘。PB换了一把尺子：<strong>不看利润，只看净资产（总资产 − 总负债）</strong>——给利润不稳定、资产极其庞大的公司提供估值的标尺。</div>
+
+<div data-edit-block id="dk-pb-l1">
+<div style="margin:20px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第一层 · 发生学（有了PE，为什么还需要PB？）</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+<span class="em-old">宏观痛点</span>：① <strong>周期股利润失真</strong>——强周期行业（钢铁、煤炭、银行）利润起伏极大，有时暴赚有时亏损，一旦亏损每股收益（EPS）变成负数，<strong>PE直接失效（没法除）</strong>；② <strong>轻资产 vs 重资产</strong>——互联网公司（轻资产）可能就几台电脑但利润很高，钢铁厂（重资产）有几百亿的厂房设备，用PE很难衡量重资产公司的真实底盘。<br>
+<span class="em-new">宏观目的</span>：给那些<strong>利润不稳定、或者资产极其庞大</strong>的公司提供一把估值的尺子。PB不看利润，只看你公司的<strong>净资产（总资产 − 总负债）</strong>。
+</p>
+<div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:10px">
+  <strong style="color:var(--t1)">个人视角：对你意味着什么</strong>：如果你买股票是冲着"公司就算破产清算，我也能分到钱"的捡漏心态，那你就得看PB。PB就是告诉你，你花这钱买它的资产，<strong>是打折了，还是溢价了</strong>。
+</div>
+</div>
+
+<div data-edit-block id="dk-pb-l2">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第二层 · 结构拆解（公式与核心指标）</div>
+
+<div class="section-label new">1. 核心公式</div>
+<p><span class="em-new">PB = 股价（P） ÷ 每股净资产（BPS） = 总市值 ÷ 总净资产</span><br>
+<span style="font-size:12.5px;color:var(--t3)">（注：净资产 = 你之前学的"所有者权益"）</span></p>
+
+<div class="section-label new">2. 怎么看这个倍数？</div>
+<ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+  <li><span class="em-new">PB = 1</span>：你花的钱，刚好等于公司的账面净资产（<strong>平价买</strong>）。</li>
+  <li><span class="em-old">PB &gt; 1（溢价买）</span>：比如PB=5，你花5块钱买1块钱的账面资产。说明市场认为它有巨大的"赚钱潜力"或"品牌价值"。</li>
+  <li><span class="em-new">PB &lt; 1（破净，打折买）</span>：你花5毛钱买1块钱的资产。很多银行股常年PB在0.5左右（破净）。</li>
+</ul>
+
+<div class="section-label new">3. 黄金搭档：ROE（净资产收益率）</div>
+<p><span class="em-new">ROE = 净利润 ÷ 净资产</span>——代表"公司用家底赚钱的效率"。<strong>底层逻辑：PB的高低，是由ROE决定的！</strong> ROE越高，说明公司赚钱能力越强，市场就愿意给更高的PB（溢价）；ROE越差，PB就越低（甚至破净）。</p>
+<div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:10px">
+  <strong style="color:var(--t1)">个人视角：别被"破净"骗了</strong>：看到PB=0.5，以为买到就是赚到（五折买资产）。但如果这公司的净资产全是<strong>卖不出去的破烂机器，或者收不回来的烂账</strong>，那这0.5也是贵的。
+</div>
+</div>
+
+<div data-edit-block id="dk-pb-l3">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第三层 · 发生学迭代（认知升级与行业分化）</div>
+<ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+  <li><span class="em-old">1.0时代（捡烟蒂）</span>：格雷厄姆时代，专门找PB&lt;1的破净股，买进去等清算。</li>
+  <li><span class="em-new">2.0时代（重资产专属）</span>：大家发现，<strong>轻资产公司根本不能用PB</strong>。比如茅台、腾讯，它们的核心资产是品牌和程序员，不在账本上。如果用PB看茅台，永远觉得贵得离谱。所以PB变成了<strong>银行、地产、钢铁、券商等重资产/周期行业</strong>的专属工具。</li>
+  <li><span class="em-sed">3.0时代（ROE和PB的共振）</span>：高ROE（高赚钱效率）+ 合理PB = 长牛股。如果只有高PB，没有高ROE支撑，那就是纯粹的泡沫。</li>
+</ul>
+<div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:10px">
+  <strong style="color:var(--t1)">个人视角：你怎么选股</strong>：买传统重资产行业（如银行）——<strong>看PB + 股息率</strong>，PB越低越好，跌破0.8甚至0.5时，往往是极佳的防御买点；买科技/消费行业——<strong>别看PB</strong>，看了会错过所有牛股，直接看PE和PEG。
+</div>
+</div>
+
+<div data-edit-block id="dk-pb-l4">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第四层 · 底层运行机制（传导链与价值陷阱）</div>
+
+<div style="background:var(--green-soft);border:1px solid #cfe6d8;border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t1);margin:6px 0">
+  <strong>链条一：ROE驱动PB的传导链</strong><br>
+  <span class="em-new">公司经营优秀 → ROE（赚钱效率）持续高于同行 → 资本追逐买入 → 推动股价上涨 → PB不断拔高</span><br>
+  <strong>结论：PB = ROE × PE</strong>。这个推导公式完美解释了，为什么好公司可以享受高PB（因为它有极高的ROE在支撑）。
+</div>
+
+<div style="background:var(--green-soft);border:1px solid #cfe6d8;border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t1);margin:6px 0">
+  <strong>链条二：周期股与银行股的"破净陷阱"</strong><br>
+  <span class="em-old">经济下行 → 坏账增加 → 银行为防范风险，计提大量"资产减值准备" → 净资产大幅缩水（账本上的钱变少了） → 股价暴跌，PB进一步降低</span><br>
+  <strong style="color:var(--red-1)">底层逻辑</strong>：你以为你在"五折买银行"，结果银行默默把账本上的资产核销了，最后变成你"两倍价钱买了一堆坏账"。
+</div>
+
+<div style="background:var(--green-soft);border:1px solid #cfe6d8;border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t1);margin:6px 0">
+  <strong>链条三：资产重估机制</strong><br>
+  公司早年在一线城市买了一块地建厂（账面成本极低，净资产很低） → 现在地价翻了10倍 → 虽然财报上净资产没变，但市场知道它的真实价值极高 → <span class="em-new">市场愿意给它极高的PB</span><br>
+  这就是所谓的<strong>"隐蔽资产"重估</strong>。
+</div>
+</div>
+
+<div data-edit-block id="dk-pb-vs">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">终极总结：PE 与 PB 对比表</div>
+<table style="width:100%;border-collapse:collapse;font-size:12.5px;margin:6px 0">
+  <thead>
+    <tr style="background:var(--bg-alt)">
+      <th style="border:1px solid var(--divider);padding:6px 8px;text-align:left">维度</th>
+      <th style="border:1px solid var(--divider);padding:6px 8px;text-align:left">市盈率（PE）</th>
+      <th style="border:1px solid var(--divider);padding:6px 8px;text-align:left">市净率（PB）</th>
+    </tr>
+  </thead>
+  <tbody style="color:var(--t2)">
+    <tr><td style="border:1px solid var(--divider);padding:6px 8px;font-weight:600;color:var(--t1)">核心看什么</td><td style="border:1px solid var(--divider);padding:6px 8px">公司的<strong>赚钱能力</strong>（利润）</td><td style="border:1px solid var(--divider);padding:6px 8px">公司的<strong>家底厚度</strong>（净资产）</td></tr>
+    <tr><td style="border:1px solid var(--divider);padding:6px 8px;font-weight:600;color:var(--t1)">核心公式</td><td style="border:1px solid var(--divider);padding:6px 8px">股价 ÷ 每股收益（EPS）</td><td style="border:1px solid var(--divider);padding:6px 8px">股价 ÷ 每股净资产</td></tr>
+    <tr><td style="border:1px solid var(--divider);padding:6px 8px;font-weight:600;color:var(--t1)">适用行业</td><td style="border:1px solid var(--divider);padding:6px 8px">科技、消费、医药等<strong>轻资产、高成长</strong>行业</td><td style="border:1px solid var(--divider);padding:6px 8px">银行、地产、钢铁等<strong>重资产、周期</strong>行业</td></tr>
+    <tr><td style="border:1px solid var(--divider);padding:6px 8px;font-weight:600;color:var(--t1)">失效场景</td><td style="border:1px solid var(--divider);padding:6px 8px">公司亏损（利润为负时无意义）</td><td style="border:1px solid var(--divider);padding:6px 8px">轻资产公司（如互联网，核心资产不在账上）</td></tr>
+    <tr><td style="border:1px solid var(--divider);padding:6px 8px;font-weight:600;color:var(--t1)">衡量指标</td><td style="border:1px solid var(--divider);padding:6px 8px">PEG（性价比）</td><td style="border:1px solid var(--divider);padding:6px 8px">ROE（赚钱效率）</td></tr>
+  </tbody>
+</table>
+<p style="font-size:12.5px;color:var(--t2);line-height:1.8;margin-top:6px">结合之前的"净资产"概念，估值这块的铁三角（<span class="em-new">PE、PB、PEG</span>）至此全部拿下。</p>
+</div>
+
+<div class="exam-box" data-edit-block id="dk-pb-exam"><strong>终极口诀：</strong>PE看利润，PB看家底；轻资产看PE，重资产看PB；破净不一定底，ROE高才是真牛逼；五折买资产，小心全是烂机器！<br><strong>常见设错：</strong>把PB&lt;1直接说成"低估捡漏"（错，可能是破烂重资产+坏账陷阱）；给茅台、腾讯这类轻资产公司算PB说便宜/贵（错，轻资产核心资产不在账上，PB失效）；把PB说成"利润与股价之比"（错，那是PE，PB是股价与每股净资产之比）。</div>
+
+<div class="section-label inherit">相关概念</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+  <a href="stock.html">股票（上级概念）</a> · <a href="pe-peg.html">市盈率（PE）与PEG</a> · <a href="pe-pb-dividend.html">PE·PB·股息率：三把飞刀</a> · <a href="../../pages/finance/finance.html#sec-jinrong-c4">回来源：金融工具体系</a> · <a href="../overview.html">查看全部概念 →</a>
+</p>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

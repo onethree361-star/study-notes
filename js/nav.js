@@ -144,6 +144,8 @@ const NAV_DATA = [
       { t: '商业银行', u: 'concepts/finance/commercial-bank.html' },
       { t: '股票', u: 'concepts/finance/stock.html' },
       { t: '市盈率（PE）与PEG', u: 'concepts/finance/pe-peg.html' },
+      { t: '市净率（PB）', u: 'concepts/finance/pb.html' },
+      { t: 'PE·PB·股息率：三把飞刀', u: 'concepts/finance/pe-pb-dividend.html' },
     ]},
   ]},
 
