@@ -7,6 +7,7 @@
  * 本地存储约定：
  *   cardContent.v2:{页面路径}:{卡片id}  → 逐卡编辑内容
  *   mastery.v2:{页面路径}               → 掌握度 {"卡片id":"blur"|"ok"}
+ *   mastery.v2:concepts-overview        → 概念总览页概念级掌握度 {"概念详情页路径":"blur"|"ok"}
  *   review.v2                           → 复习排期 {"页面#卡片id":{due,title,page,hash}}
  *   nav.open.v2                         → 侧边栏分组展开记忆
  *   theme                               → 深色模式 'dark'|'light'
@@ -631,6 +632,83 @@ function onScrollFX(){
   spy();
 }
 
+// ---------- 概念深挖总览页（知识网络枢纽，数据源 js/concepts.js） ----------
+const HUB_MASTERY_KEY='mastery.v2:concepts-overview';
+function hubMastery(){ return readJSON(HUB_MASTERY_KEY,{}); }
+function setHubMastery(path,st){
+  const m=hubMastery();
+  if(st) m[path]=st; else delete m[path];
+  writeJSON(HUB_MASTERY_KEY,m);
+}
+function hubStatusText(st){ return st==='ok'?'已掌握':st==='blur'?'模糊':'未学'; }
+function renderHubStat(){
+  let total=0,ok=0,blur=0;
+  document.querySelectorAll('#conceptHub .hub-card').forEach(c=>{
+    total++;
+    if(c.dataset.st==='ok')ok++;
+    if(c.dataset.st==='blur')blur++;
+  });
+  const stat=document.getElementById('hubStat');
+  if(stat) stat.innerHTML=`共 <b>${total}</b> 个概念 · 已掌握 <b>${ok}</b> · 模糊 <b>${blur}</b> · 未学 <b>${total-ok-blur}</b>`;
+}
+function renderConceptHub(){
+  const box=document.getElementById('conceptHub');
+  if(!box||typeof CONCEPTS_DATA==='undefined') return;
+  const m=hubMastery();
+  let html='';
+  CONCEPTS_DATA.forEach(sub=>{
+    let subHtml='';
+    (sub.groups||[]).forEach(g=>{
+      let cards='';
+      (g.concepts||[]).forEach(c=>{
+        const st=m[c.u]||'';
+        cards+=`<a class="hub-card${st?' st-'+st:''}" data-st="${st}" href="${siteRoot()+c.u}">`
+             + `<span class="hub-mark" data-u="${c.u}" data-st="${st}" title="点击切换掌握度：未学 → 模糊 → 已掌握">${hubStatusText(st)}</span>`
+             + `<span class="hub-row"><span class="hub-dot ${st||'no'}"></span><span class="hub-name">${c.t}</span></span>`
+             + (c.desc?`<span class="hub-desc">${c.desc}</span>`:'')
+             + `</a>`;
+      });
+      if(!cards) return;
+      subHtml+=`<div class="hub-group"><div class="hub-grow"><span class="hub-gt">${g.card}</span>`
+              + `<a class="hub-jump" href="${siteRoot()+g.u}">跳正文 →</a></div>`
+              + `<div class="hub-grid">${cards}</div></div>`;
+    });
+    if(!subHtml) return;
+    html+=`<div class="hub-subject"><span class="hub-ico">${sub.icon||sub.subject.slice(0,1)}</span>${sub.subject}</div>`+subHtml;
+  });
+  box.innerHTML=html;
+  renderHubStat();
+}
+// 总览页：掌握度循环标记（事件委托；标记按钮在链接卡内，需阻断跳转）
+document.addEventListener('click',function(e){
+  const mk=e.target.closest('.hub-mark');
+  if(!mk) return;
+  e.preventDefault();
+  e.stopPropagation();
+  const u=mk.dataset.u;
+  const next=MASTERY_ORDER[(MASTERY_ORDER.indexOf(mk.dataset.st||'')+1)%3];
+  setHubMastery(u,next);
+  mk.dataset.st=next;
+  mk.textContent=hubStatusText(next);
+  const card=mk.closest('.hub-card');
+  card.dataset.st=next;
+  card.classList.remove('st-blur','st-ok');
+  if(next) card.classList.add('st-'+next);
+  const dot=card.querySelector('.hub-dot');
+  if(dot) dot.className='hub-dot '+(next||'no');
+  renderHubStat();
+});
+// 总览页：掌握度过滤
+document.addEventListener('click',function(e){
+  const chip=e.target.closest('.hub-chip');
+  if(!chip) return;
+  document.querySelectorAll('.hub-filters .hub-chip').forEach(c=>c.classList.toggle('on',c===chip));
+  const f=chip.dataset.f;
+  document.querySelectorAll('#conceptHub .hub-card').forEach(c=>{
+    c.style.display=(f==='all'||(c.dataset.st||'none')===f)?'':'none';
+  });
+});
+
 // ---------- 页面加载 ----------
 window.addEventListener('load',function(){
   initTheme();
@@ -640,6 +718,7 @@ window.addEventListener('load',function(){
   initSpy();
   initFoldToggle();
   enhanceChains();
+  renderConceptHub();
   // 子页面返回按钮：面包屑行首注入，优先浏览器历史返回，无历史则回首页
   const crumb=document.querySelector('.crumb');
   if(crumb&&siteRoot()!==''){

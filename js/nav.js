@@ -135,6 +135,9 @@ const NAV_DATA = [
   ]},
 
   { t: '概念深挖', children: [
+    { t: '总览', links: [
+      { t: '全部概念 · 知识网络', u: 'concepts/overview.html' },
+    ]},
     { t: '金融', links: [
       { t: '商业银行', u: 'concepts/finance/commercial-bank.html' },
       { t: '股票', u: 'concepts/finance/stock.html' },

@@ -434,7 +434,8 @@ description: 面向公考行测常识/政治理论/历史/法律/经济/时政�
 ├── css/style.css            ← 全站共享样式（末尾为视觉降级/多页工程覆盖规则）
 ├── js/
 │   ├── nav.js               ← ★ 全站导航唯一数据源（NAV_DATA），增删页面/卡片必改
-│   └── app.js               ← 渲染侧边栏 + 全站搜索下拉 + scrollspy + 跳转 + tooltip + 逐卡编辑/掌握度/复习排期 + 传导链渲染 + 深色模式/进度条/回顶/移动工具栏注入
+│   ├── concepts.js          ← ★ 概念总览唯一数据源（CONCEPTS_DATA），新增概念必改
+│   └── app.js               ← 渲染侧边栏 + 全站搜索下拉 + scrollspy + 跳转 + tooltip + 逐卡编辑/掌握度/复习排期 + 概念总览渲染/过滤/标记 + 传导链渲染 + 深色模式/进度条/回顶/移动工具栏注入
 ├── pages/                   ← 板块页（按导航层级分域）
 │   ├── history/ancient.html · modern.html
 │   ├── law/constitution.html · civil.html · criminal.html · company.html
@@ -442,6 +443,7 @@ description: 面向公考行测常识/政治理论/历史/法律/经济/时政�
 │   └── finance/finance.html
 ├── concepts/                ← 概念深挖页（按域分目录）
 │   ├── _template.html       ← 深挖固定模板，新建概念页先复制它
+│   ├── overview.html        ← 概念总览·知识网络枢纽（数据源 js/concepts.js 自动渲染）
 │   └── finance/commercial-bank.html …
 ├── errors/                  ← 错题本（index=按考法总览；history/law/economy/finance=按领域）
 └── search-index.json        ← 跨页搜索索引（{title,url,keywords}），增删页面必改
@@ -577,10 +579,11 @@ description: 面向公考行测常识/政治理论/历史/法律/经济/时政�
    <div class="section-label new">债券（债权）</div>
    <p>……</p>
    ```
-5. **深挖页回链**：「相关概念」区必须链回来源板块卡片 `../../pages/域/页.html#卡片id`。
+5. **深挖页回链**：「相关概念」区必须链回来源板块卡片 `../../pages/域/页.html#卡片id`，并在末尾追加 ` · <a href="../overview.html">查看全部概念 →</a>` 回总览页。
+5.5. **登记总览数据源**：js/concepts.js 对应学科 groups 里挂到来源知识点（无对应知识点组则新建），`{t:'概念名', u:'concepts/域/文件名.html', desc:'一句话定义'}`——总览页（concepts/overview.html）按此自动渲染学科→知识点→概念卡三层结构，概念掌握度存 `mastery.v2:concepts-overview`（概念级独立，与详情页卡状态互不影响）。
 6. **更新导航**：nav.js「概念深挖」组对应域 `links` 追加 `{t:'概念名', u:'concepts/域/文件名.html'}`，**只到概念名这一级**（单链接直达整页，不展开层级子链接——页面就一屏四层，面包屑+页内结构已够导航用）；该域组不存在则新建。
 7. **更新索引**：search-index.json 追加一条（title 前缀「概念深挖：」）。
-8. **校验**：跑十点七清单；重点验证 板块页 deep-link → 深挖页 → 返回按钮 → 回链 四段链路。
+8. **校验**：跑十点七清单；重点验证 板块页 deep-link → 深挖页 → 返回按钮 → 回链 四段链路 + 总览页概念卡出现且掌握度标记可用。
 
 ### 5. 情况 C：错题处理（识别 + 归位 + 解析）
 

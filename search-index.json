@@ -208,5 +208,10 @@
     "title": "英语：单词每日记",
     "url": "pages/english/vocabulary.html",
     "keywords": "单词 每日记 词汇 间隔重复 艾宾浩斯"
+  },
+  {
+    "title": "概念深挖总览",
+    "url": "concepts/overview.html",
+    "keywords": "概念 深挖 总览 知识网络 概念地图 概念卡片 掌握度"
   }
 ]
