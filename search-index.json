@@ -150,6 +150,21 @@
     "keywords": "股票 股权 股东 分红 PE PB 市盈率 市净率 IPO 一级市场 二级市场 戴维斯双击 AB股 注册制"
   },
   {
+    "title": "概念深挖：时间价值",
+    "url": "concepts/finance/time-value.html",
+    "keywords": "时间价值 货币时间价值 通胀 机会成本 利息 折现 DCF 现值 无息借款 钱闲置"
+  },
+  {
+    "title": "概念深挖：风险厌恶与风险溢价",
+    "url": "concepts/finance/risk-aversion.html",
+    "keywords": "风险厌恶 风险溢价 风险定价 资产配置 高收益高风险 保本保息 诈骗 国债 企业债 利差"
+  },
+  {
+    "title": "概念深挖：市盈率（PE）与PEG",
+    "url": "concepts/finance/pe-peg.html",
+    "keywords": "市盈率 PE PEG 估值 回本年限 静态市盈率 滚动市盈率 TTM 动态市盈率 戴维斯双击 戴维斯双杀 周期股 彼得林奇"
+  },
+  {
     "title": "错题总览",
     "url": "errors/overview.html",
     "keywords": "错题 概念辨析 因果判断 张冠李戴 时间错位"

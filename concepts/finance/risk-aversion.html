@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>风险厌恶与风险溢价 · 概念深挖 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='concepts/finance/risk-aversion.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 概念深挖 › 金融 › 风险厌恶与风险溢价</div>
+
+<div class="doc-head">
+  <h1>风险厌恶与风险溢价</h1>
+  <p>风险厌恶（Risk Aversion）与风险溢价（Risk Premium）是金融学的第二块地基：<strong>人天生怕亏本</strong>。想让别人承担他害怕的风险，必须给"精神损失费"（额外补偿）——高收益必然伴随高风险。</p>
+  <div class="stat">来源板块：<b><a href="../../pages/finance/finance.html#sec-jinrong-c1">金融学 · 金融学为什么会诞生</a></b></div>
+</div>
+
+<div class="human-origin">大家都喜欢确定的钱，讨厌不确定性；所以哪里有风险，哪里就必须挂出更高的预期收益来"诱惑"你。你买股票多赚的那部分钱，从来不是白来的——它是市场付给你承受暴跌风险的补偿费。</div>
+
+<div data-edit-block id="dk-fxye-l1">
+<div style="margin:20px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第一层 · 发生学</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)"><span class="em-old">大白话解释</span>：人天生怕亏本。你想让我承担害怕的风险，必须给我"精神损失费（额外补偿）"。<span class="em-new">为什么？（底层逻辑：高收益必然伴随高风险）</span></p>
+<ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+  <li><span class="em-old">风险厌恶（Risk Aversion）</span>：假设两个选择——A. 稳拿1万块；B. 抛硬币，50%概率拿2万，50%概率拿0块。绝大多数人（风险厌恶者）会选A，因为人天生讨厌不确定性。</li>
+  <li><span class="em-new">风险溢价（Risk Premium）</span>：既然大家都喜欢确定的钱，那想把钱吸引到有风险的地方（比如买股票、创业），市场就必须拿出更高的"预期收益"来诱惑你。你买股票多赚的那部分钱，是市场补偿你承受股价暴跌风险的"风险溢价"。</li>
+</ul>
+</div>
+
+<div data-edit-block id="dk-fxye-l2">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第二层 · 结构拆解</div>
+<p style="font-size:13px;line-height:1.9;color:var(--t2);margin:0 0 4px"><strong>📌 金融学因此衍生出什么？</strong></p>
+<ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+  <li><span class="em-new">风险定价</span>：所有的金融资产（股票、债券、期权），本质上都在给"风险"标价。国债没风险，收益低；企业债有风险，收益高。</li>
+  <li><span class="em-new">资产配置</span>：你买一篮子股票和债券，就是用组合来降低单一风险——不把鸡蛋放在一个篮子里。</li>
+</ul>
+</div>
+
+<div data-edit-block id="dk-fxye-l3">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第三层 · 发生学迭代</div>
+<ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+  <li><span class="em-old">1.0 只认无风险</span>：存款、国债图安心，代价是收益跑不赢通胀——钱闲着其实也是亏。</li>
+  <li><span class="em-new">2.0 风险明码标价</span>：市场给风险定价——多担一份险，多要一份溢价（企业债5% vs 国债2%）。</li>
+  <li><span class="em-sed">3.0 组合资产配置</span>：股债搭配、分散持仓，用组合平滑单一资产的暴跌风险。</li>
+</ul>
+</div>
+
+<div data-edit-block id="dk-fxye-l4">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第四层 · 因果传导链</div>
+<div class="chain"><span class="chain-note">风险链（Risk）：</span>money（now） → 风险厌恶 → <span class="em-old">money（future）有风险</span> → money（now）+<span class="em-new">风险溢价</span></div>
+<div class="chain"><span class="chain-note">终极合链（两块地基拼起来）：</span><span class="em-new">money（future）= money（now）+ 利息 + 风险溢价</span></div>
+<div style="background:var(--green-soft);border:1px solid #cfe6d8;border-radius:8px;padding:8px 12px;font-size:12.5px;line-height:1.9;color:var(--t1);margin:10px 0 6px">
+  <strong>为什么企业债利息比国债高？</strong><br>
+  国债：无风险。折现率 = 纯利息（比如2%）。<br>
+  企业债：有违约风险。折现率 = 纯利息（2%） + 风险溢价（比如3%） = 5%。<br>
+  你去算算：同样承诺三年后给你100块，企业债今天卖的价格，绝对比国债便宜（因为它要求的收益率高）——这就是定价的底层逻辑。
+</div>
+<div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:6px">
+  <strong style="color:var(--t1)">个人视角：你能干什么</strong>：① <strong>最顶级的防骗指南</strong>——如果有人告诉你"我这个项目收益20%，而且保本保息零风险"，你立刻报警。因为这在金融学第一性原理上是不存在的；② <strong>认清自己</strong>——如果你晚上因为股票跌了100块就睡不着觉，说明你是极度的"风险厌恶者"，那你就乖乖买国债和存款，别去碰股票。想赚大钱，就得先问问自己"能不能承受亏大钱"。
+</div>
+</div>
+
+<div class="exam-box" data-edit-block id="dk-fxye-exam">高频考法：① <strong>方向辨析</strong>——"高风险必然带来高收益"（错！风险是"可能亏"，溢价只是"预期补偿"，不保证兑现）；② <strong>利率差异归因</strong>——国债与企业债的利差来自风险溢价，不是流动性；③ <strong>话术识别</strong>——"保本保息零风险还高收益"违反风险定价第一性原理，必是骗局。</div>
+
+<div class="section-label inherit">相关概念</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+  <a href="time-value.html">时间价值（另一块地基）</a> · <a href="pe-peg.html">市盈率（PE）与PEG</a> · <a href="../../pages/finance/finance.html#sec-jinrong-c1">回来源：金融学为什么会诞生</a> · <a href="../overview.html">查看全部概念 →</a>
+</p>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

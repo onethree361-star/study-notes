@@ -94,9 +94,9 @@ const NAV_DATA = [
       { t: '01 金融学为什么会诞生', u: 'pages/finance/finance.html#sec-jinrong-c1' },
     ]},
     { t: '第二层 · 结构拆解', links: [
-      { t: '02 金融机构体系', u: 'pages/finance/finance.html#sec-jinrong-c2' },
-      { t: '03 金融市场体系', u: 'pages/finance/finance.html#sec-jinrong-c3' },
-      { t: '04 金融工具体系', u: 'pages/finance/finance.html#sec-jinrong-c4' },
+      { t: '02 金融工具体系', u: 'pages/finance/finance.html#sec-jinrong-c4' },
+      { t: '03 金融机构体系', u: 'pages/finance/finance.html#sec-jinrong-c2' },
+      { t: '04 金融市场体系', u: 'pages/finance/finance.html#sec-jinrong-c3' },
       { t: '05 货币供求与货币乘数', u: 'pages/finance/finance.html#sec-jinrong-c5' },
       { t: '06 货币政策与传导', u: 'pages/finance/finance.html#sec-jinrong-c6' },
       { t: '07 国际金融', u: 'pages/finance/finance.html#sec-jinrong-c7' },
@@ -139,8 +139,11 @@ const NAV_DATA = [
       { t: '全部概念 · 知识网络', u: 'concepts/overview.html' },
     ]},
     { t: '金融', links: [
+      { t: '时间价值', u: 'concepts/finance/time-value.html' },
+      { t: '风险厌恶与风险溢价', u: 'concepts/finance/risk-aversion.html' },
       { t: '商业银行', u: 'concepts/finance/commercial-bank.html' },
       { t: '股票', u: 'concepts/finance/stock.html' },
+      { t: '市盈率（PE）与PEG', u: 'concepts/finance/pe-peg.html' },
     ]},
   ]},
 

@@ -9,14 +9,21 @@
  * 3. 概念掌握度独立存储于 localStorage「mastery.v2:concepts-overview」
  *    （{"概念详情页路径":"blur"|"ok"}），与详情页内卡片状态互不影响。
  * 4. icon = 学科组头单字图标；为空时自动取 subject 首字。
+ * 5. group 的 card 编号 = 板块页卡片显示序号（锚点 id 与序号解耦，如
+ *    sec-jinrong-c4 的显示序号是 02——卡片重排后 id 保持历史锚点不变）。
  */
 const CONCEPTS_DATA = [
   { subject: '金融学', icon: '融', groups: [
-    { card: '02 金融机构体系', u: 'pages/finance/finance.html#sec-jinrong-c2', concepts: [
-      { t: '商业银行', u: 'concepts/finance/commercial-bank.html', desc: '经营钱与风险的资金中介：负债、资产、表外三驾马车' },
+    { card: '01 金融学为什么会诞生', u: 'pages/finance/finance.html#sec-jinrong-c1', concepts: [
+      { t: '时间价值', u: 'concepts/finance/time-value.html', desc: '今天的100块比明天的100块值钱：通胀+机会成本 → 利息与折现' },
+      { t: '风险厌恶与风险溢价', u: 'concepts/finance/risk-aversion.html', desc: '怕亏本是天性：担险必须有溢价补偿，高收益必然伴随高风险' },
     ]},
-    { card: '04 金融工具体系', u: 'pages/finance/finance.html#sec-jinrong-c4', concepts: [
+    { card: '02 金融工具体系', u: 'pages/finance/finance.html#sec-jinrong-c4', concepts: [
       { t: '股票', u: 'concepts/finance/stock.html', desc: '股权凭证：一级市场发行，二级市场定价' },
+      { t: '市盈率（PE）与PEG', u: 'concepts/finance/pe-peg.html', desc: 'PE是回本年限；PEG用成长性给估值打折，小于1是真香' },
+    ]},
+    { card: '03 金融机构体系', u: 'pages/finance/finance.html#sec-jinrong-c2', concepts: [
+      { t: '商业银行', u: 'concepts/finance/commercial-bank.html', desc: '经营钱与风险的资金中介：负债、资产、表外三驾马车' },
     ]},
   ]},
 ];

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>时间价值 · 概念深挖 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='concepts/finance/time-value.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 概念深挖 › 金融 › 时间价值</div>
+
+<div class="doc-head">
+  <h1>时间价值</h1>
+  <p>时间价值（Time Value of Money）是金融学的第一块地基：<strong>今天的100块，绝对比明天的100块更值钱</strong>。底层逻辑就两个字——通胀 + 机会成本，由此衍生出利息与折现（DCF）。</p>
+  <div class="stat">来源板块：<b><a href="../../pages/finance/finance.html#sec-jinrong-c1">金融学 · 金融学为什么会诞生</a></b></div>
+</div>
+
+<div class="human-origin">钱放在抽屉里，购买力会自己缩水（通胀）；钱放进能生息的地方，明年会变多（机会成本）。所以同样一笔钱，"今天到手"和"明年到手"根本不是一个价——时间本身就有价格。</div>
+
+<div data-edit-block id="dk-sjz-l1">
+<div style="margin:20px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第一层 · 发生学</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)"><span class="em-old">大白话解释</span>：今天的100块，绝对比明天的100块更值钱。<span class="em-new">为什么？（底层逻辑：通胀 + 机会成本）</span></p>
+<ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+  <li><span class="em-old">通货膨胀（东西变贵了）</span>：30年前，100块能买一冰箱猪肉；今天，100块只能买两斤排骨。钱放在抽屉里，购买力会自己缩水。</li>
+  <li><span class="em-new">机会成本（钱能生钱）</span>：你今天把这100块存进银行，或者买个余额宝，明年至少变成102块。如果你今天借给别人，明天别人只还你100块，你不仅亏了通胀，还亏了利息。</li>
+</ul>
+</div>
+
+<div data-edit-block id="dk-sjz-l2">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第二层 · 结构拆解</div>
+<p style="font-size:13px;line-height:1.9;color:var(--t2);margin:0 0 4px"><strong>📌 金融学因此衍生出什么？</strong></p>
+<ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+  <li><span class="em-new">利息（Interest）</span>：因为时间有价值，所以借钱必须付利息——利息就是"使用别人的钱"要付的时间价格。</li>
+  <li><span class="em-new">折现（DCF模型）</span>：因为未来的钱不值钱，所以你要把未来的钱"打个折"，算算它在今天值多少钱——这是所有资产定价的地基。</li>
+</ul>
+</div>
+
+<div data-edit-block id="dk-sjz-l3">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第三层 · 发生学迭代</div>
+<ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+  <li><span class="em-old">1.0 藏钱时代</span>：把钱藏床底下、压箱底——名义金额一分不少，购买力每天缩水。你不是在"存钱"，你是在每天看着它贬值。</li>
+  <li><span class="em-new">2.0 无风险生息</span>：存款、余额宝、国债——把钱放进能生息的地方，先跑赢一部分通胀。</li>
+  <li><span class="em-sed">3.0 主动理财</span>：理财、基金、指数定投——追求长期跑赢通胀的"实际收益率"，让时间成为朋友而不是敌人。</li>
+</ul>
+</div>
+
+<div data-edit-block id="dk-sjz-l4">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第四层 · 因果传导链</div>
+<div class="chain"><span class="chain-note">时间链（Time）：</span>money（now） → 通胀+机会成本 → <span class="em-old">money（future）不值钱</span> → money（now）+利息（Interest） → <span class="em-new">折现</span></div>
+<div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:10px">
+  <strong style="color:var(--t1)">个人视角：你能干什么</strong>：① <strong>永远不要让钱闲置</strong>——如果你把大量现金藏在床底下，你不是在"存钱"，你是在每天看着它贬值。必须把钱放进能生息的地方（存款、理财、基金）；② <strong>警惕"无息借款"</strong>——如果有人找你借10万，说"三年后原价还你10万"，千万别借！因为三年后的10万，已经买不到今天的10万的东西了。
+</div>
+</div>
+
+<div class="exam-box" data-edit-block id="dk-sjz-exam">高频考法：① <strong>方向判断</strong>——"明年的100块比今天的100块值钱"（错，反了，时间价值永远向前）；② <strong>利息的本质</strong>——利息是补偿"时间价值"的价格，不是银行的施舍；③ <strong>折现的方向</strong>——把未来的现金流往回折算成现值，折现率越高、期限越长，现值越低。</div>
+
+<div class="section-label inherit">相关概念</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+  <a href="risk-aversion.html">风险厌恶与风险溢价（另一块地基）</a> · <a href="pe-peg.html">市盈率（PE）与PEG</a> · <a href="../../pages/finance/finance.html#sec-jinrong-c1">回来源：金融学为什么会诞生</a> · <a href="../overview.html">查看全部概念 →</a>
+</p>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

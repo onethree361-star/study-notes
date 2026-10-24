@@ -154,8 +154,10 @@ let isEditing=false, openEditCard=null;
 function editKey(){ return 'notesContent.v2:'+pagePath(); }
 function cardKeyOf(id){ return 'cardContent.v2:'+pagePath()+':'+id; }
 function pageHasCards(){ return document.querySelectorAll('details.card[id]').length>0; }
+// 概念深挖等 div 结构页的可编辑块（data-edit-block + id），复用逐卡铅笔编辑机制
+function editBlocks(){ return document.querySelectorAll('[data-edit-block][id]'); }
 function toggleEdit(){
-  if(pageHasCards()) toggleCardEdit(); else toggleLegacyEdit();
+  if(pageHasCards()||editBlocks().length) toggleCardEdit(); else toggleLegacyEdit();
 }
 function toggleCardEdit(){
   isEditing=!isEditing;
@@ -192,7 +194,7 @@ function finishCardEdit(card){
 }
 // 旧版整页编辑内容 → 逐卡迁移（仅卡片页执行一次）
 function initCardContent(){
-  if(!pageHasCards()) return;
+  if(!pageHasCards()&&!editBlocks().length) return;
   const legacy=localStorage.getItem(editKey());
   if(legacy){
     try{
@@ -206,7 +208,7 @@ function initCardContent(){
       console.info('[notes] 已把旧版整页编辑内容迁移为逐卡存储');
     }catch(e){}
   }
-  document.querySelectorAll('details.card[id]').forEach(c=>{
+  document.querySelectorAll('details.card[id],[data-edit-block][id]').forEach(c=>{
     const s=localStorage.getItem(cardKeyOf(c.id));
     if(s){ try{ c.innerHTML=s; }catch(e){} }
   });
@@ -255,6 +257,15 @@ function injectCardTools(){
       `<button class="ct-btn ct-edit" title="编辑本卡" onclick="startCardEdit('${card.id}')">${I.pencil}</button>`;
     card.appendChild(t);
     updateCardTools(card);
+  });
+  // 概念深挖等 div 结构页：可编辑块注入「复制链接 + 铅笔编辑」工具条
+  editBlocks().forEach(b=>{
+    if(b.querySelector('.card-tools')) return;
+    const t=document.createElement('div'); t.className='card-tools';
+    t.innerHTML=
+      `<button class="ct-btn ct-copy" title="复制本块链接" onclick="copyCardLink('${b.id}')">${I.copy}</button>`+
+      `<button class="ct-btn ct-edit" title="编辑本块" onclick="startCardEdit('${b.id}')">${I.pencil}</button>`;
+    b.appendChild(t);
   });
 }
 function copyCardLink(id){
@@ -733,8 +744,8 @@ window.addEventListener('load',function(){
     };
     crumb.insertBefore(back,crumb.firstChild);
   }
-  // 旧式整页编辑内容回填（仅无卡片页面）
-  if(!pageHasCards()){
+  // 旧式整页编辑内容回填（仅无卡片且无可编辑块的页面）
+  if(!pageHasCards()&&!editBlocks().length){
     const saved=localStorage.getItem(editKey());
     if(saved){
       const doc=document.querySelector('.doc');

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>市盈率（PE）与PEG · 概念深挖 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='concepts/finance/pe-peg.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 概念深挖 › 金融 › 市盈率（PE）与PEG</div>
+
+<div class="doc-head">
+  <h1>市盈率（PE）与PEG</h1>
+  <p>市盈率（PE）不是"价格份额"，它是<strong>"回本年限"</strong>——市场愿意为公司每1元利润付出的价格倍数。PEG 则用成长性给高估值打折：估值从"看绝对高低"进化到"看性价比"。</p>
+  <div class="stat">来源板块：<b><a href="../../pages/finance/finance.html#sec-jinrong-c4">金融学 · 金融工具体系</a></b> · 上级概念：<b><a href="stock.html">股票</a></b></div>
+</div>
+
+<div class="human-origin">股价有5块的有500块的，市值有千亿的有十亿的——只看绝对价格根本不知道谁贵谁便宜，大小公司也没法直接比。PE把"公司规模"剥离掉，只看"股价是收益的多少倍"，让所有公司站上同一条起跑线比贵贱。</div>
+
+<div data-edit-block id="dk-pepeg-l1">
+<div style="margin:20px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第一层 · 发生学</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+<span class="em-old">宏观痛点</span>：股市里股票价格千差万别，有的5块，有的500块。只看绝对价格，你根本不知道谁贵谁便宜；一家市值1000亿的大公司和一家市值10亿的小公司，也无法直接比大小。<br>
+<span class="em-new">宏观目的</span>：为了解决"不同规模、不同价格公司无法直接对比"的痛点，金融学引入了PE。它直接剥离了公司规模，衡量<strong>"股价是收益的多少倍"</strong>。
+</p>
+<div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:10px">
+  <strong style="color:var(--t1)">个人视角：对你意味着什么</strong>：买股票买的是公司的未来。PE告诉你，按目前的赚钱能力，你投的钱几年能回本——PE=10，就是10年回本。<strong>认清本质</strong>：永远不要觉得"2块钱的股票比200块的便宜"。如果2块钱的股票每年只赚1分钱（PE=200倍），那它远比每年赚20块钱的200块股票（PE=10倍）贵得多！
+</div>
+</div>
+
+<div data-edit-block id="dk-pepeg-l2">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第二层 · 结构拆解</div>
+
+<div class="section-label new">1. 核心公式</div>
+<p><span class="em-new">PE = 股价（P） ÷ 每股收益（EPS） = 总市值 ÷ 总净利润</span></p>
+
+<div class="section-label new">2. 三种形态（实战必辨）</div>
+<ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+  <li><span class="em-old">静态市盈率（LYR）</span>：用<strong>去年</strong>的利润算。看的是过去的辉煌（滞后）。</li>
+  <li><span class="em-new">滚动市盈率（TTM）</span>：用<strong>最近四个季度</strong>的利润算。最客观、最真实，剔除季节性影响。</li>
+  <li><span class="em-old">动态市盈率</span>：用<strong>预测的未来</strong>利润算。机构最爱，但也最容易"吹牛"造假。</li>
+</ul>
+
+<div class="section-label new">3. 衍生神器：PEG（市盈率相对盈利增长比率）</div>
+<p><span class="em-new">PEG = PE ÷ 利润增长率（G，通常去掉%号）</span>——用"成长性"给"高估值"打折。<strong>个人视角</strong>：看研报或炒股软件时，优先看PE（TTM），不要被机构预测的"动态PE"忽悠；如果要买成长股（科技、医药），必须算一算PEG。</p>
+</div>
+
+<div data-edit-block id="dk-pepeg-l3">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第三层 · 发生学迭代</div>
+<ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+  <li><span class="em-old">1.0时代（越低越好）</span>：老派价值投资者认为PE越低越好（捡烟蒂）。结果买到了马上要破产的钢铁厂。</li>
+  <li><span class="em-new">2.0时代（成长为王，引入PEG）</span>：彼得·林奇等大师发现，好公司即使PE高达50倍，只要每年利润翻倍，也值得买。从此，估值从"看绝对高低"进化到"看性价比"。</li>
+  <li><span class="em-sed">3.0时代（行业分化）</span>：市场意识到，不同行业的PE毫无可比性。银行股PE=5是常态，芯片股PE=50是常态。</li>
+</ul>
+<div style="background:#fff8e1;border:1px solid #f0d98c;border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t1);margin:10px 0 0">
+  <strong style="color:#b8860b">修正误区</strong>：你之前以为"PEG越小代表变化幅度小、稳定"——<strong style="color:var(--red-1)">错！</strong> PEG越小，代表<strong style="color:var(--green-1)">成长性价比极高</strong>（比如PE=20，利润增速=30%，PEG=0.66）。它不仅不代表稳定，反而代表这是一只极具进攻性的高成长股。
+</div>
+</div>
+
+<div data-edit-block id="dk-pepeg-l4">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第四层 · 因果传导链</div>
+
+<div style="background:var(--green-soft);border:1px solid #cfe6d8;border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t1);margin:6px 0">
+  <strong>链条一：股价决定机制（预期是因，PE/EPS是果）</strong><br>
+  外部环境（宏观政策/行业周期） + 公司能力（护城河） → 决定未来的利润增速 → 决定市场的<strong>预期（PE）</strong><br>
+  <strong>股价 = EPS（客观实力） × PE（主观预期）</strong>——预期是因，股价是果。
+</div>
+
+<div style="background:var(--green-soft);border:1px solid #cfe6d8;border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t1);margin:6px 0">
+  <strong>链条二：周期股的"PE反向陷阱"（最血腥的绞肉机）</strong><br>
+  <span class="em-new">强周期（煤炭/猪肉）景气顶点 → 利润暴增（EPS极大） → 市场知道不可持续，只给极低预期（PE极小）</span> → <span class="em-old">散户看PE极低，冲进去买 → 行业见顶，利润暴跌（EPS急速缩水） + 市场恐慌杀估值（PE暴跌） → 戴维斯双杀，股价腰斩</span><br>
+  <strong>铁律</strong>：<strong style="color:var(--red-1)">周期股，PE最低的时候是最该卖的；PE最高（或亏损）的时候，才是该买的。</strong>
+</div>
+
+<div style="background:var(--green-soft);border:1px solid #cfe6d8;border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t1);margin:6px 0">
+  <strong>链条三：戴维斯双击/双杀（暴富与破产的根源）</strong><br>
+  <strong style="color:var(--green-1)">双击</strong>：利润大增（EPS↑） + 市场狂热给高PE（PE↑） → 股价乘数级暴涨。<br>
+  <strong style="color:var(--red-1)">双杀</strong>：利润暴跌（EPS↓） + 市场恐慌杀PE（PE↓） → 股价乘数级暴跌。
+</div>
+
+<div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin:6px 0">
+  <strong style="color:var(--t1)">链条四：PEG的实战筛选机制</strong><br>
+  <strong style="color:var(--green-1)">PEG &lt; 1</strong>：低估。利润增速跑赢了估值，极具性价比（黄金坑）；<br>
+  <strong>PEG = 1</strong>：合理；<br>
+  <strong style="color:var(--red-1)">PEG &gt; 1</strong>：高估。估值太贵，利润增速跟不上，面临杀估值风险。
+</div>
+</div>
+
+<div class="exam-box" data-edit-block id="dk-pepeg-exam"><strong>终极口诀：</strong>PE就是回本年，同行业内比高低；静态滚动和动态，看穿预期看TTM；周期顶部PE低，散户冲进套死你；戴维斯有双杀，高PE没增速必暴跌；引入PEG看成长，小于1来是真香；股价等于PE乘EPS，预期是大哥，业绩是小弟！<br><strong>常见设错：</strong>把PE高说成"便宜"（错，PE高=贵=回本年限长）；用PEG小论证"稳健"（错，PEG小=进攻性高成长）；拿银行PE=5和芯片PE=50直接比高低（错，行业不可比）。</div>
+
+<div class="section-label inherit">相关概念</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+  <a href="stock.html">股票（上级概念）</a> · <a href="time-value.html">时间价值</a> · <a href="risk-aversion.html">风险厌恶与风险溢价</a> · <a href="../../pages/finance/finance.html#sec-jinrong-c4">回来源：金融工具体系</a> · <a href="../overview.html">查看全部概念 →</a>
+</p>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

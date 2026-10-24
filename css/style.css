@@ -271,6 +271,9 @@ details.card[open]>:not(summary){animation:cardReveal .25s ease}
 body.editing .card-tools .ct-edit{display:grid;background:var(--brand-1);border-color:var(--brand-1);color:#fff}
 .card-editing{outline:2px dashed var(--brand-1);outline-offset:2px}
 .card-editing>summary{pointer-events:none}
+/* 概念深挖页可编辑块（data-edit-block）：复用卡片工具条与编辑态样式 */
+[data-edit-block]{position:relative}
+[data-edit-block]:hover .card-tools{opacity:1}
 
 /* 复习排期气泡 */
 .review-pop{position:fixed;background:var(--bg);border:1px solid var(--divider);border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.14);padding:10px 12px;z-index:1001;width:216px}
