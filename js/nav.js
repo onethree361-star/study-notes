@@ -146,6 +146,7 @@ const NAV_DATA = [
       { t: '市盈率（PE）与PEG', u: 'concepts/finance/pe-peg.html' },
       { t: '市净率（PB）', u: 'concepts/finance/pb.html' },
       { t: 'PE·PB·股息率：三把飞刀', u: 'concepts/finance/pe-pb-dividend.html' },
+      { t: '每股收益（EPS）', u: 'concepts/finance/eps.html' },
     ]},
   ]},
 

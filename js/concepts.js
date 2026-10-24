@@ -23,6 +23,7 @@ const CONCEPTS_DATA = [
       { t: '市盈率（PE）与PEG', u: 'concepts/finance/pe-peg.html', desc: 'PE是回本年限；PEG用成长性给估值打折，小于1是真香' },
       { t: '市净率（PB）', u: 'concepts/finance/pb.html', desc: 'PB看家底：股价÷每股净资产，破净不一定底，ROE高才是真香' },
       { t: 'PE·PB·股息率：三把飞刀', u: 'concepts/finance/pe-pb-dividend.html', desc: 'PB=PE×ROE，股息率=分红率÷PE；三种画像：黑马、贵族、奶牛' },
+      { t: '每股收益（EPS）', u: 'concepts/finance/eps.html', desc: '客观实力：公司每1股一年赚多少钱；PE是主观预期，股价=EPS×PE' },
     ]},
     { card: '03 金融机构体系', u: 'pages/finance/finance.html#sec-jinrong-c2', concepts: [
       { t: '商业银行', u: 'concepts/finance/commercial-bank.html', desc: '经营钱与风险的资金中介：负债、资产、表外三驾马车' },

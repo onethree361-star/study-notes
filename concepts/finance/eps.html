@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>每股收益（EPS） · 概念深挖 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='concepts/finance/eps.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 概念深挖 › 金融 › 每股收益（EPS）</div>
+
+<div class="doc-head">
+  <h1>每股收益（EPS）</h1>
+  <p>EPS（Earnings Per Share，每股收益）是<strong>"客观实力"</strong>——它与 PE（主观预期）最大的区别在于：<strong>PE 是大家"想"出来的，EPS 是公司"干"出来的</strong>，是财报上白纸黑字、经过审计的客观数据。核心本质：公司每 1 股股票，在过去一年里替你赚了多少钱。</p>
+  <div class="stat">来源板块：<b><a href="../../pages/finance/finance.html#sec-jinrong-c4">金融学 · 金融工具体系</a></b> · 上级概念：<b><a href="stock.html">股票</a></b> · 孪生指标：<b><a href="pe-peg.html">市盈率（PE）与PEG</a></b></div>
+</div>
+
+<div class="human-origin">A 奶茶店总利润 100 万，B 店总利润 500 万，能直接说 B 更值得投吗？不能——A 只发了 10 万股（每股赚 10 块），B 发了 1000 万股（每股赚 5 毛）。EPS 把"总利润"平分到每一股上，剥离公司股本大小的差异，让所有股票站在同一起跑线比赚钱能力。</div>
+
+<div data-edit-block id="dk-eps-l1">
+<div style="margin:20px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第一层 · 发生学</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+<span class="em-old">宏观痛点</span>：你想投资两家奶茶店。A 店总利润 100 万，B 店总利润 500 万。你能直接说 B 店比 A 店更赚钱、更值得投资吗？不能！因为 A 店可能只发行了 10 万股（每股赚 10 块），而 B 店发行了 1000 万股（每股赚 0.5 块）。<br>
+<span class="em-new">宏观目的</span>：为了解决"不同规模公司无法直接比较盈利能力"的痛点，金融学把公司的"总利润"，平分到"每一股"上——<strong>剥离了公司总股本大小的差异，让所有股票站在同一起跑线上比价</strong>。
+</p>
+<div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:10px">
+  <strong style="color:var(--t1)">个人视角：对你意味着什么</strong>：你买股票，买的是这家公司的一小片。EPS 就是这一小片资产（一股）在一年里给你赚回来的纯利润。<strong>它是支撑你买入价格（股价）的最坚实底座。</strong>
+</div>
+</div>
+
+<div data-edit-block id="dk-eps-l2">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第二层 · 结构拆解</div>
+
+<div class="section-label new">1. 核心公式</div>
+<p><span class="em-new">EPS = 归属于普通股股东的当期净利润 ÷ 期末总股本</span><br>
+<span style="font-size:12.5px;color:var(--t3)">注：为什么强调"归属于普通股股东"？因为公司赚的钱，得先给优先股股东和债权人发利息，剩下的才是普通股股东的。</span></p>
+
+<div class="section-label new">2. 两种形态（实战必辨）</div>
+<ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+  <li><span class="em-new">基本 EPS（Basic EPS）</span>：用当前实际的总股本算出来的。看的是现状。</li>
+  <li><span class="em-old">稀释 EPS（Diluted EPS）</span>：假设公司发行的"可转债"全部转成了股票，或者"期权"全部行权了，导致总股本变大。总股本变大，分母变大，EPS 就会变小。<strong>看稀释 EPS，是对投资者最大的保护（防未来利润被摊薄）。</strong></li>
+</ul>
+<div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:10px">
+  <strong style="color:var(--t1)">个人视角：你怎么看</strong>：看财报时，直接找<strong>稀释 EPS</strong>。如果一家公司的基本 EPS 很高，但稀释 EPS 很低，说明它未来有很大的"股本稀释"地雷（比如大量可转债即将转股），你要小心。
+</div>
+</div>
+
+<div data-edit-block id="dk-eps-l3">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第三层 · 发生学迭代（EPS 的"卸妆水"：从虚胖到真实）</div>
+<ul style="margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px">
+  <li><span class="em-old">1.0 时代（看表面）</span>：小白只看财报首页的"净利润"，直接除以股数，觉得 EPS 很高，公司很牛。</li>
+  <li><span class="em-new">2.0 时代（扣非 EPS）</span>：老手发现，很多公司的主业烂得一塌糊涂，但为了保壳或者财报好看，年底卖两套房、拿点政府补贴，净利润瞬间变正，EPS 就变好看了。进化：大家开始看<strong>"扣非净利润"（扣除非经常性损益后的净利润）</strong>算出来的 EPS。</li>
+  <li><span class="em-new">3.0 时代（看现金流）</span>：现在的高手发现，有的公司利润很高（EPS 好看），但全是"白条"（应收账款），一分钱现金没收回。所以大家开始盯<strong>"经营现金流净额"</strong>——如果经营现金流比 EPS 还高，那才是真牛。</li>
+</ul>
+<div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:10px">
+  <strong style="color:var(--t1)">个人视角：你怎么排雷</strong>：<strong>防坑指南</strong>——买股票前，一定要看一眼"扣非 EPS"。如果扣非 EPS 是负的，说明它的主业根本不赚钱，全是靠卖资产续命，这种股票千万别碰。
+</div>
+</div>
+
+<div data-edit-block id="dk-eps-l4">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第四层 · 底层运行机制（EPS 如何决定你的股价和分红）</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)">结合公式：<span class="em-new">股价 = EPS × PE</span>。EPS 作为客观实力，在背后驱动着三件事：</p>
+
+<div class="chain"><span class="chain-note">链条一 · 驱动股价：</span>公司推出爆款产品 → 净利润大增 → <span class="em-new">EPS 变大</span> → 假设市场给的估值（PE）不变 → <span class="em-new">股价按 EPS 增幅同比例上涨</span></div>
+<p style="font-size:12.5px;color:var(--t3);margin-top:2px">这就是"业绩驱动"。如果加上 PE 也涨，那就是<strong>戴维斯双击</strong>。</p>
+
+<div class="chain"><span class="chain-note">链条二 · 驱动分红：</span>公司赚了钱（EPS 高） → 拿出一部分利润分红 → <span class="em-new">股息率变高</span> → 吸引长线资金买入</div>
+<p style="font-size:12.5px;color:var(--t3);margin-top:2px">没有 EPS 这个客观实力，所有的分红（高股息率）都是空中楼阁。</p>
+
+<div class="chain"><span class="chain-note">链条三 · 驱动股本稀释：</span>公司缺钱 → <span class="em-old">疯狂增发新股（分母变大）</span> → 新项目还没赚钱（分子没变） → <span class="em-old">EPS 被动下降</span> → 股价被拉低</div>
+<p style="font-size:12.5px;color:var(--t3);margin-top:2px">这就是为什么有些公司一搞"定向增发"，股价就跌——摊薄了老股东的 EPS。</p>
+
+<div class="section-label new">PE vs EPS：一张表分清主观与客观</div>
+<table style="width:100%;border-collapse:collapse;font-size:12.5px;line-height:1.8;margin-top:4px">
+  <thead><tr style="background:var(--bg-alt)"><th style="padding:6px 8px;border:1px solid var(--divider);text-align:left"></th><th style="padding:6px 8px;border:1px solid var(--divider);text-align:left"><span class="em-new">EPS（每股收益）</span></th><th style="padding:6px 8px;border:1px solid var(--divider);text-align:left"><span class="em-new">PE（市盈率）</span></th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px 8px;border:1px solid var(--divider)"><strong>本质</strong></td><td style="padding:6px 8px;border:1px solid var(--divider)">公司赚钱的<strong>真本事</strong>（客观）</td><td style="padding:6px 8px;border:1px solid var(--divider)">市场给的<strong>情绪价</strong>（主观）</td></tr>
+    <tr><td style="padding:6px 8px;border:1px solid var(--divider)"><strong>公式</strong></td><td style="padding:6px 8px;border:1px solid var(--divider)">净利润 ÷ 总股本</td><td style="padding:6px 8px;border:1px solid var(--divider)">股价 ÷ EPS</td></tr>
+    <tr><td style="padding:6px 8px;border:1px solid var(--divider)"><strong>谁决定</strong></td><td style="padding:6px 8px;border:1px solid var(--divider)">公司的研发、销售、管理能力</td><td style="padding:6px 8px;border:1px solid var(--divider)">央行的放水、行业政策、大众预期</td></tr>
+    <tr><td style="padding:6px 8px;border:1px solid var(--divider)"><strong>怎么排雷</strong></td><td style="padding:6px 8px;border:1px solid var(--divider)">看"扣非"和"现金流"</td><td style="padding:6px 8px;border:1px solid var(--divider)">看 PEG 和周期位置</td></tr>
+  </tbody>
+</table>
+<p style="font-size:12.5px;color:var(--t2);line-height:1.8;margin-top:6px">一句话总结：<strong>PE 是预期（主观），EPS 是实力（客观）；股价 = 客观实力 × 主观预期</strong>——业绩（EPS）和估值（PE）的乘法游戏。</p>
+</div>
+
+<div class="exam-box" data-edit-block id="dk-eps-exam"><strong>终极口诀：</strong>每股收益EPS，真金白银硬实力；总利润除总股本，剥离大小比高低；防雷要看扣非净，别被卖房忽悠去；分子做大股价涨，分母稀释要警惕！<br><strong>常见设错：</strong>把 EPS 高说成"值得投资"（错，还要看价格 PE——股价=EPS×PE，好公司买贵了照样亏）；看基本 EPS 高就放心（错，必须核对稀释 EPS，防可转债转股摊薄地雷）；以为 EPS 好看就是真赚钱（错，要看扣非净利润与经营现金流，防"卖房保壳"和"白条利润"）。</div>
+
+<div class="section-label inherit">相关概念</div>
+<div class="rel-list">
+  <a href="pe-peg.html">市盈率（PE）与PEG（孪生指标）</a>
+  <a href="stock.html">股票（上级概念）</a>
+  <a href="pb.html">市净率（PB）</a>
+  <a href="pe-pb-dividend.html">PE·PB·股息率：三把飞刀</a>
+  <a href="../../pages/finance/finance.html#sec-jinrong-c4">回来源：金融工具体系</a>
+  <a href="../overview.html">查看全部概念 →</a>
+</div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>
