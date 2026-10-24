@@ -154,7 +154,9 @@ function openReviewPop(id,btn){
 let isEditing=false, openEditCard=null;
 const ORIG_CONTENT={}; // 本页各卡/块加载时的文件原文：快照会遮蔽后续文件更新，供「恢复原文」还原
 function editKey(){ return 'notesContent.v2:'+pagePath(); }
-function cardKeyOf(id){ return 'cardContent.v2:'+pagePath()+':'+id; }
+// v3：快照带文件原文指纹（b 字段），页面文件更新后旧快照加载时自动作废清除，防止遮蔽新内容
+function cardKeyOf(id){ return 'cardContent.v3:'+pagePath()+':'+id; }
+function strHash(s){ let h=5381; for(let i=0;i<s.length;i++){ h=((h<<5)+h+s.charCodeAt(i))|0; } return String(h); }
 function pageHasCards(){ return document.querySelectorAll('details.card[id]').length>0; }
 // 概念深挖等 div 结构页的可编辑块（data-edit-block + id），复用逐卡铅笔编辑机制
 function editBlocks(){ return document.querySelectorAll('[data-edit-block][id]'); }
@@ -188,7 +190,7 @@ function finishCardEdit(card){
   card.classList.remove('card-editing');
   const clone=card.cloneNode(true);
   const t=clone.querySelector('.card-tools'); if(t) t.remove();
-  localStorage.setItem(cardKeyOf(card.id),clone.innerHTML);
+  localStorage.setItem(cardKeyOf(card.id),JSON.stringify({b:strHash(ORIG_CONTENT[card.id]||''),h:clone.innerHTML}));
   const b=card.querySelector('.ct-edit');
   if(b){ b.innerHTML=I.pencil; b.title='编辑本卡'; b.onclick=function(){ startCardEdit(card.id); }; }
   if(openEditCard===card) openEditCard=null;
@@ -219,7 +221,7 @@ function initCardContent(){
       document.querySelectorAll('details.card[id]').forEach(c=>{
         let old=null;
         try{ old=box.querySelector('#'+(window.CSS&&CSS.escape?CSS.escape(c.id):c.id)); }catch(e){}
-        if(old) localStorage.setItem(cardKeyOf(c.id),old.innerHTML);
+        if(old) localStorage.setItem(cardKeyOf(c.id),JSON.stringify({b:strHash(c.innerHTML),h:old.innerHTML}));
       });
       localStorage.removeItem(editKey());
       console.info('[notes] 已把旧版整页编辑内容迁移为逐卡存储');
@@ -227,8 +229,14 @@ function initCardContent(){
   }
   document.querySelectorAll('details.card[id],[data-edit-block][id]').forEach(c=>{
     ORIG_CONTENT[c.id]=c.innerHTML;
-    const s=localStorage.getItem(cardKeyOf(c.id));
-    if(s){ try{ c.innerHTML=s; }catch(e){} }
+    const raw=localStorage.getItem(cardKeyOf(c.id));
+    if(!raw) return;
+    try{
+      const s=JSON.parse(raw);
+      // 快照指纹与当前文件原文一致才回填；文件已更新（指纹不符）则作废旧快照，以文件内容为准
+      if(s&&typeof s.h==='string'&&s.b===strHash(ORIG_CONTENT[c.id])){ c.innerHTML=s.h; }
+      else{ localStorage.removeItem(cardKeyOf(c.id)); console.info('快照过期已清除：'+c.id); }
+    }catch(e){ localStorage.removeItem(cardKeyOf(c.id)); }
   });
 }
 // 旧式整页编辑（首页/错题本等无卡片页面仍用）
