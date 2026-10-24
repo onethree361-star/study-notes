@@ -667,20 +667,20 @@ Agent 在操作中遇到以下情况，**无需请示，直接按规范修正**�
 
 ### 更新流程
 1. 修改 `E:\桌面\国考\05_理论学习\` 下的文件（首页 / pages 板块页 / concepts 深挖页 / errors 错题页 / js / css）
-2. **跑完十点七校验清单，全绿才提交**
+2. **跑完十点七校验清单，全绿才提交**；提交前可本地预跑 `python scripts/check_links.py` 预检断链
 3. 提交命令（逐条执行）：
    ```
    cd "E:\桌面\国考\05_理论学习"
    git add .
-   git commit -m "完成XX章节"
-   git push
    ```
-4. 若 push 报「Connection was reset / Empty reply / 超时」，走本机代理重试（只对本条命令生效，不改全局配置）：
+4. **push 后 GitHub Actions 自动跑断链检查**（`.github/workflows/check-links.yml`：校验 nav.js / search-index.json / 全部页面 href 与 scrollToSec 的文件+锚点存在性）。检查红了必须修复后重推，禁止无视红档
+5. **大版本里程碑打 tag**：多页重构、板块全量上线等大改完成后执行 `git tag -a vX.Y -m "说明"` 并 `git push origin vX.Y`（已有 v1.0）
+6. 若 push 报「Connection was reset / Empty reply / 超时」，走本机代理重试（只对本条命令生效，不改全局配置）：
    ```
    git -c http.proxy=http://127.0.0.1:7897 push
    ```
-5. **代理也可能偶发抖动**（报 `schannel: failed to receive handshake`）：先测端口是否存活 `Test-NetConnection 127.0.0.1 -Port 7897`；端口通则**等 3 秒原命令重试一次**（实战验证有效），再失败才报告用户检查代理节点。
-6. 等1分钟，刷新网页就能看到最新版本
+7. **代理也可能偶发抖动**（报 `schannel: failed to receive handshake`）：先测端口是否存活 `Test-NetConnection 127.0.0.1 -Port 7897`；端口通则**等 3 秒原命令重试一次**（实战验证有效），再失败才报告用户检查代理节点。
+8. 等1分钟，刷新网页就能看到最新版本
 
 ### 自动同步规则（Agent 默认执行）
 - 用户说"完成后同步/上传 GitHub"或本 SKILL 生效期间，Agent 在**十点七校验全绿**后无需再次询问，自动执行步骤 3（push 失败按步骤 4 走代理重试一次）。
