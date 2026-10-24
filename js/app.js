@@ -37,6 +37,7 @@ const I = {
   copy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>',
   clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
   pencil:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg>',
+  reset:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>',
   check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
   up:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>',
   sun:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>',
@@ -151,6 +152,7 @@ function openReviewPop(id,btn){
 
 // ---------- 逐卡编辑 ----------
 let isEditing=false, openEditCard=null;
+const ORIG_CONTENT={}; // 本页各卡/块加载时的文件原文：快照会遮蔽后续文件更新，供「恢复原文」还原
 function editKey(){ return 'notesContent.v2:'+pagePath(); }
 function cardKeyOf(id){ return 'cardContent.v2:'+pagePath()+':'+id; }
 function pageHasCards(){ return document.querySelectorAll('details.card[id]').length>0; }
@@ -192,6 +194,21 @@ function finishCardEdit(card){
   if(openEditCard===card) openEditCard=null;
   toast('本卡已保存');
 }
+// 恢复原文：清除本卡/本块的 localStorage 快照，还原为页面加载时的文件原文。
+// 背景：快照每次加载都会覆盖文件内容，页面文件后续新增的内容会被旧快照遮住。
+function resetCardContent(id){
+  const el=document.getElementById(id); if(!el) return;
+  if(!confirm('恢复原文将丢弃这块的手工修改（快照），确定？')) return;
+  if(openEditCard===el) openEditCard=null;
+  el.removeAttribute('contenteditable');
+  el.classList.remove('card-editing');
+  localStorage.removeItem(cardKeyOf(id));
+  if(ORIG_CONTENT[id]!=null){ try{ el.innerHTML=ORIG_CONTENT[id]; }catch(e){} }
+  const b=el.querySelector('.ct-edit');
+  if(b){ b.innerHTML=I.pencil; b.title=(el.matches('details.card')?'编辑本卡':'编辑本块'); b.onclick=function(){ startCardEdit(el.id); }; }
+  injectCardTools(); // innerHTML 还原会连带清掉工具条，重新注入
+  toast('已恢复原文');
+}
 // 旧版整页编辑内容 → 逐卡迁移（仅卡片页执行一次）
 function initCardContent(){
   if(!pageHasCards()&&!editBlocks().length) return;
@@ -209,6 +226,7 @@ function initCardContent(){
     }catch(e){}
   }
   document.querySelectorAll('details.card[id],[data-edit-block][id]').forEach(c=>{
+    ORIG_CONTENT[c.id]=c.innerHTML;
     const s=localStorage.getItem(cardKeyOf(c.id));
     if(s){ try{ c.innerHTML=s; }catch(e){} }
   });
@@ -252,6 +270,7 @@ function injectCardTools(){
     const t=document.createElement('div'); t.className='card-tools';
     t.innerHTML=
       `<button class="ct-btn ct-copy" title="复制本卡链接" onclick="copyCardLink('${card.id}')">${I.copy}</button>`+
+      `<button class="ct-btn ct-reset" title="恢复原文（清除本卡手工修改快照）" onclick="resetCardContent('${card.id}')">${I.reset}</button>`+
       `<button class="ct-btn ct-master" title="掌握度：未学 → 模糊 → 已掌握" onclick="cycleMastery('${card.id}')"><span class="m-dot"></span></button>`+
       `<button class="ct-btn ct-review" title="安排复习" onclick="openReviewPop('${card.id}',this)">${I.clock}</button>`+
       `<button class="ct-btn ct-edit" title="编辑本卡" onclick="startCardEdit('${card.id}')">${I.pencil}</button>`;
@@ -264,6 +283,7 @@ function injectCardTools(){
     const t=document.createElement('div'); t.className='card-tools';
     t.innerHTML=
       `<button class="ct-btn ct-copy" title="复制本块链接" onclick="copyCardLink('${b.id}')">${I.copy}</button>`+
+      `<button class="ct-btn ct-reset" title="恢复原文（清除本块手工修改快照）" onclick="resetCardContent('${b.id}')">${I.reset}</button>`+
       `<button class="ct-btn ct-edit" title="编辑本块" onclick="startCardEdit('${b.id}')">${I.pencil}</button>`;
     b.appendChild(t);
   });
