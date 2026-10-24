@@ -650,7 +650,7 @@ window.addEventListener('load',function(){
     back.onclick=function(e){
       e.preventDefault();
       if(history.length>1){ history.back(); }
-      else { location.href=siteRoot()+'index.html'; }
+      else { location.href=siteRoot()+'notes.html'; }
     };
     crumb.insertBefore(back,crumb.firstChild);
   }
