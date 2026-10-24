@@ -1,6 +1,6 @@
 /* ===== 全站导航数据源（唯一事实来源） =====
  * 规则（AI 添加内容时必须同步维护本文件）：
- * 1. 所有 URL 一律相对站点根目录书写（如 pages/finance/index.html#sec-jinrong-c2），
+ * 1. 所有 URL 一律相对站点根目录书写（如 pages/finance/finance.html#sec-jinrong-c2），
  *    渲染时由 app.js 自动加 SITE_ROOT 前缀，首页与各子页通用。
  * 2. 新增板块卡片 → 在对应领域 links 里加 {t:'与页面 h3 一致的标题', u:'页面路径#卡片id'}。
  * 3. 新增概念深挖页 → 在「概念深挖」对应域加链接，并在板块页加 deep-link 入口。
@@ -91,24 +91,24 @@ const NAV_DATA = [
 
   { t: '金融学', children: [
     { t: '第一层 · 发生学', links: [
-      { t: '01 金融学为什么会诞生', u: 'pages/finance/index.html#sec-jinrong-c1' },
+      { t: '01 金融学为什么会诞生', u: 'pages/finance/finance.html#sec-jinrong-c1' },
     ]},
     { t: '第二层 · 结构拆解', links: [
-      { t: '02 金融机构体系', u: 'pages/finance/index.html#sec-jinrong-c2' },
-      { t: '03 金融市场体系', u: 'pages/finance/index.html#sec-jinrong-c3' },
-      { t: '04 金融工具体系', u: 'pages/finance/index.html#sec-jinrong-c4' },
-      { t: '05 货币供求与货币乘数', u: 'pages/finance/index.html#sec-jinrong-c5' },
-      { t: '06 货币政策与传导', u: 'pages/finance/index.html#sec-jinrong-c6' },
-      { t: '07 国际金融', u: 'pages/finance/index.html#sec-jinrong-c7' },
-      { t: '08 资产定价机制', u: 'pages/finance/index.html#sec-jinrong-c8' },
-      { t: '09 金融风险类型', u: 'pages/finance/index.html#sec-jinrong-c9' },
-      { t: '10 金融监管体系', u: 'pages/finance/index.html#sec-jinrong-c10' },
+      { t: '02 金融机构体系', u: 'pages/finance/finance.html#sec-jinrong-c2' },
+      { t: '03 金融市场体系', u: 'pages/finance/finance.html#sec-jinrong-c3' },
+      { t: '04 金融工具体系', u: 'pages/finance/finance.html#sec-jinrong-c4' },
+      { t: '05 货币供求与货币乘数', u: 'pages/finance/finance.html#sec-jinrong-c5' },
+      { t: '06 货币政策与传导', u: 'pages/finance/finance.html#sec-jinrong-c6' },
+      { t: '07 国际金融', u: 'pages/finance/finance.html#sec-jinrong-c7' },
+      { t: '08 资产定价机制', u: 'pages/finance/finance.html#sec-jinrong-c8' },
+      { t: '09 金融风险类型', u: 'pages/finance/finance.html#sec-jinrong-c9' },
+      { t: '10 金融监管体系', u: 'pages/finance/finance.html#sec-jinrong-c10' },
     ]},
     { t: '第三层 · 发生学迭代', links: [
-      { t: '11 金融学的四次进化', u: 'pages/finance/index.html#sec-jinrong-c11' },
+      { t: '11 金融学的四次进化', u: 'pages/finance/finance.html#sec-jinrong-c11' },
     ]},
     { t: '第四层 · 因果传导链', links: [
-      { t: '12 三条传导链与终极对比', u: 'pages/finance/index.html#sec-jinrong-c12' },
+      { t: '12 三条传导链与终极对比', u: 'pages/finance/finance.html#sec-jinrong-c12' },
     ]},
   ]},
 
@@ -143,7 +143,7 @@ const NAV_DATA = [
 
   { t: '错题本', children: [
     { t: '按考法分类', links: [
-      { t: '错题总览', u: 'errors/index.html' },
+      { t: '错题总览', u: 'errors/overview.html' },
     ]},
     { t: '按领域分类', links: [
       { t: '历史人文', u: 'errors/history.html' },

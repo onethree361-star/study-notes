@@ -81,62 +81,62 @@
   },
   {
     "title": "金融学：金融学为什么会诞生",
-    "url": "pages/finance/index.html#sec-jinrong-c1",
+    "url": "pages/finance/finance.html#sec-jinrong-c1",
     "keywords": "时间错配 风险错配 资金融通 风险分配 时间价值"
   },
   {
     "title": "金融学：金融机构体系",
-    "url": "pages/finance/index.html#sec-jinrong-c2",
+    "url": "pages/finance/finance.html#sec-jinrong-c2",
     "keywords": "央行 三大职能 政策性银行 商业银行 券商 基金 保险 深潜"
   },
   {
     "title": "金融学：金融市场体系",
-    "url": "pages/finance/index.html#sec-jinrong-c3",
+    "url": "pages/finance/finance.html#sec-jinrong-c3",
     "keywords": "货币市场 资本市场 一级市场 二级市场 交易所"
   },
   {
     "title": "金融学：金融工具体系",
-    "url": "pages/finance/index.html#sec-jinrong-c4",
+    "url": "pages/finance/finance.html#sec-jinrong-c4",
     "keywords": "股票 债券 基金 衍生品 期货 期权"
   },
   {
     "title": "金融学：货币供求与货币乘数",
-    "url": "pages/finance/index.html#sec-jinrong-c5",
+    "url": "pages/finance/finance.html#sec-jinrong-c5",
     "keywords": "M0 M1 M2 基础货币 货币乘数 准备金率 信用创造"
   },
   {
     "title": "金融学：货币政策与传导",
-    "url": "pages/finance/index.html#sec-jinrong-c6",
+    "url": "pages/finance/finance.html#sec-jinrong-c6",
     "keywords": "降准 降息 公开市场操作 MLF LPR 传导机制"
   },
   {
     "title": "金融学：国际金融",
-    "url": "pages/finance/index.html#sec-jinrong-c7",
+    "url": "pages/finance/finance.html#sec-jinrong-c7",
     "keywords": "汇率 国际收支 外汇储备 人民币国际化"
   },
   {
     "title": "金融学：资产定价机制",
-    "url": "pages/finance/index.html#sec-jinrong-c8",
+    "url": "pages/finance/finance.html#sec-jinrong-c8",
     "keywords": "DCF 现金流折现 风险溢价 估值"
   },
   {
     "title": "金融学：金融风险类型",
-    "url": "pages/finance/index.html#sec-jinrong-c9",
+    "url": "pages/finance/finance.html#sec-jinrong-c9",
     "keywords": "信用风险 市场风险 流动性风险 操作风险"
   },
   {
     "title": "金融学：金融监管体系",
-    "url": "pages/finance/index.html#sec-jinrong-c10",
+    "url": "pages/finance/finance.html#sec-jinrong-c10",
     "keywords": "金融监管总局 证监会 存款保险 50万 最后贷款人"
   },
   {
     "title": "金融学：金融学的四次进化",
-    "url": "pages/finance/index.html#sec-jinrong-c11",
+    "url": "pages/finance/finance.html#sec-jinrong-c11",
     "keywords": "发生学迭代 金融史 演变"
   },
   {
     "title": "金融学：三条传导链与终极对比",
-    "url": "pages/finance/index.html#sec-jinrong-c12",
+    "url": "pages/finance/finance.html#sec-jinrong-c12",
     "keywords": "因果传导链 终极对比"
   },
   {
@@ -151,7 +151,7 @@
   },
   {
     "title": "错题总览",
-    "url": "errors/index.html",
+    "url": "errors/overview.html",
     "keywords": "错题 概念辨析 因果判断 张冠李戴 时间错位"
   },
   {

@@ -439,7 +439,7 @@ description: 面向公考行测常识/政治理论/历史/法律/经济/时政�
 │   ├── history/ancient.html · modern.html
 │   ├── law/constitution.html · civil.html · criminal.html · company.html
 │   ├── economy/macro.html · micro.html
-│   └── finance/index.html
+│   └── finance/finance.html
 ├── concepts/                ← 概念深挖页（按域分目录）
 │   ├── _template.html       ← 深挖固定模板，新建概念页先复制它
 │   └── finance/commercial-bank.html …
@@ -505,7 +505,7 @@ description: 面向公考行测常识/政治理论/历史/法律/经济/时政�
 | 本地预览 | `cd 根目录` → `python -m http.server 8765 --bind 127.0.0.1` → 浏览器开 `http://127.0.0.1:8765/notes.html`（首页固定名 notes.html，线上 URL 即 `https://onethree361-star.github.io/study-notes/`） |
 | 全局资产 | 样式 `css/style.css`（新样式只加这里，禁止内联新造；深浅两套主题都走 CSS 变量）；交互 `js/app.js`（导航渲染/搜索/scrollspy/逐卡编辑/掌握度/复习/传导链/主题切换等，全部全局函数供 onclick 调用）；**导航数据 `js/nav.js`（唯一事实来源）** |
 | 动手前必读 | `js/nav.js` 头部注释规则 + 目标页面 1-2 张相邻卡片的完整 HTML（模仿结构） |
-| 命名 | **首页固定名 notes.html**（用户指定入口，禁止改回 index.html 或中文名）；其余文件名英文小写短横线；板块页卡片 id `sec-【板块拼音】-c【序号】`，板块页层级标题 id `sec-【板块拼音】-l1~l4`（四层页必加）；错题 id `err-【域拼音】-【3位序号】`；深挖页层级标题 id `dk-【概念名缩写】-l1~l4`（必加，模板已预置） |
+| 命名 | **首页固定名 notes.html**（用户指定入口，禁止改回 index.html 或中文名）；**内容页一律用对应英文名，禁止 index.html 作内容页名**（板块页如 pages/finance/finance.html、pages/economy/macro.html，错题总览 errors/overview.html——2026-10-24 已全站去 index.html 化）；其余文件名英文小写短横线；板块页卡片 id `sec-【板块拼音】-c【序号】`，板块页层级标题 id `sec-【板块拼音】-l1~l4`（四层页必加）；错题 id `err-【域拼音】-【3位序号】`；深挖页层级标题 id `dk-【概念名缩写】-l1~l4`（必加，模板已预置） |
 
 ### 1. 收到内容先分类（决策树，按顺序判断，命中即停）
 
@@ -555,7 +555,7 @@ description: 面向公考行测常识/政治理论/历史/法律/经济/时政�
 
 ### 3. 情况 A：主页面知识卡片（8 步 SOP）
 
-1. **定归属页**：按领域找 pages/ 下板块页（"货币政策"→ pages/finance/index.html；"唐朝制度"→ pages/history/ancient.html 的 sec-5 区）；找不到合适板块页 → 先新建板块页并按第 2 节规则挂导航。
+1. **定归属页**：按领域找 pages/ 下板块页（"货币政策"→ pages/finance/finance.html；"唐朝制度"→ pages/history/ancient.html 的 sec-5 区）；找不到合适板块页 → 先新建板块页并按第 2 节规则挂导航。
 2. **找相邻锚点**：读该页，按谱系/层级顺序确定插入位置（时序内容按年代排，机制内容按四层排）。
 3. **复制卡结构**：复制相邻卡完整 HTML（fold-card 默认收起不加 open；结构见第十节卡片规范）。
 4. **填四线**：新增(em-new)/继承(inherit)/废弃(em-old)/沉淀(em-sed) + 说人话框 + 考法对照；徽章幽灵样式、em 高亮不加粗。

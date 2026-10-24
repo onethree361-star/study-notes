@@ -2,7 +2,7 @@
  * 依赖：js/nav.js（NAV_DATA 导航数据源，需先于本文件引入）
  * 页面约定：每个页面在 <head> 里定义
  *   window.SITE_ROOT = ''（首页）或 '../../'（二级子页）
- *   window.PAGE_PATH = 本页相对根目录路径（如 'pages/finance/index.html'）
+ *   window.PAGE_PATH = 本页相对根目录路径（如 'pages/finance/finance.html'）
  *
  * 本地存储约定：
  *   cardContent.v2:{页面路径}:{卡片id}  → 逐卡编辑内容
@@ -21,7 +21,7 @@
 })();
 
 // ---------- 通用工具 ----------
-function pagePath(){ return window.PAGE_PATH || 'index.html'; }
+function pagePath(){ return window.PAGE_PATH || 'notes.html'; }
 function siteRoot(){ return window.SITE_ROOT || ''; }
 function readJSON(key,def){ try{ const v=localStorage.getItem(key); return v?JSON.parse(v):def; }catch(e){ return def; } }
 function writeJSON(key,val){ try{ localStorage.setItem(key,JSON.stringify(val)); }catch(e){} }
