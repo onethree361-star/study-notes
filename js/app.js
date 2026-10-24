@@ -662,16 +662,14 @@ function renderConceptHub(){
       let cards='';
       (g.concepts||[]).forEach(c=>{
         const st=m[c.u]||'';
-        cards+=`<a class="hub-card${st?' st-'+st:''}" data-st="${st}" href="${siteRoot()+c.u}">`
-             + `<span class="hub-mark" data-u="${c.u}" data-st="${st}" title="点击切换掌握度：未学 → 模糊 → 已掌握">${hubStatusText(st)}</span>`
-             + `<span class="hub-row"><span class="hub-dot ${st||'no'}"></span><span class="hub-name">${c.t}</span></span>`
-             + (c.desc?`<span class="hub-desc">${c.desc}</span>`:'')
-             + `</a>`;
+        cards+=`<a class="hub-card${st?' st-'+st:''}" data-st="${st}" data-u="${c.u}" href="${siteRoot()+c.u}"${c.desc?` title="${c.desc.replace(/"/g,'&quot;')}（点圆点可标记掌握度）"`:''}>`
+             + `<span class="hub-dot ${st||'no'}" title="掌握度：点击切换 未学 → 模糊 → 已掌握"></span>`
+             + `<span class="hub-name">${c.t}</span></a>`;
       });
       if(!cards) return;
-      subHtml+=`<div class="hub-group"><div class="hub-grow"><span class="hub-gt">${g.card}</span>`
+      subHtml+=`<div class="hub-l2"><span class="hub-gt">${g.card}</span><span class="hub-cnt">${(g.concepts||[]).length} 个概念</span>`
               + `<a class="hub-jump" href="${siteRoot()+g.u}">跳正文 →</a></div>`
-              + `<div class="hub-grid">${cards}</div></div>`;
+              + `<div class="hub-grid">${cards}</div>`;
     });
     if(!subHtml) return;
     html+=`<div class="hub-subject"><span class="hub-ico">${sub.icon||sub.subject.slice(0,1)}</span>${sub.subject}</div>`+subHtml;
@@ -679,23 +677,21 @@ function renderConceptHub(){
   box.innerHTML=html;
   renderHubStat();
 }
-// 总览页：掌握度循环标记（事件委托；标记按钮在链接卡内，需阻断跳转）
+// 总览页：点胶囊卡上的圆点循环标记掌握度（事件委托；需阻断卡片跳转）
 document.addEventListener('click',function(e){
-  const mk=e.target.closest('.hub-mark');
-  if(!mk) return;
+  const dot=e.target.closest('.hub-dot');
+  if(!dot) return;
+  const card=dot.closest('.hub-card');
+  if(!card) return;
   e.preventDefault();
   e.stopPropagation();
-  const u=mk.dataset.u;
-  const next=MASTERY_ORDER[(MASTERY_ORDER.indexOf(mk.dataset.st||'')+1)%3];
+  const u=card.dataset.u;
+  const next=MASTERY_ORDER[(MASTERY_ORDER.indexOf(hubMastery()[u]||'')+1)%3];
   setHubMastery(u,next);
-  mk.dataset.st=next;
-  mk.textContent=hubStatusText(next);
-  const card=mk.closest('.hub-card');
   card.dataset.st=next;
   card.classList.remove('st-blur','st-ok');
   if(next) card.classList.add('st-'+next);
-  const dot=card.querySelector('.hub-dot');
-  if(dot) dot.className='hub-dot '+(next||'no');
+  dot.className='hub-dot '+(next||'no');
   renderHubStat();
 });
 // 总览页：掌握度过滤
