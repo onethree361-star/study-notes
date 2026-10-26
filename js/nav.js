@@ -166,6 +166,7 @@ const NAV_DATA = [
     ]},
     { t: '管理', links: [
       { t: '人性假设谱系', u: 'concepts/management/human-nature.html' },
+      { t: '思想谱系·人物深挖', u: 'concepts/management/masters.html' },
       { t: '决策', u: 'concepts/management/decision.html' },
     ]},
   ]},
