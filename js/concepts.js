@@ -33,5 +33,8 @@ const CONCEPTS_DATA = [
     { card: '02 管理思想谱系', u: 'pages/management/management.html#sec-guanli-c2', concepts: [
       { t: '人性假设谱系', u: 'concepts/management/human-nature.html', desc: '经济人→社会人→自我实现人→复杂人→知识人：人性判断一变，整套管理手段跟着换' },
     ]},
+    { card: '03 决策', u: 'pages/management/management.html#sec-guanli-c3', concepts: [
+      { t: '决策', u: 'concepts/management/decision.html', desc: '有限理性求满意解：六步过程 + 两种分类 + 一整箱工具（盈亏平衡/决策树/SWOT/波士顿/脑名德电）' },
+    ]},
   ]},
 ];
