@@ -37,5 +37,8 @@ const CONCEPTS_DATA = [
     { card: '03 决策', u: 'pages/management/management.html#sec-guanli-c3', concepts: [
       { t: '决策', u: 'concepts/management/decision.html', desc: '有限理性求满意解：六步过程 + 两种分类 + 一整箱工具（盈亏平衡/决策树/SWOT/波士顿/脑名德电）' },
     ]},
+    { card: '04 计划', u: 'pages/management/management.html#sec-guanli-c4', concepts: [
+      { t: '计划工作程序与方法', u: 'concepts/management/planning.html', desc: '八步程序（估目前拟，评选派编）+ 四法（网络图/甘特图/滚动计划/线性规划）+ 四原理（木桶/许诺/灵活/改航道）+ MBO' },
+    ]},
   ]},
 ];

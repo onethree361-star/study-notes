@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>计划工作程序与方法 · 概念深挖 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='concepts/management/planning.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 概念深挖 › 管理 › 计划</div>
+
+<div class="doc-head">
+  <h1>计划工作程序与方法</h1>
+  <p>决策管"选哪个"，计划管"怎么落成"。本页给你一张<strong>计划工作地图</strong>——八步程序是主干，四种现代计划技术是插件，四条工作原理是底线；最后用"办一期全省执法人员轮训班"，把八步和工具<strong>真正各用一遍</strong>，而不是念一遍名字。</p>
+  <div class="stat">来源板块：<b><a href="../../pages/management/management.html#sec-guanli-c4">管理学 · 计划</a></b></div>
+</div>
+
+<div class="human-origin">年底领导说"拿个方案看看"，你不是从"定目标"开始的：先摸经费、场地、人手的底，再定指标，再想有几条路可走——这套动作就是计划工作的程序。小到办一场培训、大到单位五年规划，把"想要的结果"翻译成"谁、何时、做什么、花多少钱"，走的多半就是这八步。</div>
+
+<div data-edit-block id="dk-pl-map">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">计划工作地图 · 先看主干，再挂插件</div>
+
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2);margin-bottom:12px">
+<span class="em-new">一句话主线</span>：接到任务 → 走八步程序 → 排进度上工具（网络图 / 甘特图 / 滚动计划 / 线性规划）→ 四条原理守住底线 → 推进靠 PDCA 和 MBO。
+</p>
+
+<figure style="margin:12px 0;background:var(--bg);border:1px solid var(--divider);border-radius:10px;padding:10px 8px">
+<svg viewBox="0 0 760 760" role="img" aria-label="计划工作地图：八步程序主干、计划特有三步高亮、四法插件与四原理底线" style="width:100%;height:auto;display:block" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+<defs><marker id="ahP" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--green-1)"/></marker></defs>
+<rect x="150" y="6" width="460" height="82" rx="10" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+<text x="380" y="28" text-anchor="middle" font-size="14" font-weight="700" style="fill:var(--green-1)">计划工作地图 · 八步程序是主干</text>
+<text x="380" y="52" text-anchor="middle" font-size="12.5" style="fill:var(--t1)">绿色格＝计划特有步（决策六步里没有）：前提条件 · 派生计划 · 编制预算</text>
+<text x="380" y="72" text-anchor="middle" font-size="12.5" style="fill:var(--t1)">决策管"选哪个"，计划管"怎么落成"</text>
+<line x1="380" y1="90" x2="380" y2="104" stroke-width="1.6" marker-end="url(#ahP)" style="stroke:var(--green-1)"/>
+
+<rect x="30" y="118" width="240" height="48" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="150" y="138" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">第1步 估量机会</text>
+<text x="150" y="156" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">摸家底：机会与实力</text>
+<line x1="150" y1="166" x2="150" y2="182" stroke-width="1.6" marker-end="url(#ahP)" style="stroke:var(--green-1)"/>
+<line x1="272" y1="142" x2="326" y2="142" style="stroke:var(--divider)"/>
+<circle cx="330" cy="142" r="2.5" style="fill:var(--divider)"/>
+<rect x="330" y="118" width="400" height="48" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="344" y="138" font-size="12.5" style="fill:var(--t2)">起点：环境里有机会吗？我们够得着吗？</text>
+<text x="344" y="156" font-size="11" style="fill:var(--t2)">易错：八步不是从"确定目标"开始</text>
+
+<rect x="30" y="184" width="240" height="48" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="150" y="204" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">第2步 确定目标</text>
+<text x="150" y="222" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">翻译成能验收的数字</text>
+<line x1="150" y1="232" x2="150" y2="248" stroke-width="1.6" marker-end="url(#ahP)" style="stroke:var(--green-1)"/>
+<line x1="272" y1="208" x2="326" y2="208" style="stroke:var(--divider)"/>
+<circle cx="330" cy="208" r="2.5" style="fill:var(--divider)"/>
+<rect x="330" y="184" width="400" height="48" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="344" y="213" font-size="12.5" style="fill:var(--t2)">SMART 化：具体 · 可衡量 · 可达成 · 相关 · 有时限</text>
+
+<rect x="30" y="250" width="240" height="48" rx="8" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+<text x="150" y="270" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--green-1)">第3步 确定前提条件</text>
+<text x="150" y="288" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">计划的"假设"（特有）</text>
+<line x1="150" y1="298" x2="150" y2="314" stroke-width="1.6" marker-end="url(#ahP)" style="stroke:var(--green-1)"/>
+<line x1="272" y1="274" x2="326" y2="274" style="stroke:var(--divider)"/>
+<circle cx="330" cy="274" r="2.5" style="fill:var(--divider)"/>
+<rect x="330" y="250" width="400" height="48" rx="8" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+<text x="344" y="270" font-size="12.5" style="fill:var(--t1)">说明计划在什么假设下成立：政策、经费、人手按什么预期算</text>
+<text x="344" y="288" font-size="11" style="fill:var(--t2)">前提变了，计划跟着滚动修订</text>
+
+<rect x="30" y="316" width="240" height="48" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="150" y="336" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">第4步 拟订备选方案</text>
+<text x="150" y="354" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">至少两条路（≥2）</text>
+<line x1="150" y1="364" x2="150" y2="380" stroke-width="1.6" marker-end="url(#ahP)" style="stroke:var(--green-1)"/>
+<line x1="272" y1="340" x2="326" y2="340" style="stroke:var(--divider)"/>
+<circle cx="330" cy="340" r="2.5" style="fill:var(--divider)"/>
+<rect x="330" y="316" width="400" height="48" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="344" y="345" font-size="12.5" style="fill:var(--t2)">与决策"制定备选"同构：一条路不成方案</text>
+
+<rect x="30" y="382" width="240" height="48" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="150" y="402" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">第5步 评价备选方案</text>
+<text x="150" y="420" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">统一标准打分</text>
+<line x1="150" y1="430" x2="150" y2="446" stroke-width="1.6" marker-end="url(#ahP)" style="stroke:var(--green-1)"/>
+<line x1="272" y1="406" x2="326" y2="406" style="stroke:var(--divider)"/>
+<circle cx="330" cy="406" r="2.5" style="fill:var(--divider)"/>
+<rect x="330" y="382" width="400" height="48" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="344" y="411" font-size="12.5" style="fill:var(--t2)">成本 · 收益 · 风险逐项过——评价在先，选择在后</text>
+
+<rect x="30" y="448" width="240" height="48" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="150" y="468" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">第6步 选择方案</text>
+<text x="150" y="486" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">拍板——决策在此落地</text>
+<line x1="150" y1="496" x2="150" y2="512" stroke-width="1.6" marker-end="url(#ahP)" style="stroke:var(--green-1)"/>
+<line x1="272" y1="472" x2="326" y2="472" style="stroke:var(--divider)"/>
+<circle cx="330" cy="472" r="2.5" style="fill:var(--divider)"/>
+<rect x="330" y="448" width="400" height="48" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="344" y="477" font-size="12.5" style="fill:var(--t2)">决策的核心动作：方向在这里定死，进入"落成文件"半场</text>
+
+<rect x="30" y="514" width="240" height="48" rx="8" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+<text x="150" y="534" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--green-1)">第7步 拟订派生计划</text>
+<text x="150" y="552" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">总计划拆成子计划（特有）</text>
+<line x1="150" y1="562" x2="150" y2="578" stroke-width="1.6" marker-end="url(#ahP)" style="stroke:var(--green-1)"/>
+<line x1="272" y1="538" x2="326" y2="538" style="stroke:var(--divider)"/>
+<circle cx="330" cy="538" r="2.5" style="fill:var(--divider)"/>
+<rect x="330" y="514" width="400" height="48" rx="8" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+<text x="344" y="534" font-size="12.5" style="fill:var(--t1)">课程表、经费方案、师资方案、宣传方案……</text>
+<text x="344" y="552" font-size="11" style="fill:var(--t2)">子计划支撑总计划落地</text>
+
+<rect x="30" y="580" width="240" height="48" rx="8" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+<text x="150" y="600" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--green-1)">第8步 编制预算</text>
+<text x="150" y="618" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">数字化的计划（特有）</text>
+<line x1="272" y1="604" x2="326" y2="604" style="stroke:var(--divider)"/>
+<circle cx="330" cy="604" r="2.5" style="fill:var(--divider)"/>
+<rect x="330" y="580" width="400" height="48" rx="8" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+<text x="344" y="599" font-size="12.5" style="fill:var(--t1)">把计划折成钱与资源——预算＝数字化的计划</text>
+<text x="344" y="617" font-size="11" style="fill:var(--t2)">八步到此收官，进入执行与推进</text>
+
+<line x1="380" y1="628" x2="380" y2="642" stroke-width="1.6" marker-end="url(#ahP)" style="stroke:var(--green-1)"/>
+<rect x="30" y="646" width="700" height="46" rx="8" style="fill:var(--bg);stroke:var(--green-1)" stroke-dasharray="5 4"/>
+<text x="380" y="665" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--green-1)">插件 · 现代计划技术四法（按需选用）</text>
+<text x="380" y="683" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">网络图找关键路径｜甘特图看差距｜滚动计划近细远粗｜线性规划约束求最优</text>
+<line x1="380" y1="692" x2="380" y2="704" stroke-width="1.6" marker-end="url(#ahP)" style="stroke:var(--green-1)"/>
+<rect x="30" y="708" width="700" height="46" rx="8" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+<text x="380" y="727" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--green-1)">原理底线 · 计划工作四原理</text>
+<text x="380" y="745" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">木桶（限定因素定方案）｜许诺（期限合理不乱缩）｜灵活性（最重要 · 留余地）｜改变航道（目标不变进程可变）</text>
+</svg>
+</figure>
+</div>
+
+<div data-edit-block id="dk-pl-l1">
+<div style="margin:20px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第一层 · 发生学【计划与决策怎么分工】</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+<span class="em-old">宏观痛点</span>：光有方向落不了地——决策拍完了"要不要干、干哪个"，可谁来做、何时做、花多少钱、做到什么程度算数，全没着落；拍脑袋排任务，要么高得没人信，要么拖到期末才爆雷。<br>
+<span class="em-new">宏观目的</span>：给"安排"这件事装上程序和工具——八步程序保证不乱排，四法保证排得科学，四原理保证留有余地。
+</p>
+<div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:10px">
+  <strong style="color:var(--t1)">计划 vs 决策（一句话分清）</strong>：决策是<strong>选择</strong>——定方向、选方案；计划是对各部门、各成员一定时期行动任务的<strong>具体安排</strong>。<strong>决策是计划的前提，计划是决策的逻辑延续</strong>：决策为计划提供依据，计划为决策的落实提供组织保证；实际工作中二者相互渗透、交织——八步程序的前六步与决策六步同构，正是这种"同构"的来源。
+</div>
+<div class="chain" style="margin-top:10px"><span class="chain-note">30 秒回顾 · 计划的底色：</span>内容 5W2H（What·Why·Who·Where·When·How·How Much）｜四性＝目先普效（目标性·先导性·普遍性·效益性）｜意义＝管理活动的依据、配置资源的手段、降风险掌主动、制订控制标准的依据</div>
+</div>
+
+<div data-edit-block id="dk-pl-l2">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第二层 · 结构拆解【八步程序逐格拆】</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)">八步是一条流水线：<span class="em-new">绿色三步是计划特有的零件</span>——决策六步里没有的，恰恰是"落成文件"的关键。</p>
+<div style="overflow-x:auto;margin:10px 0">
+<table style="width:100%;border-collapse:collapse;font-size:12.5px;line-height:1.75">
+<thead><tr>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--green-1);white-space:nowrap">步骤</th>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--t1)">干什么</th>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--t1)">考点雷达</th>
+</tr></thead>
+<tbody>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700;white-space:nowrap">第1步 估量机会</td><td style="border:1px solid var(--divider);padding:6px 10px">摸家底：外部环境有没有机会、内部实力够不够得着</td><td style="border:1px solid var(--divider);padding:6px 10px">八步的<strong>起点</strong>（易错：不是从"确定目标"开始）</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">第2步 确定目标</td><td style="border:1px solid var(--divider);padding:6px 10px">定方向定指标，翻译成能验收的数字</td><td style="border:1px solid var(--divider);padding:6px 10px">目标要 SMART</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">第3步 确定前提条件</td><td style="border:1px solid var(--divider);padding:6px 10px">说明计划成立的假设：政策、经费、人手按什么预期算</td><td style="border:1px solid var(--divider);padding:6px 10px"><span class="em-new">计划特有</span>——"前提"是计划的地基</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">第4步 拟订可供选择的方案</td><td style="border:1px solid var(--divider);padding:6px 10px">设计至少两条路线</td><td style="border:1px solid var(--divider);padding:6px 10px">与决策"制定备选"同构（≥2）</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">第5步 评价各种备选方案</td><td style="border:1px solid var(--divider);padding:6px 10px">按统一标准逐项打分：成本、收益、风险</td><td style="border:1px solid var(--divider);padding:6px 10px">评价在先、选择在后，顺序别倒</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">第6步 选择方案</td><td style="border:1px solid var(--divider);padding:6px 10px">拍板定一个（或组合方案）</td><td style="border:1px solid var(--divider);padding:6px 10px">决策的核心动作在此落进计划</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">第7步 拟订派生计划</td><td style="border:1px solid var(--divider);padding:6px 10px">总计划拆成子计划：专项方案、经费方案、日程方案……</td><td style="border:1px solid var(--divider);padding:6px 10px"><span class="em-new">计划特有</span>——派生＝子计划</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">第8步 编制预算</td><td style="border:1px solid var(--divider);padding:6px 10px">把计划折成钱与资源，数字化的最后一步</td><td style="border:1px solid var(--divider);padding:6px 10px"><span class="em-new">预算＝数字化的计划</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div data-edit-block id="dk-pl-l3">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第三层 · 工具插件【现代计划技术四法】</div>
+
+<div class="section-label new">一、网络计划技术法——找"关键路径"，卡住工期的那条链</div>
+<p>用<strong>网络图</strong>表达计划中各项工作（任务、活动、过程、工序）之间的先后顺序和相互关系，计算网络时间，确定<strong>关键工序和关键路线</strong>，从而制定和优化计划方案。<strong>关键路径是项目中时间最长的活动顺序，决定着可能的项目最短工期</strong>——链上任何一个环节晚一天，整个项目就晚一天。</p>
+<figure style="margin:12px 0;background:var(--bg);border:1px solid var(--divider);border-radius:10px;padding:10px 8px">
+<svg viewBox="0 0 720 270" role="img" aria-label="网络计划技术示意：关键路径决定最短工期" style="width:100%;height:auto;display:block" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+<defs><marker id="ahN" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--green-1)"/></marker></defs>
+<line x1="192" y1="116" x2="308" y2="69" stroke-width="1.5" marker-end="url(#ahN)" style="stroke:var(--divider)"/>
+<line x1="352" y1="69" x2="468" y2="116" stroke-width="1.5" marker-end="url(#ahN)" style="stroke:var(--divider)"/>
+<line x1="84" y1="125" x2="146" y2="125" stroke-width="2.5" marker-end="url(#ahN)" style="stroke:var(--green-1)"/>
+<line x1="190" y1="136" x2="306" y2="182" stroke-width="2.5" marker-end="url(#ahN)" style="stroke:var(--green-1)"/>
+<line x1="352" y1="181" x2="468" y2="134" stroke-width="2.5" marker-end="url(#ahN)" style="stroke:var(--green-1)"/>
+<line x1="514" y1="125" x2="580" y2="125" stroke-width="2.5" marker-end="url(#ahN)" style="stroke:var(--green-1)"/>
+<circle cx="60" cy="125" r="24" style="fill:var(--bg);stroke:var(--divider)"/><text x="60" y="130" text-anchor="middle" font-size="12" style="fill:var(--t1)">开始</text>
+<circle cx="170" cy="125" r="24" style="fill:var(--green-soft);stroke:var(--green-1)" stroke-width="2"/><text x="170" y="130" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--green-1)">A</text>
+<text x="170" y="164" text-anchor="middle" font-size="11" style="fill:var(--t2)">拟方案 3天</text>
+<circle cx="330" cy="60" r="24" style="fill:var(--bg);stroke:var(--divider)"/><text x="330" y="65" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">B</text>
+<text x="330" y="26" text-anchor="middle" font-size="11" style="fill:var(--t2)">报批 2天</text>
+<circle cx="330" cy="190" r="24" style="fill:var(--green-soft);stroke:var(--green-1)" stroke-width="2"/><text x="330" y="195" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--green-1)">C</text>
+<text x="330" y="228" text-anchor="middle" font-size="11" style="fill:var(--t2)">订场地 4天</text>
+<circle cx="490" cy="125" r="24" style="fill:var(--green-soft);stroke:var(--green-1)" stroke-width="2"/><text x="490" y="130" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--green-1)">D</text>
+<text x="490" y="164" text-anchor="middle" font-size="11" style="fill:var(--t2)">印发通知 1天</text>
+<circle cx="612" cy="125" r="28" style="fill:var(--bg);stroke:var(--divider)"/><text x="612" y="130" text-anchor="middle" font-size="12" style="fill:var(--t1)">结束</text>
+<text x="360" y="250" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--green-1)">关键路径：开始→A→C→D→结束＝3＋4＋1＝8 天，决定项目最短工期</text>
+<text x="360" y="266" text-anchor="middle" font-size="11" style="fill:var(--t2)">走 B（报批）只要 6 天——报批晚 2 天也不耽误开班：非关键工序有机动时间</text>
+</svg>
+</figure>
+
+<div class="section-label new">二、甘特图法——条状图晒进度，差距一眼见</div>
+<p>把总的计划目标分解成人们能够理解和执行的、具有相互关系的一项项事件，然后用<strong>条状图</strong>表示各项活动实际工作状况和计划要求之间的差距，帮助管理者制定纠偏措施，<strong>最终达到控制的目的</strong>。</p>
+<figure style="margin:12px 0;background:var(--bg);border:1px solid var(--divider);border-radius:10px;padding:10px 8px">
+<svg viewBox="0 0 720 250" role="img" aria-label="甘特图示意：条状图对比计划与实际的差距" style="width:100%;height:auto;display:block" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+<text x="360" y="26" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">培训班筹备横道图（甘特图 · 示意）</text>
+<line x1="240" y1="44" x2="240" y2="200" style="stroke:var(--divider)"/><line x1="303" y1="44" x2="303" y2="200" style="stroke:var(--divider)"/><line x1="366" y1="44" x2="366" y2="200" style="stroke:var(--divider)"/><line x1="429" y1="44" x2="429" y2="200" style="stroke:var(--divider)"/><line x1="492" y1="44" x2="492" y2="200" style="stroke:var(--divider)"/><line x1="555" y1="44" x2="555" y2="200" style="stroke:var(--divider)"/><line x1="618" y1="44" x2="618" y2="200" style="stroke:var(--divider)"/><line x1="681" y1="44" x2="681" y2="200" style="stroke:var(--divider)"/>
+<text x="271" y="62" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">3月</text><text x="334" y="62" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">4月</text><text x="397" y="62" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">5月</text><text x="460" y="62" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">6月</text><text x="523" y="62" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">7月</text><text x="586" y="62" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">8月</text><text x="649" y="62" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">9月</text>
+<text x="232" y="85" text-anchor="end" font-size="12" style="fill:var(--t1)">印发通知</text>
+<rect x="242" y="72" width="59" height="18" rx="3" style="fill:var(--green-1)"/>
+<text x="232" y="119" text-anchor="end" font-size="12" style="fill:var(--t1)">聘请师资</text>
+<rect x="272" y="106" width="92" height="18" rx="3" style="fill:var(--green-1)"/>
+<text x="232" y="153" text-anchor="end" font-size="12" style="fill:var(--t1)">分期办班</text>
+<rect x="305" y="140" width="313" height="18" rx="3" style="fill:var(--green-1)"/>
+<text x="232" y="187" text-anchor="end" font-size="12" style="fill:var(--t1)">结业考核</text>
+<rect x="620" y="174" width="59" height="18" rx="3" style="fill:var(--green-1)"/>
+<line x1="460" y1="44" x2="460" y2="200" stroke-width="1.5" stroke-dasharray="4 3" style="stroke:var(--red-1)"/>
+<text x="464" y="40" font-size="11" style="fill:var(--red-1)">检查点：过线未动工＝拖了后腿</text>
+<text x="360" y="228" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">条状图一眼看出"谁该动工、谁还没动"——对比实际与计划的差距，制定纠偏措施，最终达到控制的目的</text>
+</svg>
+</figure>
+
+<div class="section-label new">三、滚动计划法——近细远粗，逐期后移</div>
+<p>把<strong>短期、中期、长期</strong>计划有机结合起来，根据近期计划的执行情况和环境变化情况，<strong>定期修订未来计划，并逐期向前推移</strong>。两条特点：<strong>近细远粗</strong>——执行期离现在越近编得越详细、越远编得越粗；<strong>前后结合、逐期后移</strong>——编后期计划必须吃进前期执行情况和差异原因，并制定相应措施。</p>
+<figure style="margin:12px 0;background:var(--bg);border:1px solid var(--divider);border-radius:10px;padding:10px 8px">
+<svg viewBox="0 0 720 322" role="img" aria-label="滚动计划法示意：近细远粗、逐期后移" style="width:100%;height:auto;display:block" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+<defs><marker id="ahR" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--green-1)"/></marker></defs>
+<rect x="90" y="16" width="380" height="22" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="280" y="31" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--t1)">2001—2005 年的五年计划</text>
+<rect x="90" y="38" width="76" height="22" style="fill:var(--green-soft);stroke:var(--green-1)"/><text x="128" y="53" text-anchor="middle" font-size="11.5" font-weight="700" style="fill:var(--green-1)">具体</text>
+<rect x="166" y="38" width="152" height="22" style="fill:var(--bg);stroke:var(--divider)"/><text x="242" y="53" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">较细</text>
+<rect x="318" y="38" width="152" height="22" style="fill:var(--bg);stroke:var(--divider)"/><text x="394" y="53" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">较粗</text>
+<rect x="90" y="60" width="76" height="22" style="fill:var(--green-soft);stroke:var(--green-1)"/><text x="128" y="75" text-anchor="middle" font-size="11" style="fill:var(--t1)">2001</text>
+<rect x="166" y="60" width="76" height="22" style="fill:var(--bg);stroke:var(--divider)"/><text x="204" y="75" text-anchor="middle" font-size="11" style="fill:var(--t1)">2002</text>
+<rect x="242" y="60" width="76" height="22" style="fill:var(--bg);stroke:var(--divider)"/><text x="280" y="75" text-anchor="middle" font-size="11" style="fill:var(--t1)">2003</text>
+<rect x="318" y="60" width="76" height="22" style="fill:var(--bg);stroke:var(--divider)"/><text x="356" y="75" text-anchor="middle" font-size="11" style="fill:var(--t1)">2004</text>
+<rect x="394" y="60" width="76" height="22" style="fill:var(--bg);stroke:var(--divider)"/><text x="432" y="75" text-anchor="middle" font-size="11" style="fill:var(--t1)">2005</text>
+<line x1="280" y1="82" x2="280" y2="104" stroke-width="1.6" marker-end="url(#ahR)" style="stroke:var(--green-1)"/>
+<rect x="210" y="104" width="140" height="24" rx="6" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="280" y="120" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">本年实际完成</text>
+<line x1="280" y1="128" x2="280" y2="146" stroke-width="1.6" marker-end="url(#ahR)" style="stroke:var(--green-1)"/>
+<rect x="210" y="146" width="140" height="24" rx="6" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="280" y="162" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">计划与实际差异</text>
+<line x1="350" y1="158" x2="386" y2="158" stroke-width="1.6" marker-end="url(#ahR)" style="stroke:var(--green-1)"/>
+<rect x="390" y="136" width="280" height="20" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="530" y="150" text-anchor="middle" font-size="11.5" font-weight="700" style="fill:var(--t1)">计划修正因素</text>
+<rect x="390" y="156" width="93" height="24" style="fill:var(--bg);stroke:var(--divider)"/><text x="436" y="171" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">差异分析</text>
+<rect x="483" y="156" width="94" height="24" style="fill:var(--bg);stroke:var(--divider)"/><text x="530" y="171" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">客观条件变化</text>
+<rect x="577" y="156" width="93" height="24" style="fill:var(--bg);stroke:var(--divider)"/><text x="623" y="171" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">经营方针调整</text>
+<line x1="530" y1="180" x2="530" y2="200" stroke-width="1.6" marker-end="url(#ahR)" style="stroke:var(--green-1)"/>
+<rect x="250" y="200" width="380" height="22" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="440" y="215" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--t1)">2002—2006 年的五年计划</text>
+<rect x="250" y="222" width="76" height="22" style="fill:var(--green-soft);stroke:var(--green-1)"/><text x="288" y="237" text-anchor="middle" font-size="11.5" font-weight="700" style="fill:var(--green-1)">具体</text>
+<rect x="326" y="222" width="152" height="22" style="fill:var(--bg);stroke:var(--divider)"/><text x="402" y="237" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">较细</text>
+<rect x="478" y="222" width="152" height="22" style="fill:var(--bg);stroke:var(--divider)"/><text x="554" y="237" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">较粗</text>
+<rect x="250" y="244" width="76" height="22" style="fill:var(--green-soft);stroke:var(--green-1)"/><text x="288" y="259" text-anchor="middle" font-size="11" style="fill:var(--t1)">2002</text>
+<rect x="326" y="244" width="76" height="22" style="fill:var(--bg);stroke:var(--divider)"/><text x="364" y="259" text-anchor="middle" font-size="11" style="fill:var(--t1)">2003</text>
+<rect x="402" y="244" width="76" height="22" style="fill:var(--bg);stroke:var(--divider)"/><text x="440" y="259" text-anchor="middle" font-size="11" style="fill:var(--t1)">2004</text>
+<rect x="478" y="244" width="76" height="22" style="fill:var(--bg);stroke:var(--divider)"/><text x="516" y="259" text-anchor="middle" font-size="11" style="fill:var(--t1)">2005</text>
+<rect x="554" y="244" width="76" height="22" style="fill:var(--bg);stroke:var(--divider)"/><text x="592" y="259" text-anchor="middle" font-size="11" style="fill:var(--t1)">2006</text>
+<text x="360" y="292" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--green-1)">近细远粗："具体"格永远只盖住最近的一年，越远越粗</text>
+<text x="360" y="310" text-anchor="middle" font-size="11" style="fill:var(--t2)">前后结合 · 逐期后移：本年实际完成与差异原因喂进下一轮——2001—2005 滚动成 2002—2006</text>
+</svg>
+</figure>
+
+<div class="section-label new">四、线性规划方法——约束条件下求最优</div>
+<p>1939 年由苏联经济学家首先提出，用于编制计划。基本思路四步：</p>
+<div class="chain"><span class="chain-note">线性规划四步：</span>明确问题与目标 → 构建数学模型（<span class="em-new">目标函数＋约束条件</span>） → 求解模型 → 验证与调整</div>
+</div>
+
+<div data-edit-block id="dk-pl-l4">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第四层 · 底线原理【计划工作四原理】</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)">四条原理是编计划时绷紧的四根弦：谁限制你（木桶）、承诺多久（许诺）、留不留余地（灵活）、路子能不能换（改航道）。</p>
+<div style="overflow-x:auto;margin:10px 0">
+<table style="width:100%;border-collapse:collapse;font-size:12.5px;line-height:1.75">
+<thead><tr>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--green-1);white-space:nowrap">原理</th>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--t1)">内容</th>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--t1)">考点雷达</th>
+</tr></thead>
+<tbody>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700;white-space:nowrap">限定因素原理</td><td style="border:1px solid var(--divider);padding:6px 10px">越能了解对达到目标起<strong>主要限制作用</strong>的因素，就越能有针对性地、有效地拟定各种行动方案</td><td style="border:1px solid var(--divider);padding:6px 10px">别名<span class="em-new">"木桶原理"</span>：短板决定容量，先补短板</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">许诺原理</td><td style="border:1px solid var(--divider);padding:6px 10px">任何一项计划都是对完成各项工作所做出的许诺；<strong>许诺越大，实现许诺需要的时间就越长，实现的可能性就越小</strong></td><td style="border:1px solid var(--divider);padding:6px 10px">必须<strong>合理确定计划期限</strong>，不随意缩短</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">灵活性原理</td><td style="border:1px solid var(--divider);padding:6px 10px">计划中体现的灵活性越大，未预料意外事件引起损失的危险性就越小；制定计划要<strong>留有余地</strong></td><td style="border:1px solid var(--divider);padding:6px 10px"><span class="em-new">计划工作中最重要的原理</span>（高频！）</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">改变航道原理</td><td style="border:1px solid var(--divider);padding:6px 10px">计划<strong>总目标不变</strong>，但实现目标的进程（即航道）可以因情况的变化随时改变</td><td style="border:1px solid var(--divider);padding:6px 10px">灵活性使<strong>计划本身</strong>有适应性；改变航道使<strong>执行过程</strong>有应变能力</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div data-edit-block id="dk-pl-l5">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第五层 · 推进落地【PDCA 与 MBO】</div>
+
+<div class="section-label new">一、PDCA 循环（戴明环）——让计划转起来</div>
+<p>又叫<strong>戴明环</strong>，美国质量管理专家<strong>威廉·戴明</strong>提出的系统性解决问题、推动持续改进的管理方法论：通过<strong>计划（Plan）→ 执行（Do）→ 检查（Check）→ 处理（Act）</strong>四个阶段的循环迭代，不断优化流程、提升效率或解决质量问题——转完一圈不是回到原点，而是升一级（闭环详见 <a href="../../pages/management/management.html#sec-guanli-c7">第 07 卡「控制」</a>）。</p>
+<div class="chain"><span class="chain-note">PDCA：</span>P 计划 → D 执行 → C 检查 → A 处理 →（成果与教训写进下一轮 Plan）</div>
+
+<div class="section-label new">二、目标管理法（MBO）——让目标长在人身上</div>
+<p>由管理学家<strong>彼得·德鲁克</strong>在《管理的实践》中提出：通过<strong>上下级共同制定目标</strong>、明确责任、量化考核，把组织整体目标<strong>分解为个人目标</strong>，以实现"自我控制"与"协同共进"。</p>
+<div class="chain"><span class="chain-note">核心六特点：</span>目标导向（以成果为核心）｜参与式管理（全员协同定目标）｜自我控制（从"监督管理"到"自我管理"）｜量化考核（结果导向评估）｜系统性整合（目标与资源联动）｜动态调整（适应环境变化）</div>
+<div style="overflow-x:auto;margin:10px 0">
+<table style="width:100%;border-collapse:collapse;font-size:12.5px;line-height:1.75">
+<thead><tr>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--green-1);white-space:nowrap;width:50%">优势</th>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--t1);width:50%">局限性</th>
+</tr></thead>
+<tbody>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px">聚焦战略，避免资源分散</td><td style="border:1px solid var(--divider);padding:6px 10px"><strong>过度量化</strong>可能导致组织短视、忽视隐性价值，并引发系统性风险（<span class="em-new">最大的弊端</span>）</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px">提升员工责任感与执行力</td><td style="border:1px solid var(--divider);padding:6px 10px">目标设定耗时，需专业沟通与协调能力</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px">考核公平透明，减少主观评价</td><td style="border:1px solid var(--divider);padding:6px 10px">适用场景有限：不适合目标难以量化的岗位（创意类、公益类）</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px">促进上下级沟通，增强组织凝聚力</td><td style="border:1px solid var(--divider);padding:6px 10px">目标设定不合理，可能导致挫败感或敷衍态度</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div data-edit-block id="dk-pl-case">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">案例 · 八步真用一遍：办一期全省执法人员轮训班</div>
+<p style="font-size:13.5px;line-height:1.9;color:var(--t2)">
+<span class="em-new">① 估量机会</span>：年底考核要加分，系统里 300 名执法员从没轮训过，单位有场地、有师资底子——机会摆着，家底够得着。<br>
+<span class="em-new">② 确定目标</span>：11 月底前轮训 300 人、结业合格率 95%——数字＋时限，SMART 能验收。<br>
+<span class="em-new">③ 确定前提条件</span>：按"预算照去年标准批、11 月无全局大活动"两个假设来排——前提变了，计划跟着滚动修订。<br>
+<span class="em-new">④ 拟订方案</span>：集中面授 / 分片巡回 / 线上＋分片面授组合——至少两条路。<br>
+<span class="em-new">⑤ 评价方案</span>：成本、覆盖面、工学矛盾逐项打分——组合方案胜出。<br>
+<span class="em-new">⑥ 选择方案</span>：拍板组合方案——决策的核心动作在这一步落进计划。<br>
+<span class="em-new">⑦ 拟订派生计划</span>：课程表、师资聘请、分片日程、宣传方案——总计划拆成子计划。<br>
+<span class="em-new">⑧ 编制预算</span>：人均标准 ×300 人＋师资差旅＝总额报财务——计划落成数字。<br>
+<strong>工具跟进</strong>：甘特图挂进度看谁拖后腿；关键路径＝师资确认 → 教材印制 → 开班（这条链晚一天，开班就晚一天）；按季度滚动修订下期轮训。
+</p>
+</div>
+
+<div class="exam-box" data-edit-block id="dk-pl-exam"><strong>三句口诀（脱口而出版）：</strong><br>① <strong>八步</strong>＝估、目、前、拟、评、选、派、编（"估目前拟，评选派编"）；<br>② <strong>四法</strong>＝网络图找关键路径、甘特图看差距、滚动计划近细远粗、线性规划约束求最优；<br>③ <strong>四原理</strong>＝木桶定方案、许诺定期限、灵活最重要（留余地）、改航道不变目标。<br><strong>常见设错：</strong><br>
+八步第一步是"确定目标"——错，<strong>先估量机会</strong>（摸家底）；<br>
+关键路径＝耗时最短的路线——错，<strong>时间最长的活动顺序，决定项目最短工期</strong>；<br>
+滚动计划＝一次编好五年不变——错，<strong>近细远粗、定期修订、逐期后移</strong>；<br>
+计划工作最重要的原理＝限定因素——错，<strong>灵活性原理</strong>（留有余地）；<br>
+"改变航道"＝随时改总目标——错，<strong>总目标不变，变的是进程（航道）</strong>；<br>
+甘特图只是排进度——漏了，最终目的是<strong>对比差距、定纠偏措施、达到控制</strong>；<br>
+MBO 最大的弊端＝员工参与低——错，<strong>过度量化导致组织短视、忽视隐性价值、引发系统性风险</strong>；<br>
+预算可省、是财务的事——错，<strong>编制预算是八步的最后一步：预算＝数字化的计划</strong></div>
+
+<div class="section-label inherit">相关概念</div>
+<div class="rel-list">
+  <a href="../../pages/management/management.html#sec-guanli-c4">回来源：管理学 · 计划</a>
+  <a href="decision.html">决策：计划的前提（八步前六步与之同构）</a>
+  <a href="../../pages/management/management.html#sec-guanli-c7">控制：PDCA 闭环与控制标准</a>
+  <a href="../overview.html">查看全部概念 →</a>
+</div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>
