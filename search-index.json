@@ -180,6 +180,16 @@
     "keywords": "每股收益 EPS 净利润 总股本 基本EPS 稀释EPS 扣非净利润 非经常性损益 经营现金流 股本稀释 定向增发 戴维斯双击 股价等于EPS乘PE 客观实力"
   },
   {
+    "title": "管理学",
+    "url": "pages/management/management.html",
+    "keywords": "管理学 管理 概述 效率 效果 二重性 管理思想谱系 泰勒 科学管理 法约尔 五职能 韦伯 科层制 梅奥 霍桑实验 马斯洛 需要层次 赫茨伯格 双因素 麦格雷戈 X理论 Y理论 西蒙 有限理性 权变 德鲁克 目标管理 MBO 决策 计划 SMART 组织 授权 领导 激励 沟通 控制 前馈 现场 反馈 PDCA"
+  },
+  {
+    "title": "概念深挖：人性假设谱系",
+    "url": "concepts/management/human-nature.html",
+    "keywords": "人性假设 经济人 社会人 自我实现人 复杂人 知识人 X理论 Y理论 超Y理论 权变 泰勒 梅奥 霍桑 马斯洛 麦格雷戈 沙因 德鲁克 胡萝卜加大棒 授权 赋能"
+  },
+  {
     "title": "错题总览",
     "url": "errors/overview.html",
     "keywords": "错题 概念辨析 因果判断 张冠李戴 时间错位"

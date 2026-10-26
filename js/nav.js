@@ -112,6 +112,22 @@ const NAV_DATA = [
     ]},
   ]},
 
+  { t: '管理学', children: [
+    { t: '第一层 · 发生学', links: [
+      { t: '01 管理概述', u: 'pages/management/management.html#sec-guanli-c1' },
+    ]},
+    { t: '第二层 · 知线：学说史谱系', links: [
+      { t: '02 管理思想谱系', u: 'pages/management/management.html#sec-guanli-c2' },
+    ]},
+    { t: '第三层 · 行线：职能动作库', links: [
+      { t: '03 决策', u: 'pages/management/management.html#sec-guanli-c3' },
+      { t: '04 计划', u: 'pages/management/management.html#sec-guanli-c4' },
+      { t: '05 组织', u: 'pages/management/management.html#sec-guanli-c5' },
+      { t: '06 领导', u: 'pages/management/management.html#sec-guanli-c6' },
+      { t: '07 控制', u: 'pages/management/management.html#sec-guanli-c7' },
+    ]},
+  ]},
+
   { t: '英语', children: [
     { t: '语法结构', u: 'pages/english/grammar.html' },
     { t: '单词每日记', u: 'pages/english/vocabulary.html', disabled: true, n: '待更新' },
@@ -147,6 +163,9 @@ const NAV_DATA = [
       { t: '市净率（PB）', u: 'concepts/finance/pb.html' },
       { t: 'PE·PB·股息率：三把飞刀', u: 'concepts/finance/pe-pb-dividend.html' },
       { t: '每股收益（EPS）', u: 'concepts/finance/eps.html' },
+    ]},
+    { t: '管理', links: [
+      { t: '人性假设谱系', u: 'concepts/management/human-nature.html' },
     ]},
   ]},
 

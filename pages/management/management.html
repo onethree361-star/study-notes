@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>管理学 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/management/management.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 管理学</div>
+<div class="doc-head"><h1>管理学</h1><p>管理学是双主轴：知线用<strong>时序谱系法</strong>梳理学说史（对付行测"人物—学说对应"），行线按<strong>五大职能</strong>建动作库（对付申论对策与面试组织协调）——每条理论都翻译成一个管理动作，每个动作都能找到理论依据。</p><div class="stat">共 <b>7</b> 个知识点 · 知线：概述 + 学说史谱系 · 行线：决策 · 计划 · 组织 · 领导 · 控制 · 概念深挖 1 个</div></div>
+
+<div class="sec-block" id="sec-guanli">
+  <div id="sec-guanli-main">
+    <div style="background:var(--green-soft);border-left:3px solid var(--green-1);padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:var(--t2);margin-bottom:14px">
+      学管理学的两个收获：一是<strong>知</strong>——学说史就是一部"人性假设的辩论史"，人性判断一变，整套管理手段跟着换；二是<strong>行</strong>——把理论翻译成"如果我是主管，我具体怎么做"的动作库。面试的组织协调、人际沟通题，本质就是现场演一遍这五职能。
+    </div>
+
+    <!-- 层级标题：发生学 -->
+    <div id="sec-guanli-l1" style="margin:20px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第一层 · 发生学</div>
+
+    <!-- 卡片1：管理概述 -->
+    <details class="card fold-card" id="sec-guanli-c1">
+      <summary>
+        <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>管理概述：管理为什么会诞生</h3></div>
+        <div class="badges">
+          <span class="badge old">资源有限</span>
+          <span class="badge old">协作成本</span>
+          <span class="badge new">有效达成目标</span>
+        </div>
+      </summary>
+      <div class="human-origin">一个人干活不需要管理；两个人抬石头就需要喊号子；两千人的单位要分任务、发工资、评绩效，没有管理就散架。管理不是玄学，是"协作规模"逼出来的。</div>
+      <div class="section-label old">三大矛盾：管理诞生的痛点</div>
+      <p><span class="em-old">资源有限 vs 目标宏大</span>：钱、人、时间都不够用，必须决定先干什么、后干什么、放弃什么。<br><span class="em-old">分工 ≠ 自然高效</span>：亚当·斯密的制针厂证明分工能放大效率，但分工也产生协作成本——你干的我不知道，接口全对不上。<br><span class="em-old">人不会自动使劲</span>：人性各不相同（想多拿钱？要面子？想成长？），激励方式必须跟着变——这正是后来所有管理学派的分歧点。</p>
+      <div class="section-label new">内涵：管理是什么</div>
+      <p>管理 = 管理者通过<span class="em-new">决策、计划、组织、领导、控制</span>等职能，协调人、财、物、信息等资源，与他人一道<span class="em-new">有效实现目标</span>的过程。两把标尺缺一不可：<span class="em-new">效率</span>（正确地做事，投入产出比）＋ <span class="em-new">效果</span>（做正确的事，目标达成度）——方向错了，越高效越糟。</p>
+      <div class="chain"><span class="chain-note">诞生链：</span>单干 → 想干大事 → 招人分工 → <span class="em-old">接口混乱 + 人偷懒</span> → 需要有人定目标、分活儿、带人、纠偏 → <span class="em-new">管理诞生</span></div>
+      <div class="section-label sediment">管理二重性：既是科学又是艺术</div>
+      <p><span class="em-sed">自然属性（科学性）</span>：与生产力相联系——管流程、管方法有普适规律，可学可复制；<span class="em-sed">社会属性（艺术性）</span>：与生产关系相联系——管人因人、因时、因境而变，没有万能公式。</p>
+      <details class="personal-box">
+        <summary><span class="pb-arrow"></span>个人视角：对你意味着什么</summary>
+        <div class="pb-body">
+          <ul>
+            <li><strong>公务员本质是公共资源的管理者</strong>：编制、预算、政策、项目都是管理对象，管理学不是"企业课"，是公考的看家本领。</li>
+            <li><strong>面试组织协调题 = 现场演管理职能</strong>：计划（方案）→ 组织（分工）→ 领导（协调动员）→ 控制（验收总结），套着答。</li>
+            <li><strong>效率 ≠ 效果</strong>：写材料快是效率，文种方向写对是效果——领导最怕你高效地跑偏。先保效果，再提效率。</li>
+          </ul>
+        </div>
+      </details>
+    </details>
+
+    <!-- 层级标题：知线 -->
+    <div id="sec-guanli-l2" style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第二层 · 知线：学说史谱系（人性假设从上往下变）</div>
+
+    <!-- 卡片2：管理思想谱系 -->
+    <details class="card fold-card" id="sec-guanli-c2">
+      <summary>
+        <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>管理思想谱系：从中西传统到现代丛林</h3></div>
+        <div class="badges">
+          <span class="badge old">中西传统</span>
+          <span class="badge new">古典三父</span>
+          <span class="badge new">行为科学</span>
+          <span class="badge sediment">现代丛林</span>
+        </div>
+      </summary>
+      <div class="human-origin">管理学不是一天建成的：先有人把"凭经验干活"变成"科学"，再有人发现"工人不是机器"，最后承认"没有万能公式"。每个学派都在回答同一个问题：<strong>人是什么？所以该怎么管？</strong></div>
+
+      <div style="border-left:2px solid var(--brand-1);margin:10px 0 4px 6px;padding-left:16px">
+        <!-- 节点1：中国传统 -->
+        <div style="position:relative;margin-bottom:16px">
+          <div style="position:absolute;left:-22px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--brand-1)"></div>
+          <div class="section-label old">节点一 · 中国传统管理思想（先秦）</div>
+          <p><span class="em-old">儒家</span>以德治国、以人为本；<span class="em-old">法家</span>以法治国、重制度规则；<span class="em-old">道家</span>无为而治、顺应规律少干预；<span class="em-old">兵家</span>《孙子兵法》讲谋略与组织——"上下同欲者胜"就是最早的<strong>目标认同</strong>思想。</p>
+          <details style="margin:6px 0 0"><summary style="cursor:pointer;font-size:12.5px;font-weight:600;color:var(--brand-1)">展开 · 考点详解 ▾</summary>
+            <div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:6px">
+              "无为而治"不等于不管，而是<strong>不过度干预、让规律起作用</strong>——现代对应分权与授权思想；"上下同欲者胜"对应现代的<strong>组织目标认同 / 愿景激励</strong>。考法：给古语选对应思想（"无为"→顺应规律，"人本"→儒家）。
+            </div>
+          </details>
+        </div>
+        <!-- 节点2：西方早期 -->
+        <div style="position:relative;margin-bottom:16px">
+          <div style="position:absolute;left:-22px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--brand-1)"></div>
+          <div class="section-label old">节点二 · 西方早期萌芽（18—19世纪）</div>
+          <p><span class="em-old">亚当·斯密</span>《国富论》提出<strong>分工理论</strong>：制针厂分工后产量翻几百倍，1+1&gt;2；<span class="em-old">罗伯特·欧文</span>改善工人条件，被称为<strong>人事管理先驱</strong>。</p>
+          <details style="margin:6px 0 0"><summary style="cursor:pointer;font-size:12.5px;font-weight:600;color:var(--brand-1)">展开 · 考点详解 ▾</summary>
+            <div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:6px">
+              分工的收益：动作熟练、省去换工序的时间、催生专用工具；副作用：<strong>单调乏味</strong>——这个副作用为后来行为科学"关心人"埋下伏笔。考法：斯密考"分工"，欧文考"人事管理先驱"，别安给泰勒。
+            </div>
+          </details>
+        </div>
+        <!-- 节点3：古典管理理论 -->
+        <div style="position:relative;margin-bottom:16px">
+          <div style="position:absolute;left:-22px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--brand-1)"></div>
+          <div class="section-label new">节点三 · 古典管理理论（1911前后 · 经济人假设）</div>
+          <p><span class="em-new">泰勒</span>＝<strong>科学管理之父</strong>：《科学管理原理》(1911)，动作研究＋差别计件工资，解决"车间里怎么干得快"——管到操作层。<br><span class="em-new">法约尔</span>＝<strong>管理过程之父</strong>：《工业管理与一般管理》(1916)，首次提出<strong>管理五职能</strong>（计划、组织、指挥、协调、控制）＋14条管理原则，解决"全公司怎么管"。<br><span class="em-new">韦伯</span>＝<strong>组织理论之父</strong>：科层制（官僚制）——层级分明＋规则办事＋非人格化，解决"组织怎么稳定运行"。</p>
+          <details style="margin:6px 0 0"><summary style="cursor:pointer;font-size:12.5px;font-weight:600;color:var(--brand-1)">展开 · 三父对比与口诀 ▾</summary>
+            <div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:6px">
+              <strong>对比表</strong>：泰勒管<strong>车间</strong>（效率、计件工资、动作研究）；法约尔管<strong>公司</strong>（五职能、14原则）；韦伯管<strong>组织</strong>（科层制、规则与层级）。<br>
+              <strong>口诀</strong>：泰勒车间法约尔司，韦伯科层定章法——三人共用<strong>经济人</strong>假设：人懒逐利，靠纪律和钱驱动。<br>
+              <strong>易错</strong>："管理五职能"是<strong>法约尔</strong>提的（不是泰勒）；差别计件工资是<strong>泰勒</strong>（不是法约尔）。
+            </div>
+          </details>
+        </div>
+        <!-- 节点4：行为科学 -->
+        <div style="position:relative;margin-bottom:16px">
+          <div style="position:absolute;left:-22px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--brand-1)"></div>
+          <div class="section-label new">节点四 · 行为科学（1930s起 · 社会人 → 自我实现人）</div>
+          <p><span class="em-new">梅奥</span>：霍桑实验（1924—1932）→ 人际关系学说——工人是<strong>社会人</strong>，士气决定产量，存在<strong>非正式组织</strong>。<br><span class="em-new">马斯洛</span>：需要层次理论（生理→安全→社交→尊重→自我实现）；<span class="em-new">赫茨伯格</span>：双因素理论（保健因素只消不满，激励因素才买敬业）；<span class="em-new">麦格雷戈</span>：X理论—Y理论。</p>
+          <details style="margin:6px 0 0"><summary style="cursor:pointer;font-size:12.5px;font-weight:600;color:var(--brand-1)">展开 · 易混搭档排查表 ▾</summary>
+            <div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:6px">
+              霍桑实验＝<strong>梅奥</strong>（不是泰勒）；Y理论＝<strong>麦格雷戈</strong>提出（对应马斯洛的自我实现人假设，但别写成马斯洛提出）；需要层次＝马斯洛；双因素＝赫茨伯格（保健 vs 激励）；X理论对应<strong>经济人</strong>假设，Y理论对应<strong>自我实现人</strong>假设。
+            </div>
+          </details>
+        </div>
+        <!-- 节点5：现代丛林 -->
+        <div style="position:relative;margin-bottom:6px">
+          <div style="position:absolute;left:-22px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--brand-1)"></div>
+          <div class="section-label sediment">节点五 · 现代管理理论丛林（二战后 · 复杂人 → 知识人）</div>
+          <p><span class="em-sed">西蒙</span>：决策学派——"<strong>管理就是决策</strong>"，有限理性，追求<strong>满意解</strong>而非最优解；<span class="em-sed">系统学派</span>：组织是开放系统；<span class="em-sed">权变学派</span>：没有最好的办法，只有最合适的办法；<span class="em-sed">德鲁克</span>：<strong>现代管理学之父</strong>，目标管理（MBO，《管理的实践》1954），提出"知识工作者"。</p>
+          <details style="margin:6px 0 0"><summary style="cursor:pointer;font-size:12.5px;font-weight:600;color:var(--brand-1)">展开 · 丛林速记 ▾</summary>
+            <div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:6px">
+              "管理就是决策"＝<strong>西蒙</strong>；MBO＝<strong>德鲁克</strong>；权变＝一把钥匙开一把锁（对应<strong>复杂人</strong>假设）。题目若说"决策追求最优解"——<strong>错</strong>，西蒙说有限理性，满意即可。
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="section-label sediment">谱系总口诀</div>
+      <p>先秦各家谈治道，斯密分工效率高；泰勒科学车间管，法约尔提五职能；韦伯科层定章法，梅奥霍桑重士气；需要层次马斯洛，双因素是赫茨伯格；XY理论麦格雷戈，西蒙决策有限理；权变没有万能招，德鲁克目标管理妙。</p>
+      <a class="deep-link" href="../../concepts/management/human-nature.html">人性假设谱系 · 概念深挖</a>
+      <details class="personal-box">
+        <summary><span class="pb-arrow"></span>个人视角：这条轴怎么用来答题</summary>
+        <div class="pb-body">
+          <ul>
+            <li><strong>考"之父"</strong>：泰勒＝科学管理、法约尔＝管理过程、韦伯＝组织理论、德鲁克＝现代管理学。</li>
+            <li><strong>考人物—观点对应</strong>：霍桑＝梅奥、MBO＝德鲁克、XY＝麦格雷戈、有限理性＝西蒙。</li>
+            <li><strong>考人性假设连线</strong>：经济人→泰勒/X理论；社会人→梅奥；自我实现人→马斯洛/Y理论；复杂人→权变；知识人→德鲁克。</li>
+          </ul>
+        </div>
+      </details>
+    </details>
+
+    <!-- 层级标题：行线 -->
+    <div id="sec-guanli-l3" style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第三层 · 行线：五职能动作库（场景 → 动作 → 理论依据）</div>
+
+    <!-- 卡片3：决策 -->
+    <details class="card fold-card" id="sec-guanli-c3">
+      <summary>
+        <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>决策：选哪条路</h3></div>
+        <div class="badges">
+          <span class="badge new">有限理性</span>
+          <span class="badge new">满意解</span>
+          <span class="badge old">程序化 vs 非程序化</span>
+        </div>
+      </summary>
+      <div class="human-origin">管理者一天到晚在干什么？西蒙说："管理就是决策。"选哪个方案、批哪个项目、用哪个人——决策贯穿所有职能，是管理的核心。</div>
+      <div class="section-label old">场景</div>
+      <p>两个方案选哪个？有限的预算往哪投？突发的事怎么拍板？——凡是"有多个可选、要拍板"的时刻都是决策。</p>
+      <div class="section-label new">动作链</div>
+      <div class="chain"><span class="chain-note">决策五步：</span>诊断问题 → 确定目标 → 拟定方案（多备选） → 评估选优 → 执行并反馈修正</div>
+      <div class="section-label sediment">理论依据</div>
+      <p><span class="em-sed">西蒙·有限理性</span>：人不是全知的"经济人"，是受信息、精力、时间限制的"行政人"——所以决策追求<strong>满意解，不是最优解</strong>。类型对偶：<span class="em-new">程序化决策</span>（例行重复、有章可循，如报销审批）vs <span class="em-new">非程序化决策</span>（突发新颖、无先例，如突发事件处置）；确定型（结果唯一）vs 风险型（知道概率）vs 不确定型（概率未知）。</p>
+      <details class="personal-box">
+        <summary><span class="pb-arrow"></span>个人视角：面试怎么用</summary>
+        <div class="pb-body">
+          <ul>
+            <li>面试应急应变题＝现场做<strong>非程序化决策</strong>：先稳情绪、抓主要矛盾、按预案处置、事后复盘补制度。</li>
+            <li>拍板前问自己三句：目标是什么？有几个备选？信息够不够（够→敢拍，不够→先补信息或选"满意"方案）。</li>
+          </ul>
+        </div>
+      </details>
+    </details>
+
+    <!-- 卡片4：计划 -->
+    <details class="card fold-card" id="sec-guanli-c4">
+      <summary>
+        <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>计划：目标怎么定才不落空</h3></div>
+        <div class="badges">
+          <span class="badge new">SMART</span>
+          <span class="badge new">MBO目标管理</span>
+          <span class="badge sediment">首要职能</span>
+        </div>
+      </summary>
+      <div class="human-origin">计划是所有职能的起点——目标定不好，后面的组织、领导、控制全是白忙。所以法约尔把"计划"放在五职能之首。</div>
+      <div class="section-label old">场景</div>
+      <p>年度目标拍脑袋定太高没人信、太低没干劲；任务布置下去总是拖到期末才爆雷——都是计划没做好。</p>
+      <div class="section-label new">动作链</div>
+      <div class="chain"><span class="chain-note">计划四步：</span><span class="em-new">SMART定目标</span> → <span class="em-new">MBO上下对齐</span> → 分解到人到期限 → 留出检查节点</div>
+      <div class="section-label sediment">理论依据</div>
+      <p><span class="em-sed">SMART</span>：目标要具体（S）、可衡量（M）、可达成（A）、相关（R）、有时限（T）——"提升服务意识"不是目标，"6月底前投诉率降20%"才是。<span class="em-sed">德鲁克·MBO（1954）</span>：目标管理＝以目标为导向、以下属自我承诺为机制、以成果为考核标准——上级给方向，下级自提目标，双方对齐后授权执行。计划是管理的<strong>首要职能</strong>，是组织、领导、控制的依据。</p>
+      <details class="personal-box">
+        <summary><span class="pb-arrow"></span>个人视角：你怎么用</summary>
+        <div class="pb-body">
+          <ul>
+            <li>年度考核目标就是 MBO：不是领导拍给你，而是你自报、双方对齐，年底按成果对表——过程有自主，结果有标尺。</li>
+            <li>个人复习也用 SMART："学好管理学"是空话，"两周内刷完学说史谱系并默写三父对应表"才是计划。</li>
+          </ul>
+        </div>
+      </details>
+    </details>
+
+    <!-- 卡片5：组织 -->
+    <details class="card fold-card" id="sec-guanli-c5">
+      <summary>
+        <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>组织：事怎么分、人怎么配</h3></div>
+        <div class="badges">
+          <span class="badge new">幅度 vs 层次</span>
+          <span class="badge new">授权不授责</span>
+          <span class="badge old">权变定结构</span>
+        </div>
+      </summary>
+      <div class="human-origin">目标定了，接下来分活儿：事怎么切、人怎么配、权怎么放——组织职能回答"谁来做"。</div>
+      <div class="section-label old">场景</div>
+      <p>人多了分工就乱：一件事三个部门都管＝都没管；领导事事亲自干＝团队没成长自己还累死。</p>
+      <div class="section-label new">动作链</div>
+      <div class="chain"><span class="chain-note">组织四步：</span>切分工（部门化） → 定层级（幅度×层次） → 配权责（授权） → 配人员（因事择人）</div>
+      <div class="section-label sediment">理论依据</div>
+      <p><span class="em-sed">管理幅度</span>（一个领导直接管几个人）vs <span class="em-sed">管理层次</span>（组织分几层）——<strong>成反比</strong>：幅度↑层次↓（扁平化），幅度↓层次↑（高耸型）。<span class="em-sed">授权三步</span>：授责（分派任务）→授权（给匹配的权力）→监督（检查纠偏）；铁律是<strong>授权不授责</strong>——权力可以下放，最终责任还在管理者身上。<span class="em-sed">权变</span>：结构没有最好只有最合适——环境多变用灵活的有机式，环境稳定用规范的机械式（科层）。</p>
+      <details class="personal-box">
+        <summary><span class="pb-arrow"></span>个人视角：一眼看懂授权</summary>
+        <div class="pb-body">
+          <ul>
+            <li>处长把材料交给你写＝授责；给你调档、查数据的支持＝授权；材料签发署他的名＝最终责任还在他——这就是"授权不授责"。</li>
+            <li>带新人和带骨干要换招（权变）：新人盯过程给模板，骨干看结果给空间。</li>
+          </ul>
+        </div>
+      </details>
+    </details>
+
+    <!-- 卡片6：领导 -->
+    <details class="card fold-card" id="sec-guanli-c6">
+      <summary>
+        <div class="card-h"><span class="fold-arrow"></span><span class="idx">06</span><h3>领导：人怎么带、气怎么提、话怎么通</h3></div>
+        <div class="badges">
+          <span class="badge new">需要层次</span>
+          <span class="badge new">双因素</span>
+          <span class="badge new">期望理论</span>
+        </div>
+      </summary>
+      <div class="human-origin">事分好了，人心不齐也白搭。领导职能管的是"人"：怎么激励、怎么沟通、用什么风格带队伍。</div>
+      <div class="section-label old">场景</div>
+      <p>下属躺平、士气低落、小道消息满天飞——涨薪也留不住人，画饼更没人信，问题出在激励方式用错了层。</p>
+      <div class="section-label new">激励动作链</div>
+      <div class="chain"><span class="chain-note">激励四步：</span>诊断需求（他卡在哪一层） → <span class="em-new">保健因素别欠账</span>（工资公平、制度顺气） → <span class="em-new">激励因素给增量</span>（认可即时化、给成长台阶） → 打通期望链（努力→绩效→奖酬看得见）</div>
+      <div class="section-label sediment">理论依据</div>
+      <p><span class="em-sed">马斯洛·需要层次</span>：生理→安全→社交→尊重→自我实现，低层满足后高层才成为动力——激励要对号入座。<span class="em-sed">赫茨伯格·双因素</span>：工资、制度、条件＝保健因素（少了不满，多了不感激）；成就、认可、成长＝激励因素（真正买来敬业）。<span class="em-sed">弗鲁姆·期望理论</span>：激励力＝期望值×效价——"跳一跳够得着"的目标最有劲。<span class="em-sed">亚当斯·公平理论</span>：人比较的是投入产出比——不患寡而患不均。<span class="em-sed">沟通模型</span>：发送→编码→通道→解码→接收→反馈，中间全是噪声；正式沟通之外还有非正式沟通（小道消息，堵不如疏）。</p>
+      <details class="personal-box">
+        <summary><span class="pb-arrow"></span>个人视角：面试人际题模板</summary>
+        <div class="pb-body">
+          <ul>
+            <li>同事消极怠工：先查<strong>保健因素</strong>（待遇不公？制度憋屈？），再上<strong>激励因素</strong>（给认可、给发挥空间）——顺序不能反。</li>
+            <li>光画饼不给成长台阶＝只有期望值没有效价；光给钱不给认可＝只补保健、没建激励——两把钥匙一起用。</li>
+          </ul>
+        </div>
+      </details>
+    </details>
+
+    <!-- 卡片7：控制 -->
+    <details class="card fold-card" id="sec-guanli-c7">
+      <summary>
+        <div class="card-h"><span class="fold-arrow"></span><span class="idx">07</span><h3>控制：跑偏怎么发现、怎么纠</h3></div>
+        <div class="badges">
+          <span class="badge new">前馈·现场·反馈</span>
+          <span class="badge sediment">PDCA戴明环</span>
+        </div>
+      </summary>
+      <div class="human-origin">计划再好也会跑偏——控制职能就是装上"方向盘＋后视镜"：对着标准找偏差，及时纠，并且把教训沉淀进下一轮计划。</div>
+      <div class="section-label old">场景</div>
+      <p>项目到期才发现方向错了（没有节点检查）；同一类错误年年犯（没有复盘沉淀）——都是控制缺位。</p>
+      <div class="section-label new">动作链</div>
+      <div class="chain"><span class="chain-note">控制四步：</span>确立标准（计划里定好的指标节点） → 衡量成效 → 诊断偏差（差多少、为什么） → 纠偏行动（改执行，必要时改计划）</div>
+      <div class="section-label sediment">理论依据</div>
+      <p><span class="em-sed">三种控制类型（高频考点）</span>：<span class="em-new">前馈控制</span>＝事前防（上岗培训、预算审批）"防患于未然"；<span class="em-new">现场控制</span>＝事中盯（现场督导、实时监工）；<span class="em-new">反馈控制</span>＝事后算（质量检验、年终考核、复盘）。<span class="em-sed">PDCA戴明环</span>：计划→执行→检查→处理，闭环滚动升级——纠偏的成果要写进下一轮标准，才算完成一次沉淀。</p>
+      <details class="personal-box">
+        <summary><span class="pb-arrow"></span>个人视角：越早控制成本越低</summary>
+        <div class="pb-body">
+          <ul>
+            <li>写材料：动笔前对文种模板＝前馈；领导边写边看＝现场；发出去被退回改＝反馈——成本一次比一次高，高手都在前馈下功夫。</li>
+            <li>质检挑出次品是反馈控制（损失已发生），上岗前培训质检标准是前馈控制——考试爱拿这两个对调设错。</li>
+          </ul>
+        </div>
+      </details>
+    </details>
+
+    <!-- 应试心法 -->
+    <div class="exam-box">
+      管理学高频考点：① <strong>三父对应</strong>——泰勒＝科学管理之父（车间、计件工资），法约尔＝管理过程之父（五职能、14原则），韦伯＝组织理论之父（科层制）；② <strong>霍桑实验＝梅奥＝社会人＝非正式组织</strong>；③ <strong>理论归属</strong>——需要层次＝马斯洛，双因素＝赫茨伯格，XY理论＝麦格雷戈，期望＝弗鲁姆，公平＝亚当斯，"管理就是决策"＝西蒙，MBO＝德鲁克；④ <strong>决策求满意不求最优</strong>（有限理性）；⑤ <strong>效率≠效果</strong>——先做正确的事，再正确地做事；⑥ <strong>计划是首要职能</strong>；⑦ <strong>授权不授责</strong>——权放下、责留下；⑧ <strong>管理幅度与管理层次成反比</strong>；⑨ <strong>前馈事前、现场事中、反馈事后</strong>。
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

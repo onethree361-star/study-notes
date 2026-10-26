@@ -29,4 +29,9 @@ const CONCEPTS_DATA = [
       { t: '商业银行', u: 'concepts/finance/commercial-bank.html', desc: '经营钱与风险的资金中介：负债、资产、表外三驾马车' },
     ]},
   ]},
+  { subject: '管理学', icon: '管', groups: [
+    { card: '02 管理思想谱系', u: 'pages/management/management.html#sec-guanli-c2', concepts: [
+      { t: '人性假设谱系', u: 'concepts/management/human-nature.html', desc: '经济人→社会人→自我实现人→复杂人→知识人：人性判断一变，整套管理手段跟着换' },
+    ]},
+  ]},
 ];
