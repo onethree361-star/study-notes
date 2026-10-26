@@ -169,6 +169,7 @@ const NAV_DATA = [
       { t: '思想谱系·人物深挖', u: 'concepts/management/masters.html' },
       { t: '决策', u: 'concepts/management/decision.html' },
       { t: '计划工作程序与方法', u: 'concepts/management/planning.html' },
+      { t: '组织', u: 'concepts/management/organization.html' },
     ]},
   ]},
 

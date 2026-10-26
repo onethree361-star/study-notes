@@ -40,5 +40,8 @@ const CONCEPTS_DATA = [
     { card: '04 计划', u: 'pages/management/management.html#sec-guanli-c4', concepts: [
       { t: '计划工作程序与方法', u: 'concepts/management/planning.html', desc: '八步程序（估目前拟，评选派编）+ 四法（网络图/甘特图/滚动计划/线性规划）+ 四原理（木桶/许诺/灵活/改航道）+ MBO' },
     ]},
+    { card: '05 组织', u: 'pages/management/management.html#sec-guanli-c5', concepts: [
+      { t: '组织概述', u: 'concepts/management/organization.html', desc: '一词两义（静态实体/动态过程）+ 五特征（目原资活结）+ 设计任务两件套与五原则 + 幅度层次与扁平锥形 + 职权三类型 + 授权四原则' },
+    ]},
   ]},
 ];

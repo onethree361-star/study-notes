@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>组织 · 概念深挖 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='concepts/management/organization.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 概念深挖 › 管理 › 组织</div>
+
+<div class="doc-head">
+  <h1>组织</h1>
+  <p>计划管"做什么"，组织管"谁来干"。本页给你一张<strong>组织作战地图</strong>——一词两义和五特征是入口，设计任务和五原则是图纸，幅度×层次是骨架，职权与授权是血管；最后用"组建一个工作专班"，把每个工具<strong>真正各用一遍</strong>，而不是念一遍名字。</p>
+  <div class="stat">来源板块：<b><a href="../../pages/management/management.html#sec-guanli-c5">管理学 · 组织</a></b></div>
+</div>
+
+<div class="human-origin">一个人干活不用分，两个人抬石头就要喊号子——"谁抬前头、谁抬后头、谁喊号子"，就是组织。目标定了之后，把事切开、把人配上、把权放下，让正确的人在正确的位置上做正确的事。小到两人小组，大到部委厅局，只要"两个以上的人为实现共同目标协同行动"，就是在组组织。</div>
+
+<div data-edit-block id="dk-or-map">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">组织作战地图 · 先看主干，再挂工具</div>
+
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2);margin-bottom:12px">
+<span class="em-new">一句话主线</span>：组织是什么（两义＋五特征） → 怎么设计（任务两件套＋五原则） → 骨架怎么搭（幅度×层次，扁平 or 锥形） → 权怎么配（职权三类型） → 权怎么放（授权四原则）。
+</p>
+
+<figure style="margin:12px 0;background:var(--bg);border:1px solid var(--divider);border-radius:10px;padding:10px 8px">
+<svg viewBox="0 0 760 726" role="img" aria-label="组织作战地图：一词两义、五特征、设计任务与原则、幅度层次、扁平锥形、职权三类型、授权" style="width:100%;height:auto;display:block" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+<defs><marker id="ahO" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--green-1)"/></marker></defs>
+<rect x="150" y="6" width="460" height="86" rx="10" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+<text x="380" y="28" text-anchor="middle" font-size="14" font-weight="700" style="fill:var(--green-1)">组织是什么 · 一词两义</text>
+<text x="380" y="52" text-anchor="middle" font-size="12.5" style="fill:var(--t1)">静态＝实现共同目标、协同行动的有机整体（实体单位）</text>
+<text x="380" y="72" text-anchor="middle" font-size="12.5" style="fill:var(--t1)">动态＝围绕目标设结构、排职位、定职责权限（管理过程）</text>
+<line x1="380" y1="92" x2="380" y2="106" stroke-width="1.6" marker-end="url(#ahO)" style="stroke:var(--green-1)"/>
+
+<rect x="30" y="120" width="700" height="54" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="380" y="142" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">五特征：目标一致性 · 原则统一性 · 资源整合性 · 活动协作性 · 结构系统性</text>
+<text x="380" y="162" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">口诀"目原资活结"：目标一致是灵魂，分工靠协作，整体落在系统结构上</text>
+<line x1="380" y1="174" x2="380" y2="188" stroke-width="1.6" marker-end="url(#ahO)" style="stroke:var(--green-1)"/>
+
+<rect x="30" y="204" width="340" height="74" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="200" y="226" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">组织设计 · 任务两件套</text>
+<text x="200" y="246" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">结构设计：职能 · 部门 · 层级（基础性工作）</text>
+<text x="200" y="264" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">运行制度：沟通系统 · 管理规范 · 激励</text>
+<rect x="390" y="204" width="340" height="74" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="560" y="226" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">组织设计 · 五原则</text>
+<text x="560" y="246" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">目标一致 · 有效幅度 · 统一指挥</text>
+<text x="560" y="264" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">权责对等 · 分工协作</text>
+<line x1="380" y1="278" x2="380" y2="292" stroke-width="1.6" marker-end="url(#ahO)" style="stroke:var(--green-1)"/>
+
+<rect x="30" y="306" width="700" height="74" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="380" y="328" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">运行骨架 · 管理层次 × 管理幅度</text>
+<text x="380" y="348" text-anchor="middle" font-size="12" style="fill:var(--t1)">层次＝职权等级链上管理职位的级数｜幅度＝直接有效指挥监督的下属数量（宽度 / 跨度）</text>
+<text x="380" y="368" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">幅度给定 → 层次与规模成正比｜规模给定 → 层次与幅度成反比</text>
+<line x1="380" y1="380" x2="380" y2="394" stroke-width="1.6" marker-end="url(#ahO)" style="stroke:var(--green-1)"/>
+
+<rect x="30" y="410" width="340" height="60" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="200" y="430" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--green-1)">扁平型：层次少 · 幅度大</text>
+<text x="200" y="448" text-anchor="middle" font-size="11" style="fill:var(--t1)">传递快 · 效率高 · 调动积极性</text>
+<text x="200" y="463" text-anchor="middle" font-size="11" style="fill:var(--t2)">难控制指导监督，影响信息及时利用</text>
+<rect x="390" y="410" width="340" height="60" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="560" y="430" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--green-1)">锥形：层次多 · 幅度小</text>
+<text x="560" y="448" text-anchor="middle" font-size="11" style="fill:var(--t1)">管理严密 · 分工明确 · 易于协调</text>
+<text x="560" y="463" text-anchor="middle" font-size="11" style="fill:var(--t2)">职能交叉 · 推诿扯皮 · 影响积极性</text>
+<line x1="380" y1="470" x2="380" y2="484" stroke-width="1.6" marker-end="url(#ahO)" style="stroke:var(--green-1)"/>
+
+<rect x="30" y="498" width="700" height="74" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="380" y="520" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">职权三类型（职权＝发布命令、要求下级遵从执行的权利，组织结构的核心要素）</text>
+<text x="380" y="540" text-anchor="middle" font-size="12" style="fill:var(--t1)">直线＝指挥命令｜参谋＝咨询建议｜职能＝直线派生 · 限特定职能范围</text>
+<text x="380" y="560" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">职能职权多由参谋部门负责人行使——有指挥权，但不是直线长官</text>
+<line x1="380" y1="572" x2="380" y2="586" stroke-width="1.6" marker-end="url(#ahO)" style="stroke:var(--green-1)"/>
+
+<rect x="30" y="600" width="700" height="64" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="380" y="621" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">授权：给权 ＋ 给责 ＋ 监督之下 ＋ 自主行动</text>
+<text x="380" y="641" text-anchor="middle" font-size="12" style="fill:var(--t1)">原则四条：授权要明确 · 权责利对等 · 命令统一 · 视能授权</text>
+<text x="380" y="658" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">类型：刚性 / 柔性（按明确程度）｜完全 / 部分（按范围层级）</text>
+
+<rect x="30" y="680" width="700" height="46" rx="8" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+<text x="380" y="699" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--green-1)">底层心法 · 权变定结构 ＋ 授权不授责</text>
+<text x="380" y="717" text-anchor="middle" font-size="12" style="fill:var(--t1)">结构没有最好只有最合适；权力可以下放，最终责任不上移</text>
+</svg>
+</figure>
+</div>
+
+<div data-edit-block id="dk-or-l1">
+<div style="margin:20px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第一层 · 发生学【知：组织为什么诞生】</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+<span class="em-old">宏观痛点</span>：目标一个人干不完——要么<strong>体量超限</strong>（3000 份材料一个人抄不过来），要么<strong>专业超限</strong>（执法、财务、技术没人全能）——必须把活切开、把人凑起来。<br>
+<span class="em-new">宏观目的</span>：分工带来效率，也带来新问题——<strong>切开的活怎么拼回去？</strong>于是要定结构（谁归谁管）、配权责（谁说了算）、建制度（按什么规矩跑）。组织就是把"一群人"变成"一个能协同作战的系统"。
+</p>
+<div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:10px">
+  <strong style="color:var(--t1)">一句话定位</strong>：管理的其他职能都装在组织这个容器里——<strong>计划</strong>要有人执行、<strong>领导</strong>要有层级可依、<strong>控制</strong>要有岗位对着。五特征说的就是"健康的容器长什么样"。
+</div>
+</div>
+
+<div data-edit-block id="dk-or-l2">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第二层 · 结构拆解【概念两义 · 五特征 · 设计任务与原则】</div>
+
+<div class="section-label new">一、组织的概念——静态与动态两个意义</div>
+<div style="background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.9;color:var(--t2);margin-top:8px">
+  <strong style="color:var(--t1)">静态意义（名词·实体）</strong>：组织是指在一定的环境中，两个或两个以上的个人为实现共同的目标而结合起来协同行动的<strong>有机整体或人群社会实体单位</strong>。<br>
+  <strong style="color:var(--t1)">动态意义（动词·过程）</strong>：组织是指围绕一定目标，设置并建立组织结构，安排群体成员的职位，确定其职责权限及其相互关系，使其具有较高效率的<strong>群体管理行为或管理者管理过程</strong>。
+</div>
+
+<div class="section-label new">二、组织的五特征（口诀：目原资活结）</div>
+<div style="overflow-x:auto;margin:10px 0">
+<table style="width:100%;border-collapse:collapse;font-size:12.5px;line-height:1.75">
+<thead><tr>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--green-1);white-space:nowrap">特征</th>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--t1)">内容</th>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--t1)">考点雷达</th>
+</tr></thead>
+<tbody>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700;white-space:nowrap">目标一致性</td><td style="border:1px solid var(--divider);padding:6px 10px">组织目标的一致性主要体现在<strong>价值目标、层次目标、阶段目标</strong>三层都一致</td><td style="border:1px solid var(--divider);padding:6px 10px">别答成"大家目标相同"——是<strong>三层一致</strong></td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">原则统一性</td><td style="border:1px solid var(--divider);padding:6px 10px">组织原则包括目标一致、权责相符、管理层次、管理幅度、专业分工、统一指挥、人本管理等</td><td style="border:1px solid var(--divider);padding:6px 10px">组织原则是个<strong>集合</strong>，爱考多选</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">资源整合性</td><td style="border:1px solid var(--divider);padding:6px 10px">任何组织都要有必要的资源——<strong>人、财、物、信息</strong>等，经过整合才能实现组织目标</td><td style="border:1px solid var(--divider);padding:6px 10px">资源四件套：人财物＋信息</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">活动协作性</td><td style="border:1px solid var(--divider);padding:6px 10px"><strong>专业化分工</strong>是组织的基本原则；分工后的工序/职能活动在组织目标指导下按流程部署配置，实现整体目标</td><td style="border:1px solid var(--divider);padding:6px 10px">分工是手段，<strong>协作</strong>才是目的</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">结构系统性</td><td style="border:1px solid var(--divider);padding:6px 10px">组织按一定方式组合各种资源形成体系，都以特定的<strong>结构形式</strong>而存在和活动，结构具有系统性</td><td style="border:1px solid var(--divider);padding:6px 10px">"都"字表述常考判断</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="section-label new">三、组织设计的任务两件套与五原则</div>
+<div class="chain"><span class="chain-note">任务两件套：</span><span class="em-new">组织结构设计</span>（基础性工作：职能设计 · 部门设计 · 层级设计） ＋ <span class="em-new">组织运行制度设计</span>（沟通系统设计 · 管理规范设计 · <strong>激励设计</strong>）</div>
+<div class="chain"><span class="chain-note">五原则：</span>目标一致 → 有效幅度 → 统一指挥 → 权责对等 → 分工协作（口诀：<span class="em-new">目有统权分</span>）</div>
+<p style="font-size:13px;line-height:1.8;color:var(--t2)">记忆抓手：结构设计解决"<strong>架子</strong>怎么搭"，运行制度设计解决"<strong>架子</strong>怎么跑起来"——光搭架子不给制度，组织就是空壳。</p>
+</div>
+
+<div data-edit-block id="dk-or-l3">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第三层 · 运行骨架【管理层次 × 管理幅度】</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+<span class="em-new">管理层次</span>＝在职权等级链上所设置的<strong>管理职位的级数</strong>（组织分几层）；<span class="em-new">管理幅度</span>＝管理人员能够直接有效地指挥和监督的<strong>下属人员的数量</strong>，又称"管理宽度"或"管理跨度"（一个领导直接管几个人）。
+</p>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)">
+<strong>两个"给定"别混（高频设错）</strong>：<span class="em-new">幅度给定</span>时，管理层次与组织规模大小成<strong>正比</strong>（管 5 人一批，1000 人就要 200 批）；<span class="em-new">规模给定</span>时，管理层次与管理幅度成<strong>反比</strong>（1000 人定死，每批多管人就少几层）。
+</p>
+
+<figure style="margin:12px 0;background:var(--bg);border:1px solid var(--divider);border-radius:10px;padding:10px 8px">
+<svg viewBox="0 0 720 290" role="img" aria-label="扁平型与锥形组织结构对比：层次少幅度大 vs 层次多幅度小" style="width:100%;height:auto;display:block" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+<text x="185" y="20" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--green-1)">扁平型结构（层次＝1 · 幅度＝8）</text>
+<rect x="135" y="30" width="100" height="30" rx="6" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+<text x="185" y="49" text-anchor="middle" font-size="11.5" font-weight="700" style="fill:var(--green-1)">管理者</text>
+<line x1="185" y1="60" x2="47" y2="138" stroke-width="1.2" style="stroke:var(--divider)"/>
+<line x1="185" y1="60" x2="85" y2="138" stroke-width="1.2" style="stroke:var(--divider)"/>
+<line x1="185" y1="60" x2="123" y2="138" stroke-width="1.2" style="stroke:var(--divider)"/>
+<line x1="185" y1="60" x2="161" y2="138" stroke-width="1.2" style="stroke:var(--divider)"/>
+<line x1="185" y1="60" x2="199" y2="138" stroke-width="1.2" style="stroke:var(--divider)"/>
+<line x1="185" y1="60" x2="237" y2="138" stroke-width="1.2" style="stroke:var(--divider)"/>
+<line x1="185" y1="60" x2="275" y2="138" stroke-width="1.2" style="stroke:var(--divider)"/>
+<line x1="185" y1="60" x2="313" y2="138" stroke-width="1.2" style="stroke:var(--divider)"/>
+<rect x="30" y="140" width="34" height="26" rx="5" style="fill:var(--bg);stroke:var(--divider)"/><text x="47" y="157" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">员</text>
+<rect x="68" y="140" width="34" height="26" rx="5" style="fill:var(--bg);stroke:var(--divider)"/><text x="85" y="157" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">员</text>
+<rect x="106" y="140" width="34" height="26" rx="5" style="fill:var(--bg);stroke:var(--divider)"/><text x="123" y="157" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">员</text>
+<rect x="144" y="140" width="34" height="26" rx="5" style="fill:var(--bg);stroke:var(--divider)"/><text x="161" y="157" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">员</text>
+<rect x="182" y="140" width="34" height="26" rx="5" style="fill:var(--bg);stroke:var(--divider)"/><text x="199" y="157" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">员</text>
+<rect x="220" y="140" width="34" height="26" rx="5" style="fill:var(--bg);stroke:var(--divider)"/><text x="237" y="157" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">员</text>
+<rect x="258" y="140" width="34" height="26" rx="5" style="fill:var(--bg);stroke:var(--divider)"/><text x="275" y="157" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">员</text>
+<rect x="296" y="140" width="34" height="26" rx="5" style="fill:var(--bg);stroke:var(--divider)"/><text x="313" y="157" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">员</text>
+<text x="185" y="188" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">优：传递快 · 效率高 · 调动积极性</text>
+<text x="185" y="208" text-anchor="middle" font-size="11" style="fill:var(--t2)">缺：难有效控制指导监督，影响信息及时利用</text>
+
+<text x="545" y="20" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--green-1)">锥形结构（层次＝3 · 幅度＝2）</text>
+<rect x="495" y="30" width="100" height="30" rx="6" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+<text x="545" y="49" text-anchor="middle" font-size="11.5" font-weight="700" style="fill:var(--green-1)">管理者</text>
+<line x1="545" y1="60" x2="490" y2="98" stroke-width="1.2" style="stroke:var(--divider)"/>
+<line x1="545" y1="60" x2="620" y2="98" stroke-width="1.2" style="stroke:var(--divider)"/>
+<rect x="445" y="100" width="90" height="26" rx="5" style="fill:var(--bg);stroke:var(--divider)"/><text x="490" y="117" text-anchor="middle" font-size="10.5" style="fill:var(--t1)">中层 A</text>
+<rect x="575" y="100" width="90" height="26" rx="5" style="fill:var(--bg);stroke:var(--divider)"/><text x="620" y="117" text-anchor="middle" font-size="10.5" style="fill:var(--t1)">中层 B</text>
+<line x1="490" y1="126" x2="445" y2="168" stroke-width="1.2" style="stroke:var(--divider)"/>
+<line x1="490" y1="126" x2="515" y2="168" stroke-width="1.2" style="stroke:var(--divider)"/>
+<line x1="620" y1="126" x2="585" y2="168" stroke-width="1.2" style="stroke:var(--divider)"/>
+<line x1="620" y1="126" x2="655" y2="168" stroke-width="1.2" style="stroke:var(--divider)"/>
+<rect x="413" y="170" width="64" height="24" rx="5" style="fill:var(--bg);stroke:var(--divider)"/><text x="445" y="186" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">员</text>
+<rect x="483" y="170" width="64" height="24" rx="5" style="fill:var(--bg);stroke:var(--divider)"/><text x="515" y="186" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">员</text>
+<rect x="553" y="170" width="64" height="24" rx="5" style="fill:var(--bg);stroke:var(--divider)"/><text x="585" y="186" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">员</text>
+<rect x="623" y="170" width="64" height="24" rx="5" style="fill:var(--bg);stroke:var(--divider)"/><text x="655" y="186" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">员</text>
+<text x="545" y="216" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">优：管理严密 · 分工明确 · 易于协调</text>
+<text x="545" y="236" text-anchor="middle" font-size="11" style="fill:var(--t2)">缺：职能交叉 · 推诿扯皮 · 影响下属积极性</text>
+
+<line x1="30" y1="252" x2="690" y2="252" stroke-width="1" stroke-dasharray="4 3" style="stroke:var(--divider)"/>
+<text x="360" y="272" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--green-1)">规模给定时此消彼长：幅度↑ → 层次↓（扁平化）｜幅度↓ → 层次↑（锥形化）</text>
+<text x="360" y="288" text-anchor="middle" font-size="11" style="fill:var(--t2)">幅度给定时：组织规模越大 → 层次越多（成正比）</text>
+</svg>
+</figure>
+</div>
+
+<div data-edit-block id="dk-or-l4">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第四层 · 血管系统【职权三类型】</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)"><span class="em-new">职权</span>＝在组织某职位上拥有的<strong>发布命令、要求下级遵从执行</strong>的权利——是构成组织结构的<strong>核心要素</strong>。按来源与性质分三类：</p>
+<div style="overflow-x:auto;margin:10px 0">
+<table style="width:100%;border-collapse:collapse;font-size:12.5px;line-height:1.75">
+<thead><tr>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--green-1);white-space:nowrap">类型</th>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--t1)">内容</th>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--t1)">考点雷达</th>
+</tr></thead>
+<tbody>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700;white-space:nowrap">直线职权</td><td style="border:1px solid var(--divider);padding:6px 10px">组织中<strong>上级指挥下级工作</strong>的权力，表现为上下级之间的命令权力关系</td><td style="border:1px solid var(--divider);padding:6px 10px">"发号施令"的原生指挥权</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">参谋职权</td><td style="border:1px solid var(--divider);padding:6px 10px">组织成员所拥有的向管理者<strong>提供咨询或建议</strong>的权力，属于参谋性质</td><td style="border:1px solid var(--divider);padding:6px 10px">只有建议权，<strong>不能直接指挥</strong></td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">职能职权</td><td style="border:1px solid var(--divider);padding:6px 10px">某一管理人员或部门根据<strong>高层管理人员的授权</strong>而拥有的对其他部门或人员直接指挥的权力</td><td style="border:1px solid var(--divider);padding:6px 10px"><span class="em-new">由直线权力派生、限特定职能范围</span>；多由参谋部门负责人行使——最易混！</td></tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:13px;line-height:1.8;color:var(--t2)">三者关系一句话：<strong>直线</strong>是命令和指挥的权力，<strong>参谋</strong>是协助和建议的权力，<strong>职能</strong>是由直线权力派生的、限于特定职能范围内的直线权力。判题抓手：先问"能不能直接指挥别人"（参谋不能），再问"指挥范围有没有边界"（职能职权限定在特定职能内）。</p>
+</div>
+
+<div data-edit-block id="dk-or-l5">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">第五层 · 推进落地【授权：权怎么放】</div>
+<p style="font-size:13.5px;line-height:1.8;color:var(--t2)"><span class="em-new">授权的含义</span>：上级给予下级一定的<strong>权力和责任</strong>，使下属在<strong>一定的监督之下</strong>拥有相当的自主权，进而采取相应的行动。拆开看四件套：给权 → 给责 → 带着监督 → 自主行动。</p>
+<div class="chain"><span class="chain-note">优点四条：</span>高层从日常事务中<strong>解脱</strong>，专心处理重大问题 → 下属工作热情、责任心↑，效率↑ → 增长下属才干，<strong>培养管理人员</strong> → 发挥下属专长，<strong>补救授权者自身才能的不足</strong></div>
+<div class="chain"><span class="chain-note">原则四条：</span><span class="em-new">授权要明确</span> → <span class="em-new">权责利对等</span>（多了一个"利"字，别答成权责对等） → <span class="em-new">命令统一</span> → <span class="em-new">视能授权</span>（看能力，不看资历）</div>
+<div style="overflow-x:auto;margin:10px 0">
+<table style="width:100%;border-collapse:collapse;font-size:12.5px;line-height:1.75">
+<thead><tr>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--green-1);white-space:nowrap">分类尺</th>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--t1)">类型</th>
+<th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--t1)">含义</th>
+</tr></thead>
+<tbody>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700;white-space:nowrap">按明确程度</td><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">刚性授权（明确授权）</td><td style="border:1px solid var(--divider);padding:6px 10px">上级对下级的<strong>工作范围、内容、应达到的绩效目标</strong>都作出详细规定</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700"></td><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">柔性授权</td><td style="border:1px solid var(--divider);padding:6px 10px">明确<strong>核心目标或原则</strong>，但不限制具体执行细节，允许下属在一定框架内灵活调整策略、自主决策</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">按范围和层级</td><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">完全授权（充分授权）</td><td style="border:1px solid var(--divider);padding:6px 10px">管理者将<strong>某项任务的全部职权和责任</strong>授予下属</td></tr>
+<tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700"></td><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">部分授权（不充分授权）</td><td style="border:1px solid var(--divider);padding:6px 10px">管理者将任务的<strong>部分职权</strong>授予下属</td></tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:13px;line-height:1.8;color:var(--t2)">用哪把尺的场景判断：新手、高风险事项用<strong>刚性</strong>（范围步骤绩效全规定）；老骨干、探索性事项用<strong>柔性</strong>（定目标放开细节）。授权永远配监督——<strong>授权不授责</strong>，权力下去了，最终责任还在管理者身上。</p>
+</div>
+
+<div data-edit-block id="dk-or-case">
+<div style="margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">案例 · 组一回"工作专班"：全套工具真用一遍</div>
+<p style="font-size:13.5px;line-height:1.9;color:var(--t2)">
+<span class="em-new">① 定结构（结构设计三步）</span>：你被抽调牵头组建"营商环境专项整治工作专班"。先按职能切三组——线索核查组、督导整改组、综合协调组（<strong>职能设计</strong>）→ 每组定岗位定人头（<strong>部门设计</strong>）→ 专班—组—人两级（<strong>层级设计</strong>）。<br>
+<span class="em-new">② 控幅度</span>：专班负责人直管 3 个组长（幅度 3，管得过来）；组长各带 4 名组员——小型锥形，严密好协调。<br>
+<span class="em-new">③ 配职权</span>：组长对本组＝<strong>直线职权</strong>（指挥命令）；抽调来的法制骨干＝<strong>参谋职权</strong>（提咨询建议，不能直接命令各组）；从办公室借来的"材料审核权"＝<strong>职能职权</strong>（限审核范围内可直接指挥报送）。<br>
+<span class="em-new">④ 授权</span>：给组长"清单内<strong>完全授权</strong>＋清单外<strong>部分授权</strong>"；思路类事项<strong>柔性授权</strong>（定目标不限细节），程序类事项<strong>刚性授权</strong>（范围步骤绩效全规定）——授权不授责，出了问题专班负责人兜底。<br>
+<span class="em-new">⑤ 对表五原则</span>：目标一致（专班只干这一件事）· 有效幅度（负责人管 3 不超载）· 统一指挥（一人只一个上级）· 权责对等（多大赛道配多大权）· 分工协作（三组边界写进工作方案）。<br>
+<strong>工具跟进</strong>：把三层三组画成组织结构图随方案下发，权责清单附图——图上看结构，清单上见权责。
+</p>
+</div>
+
+<div class="exam-box" data-edit-block id="dk-or-exam"><strong>三句口诀（脱口而出版）：</strong><br>① <strong>一词两义</strong>：静态是实体、动态是过程；五特征＝目原资活结；<br>② <strong>幅度层次反比走</strong>：规模定了，幅度越大层次越少——扁平快而活、锥形严而稳；职权三线＝直线指挥、参谋建议、职能派生限范围；<br>③ <strong>授权</strong>＝给权给责监督下自主；四原则＝明确、权责利对等、命令统一、视能授权。<br><strong>常见设错：</strong><br>
+组织的动态意义＝"实体机构"——错，<strong>静态才是实体，动态是管理行为/过程</strong>；<br>
+组织特征里有"人员多样性"——没有，五特征是<strong>目标一致、原则统一、资源整合、活动协作、结构系统</strong>；<br>
+运行制度设计只有沟通系统和规范——漏了，还有<strong>激励设计</strong>；<br>
+幅度与层次永远成反比——漏前提，<strong>"规模给定"才成反比；"幅度给定"时层次与规模成正比</strong>；<br>
+扁平型的缺点是信息传递慢——错，扁平传递快，缺点是<strong>难以有效控制指导监督、影响信息及时利用</strong>；<br>
+职能职权＝参谋职权的一种——错，职能职权<strong>由直线权力派生、能直接指挥</strong>，只是限于特定职能范围；<br>
+授权后出了问题由下属担全责——错，<strong>授权不授责</strong>，最终责任仍在授权者；<br>
+完全授权＝把所有权力都交出去——错，只是<strong>某项任务</strong>的全部职权和责任</div>
+
+<div class="section-label inherit">相关概念</div>
+<div class="rel-list">
+  <a href="../../pages/management/management.html#sec-guanli-c5">回来源：管理学 · 组织</a>
+  <a href="planning.html">计划：先定目标，再配组织</a>
+  <a href="decision.html">决策：拍板之后靠组织去落</a>
+  <a href="../../pages/management/management.html#sec-guanli-c7">控制：权责对等靠检查兑现</a>
+  <a href="../overview.html">查看全部概念 →</a>
+</div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>
