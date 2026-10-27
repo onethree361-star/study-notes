@@ -113,13 +113,13 @@ const NAV_DATA = [
   ]},
 
   { t: '管理学', children: [
-    { t: '第一层 · 发生学', links: [
+    { t: '管理概述', links: [
       { t: '01 管理概述', u: 'pages/management/management.html#sec-guanli-c1' },
     ]},
-    { t: '第二层 · 知线：学说史谱系', links: [
+    { t: '思想谱系', links: [
       { t: '02 管理思想谱系', u: 'pages/management/management.html#sec-guanli-c2' },
     ]},
-    { t: '第三层 · 行线：职能动作库', links: [
+    { t: '五大职能', links: [
       { t: '03 决策', u: 'pages/management/management.html#sec-guanli-c3' },
       { t: '04 计划', u: 'pages/management/management.html#sec-guanli-c4' },
       { t: '05 组织', u: 'pages/management/management.html#sec-guanli-c5' },
