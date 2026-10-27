@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>控制 · 概念深挖 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='concepts/management/control.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 概念深挖 › 管理 › 控制</div>
+
+<div class="doc-head">
+  <h1>控制</h1>
+  <p><strong>为什么控制</strong>：决策定了"干哪个"、计划定了"怎么干"、组织定了"谁来干"、领导解决了"愿意干"——但执行一定跑偏，控制管的就是"<strong>跑偏了怎么发现、怎么纠</strong>"，确保组织目标的实现。<strong>怎么控制</strong>：背诵句立住"标准→检查衡量→偏差→改进"的骨架 → 类型四把尺（性质 · 进程 · 信息来源 · 手段）→ 五原理五条（控制管哪里、管多细）→ 过程三步（定标准 · 衡量 · 纠偏）→ 方法四类（专项综合 · 预算非预算 · 标杆 · 平衡计分卡）。<strong>用在哪</strong>：面试督查落实题＝控制过程三步直接搬，申论"长效机制"对策题＝定标准＋建监测＋纠偏问责一套写全。</p>
+  <div class="stat">来源板块：<b><a href="../../pages/management/management.html#sec-guanli-c7">管理学 · 控制</a></b> · 结构：知（7 块可收缩）＋ 行（面试 1 题 · 申论 1 题）</div>
+</div>
+
+<!-- ============ 知 · 理论记忆 ============ -->
+<div style="margin:24px 0 12px;padding:8px 14px;background:var(--green-soft);border-left:4px solid var(--green-1);border-radius:0 8px 8px 0;font-size:15px;font-weight:700;color:var(--green-1)">知 · 理论记忆（每天过一遍，点卡片展开）</div>
+
+<div data-edit-block id="dk-ct-map">
+<p><span class="scribble">一句话主线：按标准查 → 量出偏差 → 分析改进 → 保住目标 —— 控制的终点不是抓人，是目标落地。</span></p>
+
+<div style="margin:12px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)">控制流程总图 · 先看主干，再挂类型与方法</div>
+
+<figure style="margin:12px 0;background:var(--bg);border:1px solid var(--divider);border-radius:10px;padding:10px 8px">
+<svg viewBox="0 0 760 646" role="img" aria-label="控制流程总图：控制背诵句、过程三步（确定控制标准、衡量工作绩效、纠正偏差）与反馈回路、三类型时间轴、方法工具箱、底层心法" style="width:100%;height:auto;display:block" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+<defs><marker id="ahK1" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--green-1)"/></marker></defs>
+<rect x="150" y="6" width="460" height="82" rx="10" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+<text x="380" y="28" text-anchor="middle" font-size="14" font-weight="700" style="fill:var(--green-1)">控制是什么 · 一句背诵句</text>
+<text x="380" y="50" text-anchor="middle" font-size="12" style="fill:var(--t1)">按照既定的标准，检查和衡量管理工作是否按计划进行，</text>
+<text x="380" y="70" text-anchor="middle" font-size="12" style="fill:var(--t1)">若有偏差就分析原因、发出指令、做出改进，确保组织目标实现</text>
+<line x1="380" y1="88" x2="380" y2="104" stroke-width="1.6" marker-end="url(#ahK1)" style="stroke:var(--green-1)"/>
+
+<rect x="30" y="118" width="700" height="52" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="380" y="139" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">第1步 确定控制标准——对实际工作进行检查的衡量尺度</text>
+<text x="380" y="159" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">是实施控制的必要条件｜挂：控制关键点原理——选计划的关键点当标准</text>
+<line x1="380" y1="170" x2="380" y2="186" stroke-width="1.6" marker-end="url(#ahK1)" style="stroke:var(--green-1)"/>
+
+<rect x="30" y="196" width="700" height="52" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="380" y="217" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">第2步 衡量工作绩效——实际与标准比，找出差异</text>
+<text x="380" y="237" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">信息三来源：前馈预警（预计未来）· 现场督导（事中盯）· 反馈数据（过去指导现在）</text>
+<line x1="380" y1="248" x2="380" y2="264" stroke-width="1.6" marker-end="url(#ahK1)" style="stroke:var(--green-1)"/>
+
+<rect x="30" y="274" width="700" height="52" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="380" y="295" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">第3步 纠正偏差——分析原因，制定并实施纠正措施</text>
+<text x="380" y="315" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">挂：例外原理——把主要精力集中于重要的例外偏差｜使控制过程得以完整</text>
+
+<path d="M380,326 L380,346 L380,346" fill="none" style="stroke:var(--green-1)"/>
+<rect x="30" y="348" width="700" height="44" rx="8" style="fill:var(--bg);stroke:var(--green-1)" stroke-dasharray="5 4"/>
+<text x="380" y="367" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--green-1)">反馈回路 · 纠偏成果写进下一轮标准 —— 控制与管理其他职能相互联结，闭环滚动</text>
+<text x="380" y="385" text-anchor="middle" font-size="11" style="fill:var(--t2)">PDCA：计划 → 执行 → 检查 → 处理，一轮闭环沉淀一次</text>
+
+<rect x="30" y="412" width="700" height="70" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="380" y="431" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--t1)">类型高频三段（按进程阶段）—— 预先防 · 现场盯 · 事后算</text>
+<text x="150" y="455" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">预先控制：活动之前</text>
+<text x="392" y="455" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">过程控制：进行之中</text>
+<text x="620" y="455" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">事后控制：发生之后</text>
+<text x="380" y="474" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">另有三把尺：按性质（预防/更正）｜按信息来源（前馈/反馈）｜按手段（直接/间接）</text>
+
+<rect x="30" y="502" width="700" height="64" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+<text x="380" y="521" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--t1)">方法工具箱 · 四类挂账</text>
+<text x="380" y="543" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">专项 vs 综合 ｜ 预算 vs 非预算 ｜ 标杆管理（对标领先企业持续改进）</text>
+<text x="380" y="559" text-anchor="middle" font-size="11.5" style="fill:var(--green-1)">平衡计分卡（卡普兰·诺顿 1992）：财务 · 顾客 · 内部经营 · 学习成长，目的在平衡</text>
+
+<rect x="30" y="586" width="700" height="48" rx="8" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+<text x="380" y="606" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--green-1)">底层心法 · 控制是为了保目标，不是为了抓人</text>
+<text x="380" y="624" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">五原理定"管哪里、管多细"：反映计划 · 组织适宜 · 关键点 · 例外 · 趋势</text>
+</svg>
+</figure>
+</div>
+
+<!-- 知·01 控制是什么 -->
+<details class="card fold-card" data-edit-block id="dk-ct-l1">
+  <summary>
+    <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>控制是什么：背诵句＋四大作用</h3></div>
+    <div class="badges"><span class="badge new">标准 · 偏差 · 改进</span><span class="badge old">确保目标实现</span></div>
+  </summary>
+  <p><span class="em-new">总括</span>：背诵句（一个字别改）：<strong>控制是指按照既定的标准，检查和衡量管理工作是否按计划进行，若有偏差就要分析原因，发出指令，并做出改进，以确保组织目标的实现的管理活动过程。</strong>拆三件套记：<span class="em-new">拿什么查</span>（既定标准）→ <span class="em-new">查出什么</span>（偏差）→ <span class="em-new">查完干嘛</span>（分析原因 · 发指令 · 做改进——落到保住目标）。</p>
+  <p><span class="em-new">四大作用</span>（教材原文四条）：<br><span class="em-new">① 保目标</span>——控制是<strong>保证目标实现必不可少</strong>的活动；<br><span class="em-new">② 联职能</span>——通过<strong>纠正偏差</strong>的行为与其他管理职能紧密地结合在一起；<br><span class="em-new">③ 察环境</span>——帮助管理人员及时了解<strong>组织环境的变化</strong>并迅速反应，确保组织安全；<br><span class="em-new">④ 改计划</span>——为进一步<strong>修改完善计划</strong>提供依据。</p>
+  <div class="chain"><span class="chain-note">与其他职能的关系：</span>计划给出<span class="em-new">标准</span> → 控制拿标准<span class="em-new">查执行</span> → 查出的问题回头<span class="em-new">改计划</span>——控制是上一轮的收口，也是下一轮的起点</div>
+</details>
+
+<!-- 知·02 类型四把尺 -->
+<details class="card fold-card" data-edit-block id="dk-ct-l2">
+  <summary>
+    <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>控制类型：四把尺（性质 · 进程 · 信息 · 手段）</h3></div>
+    <div class="badges"><span class="badge new">四把尺八对子</span></div>
+  </summary>
+  <p><span class="em-new">第一把尺 · 按控制活动的性质</span>：<br><span class="em-new">预防性控制</span>——为了<strong>防止资金、时间或其他资源的损耗</strong>而采取的一种预防保证措施（先堵漏）；<br><span class="em-new">更正性控制</span>——为了<strong>发现工作中存在的问题以便进行更正</strong>而进行的控制（出了事再改）。</p>
+  <p><span class="em-new">第三把尺 · 按控制信息的来源</span>：<br><span class="em-new">反馈控制</span>——用<strong>过去</strong>的情况指导<strong>现在和将来</strong>的工作，从而实现对管理过程的控制；<br><span class="em-new">前馈控制</span>——通过<strong>观察情况、收集整理信息、掌握规律</strong>，正确<strong>预计未来可能出现的问题</strong>，提前采取措施、避免问题发生的控制。</p>
+  <p><span class="em-new">第四把尺 · 按控制的手段</span>：<br><span class="em-new">直接控制</span>——控制者与被控制对象<strong>直接接触</strong>进行控制；常见于<strong>培养主管人员</strong>，熟练应用管理的概念、技术和原理，以系统的观点改善管理工作；<br><span class="em-new">间接控制</span>——控制者与被控制对象<strong>不直接接触，通过中间媒介</strong>进行控制；多见于上级管理者对下级人员工作过程的控制。</p>
+  <div class="chain"><span class="chain-note">直接控制原则：</span>主管人员及下属的<strong>工作质量越高</strong>，对所负担的职务越能胜任，越能<strong>觉察偏差、及时预防</strong>，于是<strong>越不需要间接控制</strong></div>
+  <p><span class="em-sed">第二把尺 · 按控制活动进程的阶段</span>是高频考点，单独立卡，见下一块 ▾</p>
+</details>
+
+<!-- 知·03 按进程三段 -->
+<details class="card fold-card" data-edit-block id="dk-ct-l3">
+  <summary>
+    <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>按进程三段：预先防 · 现场盯 · 事后算（高频）</h3></div>
+    <div class="badges"><span class="badge new">预先/过程/事后</span><span class="badge old">事后最早最久</span></div>
+  </summary>
+  <div style="overflow-x:auto;margin:10px 0">
+  <table style="width:100%;border-collapse:collapse;font-size:12.5px;line-height:1.75">
+  <thead><tr>
+  <th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--green-1);white-space:nowrap">类型</th>
+  <th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--t1)">含义（教材原文）</th>
+  <th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--t1)">优点</th>
+  <th style="border:1px solid var(--divider);padding:6px 10px;text-align:left;background:var(--green-soft);color:var(--t1)">缺点</th>
+  </tr></thead>
+  <tbody>
+  <tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700;white-space:nowrap">预先控制</td><td style="border:1px solid var(--divider);padding:6px 10px">在经济活动<strong>进行之前</strong>控制，防止组织使用<strong>不合要求的资源</strong>，保证投入在<strong>数量和质量</strong>上达到预定目标</td><td style="border:1px solid var(--divider);padding:6px 10px"><strong>防患于未然</strong>；<strong>不针对个人，易于接受</strong></td><td style="border:1px solid var(--divider);padding:6px 10px">要求<strong>及时和准确的信息</strong>；管理人员须充分了解前馈控制因素与计划工作的影响关系——往往难以做到</td></tr>
+  <tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">过程控制（现场控制）</td><td style="border:1px solid var(--divider);padding:6px 10px">对<strong>正在进行的活动给予指导与监督</strong>，保证活动按规定的政策程序和方法进行；作用两个：指导下属以正确方法工作＋保证计划执行和目标实现</td><td style="border:1px solid var(--divider);padding:6px 10px"><strong>指导功能</strong>，有助于提高工作人员的工作和<strong>自我控制能力</strong></td><td style="border:1px solid var(--divider);padding:6px 10px">受管理者<strong>时间、精力、业务水平限制</strong>；<strong>应用范围较窄</strong>；<strong>容易形成对立</strong></td></tr>
+  <tr><td style="border:1px solid var(--divider);padding:6px 10px;font-weight:700">事后控制（成果控制）</td><td style="border:1px solid var(--divider);padding:6px 10px">在问题偏差<strong>发生之后</strong>才采取控制程序、改正问题——<strong>最早、历史最久</strong>的控制类型；对已形成的经营成果<strong>无济于事</strong>，唯一作用是总结经验教训，为未来计划的制定和活动安排<strong>提供借鉴</strong></td><td style="border:1px solid var(--divider);padding:6px 10px"><strong>避免下周期发生类似问题</strong>，消除偏差对后续活动的影响</td><td style="border:1px solid var(--divider);padding:6px 10px"><strong>偏差、损失已经产生</strong>；<strong>有时滞问题</strong></td></tr>
+  </tbody>
+  </table>
+  </div>
+  <figure style="margin:10px 0;background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:8px">
+  <svg viewBox="0 0 760 240" role="img" aria-label="控制三段时间轴：预先控制活动之前防患于未然、过程控制进行之中指导监督、事后控制发生之后总结借鉴" style="width:100%;height:auto;display:block" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><marker id="ahK2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--t2)"/></marker></defs>
+  <text x="8" y="12" font-size="11.5" style="fill:var(--t2)">按活动进程的三段——考试眼：防患于未然＝预先｜受管理者精力限制＝现场｜最早历史最久＝事后</text>
+  <rect x="8" y="24" width="236" height="150" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+  <text x="126" y="48" text-anchor="middle" font-size="13.5" font-weight="700" style="fill:var(--green-1)">预先控制</text>
+  <text x="126" y="70" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">活动之前 · 审资源</text>
+  <text x="126" y="94" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">优点：防患于未然</text>
+  <text x="126" y="114" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">不针对个人 · 易接受</text>
+  <text x="126" y="140" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">缺：要求及时准确信息</text>
+  <text x="126" y="158" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">前馈因素难摸清</text>
+  <rect x="262" y="24" width="236" height="150" rx="8" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+  <text x="380" y="48" text-anchor="middle" font-size="13.5" font-weight="700" style="fill:var(--green-1)">过程控制（现场控制）</text>
+  <text x="380" y="70" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">进行之中 · 指导监督</text>
+  <text x="380" y="94" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">优点：指导功能</text>
+  <text x="380" y="114" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">提高自我控制能力</text>
+  <text x="380" y="140" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">缺：受时间精力业务限制</text>
+  <text x="380" y="158" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">范围窄 · 易形成对立</text>
+  <rect x="516" y="24" width="236" height="150" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+  <text x="634" y="48" text-anchor="middle" font-size="13.5" font-weight="700" style="fill:var(--t1)">事后控制（成果控制）</text>
+  <text x="634" y="70" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">发生之后 · 算成果</text>
+  <text x="634" y="94" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">最早 · 历史最久</text>
+  <text x="634" y="114" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">总结经验教训供借鉴</text>
+  <text x="634" y="140" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">缺：损失已产生</text>
+  <text x="634" y="158" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">有时滞问题</text>
+  <line x1="20" y1="204" x2="740" y2="204" stroke-width="1.4" marker-end="url(#ahK2)" style="stroke:var(--t2)"/>
+  <text x="20" y="228" font-size="11.5" style="fill:var(--t2)">活动前</text>
+  <text x="368" y="228" text-anchor="middle" font-size="11.5" style="fill:var(--t2)">活动中</text>
+  <text x="740" y="228" text-anchor="end" font-size="11.5" style="fill:var(--t2)">活动后</text>
+  </svg>
+  </figure>
+</details>
+
+<!-- 知·04 五原理+有效控制 -->
+<details class="card fold-card" data-edit-block id="dk-ct-l4">
+  <summary>
+    <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>控制五原理＋有效控制三原则</h3></div>
+    <div class="badges"><span class="badge new">反组关例趋</span><span class="badge new">适时适度客观</span></div>
+  </summary>
+  <p><span class="em-new">控制五原理</span>（每条一个"越……越……"句式，教材原文）：<br><span class="em-new">① 反映计划要求原理</span>——控制系统的设计<strong>愈能反映计划的内容、步骤和特点</strong>，控制工作就越有效；<br><span class="em-new">② 组织适宜性原理</span>——<strong>组织机构越是明确、全面、完整</strong>，就越有利于纠正偏离计划的误差；<br><span class="em-new">③ 控制关键点原理</span>——管理者<strong>越是尽可能选择计划的关键点作为控制标准</strong>，控制工作就越有效；<br><span class="em-new">④ 例外原理</span>——领导者<strong>越把主要精力集中于重要的例外偏差</strong>，控制工作的效能就越高；<br><span class="em-new">⑤ 控制趋势原理</span>——对控制全局的领导者，不仅要善于<strong>控制现状</strong>，更要控制<strong>现状所预示的发展趋势</strong>。</p>
+  <p><span class="em-new">有效控制三原则</span>（对"怎么控才有效"的收口）：<br><span class="em-new">适时控制</span>（<strong>及时纠偏</strong>）｜<span class="em-new">适度控制</span>（<strong>恰到好处</strong>）｜<span class="em-new">客观控制</span>（<strong>符合实际</strong>）。</p>
+  <div class="hand-box"><strong>判词</strong>：五原理是"<strong>往哪使劲</strong>"——标准照计划定、机构配完整、抓关键点、盯例外、看趋势；三原则是"<strong>使劲的分寸</strong>"——别迟到、别过火、别虚构。</div>
+</details>
+
+<!-- 知·05 过程三步 -->
+<details class="card fold-card" data-edit-block id="dk-ct-l5">
+  <summary>
+    <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>控制过程三步：定标准 → 衡量 → 纠偏</h3></div>
+    <div class="badges"><span class="badge new">标 · 量 · 纠</span></div>
+  </summary>
+  <div class="chain"><span class="chain-note">三步口诀：</span><span class="em-new">定</span>标准 → <span class="em-new">量</span>绩效 → <span class="em-new">纠</span>偏差——纠偏成果喂回下一轮标准，闭环滚动</div>
+  <p><span class="em-new">① 确定控制标准</span>：控制标准是控制过程中对实际工作进行检查的<strong>衡量尺度</strong>，是<strong>实施控制的必要条件</strong>——没标准，后面两步全空转。</p>
+  <p><span class="em-new">② 衡量工作绩效</span>：将<strong>实际工作情况与预先确定的控制标准进行比较</strong>，找出之间的差异，以便找出组织目标和计划在实施中的问题，对实际工作作出<strong>正确的评估</strong>。</p>
+  <p><span class="em-new">③ 纠正偏差</span>：利用衡量工作成效的评估，<strong>分析偏差产生的原因</strong>，制定并实施纠正措施。纠正偏差使<strong>控制过程得以完整</strong>，并将<strong>控制与管理其他职能相互联结</strong>。</p>
+  <div class="hand-box"><strong>判词</strong>：三步各有灵魂——第一步的灵魂是<strong>尺子</strong>（必要条件），第二步的灵魂是<strong>比</strong>（找差异），第三步的灵魂是<strong>联结</strong>（把控制与其他职能焊在一起）。</div>
+</details>
+
+<!-- 知·06 控制方法 -->
+<details class="card fold-card" data-edit-block id="dk-ct-l6">
+  <summary>
+    <div class="card-h"><span class="fold-arrow"></span><span class="idx">06</span><h3>控制方法四类：专项综合 · 预算非预算 · 标杆</h3></div>
+    <div class="badges"><span class="badge new">专项/综合</span><span class="badge new">预算/非预算</span><span class="badge new">标杆管理</span></div>
+  </summary>
+  <p><span class="em-new">第一组 · 专项控制和综合控制</span>：<br><span class="em-new">专项控制</span>——针对受控系统的<strong>某个要素或领域</strong>进行单项控制；<br><span class="em-new">综合控制</span>——针对<strong>整个受控系统</strong>进行全面控制，<strong>将前馈和反馈的优点结合起来</strong>的控制。</p>
+  <p><span class="em-new">第二组 · 预算控制与非预算控制</span>：<br><span class="em-new">预算控制</span>——根据<strong>预算规定的收入与支出标准</strong>来检查各部门的生产经营活动，保证活动或部门在充分达成既定目标的过程中对经营资源的利用，从而<strong>费用支出受到严格有效的约束</strong>；<br><span class="em-new">非预算控制</span>——<strong>不以财务指标数字为中心</strong>的控制方法。</p>
+  <p><span class="em-new">标杆管理</span>：以在某一指标或某一方面实践上<strong>竞争力最强的企业或行业领先企业（或组织内某部门）作为基准</strong>，将本企业的产品、服务、管理措施或相关实践的实际状况与这些基准进行<strong>定量化的评价、比较</strong>，在此基础上制定、实施改进的策略和方法，并<strong>持续不断反复进行</strong>的一种管理方法。</p>
+  <div class="chain"><span class="chain-note">标杆管理三关键词：</span><span class="em-new">找基准</span>（最强者）→ <span class="em-new">定量比</span>（量化评价比较）→ <span class="em-new">持续改</span>（反复进行，不是一次性）</div>
+</details>
+
+<!-- 知·07 平衡计分卡 -->
+<details class="card fold-card" data-edit-block id="dk-ct-l7">
+  <summary>
+    <div class="card-h"><span class="fold-arrow"></span><span class="idx">07</span><h3>平衡计分卡：四维度 · 四优点 · 三缺点</h3></div>
+    <div class="badges"><span class="badge new">卡普兰·诺顿 1992</span><span class="badge new">财顾内学</span></div>
+  </summary>
+  <p><span class="em-new">含义</span>：平衡计分卡是哈佛商学院<strong>罗伯特·卡普兰和戴维·诺顿于 1992 年发明</strong>的一种<strong>绩效管理和绩效考核的工具</strong>。由<strong>财务（股东利益）· 顾客（客户满意度）· 内部经营过程（内部流程效率）· 学习和成长（员工）</strong>四个方面构成的衡量企业、部门和人员的卡片，它的目的在于<strong>平衡</strong>——兼顾<strong>战略与战术、长期和短期目标、财务和非财务衡量方法、滞后和先行指标</strong>。</p>
+  <p><span class="em-new">四维度</span>：<br><span class="em-new">① 财务方面</span>：传统财务指标，如<strong>现金流、投资回报率</strong>等；<br><span class="em-new">② 顾客方面</span>：<strong>市场份额、客户回头率、新客户获得率、客户满意度</strong>等；<br><span class="em-new">③ 内部经营过程</span>：<strong>成品率、次品率、返工率、开发新产品所用的时间</strong>等；<br><span class="em-new">④ 学习和成长方面</span>：人才、信息系统和组织程序等，<strong>培训支出、培训周期、雇员满意度</strong>等。</p>
+  <figure style="margin:10px 0;background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:8px">
+  <svg viewBox="0 0 760 356" role="img" aria-label="平衡计分卡四维度：财务、顾客、内部经营过程、学习和成长，中心是战略，目的在于平衡" style="width:100%;height:auto;display:block" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><marker id="ahK3" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--t2)"/></marker></defs>
+  <text x="8" y="12" font-size="11.5" style="fill:var(--t2)">平衡计分卡（卡普兰·诺顿 1992）——战略居中，四维度环绕，目的在于平衡</text>
+  <rect x="40" y="28" width="300" height="118" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+  <text x="190" y="54" text-anchor="middle" font-size="13.5" font-weight="700" style="fill:var(--t1)">① 财务（股东利益）</text>
+  <text x="190" y="80" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">现金流 · 投资回报率</text>
+  <text x="190" y="102" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">传统财务指标 · 滞后视角</text>
+  <text x="190" y="126" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">考眼：说"只有财务维度"必错</text>
+  <rect x="420" y="28" width="300" height="118" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+  <text x="570" y="54" text-anchor="middle" font-size="13.5" font-weight="700" style="fill:var(--t1)">② 顾客（客户满意度）</text>
+  <text x="570" y="80" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">市场份额 · 回头率</text>
+  <text x="570" y="100" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">新客户获得率 · 满意度</text>
+  <text x="570" y="126" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">对外视角</text>
+  <rect x="40" y="222" width="300" height="118" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+  <text x="190" y="248" text-anchor="middle" font-size="13.5" font-weight="700" style="fill:var(--t1)">③ 内部经营过程（流程效率）</text>
+  <text x="190" y="274" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">成品率 · 次品率 · 返工率</text>
+  <text x="190" y="294" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">开发新产品所用时间</text>
+  <text x="190" y="320" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">对内视角</text>
+  <rect x="420" y="222" width="300" height="118" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+  <text x="570" y="248" text-anchor="middle" font-size="13.5" font-weight="700" style="fill:var(--t1)">④ 学习和成长（员工）</text>
+  <text x="570" y="274" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">培训支出 · 培训周期</text>
+  <text x="570" y="294" text-anchor="middle" font-size="11.5" style="fill:var(--t1)">雇员满意度 · 信息系统</text>
+  <text x="570" y="320" text-anchor="middle" font-size="10.5" style="fill:var(--t2)">未来视角 · 先行指标</text>
+  <ellipse cx="380" cy="184" rx="86" ry="30" style="fill:var(--green-soft);stroke:var(--green-1)"/>
+  <text x="380" y="180" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--green-1)">战 略</text>
+  <text x="380" y="198" text-anchor="middle" font-size="10" style="fill:var(--green-1)">置于核心地位</text>
+  <line x1="340" y1="146" x2="230" y2="98" stroke-width="1.2" stroke-dasharray="4 3" style="stroke:var(--t2)"/>
+  <line x1="420" y1="146" x2="530" y2="98" stroke-width="1.2" stroke-dasharray="4 3" style="stroke:var(--t2)"/>
+  <line x1="340" y1="222" x2="230" y2="272" stroke-width="1.2" stroke-dasharray="4 3" style="stroke:var(--t2)"/>
+  <line x1="420" y1="222" x2="530" y2="272" stroke-width="1.2" stroke-dasharray="4 3" style="stroke:var(--t2)"/>
+  <text x="380" y="356" text-anchor="middle" font-size="11.5" font-weight="700" style="fill:var(--t1)">目的在于平衡：战略与战术 · 长期与短期 · 财务与非财务 · 滞后与先行</text>
+  </svg>
+  </figure>
+  <p><span class="em-new">四优点</span>：<br><span class="em-new">①</span> 将企业的<strong>战略置于核心地位</strong>；<br><span class="em-new">②</span> 使战略在企业上下<strong>进行交流和学习</strong>，并与<strong>各部门和个人的目标联系起来</strong>；<br><span class="em-new">③</span> 使战略目标在<strong>各个经营层面达成一致</strong>；<br><span class="em-new">④</span> 有助于<strong>短期成果和长远发展的协同和统一</strong>。</p>
+  <p><span class="em-new">三缺点</span>：<br><span class="em-old">①</span> <strong>专业技术要求高，工作量比较大，操作难度也较大</strong>，需要持续地沟通和反馈，实施比较复杂，<strong>实施成本高</strong>；<br><span class="em-old">②</span> <strong>各指标权重</strong>在不同层级及各层级不同指标之间的<strong>分配比较困难</strong>，且部分<strong>非财务指标的量化工作难以落实</strong>；<br><span class="em-old">③</span> <strong>系统性强，涉及面广</strong>，需要专业人员的指导、企业全员的参与和长期持续地修正完善，对<strong>信息系统、管理能力的要求较高</strong>。</p>
+  <div class="hand-box"><strong>判词</strong>：优点记"战略"——四条都围着战略转（置核心、传下去、达一致、平衡长短）；缺点记"贵"——<span class="scribble">成本高 · 权重难 · 全员长期投入</span>，一句话：好是好，太贵太复杂。</div>
+</details>
+
+<div class="exam-box" data-edit-block id="dk-ct-exam"><strong>三句口诀（脱口而出版）：</strong><br>① <strong>背诵句</strong>＝按既定标准查 → 量出偏差 → 分析原因、发指令、改进 → 保住目标；四作用＝保目标 · 联职能 · 察环境 · 改计划；<br>② <strong>三类型进程</strong>＝预先防（防患于未然·不针对个人）· 现场盯（指导监督·提自我控制）· 事后算（最早历史最久，总结供借鉴）；<br>③ <strong>四把尺</strong>＝性质（预防/更正）· 进程（预/现/后）· 信息（前馈预计未来/反馈过去指导现在）· 手段（直接/间接）；<br>④ <strong>五原理</strong>＝反映计划 · 组织适宜 · 关键点 · 例外 · 趋势；有效控制＝适时 · 适度 · 客观；<br>⑤ <strong>过程三步</strong>＝定标准（必要条件）→ 量绩效（找差异）→ 纠偏差（联结其他职能）；<br>⑥ <strong>方法</strong>＝专项/综合 · 预算/非预算 · 标杆管理（找基准·定量比·持续改）· 平衡计分卡（卡普兰·诺顿 1992，四维度 财·顾·内·学，目的在平衡）。<br><strong>常见设错：</strong><br>
+事后控制是最先进的控制类型——错，事后控制<strong>最早、历史最久</strong>；<br>
+现场控制防患于未然——错，<strong>防患于未然是预先控制</strong>，现场控制是事中指导监督；<br>
+前馈控制用过去指导现在——错，那是<strong>反馈控制</strong>，前馈是<strong>预计未来、提前采取措施</strong>；<br>
+直接控制通过中间媒介进行——错，通过媒介是<strong>间接控制</strong>，直接控制是直接接触；<br>
+平衡计分卡只考核财务指标——错，四维度＝<strong>财务 · 顾客 · 内部经营 · 学习成长</strong>，目的在平衡；<br>
+平衡计分卡优点是简单省钱——错，它<strong>专业技术要求高、实施成本高、权重难分配、需全员长期投入</strong>；<br>
+控制越严格越好——错，要<strong>适度控制、恰到好处</strong>，还要客观（符合实际）；<br>
+例外原理＝事事都管——错，例外原理是把主要精力集中于<strong>重要的例外偏差</strong>；<br>
+标杆管理比一次就完——错，要<strong>持续不断反复进行</strong></div>
+
+<!-- ============ 行 · 实战演练 ============ -->
+<div style="margin:28px 0 12px;padding:8px 14px;background:var(--green-soft);border-left:4px solid var(--green-1);border-radius:0 8px 8px 0;font-size:15px;font-weight:700;color:var(--green-1)">行 · 实战演练（用真题把「知」各用一遍）</div>
+
+<div data-edit-block id="dk-ct-l8">
+<div style="background:var(--bg);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin:12px 0">
+  <div class="badges" style="margin-bottom:8px"><span class="badge new">面试 · 计划组织（督查落实类）</span><span class="badge old">用：控制过程三步 + 三类型</span></div>
+  <p><strong>题目</strong>：你单位推行"一次办好"政务服务改革已三个月，领导让你负责跟踪落实情况，确保政策不走样、不打折扣。你怎么开展？</p>
+  <div class="hand-box"><strong>思考框架</strong>：督查落实题就是现场走一遍<strong>控制过程三步</strong>——先把改革目标变成<strong>可验收的标准</strong>（控制是实施控制的必要条件），再分前中后三段<strong>衡量绩效</strong>，最后<strong>纠偏</strong>并喂回制度。口诀：<span class="scribble">先立尺、再量账、快纠偏</span>。</div>
+  <p><strong>具体步骤</strong>：</p>
+  <p><span class="em-new">① 定标准（把改革目标翻译成尺子）</span>：与审批科室把"一次办好"拆成验收指标——办事时限压缩率、群众跑动次数、申报材料数、现场办结率、群众满意率，报领导审定后作为统一检查尺度——<strong>控制关键点原理：选关键点当标准，不撒网</strong>。<br>
+  <span class="em-new">② 量绩效（前中后三段取信息）</span>：<strong>前馈</strong>——事前梳理高风险事项清单（材料清单未公开、系统未联通的窗口提前预警）；<strong>现场</strong>——不定期蹲点督导、体验式暗访，当场纠正操作不规范；<strong>反馈</strong>——按月调平台办件数据、回访办事群众，用"过去的数据"核"现在的落实"。<br>
+  <span class="em-new">③ 纠偏差（分析原因再动手）</span>：达标窗口通报表扬、经验做成流程模板；不达标的先<strong>分析真因</strong>——是能力不足就培训，是流程卡壳就优化再造，是态度问题才问责约谈；整改台账限期销号——<strong>纠偏使控制过程完整，并与其他职能联结</strong>。<br>
+  <span class="em-new">④ 闭环沉淀（喂回下一轮标准）</span>：把本轮发现的共性堵点写进制度（材料清单动态更新、数据共享规程），月度向领导报告趋势变化——<strong>不仅控现状，更控趋势</strong>，防止改革"一阵风"后回潮。</p>
+</div>
+</div>
+
+<div data-edit-block id="dk-ct-l9">
+<div style="background:var(--bg);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin:12px 0">
+  <div class="badges" style="margin-bottom:8px"><span class="badge new">申论 · 对策题</span><span class="badge old">用：过程三步 + 方法四类</span></div>
+  <p><strong>题目</strong>：给定资料反映，某县农村饮水安全工程"重建设、轻管护"：部分水厂建成后闲置，水质抽检不达标，管护经费无固定来源，群众投诉得不到及时处理。假如你是县水利局工作人员，请就"建立农村饮水工程长效管护机制"提出对策建议。（30 分）</p>
+  <div class="hand-box"><strong>思考框架</strong>："长效机制"对策题＝<strong>定标准 → 建监测 → 立纠偏 → 配方法</strong>：把控制三步写成机制，再把预算、标杆、计分卡当工具挂上去。结构：<span class="scribble">一尺、二量、三纠、四工具</span>。</div>
+  <p><strong>具体步骤（直接可写进答卷）</strong>：</p>
+  <p><span class="em-new">① 定管护标准（立尺）</span>：出台管护办法，明确<strong>水质达标率、设备完好率、故障响应时限、水费收缴率</strong>等硬指标，逐厂建档、责任到人——<strong>标准是实施控制的必要条件</strong>，"轻管护"首先是"没有尺"。<br>
+  <span class="em-new">② 建监测衡量体系（量账）</span>：水质<strong>定期抽检＋结果公示</strong>（现场检查与反馈数据结合）；运行台账按月上报；开通投诉热线并限时办结回访——用<strong>前馈</strong>预警（汛期、枯水期提前排查）＋<strong>现场</strong>督导＋<strong>反馈</strong>数据三路取信息。<br>
+  <span class="em-new">③ 立纠偏机制（动刀）</span>：抽检不达标的限期整改、挂牌督办，连续不达标启动约谈问责；闲置水厂分析原因——确无需求的调整合并，管理不善的更换运营主体；整改情况纳入台账销号管理。<br>
+  <span class="em-new">④ 配工具保长效</span>：<strong>预算控制</strong>——县级财政设立管护专项经费，按"以水养水"原则核定水费标准，费用支出受严格约束；<strong>标杆管理</strong>——组织乡镇赴管护示范县对标学习，定量化比较找差距、持续改进；<strong>考核闭环</strong>——把管护成效纳入乡镇考核，既看财务指标（经费到位、水费收缴），也看群众满意度、队伍培训等维度，<strong>财务与非财务、长期与短期兼顾</strong>，防止"重建轻管"年年查、年年犯。</p>
+</div>
+</div>
+
+<div class="section-label inherit">相关概念</div>
+<div class="rel-list">
+  <a href="../../pages/management/management.html#sec-guanli-c7">回来源：管理学 · 控制</a>
+  <a href="planning.html">计划：控制拿计划当尺子（标准从计划来）</a>
+  <a href="decision.html">决策：控制查的是决策与计划的执行</a>
+  <a href="../overview.html">查看全部概念 →</a>
+</div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

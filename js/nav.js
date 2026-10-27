@@ -179,6 +179,7 @@ const NAV_DATA = [
       { t: '计划工作程序与方法', u: 'concepts/management/planning.html' },
       { t: '组织', u: 'concepts/management/organization.html' },
       { t: '领导', u: 'concepts/management/leadership.html' },
+      { t: '控制', u: 'concepts/management/control.html' },
     ]},
   ]},
 
