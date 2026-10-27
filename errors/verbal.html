@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>言语错题 · 错题本 · 公考备考笔记</title>
+<link rel="stylesheet" href="../css/style.css">
+<script>window.SITE_ROOT='../';window.PAGE_PATH='errors/verbal.html';</script>
+<style>
+/* ===== 言语错题卡（三层渐进 · details/summary；下列 class 与 data-* 为跨 AI 契约，不可改名） ===== */
+.err-card>summary{cursor:pointer;list-style:none;user-select:none}
+.err-card>summary::-webkit-details-marker{display:none}
+.sumline{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.edate{font-family:ui-monospace,SFMono-Regular,"Cascadia Mono",Consolas,Menlo,monospace;font-size:12px;color:var(--t3);letter-spacing:.4px}
+.esec{font-weight:700;font-size:13.5px;color:var(--t1)}
+.chip{display:inline-block;border-radius:999px;padding:0 10px;line-height:19px;font-size:11.5px;font-weight:500;background:var(--bg);border:1px solid var(--divider);color:var(--t2);white-space:nowrap}
+.chip-brand{background:var(--green-soft);border-color:rgba(24,121,78,.35);color:var(--green-1)}
+.sample-tag{font-size:11px;line-height:19px;color:var(--t3);border:1px dashed var(--divider);border-radius:6px;padding:0 7px;white-space:nowrap}
+.mastery{margin-left:auto;display:inline-flex;align-items:center;gap:2px;font-size:12px;color:var(--t3);white-space:nowrap}
+.mastery b{color:var(--green-1);font-weight:400}
+.mastery i{font-style:normal}
+.ecause{margin-top:9px;font-size:13.5px;font-weight:600;color:var(--t1);line-height:1.7}
+.vs{margin-top:5px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;font-size:13px;line-height:1.7}
+.vs .mine{color:var(--red-1)}
+.vs .arrow{color:var(--t3)}
+.vs .ok{color:var(--green-1);font-weight:700}
+.vs .vwhy{color:var(--t3);font-size:12.5px}
+.l3{margin-top:10px;padding-top:10px;border-top:1px dashed var(--divider)}
+.wtab{width:100%;border-collapse:collapse;font-size:12.5px;margin:2px 0 10px}
+.wtab th{text-align:left;font-size:11.5px;font-weight:600;color:var(--t3);padding:2px 8px 4px;border-bottom:1px solid var(--divider);white-space:nowrap}
+.wtab td{padding:4px 8px;border-bottom:1px solid var(--divider);color:var(--t2)}
+.wtab tr:last-child td{border-bottom:none}
+.wtab td:first-child{font-weight:700;color:var(--t1);white-space:nowrap}
+.wtab td.ok{color:var(--green-1);font-weight:600;white-space:nowrap}
+.wtab td.bad{color:var(--red-1);white-space:nowrap}
+.next{font-size:13px;color:var(--t2);margin-bottom:4px}
+.next b{color:var(--green-1)}
+.backlink{font-size:12.5px;color:var(--t3)}
+.tag-none{font-size:12.5px;color:var(--t3);padding:4px 2px}
+.err-empty{border:1px dashed var(--divider);border-radius:10px;padding:16px;text-align:center;color:var(--t3);font-size:13px;line-height:1.8}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../notes.html">首页</a> › <a href="overview.html">错题本</a> › 言语错题</div>
+
+<div class="doc-head">
+  <h1>言语错题本</h1>
+  <p>三档判定：命中 → 按框架归因｜近似 → ⚠ 挂最近条目 + 补差异点，不硬套｜框架外 → 🆕 新考法入暂存区。提交口令：【言语错题】板块：xx｜题干：…｜我的答案：…｜正确答案：…</p>
+  <div class="stat">三层渐进卡（L1 卡头 · L2 错因常显 · L3 折叠）· 顶部按标签筛选 · 新词随错题入词语库</div>
+</div>
+
+<div class="hub-filters" id="tagFilters"></div>
+
+<div class="sec-block" id="sec-pianduan" data-sec="pianduan">
+  <div class="sec-h"><h2>片段阅读</h2><span class="years">三步走断点 / 文段类型误判 / ❶-❾ 兜底</span></div>
+
+  <div class="err-empty">暂无错题，发【言语错题】即可入库</div>
+</div>
+
+<div class="sec-block" id="sec-yuju" data-sec="yuju">
+  <div class="sec-h"><h2>语句表达</h2><span class="years">排序三步 / 位置三情况 / 决策树走错</span></div>
+
+  <div class="err-empty">暂无错题，发【言语错题】即可入库</div>
+</div>
+
+<div class="sec-block" id="sec-tiankong" data-sec="tiankong">
+  <div class="sec-h"><h2>逻辑填空</h2><span class="years">语境四招 / 辨析 8 角度 / 宠词</span></div>
+
+<details class="err-card" id="err-20261027-01" data-tags="语境漏呼应-句内 词义侧重" data-sec="tiankong" data-mastery="1">
+  <summary>
+    <span class="sumline"><span class="edate">10-27</span><span class="esec">逻辑填空 · 示例</span><span class="sample-tag">示例 · 格式模板，看完可删</span><span class="chip chip-brand">语境漏呼应 · 句内</span><span class="chip">词义侧重</span><span class="mastery">掌握 <b class="on">●</b><i>○</i><i>○</i></span></span>
+    <p class="ecause">只回横线前找线索，漏了横线后的解释句（句内呼应）</p>
+    <p class="vs"><span class="mine">我选 <s>凋敝</s></span><span class="arrow">→</span><span class="ok">正确 式微</span><span class="vwhy">"文化式微"泛指衰落；"凋敝"多指经济/家道</span></p>
+  </summary>
+  <div class="l3">
+    <table class="wtab">
+      <thead><tr><th>词语</th><th>直译</th><th>侧重</th><th>判定</th></tr></thead>
+      <tbody>
+        <tr><td>式微</td><td>由盛而衰</td><td>泛指事物衰落，可搭"文化"</td><td class="ok">✓ 命中呼应</td></tr>
+        <tr><td>凋敝</td><td>衰败破落</td><td>多指经济、家道</td><td class="bad">✗ 对象不符</td></tr>
+        <tr><td>消退</td><td>减退消失</td><td>多指潮水、症状、热情</td><td class="bad">✗ 搭配对象</td></tr>
+        <tr><td>衰败</td><td>落后破败</td><td>偏具体实体的败落</td><td class="bad">✗ 程度不投</td></tr>
+      </tbody>
+    </table>
+    <p class="next">下次第一动作：<b>先看横线后有没有解释句，再回横线前</b></p>
+    <p class="backlink">回框架：<a href="../pages/xingce/verbal.html#sec-3">语境分析 → 句内呼应</a>｜词群：<a href="../pages/xingce/words.html#w-式微">衰落类</a></p>
+  </div>
+</details>
+
+<!-- ========== 错题卡模板（复制填写；class / data-* 为跨 AI 契约，不可改名；四词小表出现的新词同步 js/words.js） ==========
+<details class="err-card" id="err-YYYYMMDD-NN" data-tags="错因标签1 错因标签2" data-sec="tiankong" data-mastery="0">
+  <summary>
+    <span class="sumline"><span class="edate">MM-DD</span><span class="esec">逻辑填空 · 题号</span><span class="chip chip-brand">错因标签1</span><span class="chip">错因标签2</span><span class="mastery">掌握 <b class="on">●</b><i>◐</i><i>○</i></span></span>
+    <p class="ecause">一句话错因（≤30 字）</p>
+    <p class="vs"><span class="mine">我选 <s>X</s></span><span class="arrow">→</span><span class="ok">正确 Y</span><span class="vwhy">选错/正确理由（各 ≤10 字）</span></p>
+  </summary>
+  <div class="l3">
+    <table class="wtab">
+      <thead><tr><th>词语</th><th>直译</th><th>侧重</th><th>判定</th></tr></thead>
+      <tbody>
+        <tr><td>…</td><td>…（≤8 字）</td><td>…（≤10 字）</td><td class="ok">✓ …</td></tr>
+        <tr><td>…</td><td>…</td><td>…</td><td class="bad">✗ …</td></tr>
+      </tbody>
+    </table>
+    <p class="next">下次第一动作：<b>…（≤20 字）</b></p>
+    <p class="backlink">回框架：<a href="../pages/xingce/verbal.html#sec-3">…</a>｜词群：<a href="../pages/xingce/words.html#w-词语">词群名</a></p>
+  </div>
+</details>
+================================================== -->
+
+</div>
+
+<div class="sec-block" id="sec-xin" data-sec="xin">
+  <div class="sec-h"><h2>🆕新考法暂存区</h2><span class="years">禁止强行套用框架 · 同类满 3 条反哺</span></div>
+
+  <div class="err-empty">准则未覆盖的新考法存这里，禁止强行套用框架；同类满 3 条 → 反哺准则与知识框架页</div>
+</div>
+
+</div>
+</div>
+
+<script src="../js/nav.js"></script>
+<script src="../js/app.js"></script>
+<script>
+// 顶部标签筛选：扫描 .err-card[data-tags] 自动去重生成 chips（含"全部"）；点筛选、再点取消；无卡片显示"暂无标签"
+(function(){
+  const bar=document.getElementById('tagFilters');
+  const cards=Array.from(document.querySelectorAll('.err-card[data-tags]'));
+  const tags=[];
+  cards.forEach(c=>(c.dataset.tags||'').split(/\s+/).forEach(t=>{if(t&&!tags.includes(t))tags.push(t);}));
+  if(!tags.length){bar.innerHTML='<span class="tag-none">暂无标签</span>';return;}
+  const mk=(label,val)=>{
+    const b=document.createElement('button');
+    b.type='button';b.className='hub-chip'+(val==='all'?' on':'');b.textContent=label;b.dataset.t=val;
+    return b;
+  };
+  bar.appendChild(mk('全部','all'));
+  tags.forEach(t=>bar.appendChild(mk(t,t)));
+  const showAll=()=>cards.forEach(c=>c.style.display='');
+  bar.addEventListener('click',e=>{
+    const chip=e.target.closest('.hub-chip');if(!chip)return;
+    if(chip.dataset.t!=='all'&&chip.classList.contains('on')){ // 再点已选标签 → 取消筛选
+      bar.querySelectorAll('.hub-chip').forEach(c=>c.classList.toggle('on',c.dataset.t==='all'));
+      showAll();return;
+    }
+    bar.querySelectorAll('.hub-chip').forEach(c=>c.classList.toggle('on',c===chip));
+    const t=chip.dataset.t;
+    if(t==='all'){showAll();return;}
+    cards.forEach(c=>{
+      const ts=(c.dataset.tags||'').split(/\s+/);
+      c.style.display=ts.includes(t)?'':'none';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

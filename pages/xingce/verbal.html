@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>言语理解 · 行测 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/xingce/verbal.html';</script>
+<style>
+  /* ===== 金句三案（方案存档 §2.1）===== */
+  :root{--danger-soft:#e0532f}
+  /* 案A 荧光笔涂鸦底纹（口诀/金句） */
+  .scribble{background:linear-gradient(100deg,transparent 2%,rgba(255,232,100,.5) 5%,rgba(255,232,100,.28) 55%,rgba(255,232,100,.5) 95%,transparent 98%);border-radius:.4em .6em .5em .7em / .7em .4em .8em .5em;padding:.05em .3em;font-weight:700;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  /* 案C 手绘不规则边框（判词） */
+  .hand-box{display:inline-block;border:1.6px solid var(--green-1);border-radius:255px 15px 225px 15px / 15px 225px 15px 255px;padding:6px 12px;font-weight:700;color:var(--green-1);line-height:1.6}
+  /* 案B 波浪警示线（警示） */
+  .wavy{text-decoration:underline wavy var(--danger-soft);text-underline-offset:3px}
+  /* ===== 页内表格规范：th 绿底、首列加粗不换行、全格细边 ===== */
+  .tbl-wrap{overflow-x:auto;margin:8px 0}
+  .tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+  .tbl th{border:1px solid var(--divider);padding:6px 10px;background:var(--green-soft);color:var(--green-1);text-align:left;font-weight:700;white-space:nowrap}
+  .tbl td{border:1px solid var(--divider);padding:6px 10px;color:var(--t2);line-height:1.75;vertical-align:top}
+  .tbl td:first-child{font-weight:700;color:var(--t1);white-space:nowrap}
+  /* ===== 卡内列表 / 组标题 / 预留占位 ===== */
+  .vlist{margin:6px 0;padding-left:20px;line-height:1.9;color:var(--t2);font-size:13px}
+  .vlist li{margin:2px 0}
+  .vlist li strong{color:var(--t1)}
+  .group-h{margin:22px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--green-1);font-size:14px;font-weight:700;color:var(--green-1)}
+  .ph{border:1.5px dashed var(--divider);border-radius:8px;padding:8px 12px;font-size:12.5px;color:var(--t3);margin:10px 0;line-height:1.8}
+  .ph-badge{display:inline-block;border-radius:8px;padding:0 8px;line-height:18px;font-size:11px;font-weight:600;background:var(--bg-alt);border:1px solid var(--divider);color:var(--t3);margin-right:6px;white-space:nowrap}
+  .gold{margin:8px 0;font-size:13.5px;color:var(--t1)}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › <span>行测</span> › 言语理解</div>
+<div class="doc-head"><h1>言语理解</h1><p>行测言语三大题型：片段阅读（找结论）→ 语句表达（理顺序 · 补衔接）→ 逻辑填空（双查定词），外加一张跨题型通用的干扰项字典。金句图例：<span class="scribble">口诀金句</span> ／ <span class="hand-box">判词</span> ／ <span class="wavy">警示</span>。</p><div class="stat">共 <b>27</b> 张折叠卡 · 4 个板块 · 内容源：言语理解思维导图 md ×4（全文展开，仅蒸馏压缩）</div></div>
+
+<!-- ==================== sec-1 片段阅读（源：片段阅读.md） ==================== -->
+<div class="sec-block" id="sec-1">
+  <div class="sec-h"><h2>一、片段阅读</h2><span class="years">主线：找结论 → 同义替换 → 排除三类型 ｜ 支线：五大文段类型 · 细节理解</span></div>
+
+  <div style="background:var(--green-soft);border-left:3px solid var(--green-1);padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:var(--t2);margin-bottom:8px">
+    做题底层逻辑是<span class="em-new">"有技巧的原文对应"</span>：先用基础层（语言功能 · 语句逻辑 7 关系 · 行文脉络）判断谁重要、谁不重要，再按三步走对选项。
+  </div>
+
+  <!-- 组：基础层 · 文段（md：## 文段） -->
+  <div class="group-h">基础层 · 文段</div>
+
+  <details class="card fold-card" id="s1-c1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>判断语言功能</h3></div>
+      <div class="badges"><span class="badge old">信息</span><span class="badge new">表达</span><span class="badge sediment">指令</span><span class="badge exam">混合</span></div>
+    </summary>
+    <p>四种语言功能：信息功能 ｜ 表达功能 ｜ 指令功能 ｜ 混合功能。读文段前先判断这段话主要在【给信息】、【表达态度】还是【下指令】，再定阅读重心。</p>
+  </details>
+
+  <details class="card fold-card" id="s1-c2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>语句逻辑 · 7 关系</h3></div>
+      <div class="badges"><span class="badge old">转折</span><span class="badge old">因果</span><span class="badge new">并列</span><span class="badge sediment">条件</span><span class="badge exam">强调 · 解释 · 新旧</span></div>
+    </summary>
+    <p>判断谁重要、谁不重要，是找结论的底层依据（箭头指向后文）：</p>
+    <div class="tbl-wrap"><table class="tbl">
+      <thead><tr><th>关系</th><th>内容结构</th></tr></thead>
+      <tbody>
+        <tr><td>1 转折</td><td>论证前 → 论证后</td></tr>
+        <tr><td>2 因果</td><td>结论前 → 结论后</td></tr>
+        <tr><td>3 并列</td><td>分句1 ｜ 分句2</td></tr>
+        <tr><td>4 条件</td><td>对策的内容 vs 与对策相比其他内容</td></tr>
+        <tr><td>5 强调</td><td>强调的内容 vs 非强调的内容</td></tr>
+        <tr><td>6 解释</td><td>明确、直接的观点论点 vs 详细、具体的解释展开内容</td></tr>
+        <tr><td>7 新旧</td><td>前文老话题 → 后文新话题</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+
+  <details class="card fold-card" id="s1-c3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>语段行文脉络（前 → 中 → 后）</h3></div>
+      <div class="badges"><span class="badge new">首句定功能</span><span class="badge old">中段做论证</span><span class="badge sediment">尾句收重点</span></div>
+    </summary>
+    <div class="chain"><span class="chain-note">总览：</span>首句（观点 / 主题词 / 背景铺垫） → 中段（先完善 → 后证明） → 尾句（结束 / 重申升华 / 对策）</div>
+    <div class="section-label">前 · 首句定功能</div>
+    <p class="gold"><span class="scribble">首句要么是观点、要么是主题词，若都不是那就是背景铺垫</span></p>
+    <ul class="vlist">
+      <li>是观点 → <strong>表达观点</strong></li>
+      <li>是主题词 → <strong>引出话题</strong></li>
+      <li>都不是 → <strong>背景铺垫、提出问题</strong></li>
+    </ul>
+    <div class="section-label">中 · 先完善，后证明</div>
+    <p>首句紧接着<strong>进一步解释 / 补充说明【重要性】</strong>，再论证——逻辑是：先完善 → 后证明。中段常见形态：分析问题 ｜ 重要性 ｜ 解释说明 ｜ 补充说明 ｜ 举例论证 ｜ 反面论证。</p>
+    <div class="section-label">后 · 收尾定重点</div>
+    <p>结尾要么直接结束、要么重申 / 升华观点：<strong>给出对策 ｜ 重申结论</strong>。</p>
+  </details>
+
+  <!-- 空壳节点（md：## 情感（剔除） ### 态度）——保留预留占位 -->
+  <div class="ph"><span class="ph-badge">预留</span><strong>情感（剔除）→ 态度</strong>：思维导图空壳节点，暂无内容；待态度类题目复盘后回填。</div>
+
+  <!-- 组：前提 · 细节理解（md：## （隐含）前提） -->
+  <div class="group-h">前提 · 细节理解</div>
+
+  <details class="card fold-card" id="s1-c4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>细节判断 · 思维提升</h3></div>
+      <div class="badges"><span class="badge new">优先验证</span><span class="badge old">三不定</span><span class="badge exam">对比择优</span></div>
+    </summary>
+    <div class="section-label">① 做题顺序，按难易选择</div>
+    <p>文章文段晦涩难懂时——调整做题顺序（见下卡步骤 ❷）。</p>
+    <div class="section-label">② 快速解题：有些选项可以优先验证</div>
+    <ul class="vlist">
+      <li><strong>相对绝对项</strong>：绝对表述（一定、必须、都）→ 大概率错误；相对表述（可能、也许、往往、大概、之一…）→ 大概率正确</li>
+      <li><strong>对比项</strong>：A 高于/优于 B，利大于弊，A 比 B 更……，后来居上 → 大概率错误</li>
+      <li><strong>与实际不符 / 相符</strong></li>
+    </ul>
+    <div class="section-label">③ 抓选项关键信息</div>
+    <p>抓住选项中只有它才有的"特殊"字词（详见下卡 ❸）。</p>
+    <div class="section-label">④ 常见误区 · 三不定</div>
+    <ul class="vlist">
+      <li><strong>片面 ≠ 错误</strong>——不一定</li>
+      <li><strong>范围扩大缩小</strong>——不一定，用三段论推理</li>
+      <li><strong>适度联想</strong>——不知道</li>
+    </ul>
+    <p><strong>细节判断也要对比择优</strong>。</p>
+  </details>
+
+  <details class="card fold-card" id="s1-c5">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>细节判断 · 做题步骤 ❶-❹</h3></div>
+      <div class="badges"><span class="badge new">审题</span><span class="badge new">定顺序</span><span class="badge old">抓特殊字词</span><span class="badge sediment">干扰项</span></div>
+    </summary>
+    <div class="section-label">❶ 审题</div>
+    <ul class="vlist">
+      <li>什么题？<strong>中心理解 or 细节判断</strong></li>
+      <li>选"是"还是选"非"？提还是没提</li>
+      <li>创新考法：能够解释 / 无法解释下列哪一项？</li>
+    </ul>
+    <div class="section-label">❷ 确定做题顺序</div>
+    <ul class="vlist">
+      <li>文章晦涩难懂、生物科技类 → <strong>建议先看选项，再回文段对比</strong></li>
+      <li>文章通俗易懂、人文社科类 → 可以先看文段，再看选项</li>
+      <li>选项角度：较短、有明显区别或明显的优先验证点，可以从选项出发</li>
+    </ul>
+    <div class="section-label">❸ 选项怎么看</div>
+    <ul class="vlist">
+      <li>学会找"特殊"——选项中较为特殊的字词（只有这个选项有）</li>
+      <li>有些选项可优先验证——<strong>大概率错</strong>：对比项、绝对项、与常识不符项；<strong>大概率对</strong>：相对项、与常识较为相符项、温和词"影响"</li>
+    </ul>
+    <div class="section-label">❹ 常见干扰项</div>
+    <ul class="vlist">
+      <li><strong>文意相悖</strong></li>
+      <li><strong>偷换概念</strong>——强加因果（含因果倒置）、并列偷换</li>
+      <li><strong>无中生有</strong>——注意：适度联想、范围合理扩大缩小，不一定错误</li>
+    </ul>
+  </details>
+
+  <!-- 空壳节点（md：### 细节查找）——保留预留占位 -->
+  <details class="card fold-card" id="s1-c6">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">06</span><h3>细节查找</h3></div>
+      <div class="badges"><span class="ph-badge">预留</span></div>
+    </summary>
+    <p>思维导图空壳节点——细则与例题待复盘后回填。</p>
+  </details>
+
+  <!-- 空壳节点（md：### 词语理解）——保留预留占位 -->
+  <details class="card fold-card" id="s1-c7">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">07</span><h3>词语理解</h3></div>
+      <div class="badges"><span class="ph-badge">预留</span></div>
+    </summary>
+    <p>思维导图空壳节点——细则与例题待复盘后回填。</p>
+  </details>
+
+  <!-- 组：结论 · 做题三步走（md：## 结论 ### 做题三步走） -->
+  <div class="group-h">结论 · 做题三步走</div>
+
+  <details class="card fold-card" id="s1-c8">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">08</span><h3>三步走① 找结论</h3></div>
+      <div class="badges"><span class="badge new">语句逻辑</span><span class="badge new">行文脉络</span><span class="badge old">看整体</span></div>
+    </summary>
+    <p class="gold">做题底层逻辑：<span class="scribble">有【技巧】的【原文对应】</span>——找结论 → 选项对比。</p>
+    <div class="section-label">怎么找</div>
+    <p>重点看 <strong>【语句逻辑】+【文段行文脉络】</strong>（判断谁重要、谁不重要，有一些基本的排序原则）。</p>
+    <div class="chain">语句逻辑（7 关系） → 行文脉络（前中后） → 找到结论 → 同义替换 → 排除三类型</div>
+    <div class="section-label">思维提升</div>
+    <ul class="vlist">
+      <li>① 关联词：不要过度依赖——<span class="wavy">关联词是"拐杖"不是真理</span>，只起提示作用，而非依赖对象</li>
+      <li>③ 语句：<strong>文段看整体</strong>——可能某句话单独看很重要，但放在整体里就不重要了</li>
+    </ul>
+  </details>
+
+  <details class="card fold-card" id="s1-c9">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">09</span><h3>三步走② 同义替换 · 主题词</h3></div>
+      <div class="badges"><span class="badge new">抓大放小</span><span class="badge new">主题词</span><span class="badge old">对比择优</span></div>
+    </summary>
+    <p>怎么换：重点找文段的 <strong>【意思】+【主题词】</strong>。</p>
+    <ul class="vlist">
+      <li>④ <strong>大意一致</strong>：一般情况下，不能要求中心句与正确答案表述完全一致</li>
+      <li>⑤ <span class="scribble">抓大放小、先大后小</span>——"大"就是【主题词】，文段最核心内容</li>
+    </ul>
+    <div class="section-label">主题词</div>
+    <ul class="vlist">
+      <li><strong>定义</strong>：文章围绕的核心话题，通常是核心【动名词】（主谓宾）</li>
+      <li><strong>判断方法</strong>：（1）中心句围绕的核心动名词；（2）每句话都围绕的相同话题；（3）很多时候首句引出的话题，即为文段主题</li>
+      <li><strong>解题方法</strong>：正确答案应包含主题词</li>
+    </ul>
+    <div class="section-label">关于原词</div>
+    <p class="gold"><span class="wavy">正确答案未必是原词——适当扩大、缩小、替换、总结并非一定错误，对比择优</span>：【主题词】优先考虑【原词】，但并非一定是文段原词。</p>
+  </details>
+
+  <details class="card fold-card" id="s1-c10">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">10</span><h3>三步走③ 排除选项 · 三类型</h3></div>
+      <div class="badges"><span class="badge old">一定不选</span><span class="badge old">基本不选</span><span class="badge exam">对比可次选</span></div>
+    </summary>
+    <div class="tbl-wrap"><table class="tbl">
+      <thead><tr><th>类型</th><th>表达 / 论证</th><th>处理</th></tr></thead>
+      <tbody>
+        <tr><td>类型1 一定不能选</td><td>表达：文意相悖 ｜ 论证：红鲱鱼</td><td>直接排除</td></tr>
+        <tr><td>类型2 基本不能选</td><td>论证：错失主旨、轻率概括</td><td>优先排除</td></tr>
+        <tr><td>类型3 对比可次选</td><td>表达：词义范围适当扩大、缩小、总结；不明确的选项（语义含糊）</td><td>对比择优后可作保底</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+
+  <!-- 组：文段类型攻略（md：### 文段类型 攻略） -->
+  <div class="group-h">文段类型攻略 · 五大类型</div>
+
+  <details class="card fold-card" id="s1-c11">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">11</span><h3>首句与例子</h3></div>
+      <div class="badges"><span class="badge new">首句话题</span><span class="badge new">新话题三情况</span><span class="badge old">例子不作答案</span></div>
+    </summary>
+    <div class="section-label">重视首句对【核心话题】的提示作用</div>
+    <ul class="vlist">
+      <li>① <strong>首句引出的【话题】很重要</strong>：首句的句子可能不重要（前文引入），但首句的话题可能很重要</li>
+      <li>② <strong>后文【新话题】很重要</strong>，分三情况：
+        <ul class="vlist">
+          <li>情况 1【话题 → 新角度】：后文围绕话题每个角度深入阐述讨论（如围绕话题提对策）→ 话题仍是重点，结合新角度去选答案（高频）</li>
+          <li>情况 2【新话题 + 不反驳】：后文没有一直围绕话题讨论，而是引入新话题，但新话题没有反驳和推翻前文观点 → 文段为【并列结构】</li>
+          <li>情况 3【新话题 + 反驳】：新话题某种意义上结束、反驳和推翻前文话题 → 后文新话题更重要</li>
+        </ul>
+      </li>
+      <li>③ <span class="wavy">高频词 ≠ 核心话题</span>：主题词不是必须原词照搬，核心是抓住文段核心【主体】+【核心动作】（可能有更适合的选项，但这个选项没高频词）</li>
+    </ul>
+    <div class="section-label">正确理解【例子】（解释说明）</div>
+    <ul class="vlist">
+      <li>① 有明显标志的一般是例子，但例子内容一般<strong>不作为答案</strong></li>
+      <li>② 例子和解释前一般存在明显的观点，前后核心思想保持一致，观点和例子之间大概存在包含关系</li>
+      <li>③ 例子（解释说明）并非没有作用——纠结时可以【辅助理解】观点</li>
+    </ul>
+    <div class="section-label">识别：是例子还是论述主体</div>
+    <ul class="vlist">
+      <li>若通篇都是某个具体对象，那么其可能并非例子，而是论述主体本身</li>
+      <li>例子一般是完成时态，对策一般是将来时态，并列例子</li>
+    </ul>
+  </details>
+
+  <details class="card fold-card" id="s1-c12">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">12</span><h3>对策类文段</h3></div>
+      <div class="badges"><span class="badge new">必要条件=对策</span><span class="badge new">内容&gt;形式</span><span class="badge exam">对策+对象</span></div>
+    </summary>
+    <div class="section-label">考点回顾</div>
+    <ul class="vlist">
+      <li>❶ 识别：对策文是言语必考题，考察对策的文段称之为"对策文段"</li>
+      <li>❷ 拓展：<strong>必要条件（只有…才…）= 对策</strong></li>
+      <li>❸ 优先级：对策文优先对策——必要条件 / 对策是重点 &gt; 问题、意义效果、解释、原因…</li>
+    </ul>
+    <div class="section-label">找对策 · 三类模式</div>
+    <ul class="vlist">
+      <li><strong>1 正面提炼</strong>（最高频）：对策标志词引导，文段正面提对策</li>
+      <li><strong>2 间接提炼</strong>：通过反面提对策——假设做法 + 不好的结果，做法反过来就是对策</li>
+      <li><strong>3 问题反推</strong>：文段没有对策，但提出问题（挑战、瓶颈、难题、不足、缺陷风险等消极因素）→ 优选针对性解决问题的对策；若选项没有，则退而求其次选概括问题的选项</li>
+    </ul>
+    <div class="section-label">思维提升</div>
+    <ul class="vlist">
+      <li>对策类问的目的就是让你提出【正确的对策】：若没有【正确】+【对策】，则选【主旨】</li>
+      <li>① <span class="hand-box">内容 &gt; 形式</span>：不是选包含"需要"等标志词的选项，而是选提及对策内容本身的选项</li>
+      <li>② <strong>对策 + 对象</strong>：抓主题词——对策（做什么）&amp; 对象（谁去做 / 为谁做）</li>
+      <li>③（多对策）<strong>宏观 vs 具体</strong>：宏观对策之后可能出现更具体的对策，前面的对策重要还是后面的重要？结合具体情况，均有可能——
+        <ul class="vlist">
+          <li>提出宏观对策，后文围绕具体多方面展开 → 宏观对策与后文的概括均可能作为答案，结合选项判断</li>
+          <li>提出宏观对策，后文围绕具体单方面展开：① 若后文有明显举例提示 → 类似观点+解释说明；② 若后文有明显重点引导词提示 → 类似层层递进、重点在后文；③ 若两者都没有 → 结合具体文段和选项</li>
+        </ul>
+      </li>
+      <li>⑤ <strong>对策-问题相关性</strong>：根据问题推对策</li>
+      <li>⑥ 什么时候不选对策：非对策文；文段提问题、没有好的对策</li>
+    </ul>
+  </details>
+
+  <details class="card fold-card" id="s1-c13">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">13</span><h3>转折文段</h3></div>
+      <div class="badges"><span class="badge new">整体转折</span><span class="badge old">其实≠转折</span><span class="badge exam">答案可前可后</span></div>
+    </summary>
+    <div class="section-label">考点回顾</div>
+    <ul class="vlist">
+      <li>只有<strong>文段整体转折</strong>，而不是句子内</li>
+      <li>转折之后是重点，转折之前不重要</li>
+    </ul>
+    <div class="section-label">思维提升</div>
+    <ul class="vlist">
+      <li>① <strong>引导事实不是转折</strong>：其实 / 事实上 / 实际上，并非一定表转折，只是引导一种事实——句子与句子之间的关系，并不完全由关联词决定</li>
+      <li>② <strong>答案可前可后</strong>：转折文段的答案，既可以是转折前观点的否定，也可以是转折后观点的同义转述</li>
+    </ul>
+  </details>
+
+  <details class="card fold-card" id="s1-c14">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">14</span><h3>因果文段</h3></div>
+      <div class="badges"><span class="badge new">结论词</span><span class="badge new">必须有果</span><span class="badge exam">尾句重点关注</span></div>
+    </summary>
+    <div class="section-label">标志词</div>
+    <ul class="vlist">
+      <li>典型标志：因为…所以…；由于…因此…</li>
+      <li>结论性标志：所以、因此、因而、故而、故 ｜ 于是、可见、看来 ｜ 这种情况下、可以说、换言之、有鉴于此、总之、换句话说、简而言之</li>
+    </ul>
+    <p>重要性：<strong>结论之后是重点，结论之前不重要</strong>；🌟 尾句出现结论词重点关注。</p>
+    <div class="section-label">思维提升</div>
+    <ul class="vlist">
+      <li>① <span class="hand-box">答案必须有果，因可有可无</span>：因果文段答案可以是"因+果"结构，是因为果才选择</li>
+      <li>② <strong>层层递进看首尾</strong>：层层递进、过程繁复的，重点在开头和结果，特别是结果</li>
+      <li>③ <strong>尾句有结论词也要结合上文</strong>：不能只看尾句</li>
+    </ul>
+  </details>
+
+  <details class="card fold-card" id="s1-c15">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">15</span><h3>晦涩文段</h3></div>
+      <div class="badges"><span class="badge new">主题词</span><span class="badge new">高频词</span><span class="badge sediment">多者关系</span></div>
+    </summary>
+    <ul class="vlist">
+      <li>① 重视【主题词】和【高频词】的提示作用</li>
+      <li>② 重视多者之间的关系（特别是两者）</li>
+    </ul>
+  </details>
+
+  <div class="exam-box">
+    <strong>片段阅读心法</strong>：① 找结论先看【语句逻辑】+【行文脉络】，关联词只是拐杖、文段看整体；② 同义替换抓大放小、先大后小，"大"=主题词，答案应包含主题词；③ 答案未必是原词——扩、缩、换、总并非一定错误，对比择优；④ 排除三档：文意相悖/红鲱鱼一定不选，错失主旨/轻率概括基本不选，扩缩总结、语义含糊对比可次选；⑤ 对策文内容&gt;形式，抓"对策+对象"，没有好对策就退选主旨或概括问题；⑥ 转折看整体不看句内，"其实/事实上"只引导事实；⑦ 因果文答案必须有果、因可有可无，尾句有结论词也要结合上文；⑧ 例子不作答案、只辅助理解；高频词≠核心话题，抓主体+核心动作；⑨ 细节判断优先验证：绝对项/对比项大概率错，相对项、温和词"影响"大概率对。
+  </div>
+</div>
+
+<!-- ==================== sec-2 语句表达（源：语句表达.md） ==================== -->
+<div class="sec-block" id="sec-2">
+  <div class="sec-h"><h2>二、语句表达</h2><span class="years">排序（理顺序）→ 填空（补衔接）→ 下文推断（猜走向）</span></div>
+
+  <div style="background:var(--green-soft);border-left:3px solid var(--green-1);padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:var(--t2);margin-bottom:8px">
+    三件套各有一把钥匙：排序——<strong>选项差异入手</strong>；填空——先定<strong>位置</strong>再对<strong>话题</strong>；下文——先做一遍中心理解，再走决策树。
+  </div>
+
+  <!-- 组：语句排序（md：## 语句排序） -->
+  <div class="group-h">语句排序</div>
+
+  <details class="card fold-card" id="s2-c1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">16</span><h3>排序 · 2 大原则</h3></div>
+      <div class="badges"><span class="badge new">选项差异入手</span><span class="badge old">排除法</span></div>
+    </summary>
+    <ul class="vlist">
+      <li>原则一：<span class="scribble">选项差异入手</span></li>
+      <li>原则二：<strong>排除法</strong> = 先后关系 + 紧密联系——
+        <ul class="vlist">
+          <li>先后关系：行文逻辑 ｜ 日常逻辑（时间顺序、动作顺序……）</li>
+          <li>紧密联系：
+            <ul class="vlist">
+              <li>看指代词——这、那、这些、他们、该、此</li>
+              <li>看关联词——转折（语义相反：但是、却、然而、而且）｜ 并列（话题相关：同时、同样、此外）</li>
+              <li>看例子——比如、就像、例如</li>
+              <li>补充（慎用）——文章出现两次的内容，大概率放一起</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </details>
+
+  <details class="card fold-card" id="s2-c2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">17</span><h3>排序 · 3 大步骤</h3></div>
+      <div class="badges"><span class="badge new">看首句</span><span class="badge new">找选项</span><span class="badge exam">验证</span></div>
+    </summary>
+    <div class="section-label">第❶步 看首句</div>
+    <ul class="vlist">
+      <li>适合做首句：<strong>背景、前提</strong></li>
+      <li>一定不能做首句：<strong>代词、结论关键词、明显例子标志</strong></li>
+      <li>判断依据：根据先后关系判断</li>
+    </ul>
+    <div class="section-label">第❷步 找选项 · 排除出发点</div>
+    <ul class="vlist">
+      <li>文段两原则：<strong>先后顺序</strong>（行文逻辑：引出话题、背景铺垫 ｜ 日常逻辑）；<strong>紧密相连</strong>（代词、关联词、例子）</li>
+      <li>选项两序号差异：（一）首尾句差异利用较多；（二）任何差距都是线索</li>
+    </ul>
+    <div class="section-label">第❸步 验证</div>
+    <ul class="vlist">
+      <li>（一）绝大部分题目不需要验证，"一步到位"的题可以酌情验证</li>
+      <li>（二）<span class="hand-box">验证逻辑性，而非通顺性</span></li>
+    </ul>
+  </details>
+
+  <!-- 组：语句填空（md：## 语句填空） -->
+  <div class="group-h">语句填空</div>
+
+  <details class="card fold-card" id="s2-c3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">18</span><h3>填空 · 2 要点 + 3 位置</h3></div>
+      <div class="badges"><span class="badge new">话题一致</span><span class="badge new">衔接得当</span><span class="badge exam">先定位置</span></div>
+    </summary>
+    <div class="section-label">2 个要点</div>
+    <ul class="vlist">
+      <li><strong>话题一致</strong></li>
+      <li><strong>衔接得当</strong>：横线为分句 → 注重句内话题全面；横线为完整句 → 注意句间话题一致</li>
+    </ul>
+    <div class="section-label">3 种位置</div>
+    <div class="tbl-wrap"><table class="tbl">
+      <thead><tr><th>位置</th><th>怎么填</th></tr></thead>
+      <tbody>
+        <tr><td>结尾</td><td>无问题 → 总结全文；有问题 → 提出对策</td></tr>
+        <tr><td>中间</td><td>承上启下——重点承上启下，侧重承上 / 侧重启下；<span class="hand-box">承上启下 &gt; 承上 &gt; 启下</span></td></tr>
+        <tr><td>开头</td><td>概括后文（大多情况）；话题引入（少数情况）</td></tr>
+      </tbody>
+    </table></div>
+    <div class="section-label">思维提升</div>
+    <ul class="vlist">
+      <li>① 情感陷阱不要跳</li>
+      <li>② 横线在中间：承上启下（最优）→ 承上（次选）→ 启下（再次）</li>
+      <li>③ 多个话题词，横线可能只需填一个</li>
+      <li>④ 文言文相关，重点解释语义</li>
+    </ul>
+  </details>
+
+  <!-- 组：下文推断（md：## 下文推断） -->
+  <div class="group-h">下文推断</div>
+
+  <details class="card fold-card" id="s2-c4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">19</span><h3>下文推断 · 本质 + 决策树</h3></div>
+      <div class="badges"><span class="badge new">核心话题</span><span class="badge new">新内容</span><span class="badge exam">决策树</span></div>
+    </summary>
+    <p class="gold">本质：<span class="scribble">核心话题 + 新内容</span></p>
+    <ul class="vlist">
+      <li>❶ <strong>看清提问方式</strong>：接下来最可能讲述的是 ｜ 接下来最不可能讲述的是</li>
+      <li>❷ <strong>通读全文，重点关注后文的核心话题</strong>——先做一遍中心理解</li>
+      <li>❸ 查看选项 · 决策树——
+        <ul class="vlist">
+          <li>涉及最后的核心话题：
+            <ul class="vlist">
+              <li>剩一个选项 → <strong>直接选</strong></li>
+              <li>剩多个选项——
+                <ul class="vlist">
+                  <li>前文未具体论述：剩一个 → 直接选；剩多个 → 内容衔接更紧密：直接选 ｜ 内容跳跃性较大：排除</li>
+                  <li>前文已具体论述 → <strong>排除</strong></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>不涉及最后的核心话题 → <strong>排除</strong></li>
+        </ul>
+      </li>
+    </ul>
+  </details>
+
+  <div class="exam-box">
+    <strong>语句表达心法</strong>：① 排序从选项差异入手，首尾句差异最好用，任何差距都是线索；② 首句"三禁止"：代词、结论关键词、明显例子标志，适合做首句的是背景与前提；③ 紧密联系抓指代词、关联词、例子，重复出现的内容大概率放一起（慎用）；④ 验证句子逻辑性而非通顺性，多数题一步到位无需验证；⑤ 填空先定位置：结尾无问题→总结、有问题→对策；中间承上启下最优；开头概括后文居多、话题引入少数；⑥ 横线是分句注重句内话题全面，是完整句注重句间话题一致，多话题词可能只填一个；⑦ 下文推断 = 核心话题+新内容：先做中心理解，已论述的排除、跳跃性大的排除。
+  </div>
+</div>
+
+<!-- ==================== sec-3 逻辑填空（源：逻辑填空.md） ==================== -->
+<div class="sec-block" id="sec-3">
+  <div class="sec-h"><h2>三、逻辑填空</h2><span class="years">双查思路 → 语境四招 → 辨析 8 角度 → 出题人视角 → 复盘三律</span></div>
+
+  <div style="background:var(--green-soft);border-left:3px solid var(--green-1);padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:var(--t2);margin-bottom:8px">
+    双查思路，两把尺：<span class="hand-box">逻辑意思的正确性 + 使用的合理性</span>——先查语境（四招），再辨词语（8 角度），最后用出题人视角收尾、复盘三律固化。
+  </div>
+
+  <!-- 组：语境分析四招（md：## 语境分析） -->
+  <div class="group-h">语境分析 · 四招</div>
+
+  <details class="card fold-card" id="s3-c1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">20</span><h3>第一招 句内呼应</h3></div>
+      <div class="badges"><span class="badge new">关键词句</span><span class="badge old">重点横线后</span></div>
+    </summary>
+    <ul class="vlist">
+      <li>注意划线在句内的意思：通过前【关键词句】，推断横线意思</li>
+      <li>高频考法：出现 <strong>"________，xxxxxx"</strong> 的标志 → <span class="scribble">重点关注横线后</span>的内容</li>
+    </ul>
+    <div class="section-label">思维提升</div>
+    <p>____ 为形容词时，<strong>动词对 ____ 有提示作用</strong>：</p>
+    <div class="chain"><span class="chain-note">例：</span>发掘出一批____的胡同文化 → "发掘"说明很少有人知道 → 鲜为人知</div>
+  </details>
+
+  <details class="card fold-card" id="s3-c2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">21</span><h3>第二招 逻辑关系</h3></div>
+      <div class="badges"><span class="badge old">转折因果</span><span class="badge new">并列三态</span><span class="badge exam">递进</span></div>
+    </summary>
+    <ul class="vlist">
+      <li><strong>转折</strong>（前后感情色彩相反）、<strong>因果</strong>（前后有直接的因果关系）</li>
+      <li><strong>并列</strong>——常见考法（双词/句）：
+        <ul class="vlist">
+          <li>近义并列：【、】【和】【，】引导的双并列 → 语义相近、感情色彩相近（不完全一致）</li>
+          <li>反义并列："不是……而是……"</li>
+          <li>句式并列：相近或相反，根据文章感情色彩而定</li>
+          <li>"并"、"且"、"或" → <span class="wavy">语义不能相近</span></li>
+        </ul>
+      </li>
+      <li>不常见考法（三词）xxx、____、xxx：① 不一定是递进，可能是不同角度；② <strong>建议跳过此空</strong></li>
+      <li><strong>递进</strong>："甚至"</li>
+    </ul>
+    <div class="section-label">思维提升</div>
+    <ul class="vlist">
+      <li>① 逻辑填空并列没有"重复"一说</li>
+      <li>② 并列要从"局部"眼光到"整体"</li>
+    </ul>
+  </details>
+
+  <details class="card fold-card" id="s3-c3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">22</span><h3>第三招 逻辑填空中心理解化</h3></div>
+      <div class="badges"><span class="badge new">主题词</span><span class="badge new">中心句</span><span class="badge exam">全面概括</span></div>
+    </summary>
+    <div class="section-label">思路</div>
+    <ul class="vlist">
+      <li>找【主题词】、【中心句】</li>
+      <li>选项优先和【主题词】和【中心句】相关</li>
+    </ul>
+    <div class="section-label">考法</div>
+    <p>____ 在句首 / 尾句 / 中心句，前/后文是对它的解释 → <strong>判断文章结构，全面概括</strong>。</p>
+  </details>
+
+  <details class="card fold-card" id="s3-c4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">23</span><h3>第四招 空与空的关系</h3></div>
+      <div class="badges"><span class="badge new">近或反</span><span class="badge old">转折并列</span><span class="badge sediment">祈使句</span></div>
+    </summary>
+    <p>逻辑关系（转因并条）：</p>
+    <ul class="vlist">
+      <li>① 空与空之间在意思上有<strong>相近或相反</strong>的意思</li>
+      <li>② 常见于<strong>转折与并列</strong></li>
+      <li>③ <strong>祈使句</strong>文段也可能出现：要……不能……</li>
+    </ul>
+  </details>
+
+  <!-- 组：词语辨析（md：## 词语辨析） -->
+  <div class="group-h">词语辨析</div>
+
+  <details class="card fold-card" id="s3-c5">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">24</span><h3>区分词语的 8 个角度</h3></div>
+      <div class="badges"><span class="badge new">对象</span><span class="badge old">色彩</span><span class="badge new">程度</span><span class="badge exam">侧重</span></div>
+    </summary>
+    <p style="line-height:2.3"><span class="badge new">搭配对象</span> <span class="badge old">宠词 / 陪跑词</span> <span class="badge new">基本释义</span> <span class="badge old">感情色彩</span> <span class="badge new">程度轻重</span> <span class="badge old">词义侧重</span> <span class="badge new">固定搭配</span> <span class="badge old">语境 / 语感</span></p>
+    <div class="section-label">思维提升</div>
+    <ul class="vlist">
+      <li>1 <span class="wavy">理解词语之间的相对性，而非绝对性</span>——是相对其他选项这个最好</li>
+      <li>2 多空题建议：选项【差别大】的入手；从文段提示【信息更明确】的入手</li>
+      <li>3 纠结时，<span class="scribble">选宠词、热词</span>（语感）——混搭填空中，【成语辨析】比实词更容易</li>
+    </ul>
+  </details>
+
+  <!-- 组：出题人视角（md：## 从出题人角度看选项设置） -->
+  <div class="group-h">出题人视角</div>
+
+  <details class="card fold-card" id="s3-c6">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">25</span><h3>选项词语设置与选项分组</h3></div>
+      <div class="badges"><span class="badge new">修饰词</span><span class="badge old">非重点排除</span><span class="badge exam">31 · 211 · 22</span></div>
+    </summary>
+    <div class="section-label">选项词语设置</div>
+    <ul class="vlist">
+      <li>1 文段对应——
+        <ul class="vlist">
+          <li>"____xxx，xxx 的【修饰词】"：根据语感无法直接找线索 → 回归【语境分析】→【句内呼应】</li>
+          <li>文段里【非重点内容】（词、句、动作）→ 非重点，<strong>直接排除</strong></li>
+        </ul>
+      </li>
+      <li>2 词语共性——围绕【正确选项】的词语：【意义】相似、【外形】相似、【性质】相似、【字】的拆分</li>
+    </ul>
+    <div class="section-label">选项分组</div>
+    <p>常见分组形态：<strong>3-1-1 ｜ 2-1-1 ｜ 2-2</strong>——同组近似、组间辨析。</p>
+  </details>
+
+  <!-- 组：复盘（md：## 复盘） -->
+  <div class="group-h">复盘</div>
+
+  <details class="card fold-card" id="s3-c7">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">26</span><h3>复盘三律</h3></div>
+      <div class="badges"><span class="badge new">群记</span><span class="badge new">宠词陪跑</span><span class="badge old">情侣词</span></div>
+    </summary>
+    <ul class="vlist">
+      <li>律一：<span class="scribble">意思相近的词语放一起，群记</span></li>
+      <li>律二：<span class="scribble">记住宠词和陪跑词</span></li>
+      <li>律三：<span class="scribble">注意两两经常在一起的情侣词</span></li>
+    </ul>
+    <p>三律即词语库入库触发：近义群新成员、宠词/陪跑词、情侣词对。</p>
+  </details>
+
+  <div class="exam-box">
+    <strong>逻辑填空心法</strong>：① 双查两把尺：先查逻辑意思的正确性，再查使用的合理性；② 句内呼应高频考法："____，xxxx"重点看横线后，形容词的空由动词提示；③ 并列三态：近义、反义、句式；"并、且、或"语义不能相近，三词并列建议跳过此空；④ 空在句首/尾句/中心句 → 中心理解化：判断结构、全面概括，选项优先贴主题词；⑤ 空与空之间近或反，常见于转折并列与祈使句（要…不能…）；⑥ 多空题从差别大的空、信息明确的空入手；⑦ 词语相对性而非绝对性，纠结时选宠词热词，成语比实词好辨；⑧ 出题人视角：修饰词考句内呼应，非重点内容直接排除；选项分组 3-1-1／2-1-1／2-2，同组近似、组间辨析。
+  </div>
+</div>
+
+<!-- ==================== sec-4 常见干扰项字典（源：常见干扰项.md） ==================== -->
+<div class="sec-block" id="sec-4">
+  <div class="sec-h"><h2>四、常见干扰项字典 ❶-❾</h2><span class="years">跨板块通用工具箱 · 配合错题本归因</span></div>
+
+  <div style="background:var(--green-soft);border-left:3px solid var(--green-1);padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:var(--t2);margin-bottom:8px">
+    九大干扰项对应九类高频错因：错题归因时先走板块判案流程，再查本字典兜底；学理备查的未编号谬误收在下方折叠卡。
+  </div>
+
+  <div class="tbl-wrap"><table class="tbl">
+    <thead><tr><th>编号</th><th>名称</th><th>一句话判别</th><th>学理归属</th></tr></thead>
+    <tbody>
+      <tr><td>❶</td><td>话题不一致</td><td>正在讨论 A，中途扯 B，把 A 搁置（有原有论题存在）；选项偷换了概念，或者缺少文段的核心"话题词"</td><td>相干谬误 · 红鲱鱼</td></tr>
+      <tr><td>❷</td><td>无中生有</td><td>选项中出现了文段中压根未提及的概念或内容</td><td>相干谬误 · 红鲱鱼</td></tr>
+      <tr><td>❸</td><td>无关对比</td><td>原文只是陈述了 A 和 B，选项强行比较"A 比 B 更好/更重要"——原文未进行比较的一律排除</td><td>不当归纳 · 弱类比</td></tr>
+      <tr><td>❹</td><td>表述片面</td><td>并列文段或分分结构中，仅概括了部分内容（如：原文由分号连接 A 和 B，选项只有 A）</td><td>不当归纳 · 轻率概括</td></tr>
+      <tr><td>❺</td><td>绝对化表述</td><td>选项中滥用"关键、主要、取代、颠覆、一定、绝对"等极其绝对化的词语，且与原文温和的表述不符</td><td>不当归纳 · 轻率概括</td></tr>
+      <tr><td>❻</td><td>错失主旨</td><td>选项内容精准对应文段中的举例部分、原因解释部分或背景铺垫部分——辅助内容再真，也不能做主旨，直接排除</td><td>相干谬误 · 辅助论证</td></tr>
+      <tr><td>❼</td><td>表意模糊</td><td>表述笼统宽泛；在对比时，优先选择表述更加具体、直接、明确的选项</td><td>表达不当</td></tr>
+      <tr><td>❽</td><td>问题类描述</td><td>文段结构已是"问题+对策"、对策是重点，选项还在描述"问题"本身（如：XX 面临严峻挑战）→ 不能选</td><td>表达不当</td></tr>
+      <tr><td>❾</td><td>文意相悖</td><td>选项表述与文段作者的核心态度完全相反</td><td>命题矛盾</td></tr>
+    </tbody>
+  </table></div>
+
+  <details class="card fold-card" id="s4-c1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">27</span><h3>备查 · 未编号谬误清单</h3></div>
+      <div class="badges"><span class="badge exam">学理备查</span></div>
+    </summary>
+    <p>已编号的红鲱鱼（❶❷）、弱类比（❸）、轻率概括（❹❺）、错失主旨（❻）见上表；以下为学理备查（"—"表示思维导图未给释义）：</p>
+    <div class="tbl-wrap"><table class="tbl">
+      <thead><tr><th>学理组</th><th>谬误</th><th>一句话判别</th></tr></thead>
+      <tbody>
+        <tr><td>相干谬误</td><td>人身攻击</td><td>—</td></tr>
+        <tr><td>相干谬误</td><td>诉诸谬误：暴力 / 情感·大众</td><td>—</td></tr>
+        <tr><td>相干谬误</td><td>稻草人</td><td>不开启全新话题，依旧围绕原议题，只是篡改对方主张的内容</td></tr>
+        <tr><td>不当归纳</td><td>诉诸无知 / 诉诸不当权威</td><td>—</td></tr>
+        <tr><td>不当归纳</td><td>虚假原因</td><td>把时间先后、巧合、相关当成因果——事后归因：A 发生之后 B 发生，所以 A 导致 B（错把相关当因果）</td></tr>
+        <tr><td>含混谬误</td><td>歧义</td><td>利用字词另一个意思来论证（偷换概念）——"人是万物之灵 → 狼也是人"</td></tr>
+        <tr><td>含混谬误</td><td>双关</td><td>一个论证被解读成另一个意思——"醉酒的他和他的朋友回家了"：①他喝醉了 ②两人都喝醉</td></tr>
+        <tr><td>含混谬误</td><td>重音</td><td>重读某词、截取片段、省略上下文，改变整句话的原本含义——"在聚会中，你可以撒谎"截成"你可以撒谎"</td></tr>
+        <tr><td>含混谬误</td><td>合成</td><td>部分推整体——"球队每一个球员都很优秀 → 这支球队一定很强"</td></tr>
+        <tr><td>含混谬误</td><td>分解</td><td>整体推部分——"这个球队很强 → 每一个人都很强"</td></tr>
+        <tr><td>预设谬误</td><td>偶然谬误</td><td>普遍 → 特殊——大前提硬套特殊场合（"人有言论自由 → 我在电影院大喊着火也不该被制止"）</td></tr>
+        <tr><td>预设谬误</td><td>乞题（循环论证）</td><td>偷偷将结论当前提</td></tr>
+        <tr><td>预设谬误</td><td>复杂问句</td><td>嵌套一个隐含前提——"你什么时候才愿意正视自己的错误？"</td></tr>
+        <tr><td>预设谬误</td><td>虚假二分 / 假两难</td><td>刻意抹除其他可能性，逼迫二选一——"不支持我，你就是敌人"</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+
+  <div class="exam-box">
+    <strong>干扰项字典心法</strong>：① ❶话题不一致：偷概念、丢话题词——先抓文段核心话题再对选项；② ❷无中生有≠适度联想：范围合理扩缩、适度联想不一定错；③ ❸无关对比：原文只陈述没比较，选项一比较就排除；④ ❹表述片面：并列结构只概括一半要警惕；⑤ ❺绝对化：一定/必须/取代/颠覆等绝对词对温和原文多半是坑；⑥ ❻错失主旨：例子、原因、背景再真也不是主旨；⑦ ❼表意模糊：对比择优选更具体、直接、明确的；⑧ ❽"问题+对策"文段还在描述问题本身→不选；⑨ ❾文意相悖是硬判据：与作者核心态度相反直接排除。
+  </div>
+</div>
+
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px">
+  <a class="deep-link" href="../../errors/verbal.html" style="flex:1;min-width:220px">言语错题本 · 错因回链</a>
+  <a class="deep-link" href="words.html" style="flex:1;min-width:220px">词语库 · 近义词群收缩卡</a>
+</div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

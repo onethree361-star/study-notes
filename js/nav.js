@@ -140,7 +140,15 @@ const NAV_DATA = [
   ]},
 
   { t: '行测', children: [
-    { t: '言语理解', disabled: true, n: '待更新' },
+    { t: '言语理解', children: [
+      { t: '知识框架', links: [
+        { t: '片段阅读', u: 'pages/xingce/verbal.html#sec-1' },
+        { t: '语句表达', u: 'pages/xingce/verbal.html#sec-2' },
+        { t: '逻辑填空', u: 'pages/xingce/verbal.html#sec-3' },
+        { t: '常见干扰项字典', u: 'pages/xingce/verbal.html#sec-4' },
+      ]},
+      { t: '词语库', u: 'pages/xingce/words.html' },
+    ]},
     { t: '判断推理', disabled: true, n: '待更新' },
     { t: '数量关系', disabled: true, n: '待更新' },
     { t: '资料分析', disabled: true, n: '待更新' },
@@ -183,6 +191,7 @@ const NAV_DATA = [
       { t: '法律', u: 'errors/law.html' },
       { t: '经济', u: 'errors/economy.html' },
       { t: '金融', u: 'errors/finance.html' },
+      { t: '言语', u: 'errors/verbal.html' },
     ]},
   ]},
 ];

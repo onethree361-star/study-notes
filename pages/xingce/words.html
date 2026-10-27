@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>言语词语库 · 行测 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/xingce/words.html';</script>
+<style>
+/* ===== 词语库（复刻 concepts/overview.html 的网格与收缩卡风格） ===== */
+.wgroup{margin-top:22px}
+.wgroup-h{display:flex;align-items:baseline;gap:10px;padding-bottom:6px;margin-bottom:10px;border-bottom:1px solid var(--divider)}
+.wgroup-name{font-family:var(--font-title);font-size:17.5px;font-weight:700;color:var(--t1)}
+.wgroup-cnt{font-size:12.5px;color:var(--t3)}
+.wcard{flex:1 1 210px;display:flex;flex-direction:column;gap:2px;padding:10px 14px;background:var(--bg);border:1px solid var(--divider);border-radius:10px;color:var(--t1);transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s,border-color .2s}
+a.wcard{cursor:pointer}
+.wcard:hover{transform:translateY(-3px);border-color:var(--green-1);box-shadow:0 6px 18px rgba(24,121,78,.14);z-index:1}
+.wname{font-size:16.5px;font-weight:700;color:var(--t1);line-height:1.5}
+.wrow{font-size:12.5px;color:var(--t2);line-height:1.65}
+.wrow i{font-style:normal;color:var(--t3);font-size:11.5px;margin-right:6px}
+.wchips{display:flex;gap:5px;flex-wrap:wrap;margin-top:3px}
+.wtag{display:inline-block;border-radius:999px;padding:0 8px;line-height:17px;font-size:10.5px;font-weight:500}
+.tag-yicuo{background:var(--red-soft);color:var(--red-1)}
+.tag-gaopin{background:var(--green-soft);color:var(--green-1)}
+.tag-chongci{background:var(--yellow-soft);color:var(--yellow-1)}
+.tag-peipao{background:var(--bg-mute);color:var(--t2)}
+.werr{margin-top:6px;padding-top:5px;border-top:1px dashed var(--divider);font-size:12px;font-weight:600;color:var(--green-1)}
+a.wcard .werr::after{content:" →"}
+.werr.none{color:var(--t3);font-weight:400}
+.wfoot{margin-top:28px;padding-top:12px;border-top:1px solid var(--divider);font-size:12.5px;color:var(--t3)}
+.err-empty{border:1px dashed var(--divider);border-radius:10px;padding:16px;text-align:center;color:var(--t3);font-size:13px;line-height:1.8}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 行测 › 言词语库</div>
+
+<div class="doc-head">
+  <h1>言语词语库</h1>
+  <p>按近义词群群记（复盘三律之一），新词随错题入库自动追加；点词卡跳对应错题。</p>
+  <div class="stat" id="wordStat"></div>
+</div>
+
+<div class="hub-filters" id="wordFilters">
+  <button class="hub-chip on" type="button" data-f="all">全部</button>
+  <button class="hub-chip" type="button" data-f="易错">易错</button>
+  <button class="hub-chip" type="button" data-f="高频">高频</button>
+  <button class="hub-chip" type="button" data-f="宠词">宠词</button>
+  <button class="hub-chip" type="button" data-f="陪跑">陪跑</button>
+</div>
+
+<div id="wordLib"></div>
+<div class="err-empty" id="wordEmpty" hidden>该标签下暂无词语</div>
+
+<p class="wfoot">deep-link：<a href="verbal.html">verbal.html · 言语知识框架（同目录）</a></p>
+
+</div>
+</div>
+
+<script src="../../js/words.js"></script>
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+<script>
+// 渲染词库：按词群分组的卡片网格；词卡 id="w-词语"，有错题 → <a> 深链错题锚点，无错题 → 灰字不可点
+(function(){
+  const TAG_CLS={'易错':'yicuo','高频':'gaopin','宠词':'chongci','陪跑':'peipao'};
+  const box=document.getElementById('wordLib');
+  if(!box||typeof WORD_GROUPS==='undefined')return;
+  let html='',nWord=0,nTag=0,nErr=0,nGroup=0;
+  WORD_GROUPS.forEach(g=>{
+    if(!g.words||!g.words.length)return;
+    nGroup++;
+    let cards='';
+    g.words.forEach(w=>{
+      const tags=w.tags||[],errs=w.errs||[];
+      nWord++;if(tags.length)nTag++;if(errs.length)nErr++;
+      const chips=tags.map(t=>'<span class="wtag tag-'+(TAG_CLS[t]||'peipao')+'">'+t+'</span>').join('');
+      const err=errs.length?'<span class="werr">错题 ×'+errs.length+'</span>':'<span class="werr none">暂无错题</span>';
+      const open=errs.length?'<a class="wcard" id="w-'+w.w+'" href="../../errors/verbal.html#'+errs[0]+'" title="跳转对应错题">':'<div class="wcard" id="w-'+w.w+'">';
+      cards+=open
+        +'<span class="wname">'+w.w+'</span>'
+        +'<span class="wrow"><i>直译</i>'+(w.zhi||'')+'</span>'
+        +'<span class="wrow"><i>侧重</i>'+(w.ce||'')+'</span>'
+        +(chips?'<span class="wchips">'+chips+'</span>':'')
+        +err
+        +(errs.length?'</a>':'</div>');
+    });
+    html+='<div class="wgroup" id="g-'+g.gid+'">'
+      +'<div class="wgroup-h"><span class="wgroup-name">'+g.name+'</span><span class="wgroup-cnt">'+g.words.length+' 词</span></div>'
+      +'<div class="hub-grid">'+cards+'</div></div>';
+  });
+  box.innerHTML=html||'<div class="err-empty">词语库为空：新词随错题入库，自动追加到 js/words.js</div>';
+  const stat=document.getElementById('wordStat');
+  if(stat)stat.innerHTML='共 <b>'+nGroup+'</b> 个词群 · <b>'+nWord+'</b> 词 · 带标签 <b>'+nTag+'</b> · 挂错题 <b>'+nErr+'</b>';
+  // 标签筛选：纯 JS class 切换；组内全隐藏则整组隐藏，全空显示占位
+  document.getElementById('wordFilters').addEventListener('click',e=>{
+    const chip=e.target.closest('.hub-chip');if(!chip)return;
+    document.querySelectorAll('#wordFilters .hub-chip').forEach(c=>c.classList.toggle('on',c===chip));
+    const f=chip.dataset.f;
+    let any=false;
+    document.querySelectorAll('.wgroup').forEach(gp=>{
+      let vis=0;
+      gp.querySelectorAll('.wcard').forEach(c=>{
+        const ts=(c.dataset.tags||'').split(/\s+/).filter(Boolean);
+        const show=(f==='all'||ts.includes(f));
+        c.style.display=show?'':'none';
+        if(show)vis++;
+      });
+      gp.style.display=vis?'':'none';
+      if(vis)any=true;
+    });
+    document.getElementById('wordEmpty').hidden=any;
+  });
+})();
+</script>
+
+</body>
+</html>
