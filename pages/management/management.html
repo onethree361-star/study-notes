@@ -185,99 +185,108 @@
     <!-- 决策 vs 计划 · 流程对比图 -->
     <div data-edit-block id="sec-guanli-dpmap" style="margin:0 0 14px">
       <figure style="margin:0;background:var(--bg);border:1px solid var(--divider);border-radius:10px;padding:10px 8px">
-      <svg viewBox="0 0 760 624" role="img" aria-label="决策与计划流程对比图：起手不同——决策从问题出发、计划从机会出发；中段同构——确定目标、拟订备选方案、评价备选方案、选择备选方案两列对齐，计划多一步确定前提条件（关键差异）；收尾分道——决策实施监督、计划拟订派生计划与编制预算" style="width:100%;height:auto;display:block" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+      <svg viewBox="0 0 760 634" role="img" aria-label="决策与计划流程对比图：三段分区——①起手不同（决策从问题出发、计划从机会出发），②中段同构（确定目标、拟订备选方案、评价备选方案、选择备选方案两列对齐，计划多一步确定前提条件为关键差异），③收尾分道（决策实施监督，计划拟订派生计划与编制预算）；红色为决策独有，蓝色为计划独有，灰色为两列同构" style="width:100%;height:auto;display:block" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
       <defs><marker id="ahD" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--green-1)"/></marker></defs>
 
-      <line x1="30" y1="130" x2="730" y2="130" style="stroke:var(--divider)" stroke-dasharray="5 4" stroke-width="1.2"/>
-      <rect x="330" y="119" width="100" height="22" rx="11" style="fill:var(--bg);stroke:var(--divider)"/>
-      <text x="380" y="134" text-anchor="middle" font-size="11" font-weight="700" style="fill:var(--t2)">② 中段同构</text>
-      <line x1="30" y1="454" x2="730" y2="454" style="stroke:var(--divider)" stroke-dasharray="5 4" stroke-width="1.2"/>
-      <rect x="330" y="443" width="100" height="22" rx="11" style="fill:var(--bg);stroke:var(--divider)"/>
-      <text x="380" y="458" text-anchor="middle" font-size="11" font-weight="700" style="fill:var(--t2)">③ 收尾分道</text>
+      <rect x="16" y="56" width="728" height="60" rx="10" style="fill:var(--bg-soft)"/>
+      <rect x="16" y="132" width="728" height="312" rx="10" style="fill:var(--bg-soft)"/>
+      <rect x="16" y="460" width="728" height="132" rx="10" style="fill:var(--bg-soft)"/>
+      <rect x="330" y="45" width="100" height="22" rx="11" style="fill:var(--bg);stroke:var(--divider)"/>
+      <text x="380" y="59" text-anchor="middle" font-size="11" font-weight="700" style="fill:var(--t2)">① 起手不同</text>
+      <rect x="330" y="121" width="100" height="22" rx="11" style="fill:var(--bg);stroke:var(--divider)"/>
+      <text x="380" y="135" text-anchor="middle" font-size="11" font-weight="700" style="fill:var(--t2)">② 中段同构</text>
+      <rect x="330" y="449" width="100" height="22" rx="11" style="fill:var(--bg);stroke:var(--divider)"/>
+      <text x="380" y="463" text-anchor="middle" font-size="11" font-weight="700" style="fill:var(--t2)">③ 收尾分道</text>
 
-      <line x1="314" y1="172" x2="446" y2="172" style="stroke:var(--green-1)" opacity=".4" stroke-dasharray="4 4" stroke-width="1.2"/>
-      <line x1="314" y1="292" x2="446" y2="292" style="stroke:var(--green-1)" opacity=".4" stroke-dasharray="4 4" stroke-width="1.2"/>
-      <line x1="314" y1="352" x2="446" y2="352" style="stroke:var(--green-1)" opacity=".4" stroke-dasharray="4 4" stroke-width="1.2"/>
-      <line x1="314" y1="412" x2="446" y2="412" style="stroke:var(--green-1)" opacity=".4" stroke-dasharray="4 4" stroke-width="1.2"/>
+      <g opacity=".7">
+      <rect x="50" y="148" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+      <text x="180" y="173" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">确定目标</text>
+      <rect x="50" y="268" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+      <text x="180" y="293" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">拟订备选方案</text>
+      <rect x="50" y="328" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+      <text x="180" y="353" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">评价备选方案</text>
+      <rect x="50" y="388" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+      <text x="180" y="413" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">选择备选方案</text>
+      <rect x="450" y="148" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+      <text x="580" y="173" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">确定目标</text>
+      <rect x="450" y="268" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+      <text x="580" y="293" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">拟订备选方案</text>
+      <rect x="450" y="328" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+      <text x="580" y="353" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">评价备选方案</text>
+      <rect x="450" y="388" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
+      <text x="580" y="413" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">选择备选方案</text>
+      </g>
 
-      <rect x="50" y="10" width="260" height="36" rx="10" style="fill:var(--green-soft);stroke:var(--green-1)"/>
-      <text x="180" y="33" text-anchor="middle" font-size="14" font-weight="700" style="fill:var(--green-1)">决策 · 从问题出发</text>
-      <rect x="450" y="10" width="260" height="36" rx="10" style="fill:var(--bg);stroke:var(--brand-1)"/>
-      <text x="580" y="33" text-anchor="middle" font-size="14" font-weight="700" style="fill:var(--brand-1)">计划 · 从机会出发</text>
+      <line x1="314" y1="168" x2="446" y2="168" style="stroke:var(--green-1)" opacity=".4" stroke-dasharray="4 4" stroke-width="1.2"/>
+      <line x1="314" y1="288" x2="446" y2="288" style="stroke:var(--green-1)" opacity=".4" stroke-dasharray="4 4" stroke-width="1.2"/>
+      <line x1="314" y1="348" x2="446" y2="348" style="stroke:var(--green-1)" opacity=".4" stroke-dasharray="4 4" stroke-width="1.2"/>
+      <line x1="314" y1="408" x2="446" y2="408" style="stroke:var(--green-1)" opacity=".4" stroke-dasharray="4 4" stroke-width="1.2"/>
+
+      <rect x="50" y="10" width="260" height="36" rx="10" style="fill:var(--red-soft);stroke:var(--red-1)"/>
+      <text x="180" y="33" text-anchor="middle" font-size="14" font-weight="700" style="fill:var(--red-1)">决策 · 从问题出发</text>
+      <rect x="450" y="10" width="260" height="36" rx="10" style="fill:var(--blue-soft);stroke:var(--blue-1)"/>
+      <text x="580" y="33" text-anchor="middle" font-size="14" font-weight="700" style="fill:var(--blue-1)">计划 · 从机会出发</text>
       <line x1="318" y1="28" x2="358" y2="28" style="stroke:var(--brand-1)" stroke-dasharray="4 3" stroke-width="1.4" marker-start="url(#ahD)"/>
       <line x1="402" y1="28" x2="442" y2="28" style="stroke:var(--brand-1)" stroke-dasharray="4 3" stroke-width="1.4" marker-end="url(#ahD)"/>
       <text x="380" y="32" text-anchor="middle" font-size="11" font-weight="700" style="fill:var(--brand-1)">一体</text>
 
-      <rect x="50" y="68" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--brand-1)" stroke-dasharray="5 4"/>
-      <text x="180" y="93" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">识别问题 · 诊断原因</text>
-      <rect x="50" y="152" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
-      <text x="180" y="177" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">确定目标</text>
-      <rect x="50" y="272" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
-      <text x="180" y="297" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">拟订备选方案</text>
-      <rect x="50" y="332" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
-      <text x="180" y="357" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">评价备选方案</text>
-      <rect x="50" y="392" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
-      <text x="180" y="417" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">选择备选方案</text>
-      <rect x="50" y="476" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--brand-1)" stroke-dasharray="5 4"/>
+      <rect x="50" y="64" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--red-1)" stroke-dasharray="5 4"/>
+      <text x="180" y="89" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">识别问题 · 诊断原因</text>
+      <rect x="50" y="476" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--red-1)" stroke-dasharray="5 4"/>
       <text x="180" y="501" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">实施监督</text>
 
-      <rect x="450" y="68" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--brand-1)" stroke-dasharray="5 4"/>
-      <text x="580" y="93" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">估量机会</text>
-      <rect x="450" y="152" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
-      <text x="580" y="177" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">确定目标</text>
-      <rect x="450" y="212" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--brand-1)" stroke-dasharray="5 4"/>
-      <text x="580" y="237" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t1)">确定前提条件</text>
-      <rect x="636" y="217" width="62" height="17" rx="8.5" style="fill:var(--red-soft)"/>
-      <text x="667" y="229" text-anchor="middle" font-size="10" font-weight="700" style="fill:var(--red-1)">关键差异</text>
-      <rect x="450" y="272" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
-      <text x="580" y="297" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">拟订备选方案</text>
-      <rect x="450" y="332" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
-      <text x="580" y="357" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">评价备选方案</text>
-      <rect x="450" y="392" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--divider)"/>
-      <text x="580" y="417" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">选择备选方案</text>
-      <rect x="450" y="476" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--brand-1)" stroke-dasharray="5 4"/>
+      <rect x="450" y="64" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--blue-1)" stroke-dasharray="5 4"/>
+      <text x="580" y="89" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">估量机会</text>
+      <rect x="450" y="208" width="260" height="40" rx="8" style="fill:var(--red-soft);stroke:var(--red-1)" stroke-dasharray="5 4"/>
+      <text x="580" y="233" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--red-1)">确定前提条件</text>
+      <rect x="636" y="213" width="62" height="17" rx="8.5" style="fill:var(--bg);stroke:var(--red-1)" stroke-width="1"/>
+      <text x="667" y="225" text-anchor="middle" font-size="10" font-weight="700" style="fill:var(--red-1)">关键差异</text>
+      <rect x="450" y="476" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--blue-1)" stroke-dasharray="5 4"/>
       <text x="580" y="493" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">拟订派生计划</text>
       <text x="580" y="509" text-anchor="middle" font-size="10" style="fill:var(--t2)">子计划 · 预算等</text>
-      <rect x="450" y="536" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--brand-1)" stroke-dasharray="5 4"/>
+      <rect x="450" y="536" width="260" height="40" rx="8" style="fill:var(--bg);stroke:var(--blue-1)" stroke-dasharray="5 4"/>
       <text x="580" y="561" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--t1)">编制预算</text>
 
-      <text x="380" y="92" text-anchor="middle" font-size="10.5" font-weight="700" style="fill:var(--t2)">① 起手不同</text>
-      <text x="380" y="236" text-anchor="middle" font-size="11" style="fill:var(--t2)">← 决策无此步</text>
+      <text x="380" y="232" text-anchor="middle" font-size="11" style="fill:var(--t2)">← 决策无此步</text>
       <text x="380" y="560" text-anchor="middle" font-size="11" style="fill:var(--t2)">← 决策到此为止</text>
 
-      <line x1="180" y1="48" x2="180" y2="64" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
-      <line x1="580" y1="48" x2="580" y2="64" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
-      <line x1="180" y1="110" x2="180" y2="148" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
-      <line x1="180" y1="194" x2="180" y2="268" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
-      <line x1="180" y1="314" x2="180" y2="328" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
-      <line x1="180" y1="374" x2="180" y2="388" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
-      <line x1="180" y1="434" x2="180" y2="472" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
-      <line x1="580" y1="110" x2="580" y2="148" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
-      <line x1="580" y1="194" x2="580" y2="208" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
-      <line x1="580" y1="254" x2="580" y2="268" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
-      <line x1="580" y1="314" x2="580" y2="328" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
-      <line x1="580" y1="374" x2="580" y2="388" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
-      <line x1="580" y1="434" x2="580" y2="472" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
+      <line x1="180" y1="46" x2="180" y2="60" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
+      <line x1="580" y1="46" x2="580" y2="60" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
+      <line x1="180" y1="106" x2="180" y2="144" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
+      <line x1="180" y1="190" x2="180" y2="264" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
+      <line x1="180" y1="310" x2="180" y2="324" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
+      <line x1="180" y1="370" x2="180" y2="384" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
+      <line x1="180" y1="430" x2="180" y2="472" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
+      <line x1="580" y1="106" x2="580" y2="144" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
+      <line x1="580" y1="190" x2="580" y2="204" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
+      <line x1="580" y1="250" x2="580" y2="264" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
+      <line x1="580" y1="310" x2="580" y2="324" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
+      <line x1="580" y1="370" x2="580" y2="384" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
+      <line x1="580" y1="430" x2="580" y2="472" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
       <line x1="580" y1="518" x2="580" y2="532" style="stroke:var(--green-1)" stroke-width="1.6" marker-end="url(#ahD)"/>
 
-      <rect x="30" y="599" width="26" height="15" rx="3" style="fill:none;stroke:var(--brand-1)" stroke-dasharray="4 3"/>
-      <text x="62" y="611" font-size="11" style="fill:var(--t2)">独有步骤</text>
-      <rect x="150" y="599" width="26" height="15" rx="3" style="fill:var(--bg);stroke:var(--divider)"/>
-      <text x="182" y="611" font-size="11" style="fill:var(--t2)">两列同构</text>
-      <line x1="272" y1="606.5" x2="304" y2="606.5" style="stroke:var(--green-1)" opacity=".5" stroke-dasharray="4 4" stroke-width="1.4"/>
-      <text x="310" y="611" font-size="11" style="fill:var(--t2)">中缝虚线＝左右对齐（同一步）</text>
+      <rect x="20" y="610" width="26" height="15" rx="3" style="fill:var(--bg);stroke:var(--red-1)" stroke-dasharray="4 3"/>
+      <text x="52" y="622" font-size="11" style="fill:var(--t2)">决策独有</text>
+      <rect x="118" y="610" width="26" height="15" rx="3" style="fill:var(--bg);stroke:var(--blue-1)" stroke-dasharray="4 3"/>
+      <text x="150" y="622" font-size="11" style="fill:var(--t2)">计划独有</text>
+      <rect x="216" y="610" width="26" height="15" rx="3" style="fill:var(--red-soft);stroke:var(--red-1)" stroke-dasharray="4 3"/>
+      <text x="248" y="622" font-size="11" style="fill:var(--t2)">关键差异</text>
+      <rect x="314" y="610" width="26" height="15" rx="3" style="fill:var(--bg);stroke:var(--divider)"/>
+      <text x="346" y="622" font-size="11" style="fill:var(--t2)">两列同构</text>
+      <line x1="410" y1="617.5" x2="442" y2="617.5" style="stroke:var(--green-1)" opacity=".5" stroke-dasharray="4 4" stroke-width="1.4"/>
+      <text x="448" y="622" font-size="11" style="fill:var(--t2)">左右对齐（同一步）</text>
       </svg>
       </figure>
-      <div style="margin:8px 2px 0;font-size:12px;line-height:1.9;color:var(--t2)"><span style="font-weight:700;color:var(--green-1)">决策是"选"，计划是"画"；决策做"减法"，计划做"加法"。</span>遇到<strong>突发小问题</strong>，直接走<strong>决策</strong>；遇到<strong>长远大工程</strong>，先走<strong>计划</strong>，且<span style="font-weight:600;color:var(--green-1)">"计划里面套决策"</span>——在写计划的过程中不断拍板小细节。</div>
+      <div style="margin:10px 0 0;padding:8px 12px;background:var(--bg-soft);border:1px solid var(--divider);border-radius:8px;font-size:12px;line-height:1.9;color:var(--t2)"><span style="font-weight:700"><span style="color:var(--red-1)">决策是"选"</span>，<span style="color:var(--blue-1)">计划是"画"</span>；<span style="color:var(--red-1)">决策做"减法"</span>，<span style="color:var(--blue-1)">计划做"加法"</span>。</span>遇到<strong>突发小问题</strong>，直接走<strong>决策</strong>；遇到<strong>长远大工程</strong>，先走<strong>计划</strong>，且<span style="font-weight:600;color:var(--blue-1)">"计划里面套决策"</span>——在写计划的过程中不断拍板小细节。</div>
     </div>
 
     <!-- 卡片3：决策 -->
-    <details class="card fold-card" id="sec-guanli-c3" style="border:2px dashed var(--brand-1)">
+    <details class="card fold-card" id="sec-guanli-c3" style="background:var(--green-soft)">
       <summary>
         <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>决策：选哪条路</h3></div>
         <div class="badges">
           <span class="badge new">六步</span>
-          <span class="badge new">有限理性 · 满意解</span>
+          <span class="badge old">有限理性 · 满意解</span>
           <span class="badge old">程序化 vs 非程序化</span>
           <span class="badge sediment">↔ 与计划一体</span>
         </div>
@@ -291,15 +300,15 @@
     </details>
 
     <!-- 卡片4：计划 -->
-    <details class="card fold-card" id="sec-guanli-c4" style="border:2px dashed var(--brand-1)">
+    <details class="card fold-card" id="sec-guanli-c4" style="background:var(--green-soft)">
       <summary>
         <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>计划：目标怎么定才不落空</h3></div>
         <div class="badges">
           <span class="badge new">八步程序</span>
           <span class="badge new">SMART</span>
           <span class="badge new">5W2H</span>
-          <span class="badge new">MBO目标管理</span>
-          <span class="badge sediment">首要职能</span>
+          <span class="badge old">MBO目标管理</span>
+          <span class="badge old">首要职能</span>
           <span class="badge sediment">↔ 与决策一体</span>
         </div>
       </summary>
@@ -315,16 +324,19 @@
       <a class="deep-link" href="../../concepts/management/planning.html">计划 · 概念深挖（知：类型 · 方法 · 原理全表 ｜ 行：申论/面试演练）</a>
     </details>
 
+    <!-- 战略层 / 执行层 分界 -->
+    <div style="display:flex;align-items:center;gap:10px;margin:14px 0 10px;color:var(--t2);font-size:11.5px"><span style="flex:1;height:1px;background:var(--divider)"></span><span>战略层（定方向 · 出方案）↑ ｜ 执行层（配资源 · 带队伍 · 保落地）↓</span><span style="flex:1;height:1px;background:var(--divider)"></span></div>
+
     <!-- 卡片5：组织 -->
     <details class="card fold-card" id="sec-guanli-c5">
       <summary>
         <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>组织：事怎么分、人怎么配</h3></div>
         <div class="badges">
-          <span class="badge new">幅度 vs 层次</span>
-          <span class="badge new">授权不授责</span>
+          <span class="badge old">幅度 vs 层次</span>
+          <span class="badge old">授权不授责</span>
           <span class="badge new">职权三类型</span>
           <span class="badge new">结构六类型</span>
-          <span class="badge old">权变定结构</span>
+          <span class="badge new">权变定结构</span>
         </div>
       </summary>
       <div class="section-label new">流程步骤</div>
@@ -344,9 +356,9 @@
       <summary>
         <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>领导：人怎么带、气怎么提、话怎么通</h3></div>
         <div class="badges">
-          <span class="badge new">五权两类</span>
-          <span class="badge new">理论三线</span>
-          <span class="badge new">激励三线</span>
+          <span class="badge old">五权两类</span>
+          <span class="badge old">理论三线</span>
+          <span class="badge old">激励三线</span>
           <span class="badge new">强化四式</span>
         </div>
       </summary>
@@ -361,12 +373,12 @@
     </details>
 
     <!-- 卡片7：控制 -->
-    <details class="card fold-card" id="sec-guanli-c7">
+    <details class="card fold-card" id="sec-guanli-c7" style="background:var(--red-soft);border:1px solid var(--red-1)">
       <summary>
         <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>控制：跑偏怎么发现、怎么纠</h3></div>
         <div class="badges">
-          <span class="badge new">前馈 · 现场 · 反馈</span>
-          <span class="badge sediment">PDCA戴明环</span>
+          <span class="badge old">前馈 · 现场 · 反馈</span>
+          <span class="badge old">PDCA戴明环</span>
         </div>
       </summary>
       <div class="section-label new">流程步骤</div>
@@ -380,7 +392,24 @@
 
     <!-- 应试心法 -->
     <div class="exam-box">
-      管理学高频考点：① <strong>三父对应</strong>——泰勒＝科学管理之父（车间、计件工资），法约尔＝管理过程之父（五职能、14原则），韦伯＝组织理论之父（科层制）；② <strong>霍桑实验＝梅奥＝社会人＝非正式组织</strong>；③ <strong>理论归属</strong>——需要层次＝马斯洛，双因素＝赫茨伯格，XY理论＝麦格雷戈，期望＝弗鲁姆，公平＝亚当斯，"管理就是决策"＝西蒙，MBO＝德鲁克；④ <strong>决策求满意不求最优</strong>（有限理性）；⑤ <strong>效率≠效果</strong>——先做正确的事，再正确地做事；⑥ <strong>计划是首要职能</strong>；⑦ <strong>授权不授责</strong>——权放下、责留下；⑧ <strong>管理幅度与管理层次成反比</strong>；⑨ <strong>前馈事前、现场事中、反馈事后</strong>；⑩ <strong>领导五权两类</strong>＝合法·奖赏·强制（职位）＋专家·感召（个人），用权"合法"最重要，菲德勒"两头任务中间关系"；⑪ <strong>激励三线</strong>＝内容线（马斯洛五层 · ERG 可倒退 · 双因素"不满找保健满意找激励" · 麦克利兰成就权力归属）＋过程线（期望＝效价×期望值 · 公平比比值）＋行为改造线（强化四式：正强·惩罚·负强·忽视）；⑫ <strong>沟通考点三</strong>＝六环模型＋反馈（思想→编码→传递→接收→解码→理解），五网络 链·轮·Y（控制型）·环·全通道，非正式沟通堵不如疏；⑬ <strong>控制考点</strong>＝背诵句"按既定标准查 → 量出偏差 → 纠偏保目标"；三类型 预先防患于未然 · 现场指导监督 · 事后算账（最早、历史最久）；前馈＝预计未来提前措施，反馈＝用过去指导现在；过程三步 定标准（必要条件）→ 量绩效（找差异）→ 纠偏差（联结其他职能）；平衡计分卡＝卡普兰·诺顿 1992，四维度 财·顾·内·学，目的在平衡。
+      <strong>高频考点速查，扫表记忆：</strong>
+      <table style="width:100%;border-collapse:collapse;font-size:12.5px;line-height:1.75;margin-top:6px">
+      <thead><tr><th style="border:1px solid var(--divider);padding:5px 10px;text-align:left;background:var(--bg);color:var(--yellow-1);width:96px">分类</th><th style="border:1px solid var(--divider);padding:5px 10px;text-align:left;background:var(--bg);color:var(--yellow-1)">考点</th></tr></thead>
+      <tbody>
+      <tr><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top"><strong>三父对应</strong></td><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top">泰勒＝科学管理之父（车间、计件工资）；法约尔＝管理过程之父（五职能、14原则）；韦伯＝组织理论之父（科层制）</td></tr>
+      <tr><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top"><strong>霍桑实验</strong></td><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top">梅奥＝社会人＝非正式组织</td></tr>
+      <tr><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top"><strong>理论归属</strong></td><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top">需要层次＝马斯洛；双因素＝赫茨伯格；XY理论＝麦格雷戈；期望＝弗鲁姆；公平＝亚当斯；"管理就是决策"＝西蒙；MBO＝德鲁克</td></tr>
+      <tr><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top"><strong>决策</strong></td><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top">求<strong>满意</strong>不求<strong>最优</strong>（有限理性）——说"追求最优解"必错</td></tr>
+      <tr><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top"><strong>效率≠效果</strong></td><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top">先做正确的事，再正确地做事</td></tr>
+      <tr><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top"><strong>计划</strong></td><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top">计划是<strong>首要职能</strong></td></tr>
+      <tr><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top"><strong>组织</strong></td><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top"><strong>授权不授责</strong>——权放下、责留下；管理幅度与管理层次成<strong>反比</strong></td></tr>
+      <tr><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top"><strong>控制类型</strong></td><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top"><strong>前馈事前、现场事中、反馈事后</strong>（事后最早、历史最久）；前馈＝预计未来提前措施，反馈＝用过去指导现在</td></tr>
+      <tr><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top"><strong>领导</strong></td><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top">五权两类＝合法·奖赏·强制（职位）＋专家·感召（个人），用权<strong>"合法"</strong>最重要；菲德勒<strong>"两头任务中间关系"</strong></td></tr>
+      <tr><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top"><strong>激励</strong></td><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top">三线＝内容线（马斯洛五层 · ERG 可倒退 · 双因素"不满找保健满意找激励" · 麦克利兰成就权力归属）＋过程线（期望＝效价×期望值 · 公平比比值）＋行为改造线（强化四式：正强·惩罚·负强·忽视）</td></tr>
+      <tr><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top"><strong>沟通</strong></td><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top">六环模型＋反馈（思想→编码→传递→接收→解码→理解）；五网络 链·轮·Y（控制型）·环·全通道；非正式沟通堵不如疏</td></tr>
+      <tr><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top"><strong>控制细化</strong></td><td style="border:1px solid var(--divider);padding:5px 10px;vertical-align:top">背诵句"按既定标准查 → 量出偏差 → 纠偏保目标"；过程三步 定标准（必要条件）→ 量绩效（找差异）→ 纠偏差（联结其他职能）；平衡计分卡＝卡普兰·诺顿 1992，四维度 财·顾·内·学，目的在平衡</td></tr>
+      </tbody>
+      </table>
     </div>
   </div>
 </div>

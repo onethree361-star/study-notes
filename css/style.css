@@ -7,6 +7,7 @@
   --green-1:#18794e; --green-soft:#e8f5ee;
   --yellow-1:#915930; --yellow-soft:#fdf3e3;
   --red-1:#b8272c; --red-soft:#fde8e9;
+  --blue-1:#2f6a9f; --blue-soft:#e7eff7;
   --purple-1:#7c3aed; --purple-soft:#f3e8ff;
   --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
   --font-title:"LXGW WenKai Screen","LXGW WenKai","Kaiti SC","STKaiti","KaiTi",serif;
@@ -348,6 +349,7 @@ html[data-theme="dark"]{
   --green-1:#63b788; --green-soft:#1e2d24;
   --yellow-1:#d2a06c; --yellow-soft:#2e271c;
   --red-1:#e08587; --red-soft:#332122;
+  --blue-1:#82a9cc; --blue-soft:#222e3a;
   --purple-1:#b29ae6; --purple-soft:#282238;
   color-scheme:dark;
 }
