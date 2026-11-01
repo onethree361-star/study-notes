@@ -120,7 +120,7 @@ details summary{list-style:none}
 .badge.exam{background:var(--yellow-soft);color:var(--yellow-1)}
 
 .human{margin:0 0 12px;padding:9px 13px;border-left:2px solid var(--brand-1);background:var(--brand-soft);border-radius:0 6px 6px 0;font-size:14.5px;line-height:1.75;color:var(--t1)}
-.human::before{content:"说人话 · ";font-weight:600;color:var(--brand-1)}
+.human::before{content:"发生论 · ";font-weight:600;color:var(--brand-1)}
 .human-origin{margin:0 0 12px;padding:9px 13px;border-left:2px solid var(--green-1);background:var(--green-soft);border-radius:0 6px 6px 0;font-size:14.5px;line-height:1.75;color:var(--t1)}
 .human-origin::before{content:"发生论 · ";font-weight:600;color:var(--green-1)}
 
