@@ -837,3 +837,27 @@ document.addEventListener('mouseup',function(){
 });
 // 侧边栏分组默认全部收起；含当前页链接的分组自动展开，用户手动开合状态会被记忆
 function scrollToTop(){ window.scrollTo({top:0,behavior:'smooth'}); }
+// ===== 图片笔记灯箱：点击 .note-img 放大，点击任意处或 Esc 关闭 =====
+(function(){
+  var lb=null;
+  function ensure(){
+    if(lb) return lb;
+    lb=document.createElement('div');
+    lb.id='noteLightbox'; lb.className='lightbox';
+    lb.innerHTML='<img alt=""><div class="lb-cap"></div>';
+    lb.addEventListener('click',function(){ lb.classList.remove('show'); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') lb.classList.remove('show'); });
+    document.body.appendChild(lb);
+    return lb;
+  }
+  window.openNoteImg=function(fig){
+    if(!fig || fig.classList.contains('img-missing')) return;
+    var img=fig.querySelector('img'); if(!img) return;
+    var box=ensure();
+    box.querySelector('img').src=img.src;
+    box.querySelector('img').alt=img.alt||'';
+    var cap=fig.querySelector('figcaption');
+    box.querySelector('.lb-cap').textContent=cap?cap.textContent:'';
+    box.classList.add('show');
+  };
+})();
