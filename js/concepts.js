@@ -150,5 +150,38 @@ const CONCEPTS_DATA = [
     { card: '12 二十大', u: 'pages/history/modern.html#c-jd41', concepts: [
       { t: '中国式现代化', u: 'concepts/history/zhongguoshi-xiandaihua.html', desc: '二十大中心任务：人口规模巨大、共同富裕、物质精神协调、人与自然和谐、和平发展五大特征+九条本质要求+五条重大原则' },
     ]},
+    { card: '01 十一届三中全会', u: 'pages/history/modern.html#c-jd28', concepts: [
+      { t: '十一届三中全会', u: 'concepts/history/shiyijie-sanzhong.html', desc: '1978年12月中央全会：废除"两个凡是"、停止"以阶级斗争为纲"、工作重心转经济建设、作出改革开放决策——伟大转折，中国特色社会主义道路起点' },
+    ]},
+    { card: '02 农村改革', u: 'pages/history/modern.html#c-jd29', concepts: [
+      { t: '农村改革', u: 'concepts/history/nongcun-gaige.html', desc: '家庭联产承包责任制取代人民公社：小岗村18户红手印→五个一号文件→政社分开，粮食6095亿斤→8146亿斤，意外催生乡镇企业' },
+    ]},
+    { card: '03 经济特区', u: 'pages/history/modern.html#c-jd30', concepts: [
+      { t: '经济特区', u: 'concepts/history/jingji-tequ.html', desc: '深圳珠海汕头厦门四特区+海南："杀出一条血路来"的试验田，市场调节为主、外资为主、出口为主' },
+    ]},
+    { card: '04 中共十二大', u: 'pages/history/modern.html#c-jd31', concepts: [
+      { t: '中共十二大', u: 'concepts/history/zhonggong-shier-da.html', desc: '1982年开幕词提出"建设有中国特色的社会主义"+翻两番、小康目标+新党章——"定名"与"立纲"' },
+    ]},
+    { card: '05 中共十三大', u: 'pages/history/modern.html#c-jd32', concepts: [
+      { t: '中共十三大', u: 'concepts/history/zhonggong-shisan-da.html', desc: '1987年系统提出社会主义初级阶段理论、"一个中心两个基本点"基本路线、三步走——为改革开放划定历史坐标' },
+    ]},
+    { card: '06 南方谈话', u: 'pages/history/modern.html#c-jd33', concepts: [
+      { t: '南方谈话', u: 'concepts/history/nanfang-tanhua.html', desc: '1992年三个有利于+计划市场都是手段+社会主义本质+基本路线要管一百年——拆掉"姓社姓资"路障' },
+    ]},
+    { card: '07 中共十四大', u: 'pages/history/modern.html#c-jd34', concepts: [
+      { t: '中共十四大', u: 'concepts/history/zhonggong-shisi-da.html', desc: '1992年确立社会主义市场经济体制为改革目标+邓小平理论写入党章——"破"后的"立"' },
+    ]},
+    { card: '08 中共十五大', u: 'pages/history/modern.html#c-jd35', concepts: [
+      { t: '中共十五大', u: 'concepts/history/zhonggong-shiwu-da.html', desc: '1997年邓小平理论确立为指导思想+依法治国基本方略+基本经济制度与分配制度——铸下制度基石' },
+    ]},
+    { card: '09 加入WTO', u: 'pages/history/modern.html#c-jd36', concepts: [
+      { t: '加入WTO', u: 'concepts/history/jiaru-wto.html', desc: '15年复关入世，2001年12月11日成为第143个成员：清理法规2300多件/19万多件，关税15.3%→9.8%，用外部规则倒逼国内改革' },
+    ]},
+    { card: '10 中共十六大', u: 'pages/history/modern.html#c-jd37', concepts: [
+      { t: '中共十六大', u: 'concepts/history/zhonggong-shiliu-da.html', desc: '2002年"三个代表"写入党章+全面建设小康社会设中间站+胡锦涛当选总书记——定旗定标定人' },
+    ]},
+    { card: '11 中共十七大', u: 'pages/history/modern.html#c-jd38', concepts: [
+      { t: '中共十七大', u: 'concepts/history/zhonggong-shiqi-da.html', desc: '2007年科学发展观写入党章+首提中国特色社会主义理论体系+生态文明首入党代会报告——从"快"到"好"' },
+    ]},
   ]},
 ];
