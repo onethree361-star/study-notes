@@ -411,3 +411,15 @@ html[data-theme="dark"] #backTop{box-shadow:0 4px 14px rgba(0,0,0,.4)}
 html[data-theme="dark"] .hub-card:hover{box-shadow:0 6px 16px rgba(0,0,0,.45)}
 html[data-theme="dark"] .hub-card.st-ok{border-color:rgba(24,121,78,.5)}
 html[data-theme="dark"] .hub-card.st-blur{border-color:rgba(145,89,48,.5)}
+
+/* ===== 阶段导引（modern p2 新民主主义革命 发生论总纲，2026-11-02 新增）===== */
+.stage-guide{margin:0 0 16px;padding:16px 18px 14px;background:var(--bg-soft);border:1px solid var(--divider);border-radius:10px}
+.stage-guide .sg-lead{font-size:14.5px;line-height:1.85;color:var(--t1)}
+.stage-guide .sg-lead strong{color:var(--green-1)}
+.stage-guide .sg-stage{margin-top:14px;padding-top:12px;border-top:1px dashed var(--divider)}
+.stage-guide .sg-h{font-family:var(--font-title);font-size:15.5px;font-weight:700;color:var(--green-1);margin-bottom:6px}
+.stage-guide .sg-h .sg-years{font-size:12.5px;font-weight:600;color:var(--t3);margin-left:8px}
+.stage-guide p{font-size:14px;line-height:1.85;color:var(--t1);margin:8px 0 0}
+.stage-guide .sg-q{margin-top:9px;padding:8px 12px;background:var(--bg);border-left:3px solid var(--green-1);border-radius:0 6px 6px 0;font-size:13.5px;color:var(--t2)}
+.stage-guide .sg-q strong{color:var(--green-1)}
+html[data-theme="dark"] .stage-guide .sg-q{background:rgba(255,255,255,.04)}
