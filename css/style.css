@@ -433,3 +433,22 @@ html[data-theme="dark"] .stage-guide .sg-q{background:rgba(255,255,255,.04)}
 .chain-note-wrap{margin:14px 0 18px}
 .chain-note-wrap .stage-title{margin:0 0 10px}
 html[data-theme="dark"] .stage-title{background:rgba(24,121,78,.18)}
+
+/* ===== 板块页 事件/故事线 双视图切换（modern p4 改革开放新时期，2026-11-02 新增）===== */
+.stage-tabs{display:flex;gap:8px;margin:14px 0 4px;padding-bottom:10px;border-bottom:2px solid var(--green-1)}
+.stage-tab{appearance:none;border:1px solid var(--green-1);background:transparent;color:var(--green-1);font:inherit;font-size:13px;font-weight:600;padding:5px 18px;border-radius:999px;cursor:pointer;transition:all .2s}
+.stage-tab:hover{background:var(--green-soft)}
+.stage-tab.on{background:var(--green-1);color:#fff}
+.stage-panel[hidden]{display:none}
+.story-ring{margin:12px 0;padding:12px 14px 10px;background:var(--green-soft);border-left:3px solid var(--green-1);border-radius:8px}
+.story-ring.bad{background:var(--red-soft);border-left-color:var(--red-1)}
+.story-ring .sr-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:700;color:var(--t1);font-size:14px;margin-bottom:6px}
+.story-ring .sr-no{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:20px;padding:0 8px;border-radius:999px;background:var(--green-1);color:#fff;font-size:11px;font-weight:600;flex:none}
+.story-ring.bad .sr-no{background:var(--red-1)}
+.story-ring .sr-tag{font-size:11px;font-weight:600;color:var(--green-1);border:1px solid var(--green-1);padding:1px 8px;border-radius:999px}
+.story-ring.bad .sr-tag{color:var(--red-1);border-color:var(--red-1)}
+.story-ring p{margin:0 0 6px;font-size:13.5px;line-height:1.75;color:var(--t2)}
+.story-ring .sg-q{margin:0;font-size:13px;color:var(--t3)}
+.story-ring .sg-q strong{color:var(--t2)}
+html[data-theme="dark"] .story-ring{background:rgba(24,121,78,.18)}
+html[data-theme="dark"] .story-ring.bad{background:rgba(159,58,56,.18)}

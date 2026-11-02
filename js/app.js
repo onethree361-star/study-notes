@@ -612,6 +612,20 @@ function initFoldToggle(){
   dh.appendChild(b);
 }
 
+// ---------- 板块页 事件/故事线 双视图切换 ----------
+function initStageTabs(){
+  document.querySelectorAll('.stage-tabs').forEach(wrap=>{
+    const btns=Array.from(wrap.querySelectorAll('.stage-tab'));
+    const panels=Array.from(wrap.parentElement.querySelectorAll('.stage-panel'));
+    btns.forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        btns.forEach(b=>b.classList.toggle('on',b===btn));
+        panels.forEach(p=>{ p.hidden=(p.id!==btn.dataset.tab); });
+      });
+    });
+  });
+}
+
 // ---------- 深色模式 ----------
 function applyTheme(dark,save){
   document.documentElement.setAttribute('data-theme',dark?'dark':'light');
@@ -756,6 +770,7 @@ window.addEventListener('load',function(){
   injectCardTools();
   initSpy();
   initFoldToggle();
+  initStageTabs();
   enhanceChains();
   renderConceptHub();
   // 子页面返回按钮：面包屑行首注入，优先浏览器历史返回，无历史则回首页
