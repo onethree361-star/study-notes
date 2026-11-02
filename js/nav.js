@@ -183,6 +183,10 @@ const NAV_DATA = [
     ]},
     { t: '历史', links: [
       { t: '中共一大', u: 'concepts/history/yi-da.html' },
+      { t: '中共二大', u: 'concepts/history/er-da.html' },
+      { t: '中共三大', u: 'concepts/history/san-da.html' },
+      { t: '中共四大', u: 'concepts/history/si-da.html' },
+      { t: '南昌起义', u: 'concepts/history/nanchang-qiyi.html' },
       { t: '八七会议', u: 'concepts/history/baqi-huiyi.html' },
       { t: '秋收起义', u: 'concepts/history/qiushou-qiyi.html' },
       { t: '三湾改编', u: 'concepts/history/sanwan-gaibian.html' },

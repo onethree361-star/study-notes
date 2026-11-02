@@ -51,6 +51,18 @@ const CONCEPTS_DATA = [
     { card: '02 中共一大', u: 'pages/history/modern.html#c-jd10', concepts: [
       { t: '中共一大', u: 'concepts/history/yi-da.html', desc: '1921年建党起点：上海法租界石库门开场、嘉兴南湖红船收尾——组织建设从"建党逻辑"起步' },
     ]},
+    { card: '03 中共二大', u: 'pages/history/modern.html#c-jd11', concepts: [
+      { t: '中共二大', u: 'concepts/history/er-da.html', desc: '1922年上海辅德里：第一次提出反帝反封建民主革命纲领、最高/最低纲领"两步走"、第一部党章、民主联合战线——"建章立制"' },
+    ]},
+    { card: '04 中共三大', u: 'pages/history/modern.html#c-jd-zd3', concepts: [
+      { t: '中共三大', u: 'concepts/history/san-da.html', desc: '1923年广州：确定"党内合作"（共产党员以个人身份加入国民党、保持独立性）——从"要联合"到"怎么联合"' },
+    ]},
+    { card: '06 中共四大', u: 'pages/history/modern.html#c-jd-zd4', concepts: [
+      { t: '中共四大', u: 'concepts/history/si-da.html', desc: '1925年上海：第一次明确提出无产阶级领导权和工农联盟问题——从"保持独立性"转向"争取领导权"' },
+    ]},
+    { card: '07 南昌起义', u: 'pages/history/modern.html#c-jd12', concepts: [
+      { t: '南昌起义', u: 'concepts/history/nanchang-qiyi.html', desc: '1927年8月1日：打响武装反抗国民党反动派第一枪——独立领导革命战争、创建人民军队和武装夺取政权的开始' },
+    ]},
     { card: '08 八七会议', u: 'pages/history/modern.html#c-jd13', concepts: [
       { t: '八七会议', u: 'concepts/history/baqi-huiyi.html', desc: '1927年汉口紧急会议：清算陈独秀右倾、"枪杆子里面出政权"——从城市中心转向土地革命与武装反抗' },
     ]},
