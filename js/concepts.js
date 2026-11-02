@@ -108,5 +108,17 @@ const CONCEPTS_DATA = [
     { card: '27 渡江战役', u: 'pages/history/modern.html#c-jd-dj', concepts: [
       { t: '渡江战役', u: 'concepts/history/dujiang-zhanyi.html', desc: '1949年4月百万雄师过大江：木帆船突破长江天险、4月23日占领南京——国民党22年反动统治覆灭' },
     ]},
+    { card: '05 十八届六中全会', u: 'pages/history/modern.html#c-jd-sb6zq', concepts: [
+      { t: '四个全面', u: 'concepts/history/si-ge-quanmian.html', desc: '2014年12月首次完整提出的战略布局：全面建成小康社会(后为全面建设社会主义现代化国家)、全面深化改革、全面依法治国、全面从严治党——目标+动力+保障+保证四位一体' },
+    ]},
+    { card: '06 十九大', u: 'pages/history/modern.html#c-jd40', concepts: [
+      { t: '习近平新时代中国特色社会主义思想', u: 'concepts/history/xin-shidai-sixiang.html', desc: '十九大确立写入党章、十九届二中全会载入宪法的根本指导思想：十个明确+两个结合+六个必须坚持，回答"强起来"' },
+    ]},
+    { card: '09 十九届四中全会', u: 'pages/history/modern.html#c-jd-sj4zq', concepts: [
+      { t: '国家治理体系和治理能力现代化', u: 'concepts/history/guojia-zhili.html', desc: '全面深化改革总目标：治理体系(制度)+治理能力(执行)一体两面，十九届四中全会首次专门研究、13个显著优势+三步走' },
+    ]},
+    { card: '12 二十大', u: 'pages/history/modern.html#c-jd41', concepts: [
+      { t: '中国式现代化', u: 'concepts/history/zhongguoshi-xiandaihua.html', desc: '二十大中心任务：人口规模巨大、共同富裕、物质精神协调、人与自然和谐、和平发展五大特征+九条本质要求+五条重大原则' },
+    ]},
   ]},
 ];

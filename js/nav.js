@@ -202,6 +202,10 @@ const NAV_DATA = [
       { t: '三大战役', u: 'concepts/history/sandazhanyi.html' },
       { t: '七届二中全会', u: 'concepts/history/qijie-erzhong.html' },
       { t: '渡江战役', u: 'concepts/history/dujiang-zhanyi.html' },
+      { t: '四个全面', u: 'concepts/history/si-ge-quanmian.html' },
+      { t: '习近平新时代中国特色社会主义思想', u: 'concepts/history/xin-shidai-sixiang.html' },
+      { t: '国家治理体系和治理能力现代化', u: 'concepts/history/guojia-zhili.html' },
+      { t: '中国式现代化', u: 'concepts/history/zhongguoshi-xiandaihua.html' },
     ]},
   ]},
 
