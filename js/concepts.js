@@ -108,6 +108,36 @@ const CONCEPTS_DATA = [
     { card: '27 渡江战役', u: 'pages/history/modern.html#c-jd-dj', concepts: [
       { t: '渡江战役', u: 'concepts/history/dujiang-zhanyi.html', desc: '1949年4月百万雄师过大江：木帆船突破长江天险、4月23日占领南京——国民党22年反动统治覆灭' },
     ]},
+    { card: '01 政协会议', u: 'pages/history/modern.html#c-jd-zx', concepts: [
+      { t: '政协会议', u: 'concepts/history/zhengxie-huiyi.html', desc: '1949年9月新政协代行全国人大职权：《共同纲领》七章六十条临时宪法+定都北京纪年国旗国歌——完成建国程序' },
+    ]},
+    { card: '04 全国人民代表大会', u: 'pages/history/modern.html#c-jd-rd', concepts: [
+      { t: '全国人民代表大会', u: 'concepts/history/quanguo-renda.html', desc: '1954年一届人大“转正定型”：1953年首次普选近6亿人+“豆选”，五四宪法替代共同纲领——人大制度确立为根本政治制度' },
+    ]},
+    { card: '05 三大改造', u: 'pages/history/modern.html#c-jd22', concepts: [
+      { t: '“一化三改”', u: 'concepts/history/yihua-sangai.html', desc: '1953过渡时期总路线“一体两翼”：一化=社会主义工业化主体，三改=农业、手工业、资本主义工商业两翼——不是“三化一改”' },
+    ]},
+    { card: '05 三大改造', u: 'pages/history/modern.html#c-jd22', concepts: [
+      { t: '三大改造', u: 'concepts/history/san-da-gaizao.html', desc: '1956年底基本完成：农业互助组→初级社→高级社、手工业小组→合作社、工商业加工订货→公私合营（和平赎买付30亿多元定息）——公有制占92.9%' },
+    ]},
+    { card: '06 社会主义制度的建立', u: 'pages/history/modern.html#c-jd-szzd', concepts: [
+      { t: '社会主义制度的建立', u: 'concepts/history/shehui-zhidu.html', desc: '1956年政治制度（1954宪法）+经济制度（三大改造完成、公有制占92.9%）双重汇合——中国进入社会主义社会' },
+    ]},
+    { card: '07 中共八大', u: 'pages/history/modern.html#c-jd23', concepts: [
+      { t: '中共八大', u: 'concepts/history/zhonggong-bada.html', desc: '1956年重新定义主要矛盾（先进工业国 vs 落后农业国）、综合平衡稳步前进、“三个主体三个补充”——探索社会主义建设道路的良好开端' },
+    ]},
+    { card: '08 大跃进', u: 'pages/history/modern.html#c-jd24', concepts: [
+      { t: '大跃进', u: 'concepts/history/da-yuejin.html', desc: '1958总路线+三面红旗：以钢为纲全民大炼钢、以粮为纲浮夸风、人民公社化一大二公——违背八大路线的重大折曲' },
+    ]},
+    { card: '09 文化大革命', u: 'pages/history/modern.html#c-jd25', concepts: [
+      { t: '文化大革命', u: 'concepts/history/wenhua-da-geming.html', desc: '1966-1976十年内乱：1981年《历史决议》定性“不是任何意义上的革命或社会进步”——左倾错误推到极致' },
+    ]},
+    { card: '10 恢复联合国席位', u: 'pages/history/modern.html#c-jd26', concepts: [
+      { t: '恢复联合国席位', u: 'concepts/history/huifu-lianheguo.html', desc: '1971年10月25日联大第2758号决议：恢复权利+承认唯一合法代表+驱逐蒋介石代表——多边法理复位' },
+    ]},
+    { card: '11 尼克松访华', u: 'pages/history/modern.html#c-jd27', concepts: [
+      { t: '尼克松访华', u: 'concepts/history/nikson-fanghua.html', desc: '1972年破冰之旅：《上海公报》“一个中国”框架——中美关系正常化开端，1979年1月1日建交' },
+    ]},
     { card: '05 十八届六中全会', u: 'pages/history/modern.html#c-jd-sb6zq', concepts: [
       { t: '四个全面', u: 'concepts/history/si-ge-quanmian.html', desc: '2014年12月首次完整提出的战略布局：全面建成小康社会(后为全面建设社会主义现代化国家)、全面深化改革、全面依法治国、全面从严治党——目标+动力+保障+保证四位一体' },
     ]},
