@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>协议漏洞、Web 攻击原理与安全防御 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/computer/web-attack.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 计算机 › 信息安全 › 协议漏洞、Web 攻击原理与安全防御</div>
+
+<div class="doc-head">
+  <h1>协议漏洞、Web 攻击原理与安全防御</h1>
+  <p>考点四是把"攻击"拆开讲原理的一页：伪基站利用 GSM 只认用户不认网络，三类 Flood 各打 TCP／UDP／ICMP 的弱点，缓冲区溢出利用程序不查长度，XSS 利用 Web 对输入的信任。原理搞清了，防御手段就是顺着原理反着做。</p>
+  <div class="stat">知 <b>5</b> 个知识块 · 行 <b>17</b> 个场景</div>
+</div>
+
+<div class="sec-block" id="sec-webgj">
+  <div class="sec-h"><h2 id="sec-webgj-zhi">知 · 概念与理论</h2><span class="years">伪基站 · 三类 Flood · 缓冲区溢出 · XSS · 暴力破解与勒索九要</span></div>
+
+  <details class="card fold-card" id="sec-webgj-c1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>伪基站与 GSM 单向认证：手机从不验"网络是不是真的"</h3></div>
+      <div class="badges">
+        <span class="badge new">GSM 单向鉴权</span>
+        <span class="badge old">2G 缺陷</span>
+        <span class="badge sediment">3G 起双向认证</span>
+      </div>
+    </summary>
+    <div class="human-origin">小区门禁只查"住户有没有卡"，从不验"开门的是不是物业"——于是骗子在旁边架一个假铁门，你的手机以为那是运营商的门，自己就走进去了。</div>
+
+    <div class="section-label new">伪基站是什么（定义原文）</div>
+    <p><strong>伪基站是一种利用移动通信网络认证机制缺陷的非法无线电通信设备。</strong>GSM 网络存在自身安全缺陷，采用的是<span class="em-new">单向认证机制</span>，不法分子利用这一脆弱性发送垃圾短信、诈骗短信。其手法是仿冒正常运营商 <span class="em-new">2G 网络的广播网号及频率</span>，将周围手机的信号强行切换至其搭建的虚假网络中。</p>
+
+    <div class="section-label new">缺陷核心：只有网络验人，没有手机验网</div>
+    <p>在 GSM 系统中，<span class="em-new">只有网络对用户的认证鉴权机制，而缺乏用户对网络的认证</span>。伪基站利用大功率压制或修改网络参数吸引终端加入，于是能：假冒号码群发短信、打电话；实施<span class="em-old">中间人攻击</span>，在用户无感的情况下截获分析短信、电话并提取信息；提供假服务、钓鱼网站。</p>
+    <p>金融诈骗两种典型打法：<span class="em-new">仿冒真实客服号码下发诈骗短信</span>，短信里的网址或客服电话与真实的不同，后台是钓鱼网站或虚假客服；或用<span class="em-new">改号软件</span>仿冒客服号码，骗取用户银行卡信息。</p>
+
+    <div class="section-label inherit">排查与防御三条（大纲原文逐条）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>防御手段</th><th>具体做法</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1 行为特征识别</td><td>手机 App 预置伪基站特征数据，接入基站时判断基站状态与行为</td></tr>
+        <tr><td>2 建立伪基站数据库</td><td>App 采集、上报基站信息，后台基于运营商基站信息完成识别</td></tr>
+        <tr><td>3 双向认证机制</td><td>在用户终端和基站通信间建立双向认证，从源头杜绝非法伪基站</td></tr>
+      </tbody>
+    </table>
+    <p>早期伪基站的四个特征要记：<span class="em-new">与正常基站 C1/C2 值差异显著</span>；<span class="em-new">手机接入时间较短，造成大量手机位置更新</span>；<span class="em-new">没有话音业务</span>；<span class="em-new">存在大量相同长度短信业务</span>。识别方法即一一对应：读 C1/C2 值、统计位置更新频度、监测独立专用信道信息、监测 LAI 值。</p>
+
+    <div class="section-label sediment">认证方式随代际升级（协议名逐字背）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>代际</th><th>认证协议</th><th>认证方式</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2G GSM</td><td>—</td><td><span class="em-old">单向鉴权（只有网络验用户）</span></td></tr>
+        <tr><td>3G UMTS</td><td>AKA（Authentication and Key Agreement）</td><td>双向认证</td></tr>
+        <tr><td>4G LTE</td><td>EPS-AKA</td><td>双向认证</td></tr>
+        <tr><td>5G</td><td>5G-AKA 和 EAP-AKAˈ</td><td>双向认证</td></tr>
+      </tbody>
+    </table>
+    <p><span class="em-sed">伪基站吃的是 2G 单向认证的老本：手机不验网络真假，3G 起双向认证后这扇门就焊死了</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-c2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>三类 Flood：SYN 占队列、UDP 抢带宽、ICMP 堵线路</h3></div>
+      <div class="badges">
+        <span class="badge old">SYN Flood</span>
+        <span class="badge old">UDP Flood</span>
+        <span class="badge old">ICMP Flood</span>
+        <span class="badge new">DoS / DDoS</span>
+      </div>
+    </summary>
+    <div class="human-origin">三种堵车方式：SYN 是假装排队占着窗口不结账，UDP 是大货车满载抢道把路压垮，ICMP 是全城疯狂按喇叭把耳朵吵聋。打的协议不同，堵法不同，堵点也不同。</div>
+
+    <div class="section-label new">DoS 与 DDoS（先分清两个词）</div>
+    <p><strong>拒绝服务（Denial of Service, DoS）攻击</strong>是指攻击者通过某种手段使目标系统无法向合法用户提供正常服务的攻击行为。<strong>分布式拒绝服务（DDoS）攻击</strong>则利用<span class="em-new">多个被控制的主机同时发起攻击</span>。</p>
+
+    <div class="section-label old">SYN Flood：利用 TCP 三次握手的缺陷</div>
+    <p>它是当前网络上<span class="em-new">最为常见的 DDoS 攻击，也是最为经典的拒绝服务攻击</span>，利用了 TCP 协议实现上的缺陷。攻击链：</p>
+    <div class="chain"><span class="chain-note">攻击链：</span>伪造大量源 IP → 向目标端口发 SYN → 服务器回 SYN+ACK → 伪造源地址收不到回应 → 服务器重试并等待 SYN Timeout 后丢弃 → 半开连接队列被占满 → 合法用户进不来</div>
+    <p><strong>防御三条</strong>：① <span class="em-new">SYN Cookie 技术</span>——服务器不分配半连接资源，而是通过加密算法生成初始序列号，待客户端完成 ACK 后验证合法性，是防御 SYN Flood 的重要发展方向；② <span class="em-new">TCP 代理防御及 TCP 源探测防御</span>；③ <span class="em-new">连接队列优化与硬件防火墙</span>——调整半连接队列参数，采用具备 SYN 代理功能的防火墙。</p>
+
+    <div class="section-label old">UDP Flood：流量型 DoS，打的是"无连接"</div>
+    <p>通过伪造源 IP 向目标设备发送大量 UDP 报文，<span class="em-new">利用 UDP 协议无连接特性</span>消耗目标网络带宽及系统资源，导致服务中断。UDP 是无会话协议，<span class="em-new">需要很少的资源即可执行</span>；常见情况是利用大量 UDP 小包冲击 <span class="em-new">DNS 服务器或 RADIUS 认证服务器</span>——攻击者把 UDP 包发至随机端口，迫使目标消耗资源处理无效响应。</p>
+    <p><strong>防御三条</strong>：① <span class="em-new">速率限制</span>——对单个源 IP 的 UDP 包速率进行限制；② <span class="em-new">流量清洗</span>——部署专业的 DDoS 防护设备进行流量清洗；③ <span class="em-new">端口过滤</span>——现代防火墙会丢弃发往关闭端口的 UDP 流量。</p>
+
+    <div class="section-label old">ICMP Flood：Ping 包塞满线路</div>
+    <p>攻击者向目标系统发送大量 ICMP Echo 请求（Ping 包），目标系统需要对每个请求进行响应。由于 <span class="em-new">ICMP 协议本身没有流量控制机制</span>，攻击者可以发送超大尺寸或高频率的 ICMP 包，造成网络拥塞和潜在的服务拒绝。</p>
+    <p><strong>防御三条</strong>：① <span class="em-new">禁用 ICMP 响应</span>——在防火墙上限制或禁用 ICMP Echo 响应；② <span class="em-new">流量限速</span>——对 ICMP 流量进行速率限制；③ <span class="em-new">入侵检测</span>——部署 IDS/IPS 检测异常的 ICMP 流量模式。</p>
+
+    <div class="section-label sediment">三类对照（一张表防混）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>类型</th><th>利用的协议弱点</th><th>典型目标</th><th>防御三件套</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>SYN Flood</td><td>TCP 三次握手、半开队列</td><td>Web 服务端口</td><td>SYN Cookie · TCP 代理 / 源探测 · 队列优化＋硬件防火墙</td></tr>
+        <tr><td>UDP Flood</td><td>UDP 无连接、无会话</td><td>DNS、RADIUS 服务器</td><td>单源 IP 限速 · 流量清洗 · 关闭端口过滤</td></tr>
+        <tr><td>ICMP Flood</td><td>ICMP 无流量控制</td><td>网络带宽</td><td>禁 Echo 响应 · ICMP 限速 · IDS/IPS</td></tr>
+      </tbody>
+    </table>
+    <p><span class="em-sed">SYN 打"连接"、UDP 打"带宽"、ICMP 打"线路"——防御跟着弱点走，一种 Flood 一套药，不能通用</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-c3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>缓冲区溢出：水溢出瓶子泡湿图纸，三道防护各堵一段</h3></div>
+      <div class="badges">
+        <span class="badge old">缓冲区溢出</span>
+        <span class="badge new">栈金丝雀</span>
+        <span class="badge new">NX 位</span>
+        <span class="badge new">ASLR</span>
+      </div>
+    </summary>
+    <div class="human-origin">往 500ml 的瓶子里灌 1 升水，多余的水漫出来泡湿旁边摊着的图纸——瓶子是缓冲区，图纸是相邻内存里的返回地址。图纸一被改掉，程序就转去执行攻击者写的指令。</div>
+
+    <div class="section-label new">定义与后果</div>
+    <p><strong>缓冲区溢出是指向程序的缓冲区输入超出其容量的数据，导致数据溢出并覆盖相邻内存空间，从而破坏程序的正常运行，甚至可能使攻击者获取程序或系统的控制权。</strong>它非常普遍、非常危险，在各种操作系统、应用软件中广泛存在；后果是<span class="em-new">程序运行失败、系统宕机、重新启动</span>。</p>
+
+    <div class="section-label new">攻击原理：病根是"没查输入长度"</div>
+    <p>通过向一个有限空间缓冲区<span class="em-new">复制过长的字符串，从而破坏程序的堆栈，使程序转而执行其他指令</span>。造成缓冲区溢出的原因是<span class="em-old">程序中没有仔细检查用户输入的参数</span>。攻击者可以写入已知可保存可执行代码的区域并将其替换为恶意代码，或有选择地覆盖与程序状态有关的数据。</p>
+
+    <div class="section-label new">防御一：写安全代码（从源头不灌水）</div>
+    <p>对缓冲区读或写时，<span class="em-new">对读写数据长度进行检查，确保读写的内存在被分配的内存空间之内</span>；切换到有界字符串操纵函数；确保在可能发生溢出的行之前插入验证条件。</p>
+
+    <div class="section-label new">防御二：编译器与操作系统三层硬防护（考点核心）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>机制</th><th>全称 / 位置</th><th>防住什么</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>栈金丝雀（Stack Canary）</td><td>编译器层，基于 Canary 的栈保护技术</td><td>溢出时金丝雀值被覆盖即程序崩溃，阻止返回地址被篡改；简单有效且广泛部署</td></tr>
+        <tr><td>NX（No-Execute）位</td><td>CPU 硬件层面</td><td>防止数据页中的代码被执行——灌水进数据区，那段"水"也跑不起来</td></tr>
+        <tr><td>ASLR（地址空间布局随机化）</td><td>操作系统层</td><td>随机化内存地址布局，攻击者猜不到跳板地址，增加攻击难度</td></tr>
+      </tbody>
+    </table>
+    <p>三者是叠加关系：<span class="em-sed">金丝雀管"别改返回地址"、NX 管"数据区不许执行"、ASLR 管"找不到目标地址"——一个挡不住，还有后两道</span>。</p>
+
+    <div class="section-label new">防御三：程序检测与数据结构设计</div>
+    <p>从程序编写、程序检测、数据结构设计以及程序执行控制等多个角度，对防止缓冲区溢出攻击进行分析，提出遏制利用缓冲区溢出漏洞的方法。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">溢出的病根是"不查长度"：代码先查，金丝雀盯栈，NX 禁执行，ASLR 乱地址——四道闸一道都不能少</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-c4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>XSS 三类：回显一次、落库一片、前端自己跑</h3></div>
+      <div class="badges">
+        <span class="badge old">反射型</span>
+        <span class="badge old">存储型</span>
+        <span class="badge old">DOM 型</span>
+        <span class="badge new">输出编码 · CSP · HttpOnly</span>
+      </div>
+    </summary>
+    <div class="human-origin">你在论坛发了一段"会动的字"，网站没当回事原样贴出去，一万个访客打开页面时浏览器把这段字当命令执行了——Cookie 就是这样被偷走的。</div>
+
+    <div class="section-label new">XSS 是什么</div>
+    <p><strong>跨站脚本攻击（Cross-Site Scripting，简称 XSS）是一种通过注入恶意脚本代码实现非授权操作的 Web 安全漏洞。</strong>它是 Web 应用的最大威胁之一，不仅危害应用本身，也对访问的用户带来直接影响。其<span class="em-new">本质是 Web 应用对用户输入的信任导致恶意代码执行</span>。被利用时，攻击者可以执行<span class="em-new">会话劫持、窃取 Cookie、恶意重定向</span>等操作。</p>
+
+    <div class="section-label new">攻击链三步（所有类型共用）</div>
+    <div class="chain"><span class="chain-note">攻击链：</span>输入注入（URL 参数 / 表单提交 / HTTP 头 / Cookie）→ 输出渲染（未安全处理，直接嵌入 HTML、JavaScript 或 DOM）→ 浏览器执行（用户访问受污染页面，解析执行恶意脚本）</div>
+
+    <div class="section-label new">三种类型：触发位置是判分类的唯一标准</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>类型</th><th>触发位置</th><th>是否落库</th><th>典型场景</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>反射型（非持久型）</td><td><span class="em-new">服务端回显</span>：脚本通过 URL 或表单提交直接返回给用户</td><td>不存储在服务器端</td><td>搜索功能把用户输入参数直接拼接到 HTML 中</td></tr>
+        <tr><td>存储型（持久型）</td><td><span class="em-new">数据库落库</span>：脚本存进服务器数据库</td><td>持久化存储</td><td>论坛评论区、留言板等用户输入被持久化的功能；所有访问该页面的用户都受影响</td></tr>
+        <tr><td>DOM 型</td><td><span class="em-new">前端 DOM 执行</span>：攻击发生在客户端，修改页面 DOM 结构执行脚本</td><td>无需服务器参与</td><td>前端把 URL 参数、hash 直接写进 DOM</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label new">防御四条（大纲逐条）</div>
+    <p>① <span class="em-new">输入验证与过滤</span>——对所有用户输入严格白名单验证，只允许已知、安全的字符或格式通过；<br>
+    ② <span class="em-new">输出编码（核心防御）</span>——将数据输出到 HTML 页面时，必须根据上下文进行相应的编码或转义；研究表明<span class="em-new">输出编码和内容安全策略是保护 Web 应用免受 XSS 攻击最有效的方法</span>；<br>
+    ③ <span class="em-new">内容安全策略（CSP）</span>——在 HTTP 响应头中设置 Content-Security-Policy，明确告诉浏览器允许加载哪些域的资源，<span class="em-new">实现严格 CSP 是利用 CSP 缓解 XSS 漏洞的最佳方法</span>；<br>
+    ④ <span class="em-new">安全 API 与 HTTP-only Cookies</span>——使用 DOMPurify 等库净化 HTML，避免直接使用 innerHTML 等不安全方法；设置 HTTP-only Cookies 防止通过 JavaScript 窃取会话 Cookie。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">反射是"当场弹一次"、存储是"进库害一片"、DOM 是"前端自己跑"；根治靠输出编码兜底，CSP 加 HttpOnly 双保险</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-c5">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>暴力破解的痕迹识别与勒索软件"九要"</h3></div>
+      <div class="badges">
+        <span class="badge old">暴力破解</span>
+        <span class="badge new">低频持续</span>
+        <span class="badge sediment">勒索九要</span>
+        <span class="badge old">应急处置</span>
+      </div>
+    </summary>
+    <div class="human-origin">小偷拿一串钥匙挨把试门锁：白天连试十次你马上会发现；改成每天夜里悄悄试一把、连试半年，你根本注意不到——破解不可怕，可怕的是它藏在时间里。</div>
+
+    <div class="section-label new">暴力破解是什么、日志里长什么样</div>
+    <p><strong>暴力破解攻击是指攻击者通过系统地组合所有可能性（例如登录时用到的账户名、密码），尝试所有的可能性破解用户的账户名、密码等敏感信息</strong>，常使用自动化脚本组合出正确的用户名和密码。</p>
+    <p>三类日志痕迹：① <span class="em-new">高频登录失败</span>——同一 IP 在短时间内出现大量登录失败记录；② <span class="em-new">固定凭证模式</span>——长期、反复使用同一账号和错误密码尝试登录；③ <span class="em-new">多服务尝试</span>——同一主机尝试暴力破解多种服务。另外还有一种<span class="em-old">"低频、持续、固定凭证"模式</span>：每天以极低频率尝试登录，极具迷惑性。</p>
+    <p>时间特征最关键：<span class="em-new">给攻击者留的时间越长，其组合出正确用户名和密码的可能性就越大</span>——所以破窗要早。</p>
+
+    <div class="section-label inherit">排查三法与防御四条</div>
+    <p><strong>排查</strong>：① 日志审查——检查暴力破解检测模块日志可清晰发现攻击 IP；分析网络日志、抽取安全事件、捕获异常行为特征、构建特征规则；② 关联分析与时间线还原——按时间、IP、用户、操作类型等维度关联，识别攻击链中的连续动作，按时间顺序梳理事件、标记关键节点；③ 流量分析——网络全流量采集协议元数据，清理后发大数据平台，用 Wireshark 等工具做网络取证分析。</p>
+    <p><strong>防御</strong>：<span class="em-new">账户锁定策略</span>（设登录失败次数阈值，超过后锁定账户或 IP）、<span class="em-new">双因素认证</span>（密码之外的第二层身份验证）、<span class="em-new">强密码策略</span>（高强度且无规律）、<span class="em-new">实时监控与告警</span>（部署规则检测暴力破解等攻击）。</p>
+
+    <div class="section-label new">勒索软件概述</div>
+    <p>勒索软件是黑客用来劫持用户资产或资源实施勒索的一种恶意程序：通过<span class="em-new">加密用户数据、更改配置</span>等方式使用户资产或资源无法正常使用，以此为条件要求支付费用，以获得解密密码或恢复系统正常运行。</p>
+
+    <div class="section-label sediment">CNCERT《勒索软件防范指南》"九要"（九条一条不能少）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>#</th><th>要</th><th>核心动作</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>要做好资产梳理与分级分类管理</td><td>清点信息系统和应用程序、建立资产清单；识别关键业务和关键系统，确定应急响应优先级</td></tr>
+        <tr><td>2</td><td>要备份重要数据和系统</td><td>定期备份并采取隔离措施，严格限制对备份设备和备份数据的访问权限，防止勒索软件横向移动加密备份</td></tr>
+        <tr><td>3</td><td>要设置复杂密码并保密</td><td>高强度无规律密码，含数字、大小写字母、符号，长度至少 8 位，经常更换</td></tr>
+        <tr><td>4</td><td>要常杀毒、关端口</td><td>安装杀毒软件并定期更新病毒库、定期全盘杀毒；关闭不必要的服务和端口</td></tr>
+        <tr><td>5</td><td>要做好身份验证和权限管理</td><td>加强访问凭证管理，建议双因子身份认证；细化权限，遵守最小特权原则</td></tr>
+        <tr><td>6</td><td>要严格访问控制策略</td><td>加强网络隔离、使用网络分段；严格远程访问管理，如无必要关闭所有远程管理端口</td></tr>
+        <tr><td>7</td><td>要定期安全风险评估</td><td>定期风险评估与渗透测试，识别并记录资产脆弱性，及时修复安全漏洞</td></tr>
+        <tr><td>8</td><td>要提高人员安全意识</td><td>为组织内人员和合作伙伴提供网络安全意识教育</td></tr>
+        <tr><td>9</td><td>要制定应急响应预案</td><td>针对重要系统制定预案，明确应急人员与职责、应急和恢复方案，定期开展演练</td></tr>
+      </tbody>
+    </table>
+    <p><span class="em-sed">九要口诀：资产、备份、密码、杀毒关端口、身份权限、访问控制、风险评估、人员意识、应急预案</span>。</p>
+
+    <div class="section-label new">感染后的应急三步</div>
+    <p>① <span class="em-new">隔离网络</span>——拔掉网线或禁用网络，切断受感染机器连接，避免其他机器被进一步感染渗透；② <span class="em-new">分类处置与及时报告</span>——根据感染情况分类处置，及时向相关部门报告；③ <span class="em-new">排查加固与专业恢复</span>——分析清楚入侵途径并及时加固堵塞漏洞，必要时请专业安全公司协助恢复。</p>
+  </details>
+</div>
+
+<div class="sec-block" id="sec-webgj-xing">
+  <div class="sec-h"><h2 id="sec-webgj-xing-title">行 · 场景落地</h2><span class="years">17 个场景 · 点开看具体动作</span></div>
+  <p>下面按身份分五组：写代码的碰 XSS 与溢出，运维值班的扛三类 Flood 与暴力破解，用手机的防伪基站，中招后的应急处置，最后是面试与监管检查怎么答。</p>
+
+  <div class="section-label">组一 · 写代码 / 做系统</div>
+
+  <details class="card fold-card" id="sec-webgj-x1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>搜索框把"你搜的词"原样回显到页面</h3></div>
+      <div class="badges"><span class="badge old">反射型 XSS</span><span class="badge new">输出编码</span></div>
+    </summary>
+    <p>政务网站搜索接口把关键词直接拼进 HTML，攻击者发一条"搜索链接"给办事群众，点开页面脚本就跑了。</p>
+    <p><strong>落地动作</strong>：输出到 HTML 时按上下文编码或转义（HTML 实体转义）；对搜索词做白名单字符过滤；测试时用 <script>alert(1)</script> 验证是否原样输出。</p>
+    <p><strong>挂的知识点</strong>：反射型 XSS——恶意脚本通过 URL 或表单提交直接返回给用户、不落库；核心防御是输出编码。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-x2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>论坛评论存进数据库，所有访客一起中招</h3></div>
+      <div class="badges"><span class="badge old">存储型 XSS</span><span class="badge old">持久化</span></div>
+    </summary>
+    <p>留言板一条评论落库后，十万次访问、十万次执行 Cookie 窃取，管理员后台也被掏空。</p>
+    <p><strong>落地动作</strong>：评论区禁用 HTML（存原文、渲染时转义）；富文本场景用 DOMPurify 净化；会话 Cookie 一律加 HttpOnly；前端不直出用户内容到 innerHTML。</p>
+    <p><strong>挂的知识点</strong>：存储型 XSS——恶意脚本存储在服务器数据库、所有访问相关页面的用户均受影响；防御对应输出编码＋HttpOnly。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-x3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>前端把 URL 的 hash 直接写进页面</h3></div>
+      <div class="badges"><span class="badge old">DOM 型 XSS</span><span class="badge new">CSP</span></div>
+    </summary>
+    <p>单页应用读取 location.hash 后用 innerHTML 渲染"欢迎语"，服务器从头到尾没参与，后端日志一片干净。</p>
+    <p><strong>落地动作</strong>：改用 textContent 或 DOMPurify 净化；响应头加 Content-Security-Policy，如 default-src 'self'，禁掉未授权域脚本与内联脚本。</p>
+    <p><strong>挂的知识点</strong>：DOM 型 XSS——攻击发生在客户端、通过修改 DOM 结构执行脚本、无需服务器参与；防御对应安全 API 与 CSP。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-x4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>被 XSS 偷走的会话 Cookie 还能抢救吗</h3></div>
+    </summary>
+    <p>漏洞已经在线上跑着，Cookie 被脚本读走拿去冒充登录，后台发现陌生会话。</p>
+    <p><strong>落地动作</strong>：会话 Cookie 设置 HttpOnly，让 JavaScript 读不到；Cookie 加 SameSite 与短期有效期；登录态与 IP／UA 绑定异常告警；批量强制下线重登。</p>
+    <p><strong>挂的知识点</strong>：XSS 后果＝会话劫持、窃取 Cookie；HTTP-only Cookies 防止通过 JavaScript 窃取会话 Cookie。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-x5">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>C 程序收姓名框，不量长度直接 strcpy</h3></div>
+    </summary>
+    <p>表单"姓名"字段能填 1000 个字符，后端缓冲区只有 500 字节，超长输入把相邻内存全盖了。</p>
+    <p><strong>落地动作</strong>：读写缓冲区先检查数据长度；用有界字符串函数（如 strncpy）；编译开启栈金丝雀；测试环境加 NX 与 ASLR，fuzz 长字符串验证。</p>
+    <p><strong>挂的知识点</strong>：缓冲区溢出病根＝程序没有仔细检查用户输入参数；栈金丝雀是简单有效且广泛部署的防御手段。</p>
+  </details>
+
+  <div class="section-label">组二 · 运维值班 / 网络防护</div>
+
+  <details class="card fold-card" id="sec-webgj-x6">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>凌晨网站白页，半开连接队列被占满</h3></div>
+    </summary>
+    <p>监控告警 80 端口积压：大量半开连接，源 IP 全是伪造地址，合法用户三次握手完不成。</p>
+    <p><strong>落地动作</strong>：服务器开启 SYN Cookie（不分配半连接资源，ACK 后再验证合法性）；上线具备 SYN 代理功能的硬件防火墙；调整半连接队列参数；配合 TCP 源探测确认真实客户端。</p>
+    <p><strong>挂的知识点</strong>：SYN Flood 利用 TCP 三次握手缺陷占满半开连接队列；防御三件套＝SYN Cookie、TCP 代理／源探测、队列优化。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-x7">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>DNS 服务器被 UDP 小包冲爆</h3></div>
+    </summary>
+    <p>出口带宽打满，抓包一看全是伪造源 IP 的 UDP 小包，目标端口随机。</p>
+    <p><strong>落地动作</strong>：对单个源 IP 限制 UDP 包速率；部署专业 DDoS 防护设备做流量清洗；防火墙丢弃发往关闭端口的 UDP 流量；DNS 递归服务只对可信内网开放。</p>
+    <p><strong>挂的知识点</strong>：UDP Flood 利用 UDP 无连接特性消耗带宽，常见冲击 DNS 与 RADIUS 服务器；防御＝限速、清洗、端口过滤。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-x8">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>监控大屏被巨大 Ping 包塞满</h3></div>
+    </summary>
+    <p>网络设备 CPU 告警，抓包全是超大尺寸 ICMP Echo 请求，每个都得回一个。</p>
+    <p><strong>落地动作</strong>：在防火墙上限制或禁用 ICMP Echo 响应；对 ICMP 流量做速率限制；部署 IDS/IPS 检测异常 ICMP 流量模式；对外服务器不必响应 Ping。</p>
+    <p><strong>挂的知识点</strong>：ICMP Flood 利用 ICMP 本身没有流量控制机制，超大尺寸或高频率包造成拥塞。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-x9">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>22 端口暴露公网，日志刷爆登录失败</h3></div>
+    </summary>
+    <p>ssh 日志里同一 IP 短时间几百次失败，还反复用同一账号试，典型自动化脚本。</p>
+    <p><strong>落地动作</strong>：22 端口只对堡垒机开放；登录失败 5 次锁定 IP 15 分钟；启用双因素认证；默认管理员账号改名、禁用 root 直登；部署规则实时告警。</p>
+    <p><strong>挂的知识点</strong>：暴力破解日志特征＝高频登录失败、固定凭证模式、多服务尝试；防御＝账户锁定＋双因素＋强密码＋实时监控。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-x10">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>日志每天只有零星失败，半年后被登进来了</h3></div>
+    </summary>
+    <p>每天极低频率试几次同一账号，按"分钟窗口"告警永远触发不了，攻击者慢慢试出来了。</p>
+    <p><strong>落地动作</strong>：按天／按周聚合统计失败次数做长周期关联；把同一账号＋同一错误口令模式标记为可疑；日志按时间、IP、用户、操作类型还原时间线；全流量留存供 Wireshark 取证。</p>
+    <p><strong>挂的知识点</strong>："低频、持续、固定凭证"型攻击极具迷惑性；时间给得越长，试出正确密码概率越大。</p>
+  </details>
+
+  <div class="section-label">组三 · 个人用网 / 金融场景</div>
+
+  <details class="card fold-card" id="sec-webgj-x11">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>收到"建行客服"短信，链接长得像官网</h3></div>
+    </summary>
+    <p>展会现场人挤人，手机突然没信号，接着收到 106 开头短信："您的建行 E 盾过期，点击更新"，附带网址。</p>
+    <p><strong>落地动作</strong>：不点短信里的链接、不打短信里的电话；打开官方 App 或自行输入官网核对；看到网址域名、号码与真实不符即判定仿冒；向 12321 举报。</p>
+    <p><strong>挂的知识点</strong>：伪基站金融诈骗＝仿冒真实客服号码下发短信，后台是钓鱼网站或虚假客服；识别看 C1/C2 值、位置更新、无话音业务。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-x12">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>手机突然只显示 2G，信号格满但上不了网</h3></div>
+    </summary>
+    <p>景区门口信号"很好"，手机却频繁位置更新，只收到同长度的垃圾短信，没有电话进来。</p>
+    <p><strong>落地动作</strong>：立即开关飞行模式回到 4G/5G；手机设置里关闭"仅 2G 优先"；2G 时代的伪基站只骗只认 2G 的终端，3G 起双向认证后假网络过不了 AKA 这一关。</p>
+    <p><strong>挂的知识点</strong>：伪基站特征＝大量位置更新、无话音业务、大量相同长度短信；3G UMTS 用 AKA、4G 用 EPS-AKA、5G 用 5G-AKA 和 EAP-AKAˈ 双向认证。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-x13">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>家里路由器后台被人远程试密码</h3></div>
+    </summary>
+    <p>路由器管理日志显示境外 IP 反复尝试 admin 登录，密码还是出厂 admin。</p>
+    <p><strong>落地动作</strong>：密码改成长度至少 8 位、含数字大小写字母符号的复杂密码并经常更换；关闭远程管理端口（如无必要）；固件及时更新；WAF 式规则拦同 IP 高频失败。</p>
+    <p><strong>挂的知识点</strong>：勒索"九要"之要三（复杂密码）与要六（无必要关闭所有远程管理端口）；同时呼应账户锁定防御。</p>
+  </details>
+
+  <div class="section-label">组四 · 应急现场</div>
+
+  <details class="card fold-card" id="sec-webgj-x14">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>财务电脑文件全变成 .locked，弹窗要赎金</h3></div>
+    </summary>
+    <p>上午九点财务打开电脑，所有表格加了后缀，桌面弹出付款页面，限时 48 小时。</p>
+    <p><strong>落地动作</strong>：立刻拔网线、禁用网络切断连接（防横向感染）；保留样本、别重启别格盘；按感染情况分类处置并及时上报相关部门；分析入侵途径、加固堵塞漏洞，必要时请专业安全公司协助恢复；严禁直接付赎金。</p>
+    <p><strong>挂的知识点</strong>：勒索软件感染后应急三步＝隔离网络、分类处置与及时报告、排查加固与专业恢复。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-x15">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>备份盘一直插在服务器上，也被一起加密了</h3></div>
+    </summary>
+    <p>以为有备份就安全，结果勒索软件横向移动把映射盘上的备份也加密干净，恢复无路。</p>
+    <p><strong>落地动作</strong>：备份采取隔离措施（离线／异地／断网保存）；严格限制备份设备与备份数据的访问权限；定期恢复演练验证备份可用。</p>
+    <p><strong>挂的知识点</strong>：九要第二条"要备份重要数据和系统"原文——严格限制对备份设备和备份数据的访问权限，防止勒索软件横向移动对备份数据进行加密。</p>
+  </details>
+
+  <div class="section-label">组五 · 面试 / 监管检查</div>
+
+  <details class="card fold-card" id="sec-webgj-x16">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>面试被问"反射型、存储型、DOM 型 XSS 怎么区分"</h3></div>
+    </summary>
+    <p>只答"一个是弹出来的、一个是存起来的"，面试官追一句"那防御有区别吗"就卡壳。</p>
+    <p><strong>落地动作</strong>：按触发位置答——反射是服务端回显一次、存储是数据库落库害一片、DOM 是前端 DOM 执行无需服务器；防御统一收束到"输入白名单＋输出编码（核心）＋CSP＋HttpOnly"。</p>
+    <p><strong>挂的知识点</strong>：XSS 三类触发位置表；输出编码与 CSP 是最有效方法。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webgj-x17">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>检查组问"你们防勒索软件怎么做的"</h3></div>
+    </summary>
+    <p>答"我们装了杀毒软件"只有一条，对照清单八条没了。</p>
+    <p><strong>落地动作</strong>：背出九要——资产梳理分级、隔离备份、复杂密码、杀毒关端口、双因子与最小权限、网络分段关远程端口、定期风险评估与渗透测试、人员意识教育、应急预案与演练；再补感染后三步（隔离网络、分类处置上报、排查加固恢复）。</p>
+    <p><strong>挂的知识点</strong>：CNCERT《勒索软件防范指南》九要全部条目；感染后应急三步。</p>
+  </details>
+</div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

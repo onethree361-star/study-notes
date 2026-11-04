@@ -538,5 +538,50 @@
     "title": "概念深挖：中共十七大",
     "url": "concepts/history/zhonggong-shiqi-da.html",
     "keywords": "中共十七大 2007 科学发展观 中国特色社会主义理论体系 生态文明 又好又快 人均翻两番"
+  },
+  {
+    "title": "信息安全：基本概念",
+    "url": "pages/computer/basics.html#sec-aqjc",
+    "keywords": "信息安全 定义 CIA 三元组 保密性 完整性 可用性 保护对象 数据 信息系统 业务流程 威胁 主动攻击 被动攻击 内部风险 物理安全 安全事件 安全优先级 信息应用八环节"
+  },
+  {
+    "title": "信息安全：密码技术基础与 PKI",
+    "url": "pages/computer/crypto.html#sec-mima",
+    "keywords": "密码体制 置换法 替代法 代数法 对称加密 非对称加密 RSA SM1 SM2 SM3 SM4 SM9 密码攻击 密码体制安全性 消息认证 Hash 数字签名 数字信封 PKI 量子密钥分发"
+  },
+  {
+    "title": "信息安全：网络攻击与恶意软件",
+    "url": "pages/computer/attacks.html#sec-gongji",
+    "keywords": "常见漏洞 网络攻击类型 恶意软件 病毒 木马 蠕虫 后门 宏病毒 引导型病毒 文件型病毒 勒索软件 钓鱼"
+  },
+  {
+    "title": "信息安全：协议漏洞与 Web 攻击",
+    "url": "pages/computer/web-attack.html#sec-webgj",
+    "keywords": "伪基站 GSM 单向认证 SYN Flood UDP Flood ICMP Flood 缓冲区溢出 栈金丝雀 NX ASLR XSS 输出编码 CSP HttpOnly 暴力破解 勒索软件 应急"
+  },
+  {
+    "title": "信息安全：访问控制与边界防范",
+    "url": "pages/computer/access-control.html#sec-fanghu",
+    "keywords": "防火墙 基本准则 防火墙类型 功能与局限 IDS HIDS NIDS 分布式 误用检测 异常检测 扫描器 访问控制三要素 最小特权 职责分离 数据抽象"
+  },
+  {
+    "title": "信息安全：Web 通信安全",
+    "url": "pages/computer/web-security.html#sec-webtx",
+    "keywords": "HTTP 风险 SSL TLS 子协议 HTTPS 443 VPN 隧道协议 PPTP L2F L2TP IPsec GRE QoS WEP WPA WPA2 WPA3 SQL 注入 HttpOnly IoT 默认配置 App 加固"
+  },
+  {
+    "title": "信息安全：安全管理与评估",
+    "url": "pages/computer/management-eval.html#sec-aqgl",
+    "keywords": "安全管理制度 制度四层 制度生命周期 人员全生命周期 三员分立 受限制接口 风险评估 GB/T 20984—2022 GB/T 45577—2025 安全评估 等级保护 五级"
+  },
+  {
+    "title": "信息安全：运维安全与数据防护",
+    "url": "pages/computer/ops-data.html#sec-ywaq",
+    "keywords": "安全基线 最小安装 PDCERF 准备 检测 遏制 根除 恢复 跟踪 数据中心 物理安全 冷热通道 数据保密 运维攻击 分发攻击"
+  },
+  {
+    "title": "错题本：信息安全",
+    "url": "errors/computer.html",
+    "keywords": "信息安全 错题 题解 CIA 密码技术 PKI 网络攻击 恶意软件 Web 攻击 访问控制 Web 通信 安全管理 等保 运维 数据防护"
   }
 ]

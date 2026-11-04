@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>运维安全与数据防护 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/computer/ops-data.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 计算机 › 信息安全 › 运维安全与数据防护</div>
+
+<div class="doc-head">
+  <h1>运维安全与数据防护</h1>
+  <p>考点八是"最后一道防线"：系统装出来怎么加固（基线＋最小安装）、出事了怎么按流程走（PDCERF 六阶段）、机房怎么不出热岛、数据怎么保密、运维与供应链环节怎么防内鬼。这一页最能直接落到值班和检查现场。</p>
+  <div class="stat">知 <b>5</b> 个知识块 · 行 <b>17</b> 个场景</div>
+</div>
+
+<div class="sec-block" id="sec-ywaq">
+  <div class="sec-h"><h2 id="sec-ywaq-zhi">知 · 概念与理论</h2><span class="years">安全基线 · PDCERF · 数据中心物理安全 · 数据保密五法 · 运维与分发攻击</span></div>
+
+  <details class="card fold-card" id="sec-ywaq-c1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>安全基线与最小安装：裸系统上线前的加固清单</h3></div>
+      <div class="badges">
+        <span class="badge new">安全基线</span>
+        <span class="badge new">最小安装</span>
+        <span class="badge inherit">GB/T 20272</span>
+        <span class="badge inherit">GB/T 30278-2013</span>
+      </div>
+    </summary>
+    <div class="human-origin">新手机到手第一周要关推送、装防护、改设置——服务器同理。出厂的"裸系统"到处是敞开的门，基线就是那张别人替你验证过的"出厂加固 checklist"，照着做就不慌。</div>
+
+    <div class="section-label new">安全基线是什么（定义原文）</div>
+    <p><strong>安全基线是一组预配置设置，可实现经安全团队和行业专家根据实际威胁、安全研究和合规性要求验证的安全配置。</strong>安全基线可解决当代威胁，同时避免操作问题；它提供<span class="em-new">经过测试、推荐的起点，用于强化服务器与客户端配置</span>。</p>
+
+    <div class="section-label inherit">两个操作系统安全配置标准（标准号逐字背）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>标准号</th><th>名称</th><th>规定什么</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>GB/T 20272</td><td>《信息安全技术 操作系统安全技术要求》</td><td>规定了<span class="em-new">五个安全等级</span>操作系统的安全技术要求</td></tr>
+        <tr><td>GB/T 30278-2013</td><td>《政务计算机终端核心配置规范》</td><td>规定了政务计算机终端操作系统的<span class="em-new">核心配置基本要求</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label new">操作系统安全部署要点（四条）</div>
+    <p>① <span class="em-new">最小安装原则</span>——操作系统应遵循最小安装的原则，<span class="em-new">仅安装必要的组件和应用程序</span>；<br>
+    ② <span class="em-new">安全配置</span>——对操作系统、办公软件、浏览器、BIOS 系统和防恶意代码软件等基础软件中影响安全的关键参数进行设置，可限制或禁止存在安全漏洞的系统功能，启用或加强安全保护功能；<br>
+    ③ <span class="em-new">身份鉴别与访问控制</span>——部署应满足身份鉴别、访问控制、资源控制、入侵防范、剩余信息清除、安全审计等安全配置基本要求；<br>
+    ④ <span class="em-new">定期更新补丁</span>——及时安装安全补丁，修复系统安全漏洞。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">基线是"别人验证过的加固起点"，最小安装是"能不装就不装"——装得越少，门越少</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-c2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>PDCERF 六阶段：应急响应的标准流程</h3></div>
+      <div class="badges">
+        <span class="badge new">Preparation</span>
+        <span class="badge new">Detection</span>
+        <span class="badge new">Containment</span>
+        <span class="badge new">Eradication · Recovery · Follow-up</span>
+      </div>
+    </summary>
+    <div class="human-origin">着火救火是固定顺序：先备好灭火器（准备）、确认哪儿着了（检测）、先关防火门（遏制）、把火扑灭（根除）、恢复供电（恢复）、开会定新规矩（事后总结）。应急响应照这个流程走，六步一个字母都不能换。</div>
+
+    <div class="section-label new">应急响应的定义</div>
+    <p><strong>应急响应是安全事件发生后或正在发生过程中，采用的一系列延缓攻击或阻断攻击的流程、手段和方法。</strong>应急响应与保障是信息安全工作的重要环节，也是<span class="em-new">信息安全保障工作的最后手段</span>。</p>
+
+    <div class="section-label new">PDCERF 六阶段（阶段名称与顺序逐字照大纲）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>阶段</th><th>全称</th><th>核心工作（目标）</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>① 准备</td><td><span class="em-new">Preparation</span></td><td>事件发生前完成预判、响应方案制定、人员物资调配，为后续应急响应提供保障</td></tr>
+        <tr><td>② 检测</td><td><span class="em-new">Detection</span></td><td>监控和发现应急事件，确认漏洞和事件的真实性</td></tr>
+        <tr><td>③ 遏制</td><td><span class="em-new">Containment</span></td><td>采取行动限制攻击的影响范围，防止危害扩大</td></tr>
+        <tr><td>④ 根除</td><td><span class="em-new">Eradication</span></td><td>清除攻击源头，包括恶意代码、后门等</td></tr>
+        <tr><td>⑤ 恢复</td><td><span class="em-new">Recovery</span></td><td>将系统恢复到正常运行状态</td></tr>
+        <tr><td>⑥ 事后总结</td><td><span class="em-new">Follow-up</span></td><td>复盘事件，总结经验，完善防护策略</td></tr>
+      </tbody>
+    </table>
+    <p>字母记忆法：<span class="em-sed">P-D-C-E-R-F ＝ 准备—检测—遏制—根除—恢复—总结</span>。注意考试常挖坑点：检测确认真实性在遏制之前，不能上来就拔网线拔错机器；根除在恢复之前，不杀干净就恢复等于白恢复。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-c3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>数据中心物理安全与冷热通道：机房不只是装修</h3></div>
+      <div class="badges">
+        <span class="badge inherit">GB/T 43331-2023</span>
+        <span class="badge inherit">GB 50174-2017</span>
+        <span class="badge new">热通道与冷通道</span>
+        <span class="badge old">局部热岛效应</span>
+      </div>
+    </summary>
+    <div class="human-origin">机房像个大冰箱：几百台服务器同时发热，冷风热风搅在一起就会局部"热岛"死机。冷热通道就是把冷风通道和热风通道分开走，让冷气只过一遍服务器就走。</div>
+
+    <div class="section-label new">物理安全为什么重要</div>
+    <p>数据中心是各行业信息系统运行的<span class="em-new">物理载体</span>，已成为经济社会运行不可或缺的<span class="em-new">关键基础设施</span>。其安全性面临<span class="em-new">火灾、操作失误、被盗、电磁干扰</span>等诸多挑战。</p>
+
+    <div class="section-label inherit">核心标准（标准号逐字背）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>标准号</th><th>名称</th><th>核心内容</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>GB/T 43331-2023</td><td>《互联网数据中心（IDC）技术和分级要求》</td><td>规定 IDC 在安全性方面的分级要求；聚焦<span class="em-new">物理安全、人员安全、设备安全、消防安全、网络安全</span>五方面；安全性等级从低到高<span class="em-new">分为五级</span></td></tr>
+        <tr><td>GB 50174-2017</td><td>《数据中心设计规范》</td><td>数据中心设计的<span class="em-new">基础性国家标准</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label new">物理安全的主要内容（四条）</div>
+    <p>① <span class="em-new">物理环境安全</span>——安全管理规范、物理隔离手段、值守制度、门禁权限管理制度、不间断无盲点监控；<br>
+    ② <span class="em-new">设备安全</span>——电磁兼容、防水防潮、防静电、温湿度配置、防尘等；<br>
+    ③ <span class="em-new">消防安全</span>——机房具备火灾自动报警和自动灭火系统，配备灭火器；<br>
+    ④ <span class="em-new">物理位置选择</span>——尽可能远离产生粉尘、强噪声源等场所，避开强电磁场干扰。</p>
+
+    <div class="section-label new">冷热通道（Hot and Cold Aisle）</div>
+    <p>服务器密集堆叠部署时，极易产生<span class="em-old">局部热岛效应</span>导致硬件故障。热通道与冷通道技术的做法是：<span class="em-new">将机柜面对面、背对背交替排列，使冷空气从前门进入服务器（冷通道），热空气从背面排出（热通道），实现冷热气流物理隔离</span>，从而大幅提升散热效率，保障密集部署下的服务器运行安全。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">机柜面对面出冷风、背对背排热风——冷热一混就热岛死机，物理隔离才散热</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-c4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>数据保密五法：加密、访问控制、脱敏、TDE 联动、分类标签</h3></div>
+      <div class="badges">
+        <span class="badge new">数据加密</span>
+        <span class="badge new">RBAC / ABAC</span>
+        <span class="badge new">数据脱敏</span>
+        <span class="badge new">TDE · 数据分类标签</span>
+      </div>
+    </summary>
+    <div class="human-origin">护一箱子现金有五种办法：锁死箱子（加密）、凭证件开门（访问控制）、把钞票号码涂掉给人看（脱敏）、保险柜加展示窗联动（TDE＋动态脱敏）、给每箱贴级别标签（分类标签）。五种办法各管一段，合起来才是全链路。</div>
+
+    <div class="section-label new">五法逐条（手段＋适用场景）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>#</th><th>手段</th><th>怎么做</th><th>适用场景</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><span class="em-new">数据加密技术</span></td><td>最基本的网络安全技术，被誉为信息安全的核心；对称加密（如 AES）和非对称加密（如 RSA）两种主要方式</td><td>保证数据在<span class="em-new">存储和传输</span>过程中的保密性</td></tr>
+        <tr><td>2</td><td><span class="em-new">访问控制</span></td><td>基于角色的访问控制（RBAC）和基于属性的访问控制（ABAC）</td><td>保障数据保密性的重要手段，管"谁能看"</td></tr>
+        <tr><td>3</td><td><span class="em-new">数据脱敏</span></td><td>对数据库中敏感信息脱敏处理，如替换、加密、掩码等方式</td><td>在数据<span class="em-new">预处理阶段</span>实施，是保护数据隐私的关键步骤</td></tr>
+        <tr><td>4</td><td><span class="em-new">透明加密（TDE）与动态脱敏联动</span></td><td>融合 TDE 透明加密与动态数据脱敏技术</td><td>构建<span class="em-new">存储-传输-计算全链路</span>防护体系</td></tr>
+        <tr><td>5</td><td><span class="em-new">数据分类与数据标签</span></td><td>分类＝按敏感程度划定级别；标签＝把分类标识以元数据形式物理或逻辑绑定到具体数据对象</td><td>为 DLP 数据防泄漏、数据流转审计、精细化访问控制提供<span class="em-new">最直接的识别依据</span></td></tr>
+      </tbody>
+    </table>
+    <p>注意区分两个易混点：<span class="em-new">数据脱敏在预处理阶段做</span>（先脱后用）；<span class="em-new">数据标签是元数据绑定</span>，它本身不加密、不脱敏，是给 DLP 和审计系统当"身份证"用的。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">加密锁存储传输、访问管"谁能看"、脱敏在预处理做、TDE 联动全链路、分类标签给 DLP 当依据——五法分段管，缺一不可</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-c5">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>运维环节攻击与分发攻击：最危险的人有钥匙</h3></div>
+      <div class="badges">
+        <span class="badge old">运维风险</span>
+        <span class="badge new">资质审查</span>
+        <span class="badge old">分发攻击</span>
+        <span class="badge new">供应链安全</span>
+      </div>
+    </summary>
+    <div class="human-origin">最危险的攻击不一定在外面：外包运维的人有钥匙、能进门；设备的安装包在出厂、运输、升级的某个环节就被人动过手脚。门里的人和流转中的货，都得管。</div>
+
+    <div class="section-label old">运维环节的安全风险</div>
+    <p>运维安全是确保网络安全、数据安全的重要内容。近年来，个别涉密单位网络运维不规范——<span class="em-old">或使用资质能力不匹配的运维机构，或运维人员违规操作</span>——导致运维环节成为<span class="em-old">境外间谍情报机关开展网络渗透窃密的突破口</span>。</p>
+
+    <div class="section-label new">运维安全防范五条（大纲原文）</div>
+    <p>① <span class="em-new">建立完善运维安全机制</span>——将网络运维安全与信息化建设<span class="em-new">同规划、同部署、同落实</span>；<br>
+    ② <span class="em-new">加强运维机构与人员资质审查</span>——建立运维服务准入制度，对承担涉密信息系统运维服务、接触重要敏感数据的机构和人员严格审查；<br>
+    ③ <span class="em-new">关闭非必要端口</span>——关闭非必要端口，限制服务默认端口使用，对敏感端口实施重点管控；<br>
+    ④ <span class="em-new">及时修补漏洞</span>——定期开展漏洞扫描，及时修复系统安全漏洞；<br>
+    ⑤ <span class="em-new">规范权限管理</span>——避免权限滥用，定期审计账户口令使用情况。</p>
+
+    <div class="section-label old">分发攻击：流转环节被动手脚</div>
+    <p><strong>分发攻击是指攻击者在软硬件产品的生产、交付、安装、升级、部署、维护等流转环节中，恶意篡改硬件配置、软件代码、系统镜像或安全参数，植入后门、木马或隐藏访问路径的攻击方式。</strong></p>
+    <p>典型表现：<span class="em-new">在系统升级过程中修改配置、在镜像中植入恶意程序、在设备中预置后门账号、在运维过程中保留隐藏通道</span>。</p>
+    <p><strong>防范</strong>：<span class="em-new">加强供应链安全管理、升级包完整性校验、软件签名验证、运维操作审计和变更审批</span>。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">运维防"人"：准入、审资质、关端口、扫漏洞、审口令；分发防"货"：供应链管理、完整性校验、签名验证、审计审批</span>。</p>
+  </details>
+</div>
+
+<div class="sec-block" id="sec-ywaq-xing">
+  <div class="sec-h"><h2 id="sec-ywaq-xing-title">行 · 场景落地</h2><span class="years">17 个场景 · 点开看具体动作</span></div>
+  <p>下面按场景分五组：装机加固与外包运维、事件应急（PDCERF 落地）、机房物理安全、数据保密落地、供应链与分发攻击防守。</p>
+
+  <div class="section-label">组一 · 装机加固 / 运维值班</div>
+
+  <details class="card fold-card" id="sec-ywaq-x1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>新服务器上架，先装了一堆组件再想安全</h3></div>
+      <div class="badges"><span class="badge new">最小安装</span><span class="badge inherit">安全基线</span></div>
+    </summary>
+    <p>新机上架顺手把邮件、FTP、打印服务全装上图省事，半年后这些用不上的服务全成了攻击口。</p>
+    <p><strong>落地动作</strong>：按最小安装原则只装必要组件和应用程序；上线前对照基线 checklist 加固；用不上的服务一律卸载，端口随之关闭。</p>
+    <p><strong>挂的知识点</strong>：最小安装原则——仅安装必要的组件和应用程序；安全基线是经安全团队验证的预配置起点。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-x2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>政务终端过检查，对照哪份规范加固</h3></div>
+    </summary>
+    <p>检查组问"你们终端核心配置按什么做的"，答不上标准号。</p>
+    <p><strong>落地动作</strong>：政务终端按 GB/T 30278-2013《政务计算机终端核心配置规范》核对基本要求；服务器操作系统对照 GB/T 20272 五个安全等级的技术要求；关键参数覆盖身份鉴别、访问控制、资源控制、入侵防范、剩余信息清除、安全审计六项。</p>
+    <p><strong>挂的知识点</strong>：GB/T 20272 五个安全等级；GB/T 30278-2013 政务终端核心配置；部署要点第三条六项配置要求。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-x3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>补丁攒了三个月，一次全打上</h3></div>
+    </summary>
+    <p>怕影响业务一直不打补丁，漏洞库越积越多，被利用后才发现补丁早出了。</p>
+    <p><strong>落地动作</strong>：定期更新补丁，先在测试环境验证再推生产；建立"补丁-SLA"，高危漏洞限时修复；补丁前快照，失败可回滚。</p>
+    <p><strong>挂的知识点</strong>：部署要点第四条"定期更新补丁，及时安装安全补丁，修复系统安全漏洞"。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-x4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>外包运维进场，拿着 root 密码就敢改生产</h3></div>
+    </summary>
+    <p>服务商人员现场直接用共享管理员账号操作，改了配置没人知道是谁改的。</p>
+    <p><strong>落地动作</strong>：建立运维服务准入制度，资质严格审查；操作走堡垒机录屏；一人一号、到期回收；变更走审批流程；定期审计账户口令使用情况。</p>
+    <p><strong>挂的知识点</strong>：运维防范——资质审查与准入、规范权限管理（定期审计账户口令）；"三同"原则（同规划、同部署、同落实）。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-x5">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>扫描报告一堆开放端口，哪些先关</h3></div>
+    </summary>
+    <p>端口扫描出来 3389、21、135 等一堆，业务早不用了还开着。</p>
+    <p><strong>落地动作</strong>：关闭非必要端口；限制服务默认端口使用；敏感端口（如 22）只对堡垒机 IP 开放；无必要关闭所有远程管理端口。</p>
+    <p><strong>挂的知识点</strong>：运维防范第三条"关闭非必要端口，限制服务默认端口使用，对敏感端口实施重点管控"。</p>
+  </details>
+
+  <div class="section-label">组二 · 应急现场（PDCERF 落地）</div>
+
+  <details class="card fold-card" id="sec-ywaq-x6">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>发现服务器被植入 webshell，下一步按什么顺序走</h3></div>
+    </summary>
+    <p>HIDS 报警说某主机被恶意软件入侵，值班员第一反应是重启机器。</p>
+    <p><strong>落地动作</strong>：准备（预案、人员、物资就位）→ 检测（确认漏洞与事件真实性，查 HIDS 日志）→ 遏制（先把机器与网络隔离开）→ 根除（清 webshell、后门、恶意代码）→ 恢复（系统恢复正常运行）→ 事后总结（复盘、完善防护策略）。不重启、不直接格盘，先隔离。</p>
+    <p><strong>挂的知识点</strong>：PDCERF 六阶段——准备 Preparation、检测 Detection、遏制 Containment、根除 Eradication、恢复 Recovery、事后总结 Follow-up。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-x7">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>事件处理完就散会，漏洞下次还犯</h3></div>
+    </summary>
+    <p>中过一次勒索，恢复完没复盘，三个月后同一入口又被打穿。</p>
+    <p><strong>落地动作</strong>：按 Follow-up 阶段开复盘会：还原攻击时间线、列出入侵途径、更新防护策略与预案；把这次的检测规则沉淀为日常监控规则。</p>
+    <p><strong>挂的知识点</strong>：PDCERF ⑥事后总结（Follow-up）——复盘事件、总结经验、完善防护策略。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-x8">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>演习当天才发现没人知道预案放哪</h3></div>
+    </summary>
+    <p>真出事时翻不到应急联系人和恢复方案，预案等于没有。</p>
+    <p><strong>落地动作</strong>：准备阶段常态化——预案成文并明确应急人员与职责；人员物资定期盘点；每半年开展一次应急演练，演练记录留档。</p>
+    <p><strong>挂的知识点</strong>：PDCERF ①准备（Preparation）——事件发生前完成预判、响应方案制定、人员物资调配；呼应勒索"九要"之要九（制定应急响应预案并定期演练）。</p>
+  </details>
+
+  <div class="section-label">组三 · 机房与物理安全</div>
+
+  <details class="card fold-card" id="sec-ywaq-x9">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>机房多次硬件故障，机柜挤成一团</h3></div>
+    </summary>
+    <p>密集堆叠的机柜局部发烫，夏季每月宕机几次，审核员看不下去。</p>
+    <p><strong>落地动作</strong>：机柜面对面、背对背交替排列成冷通道／热通道；冷通道送风、热通道排风，冷热气流物理隔离；配温湿度监控，解决局部热岛效应。</p>
+    <p><strong>挂的知识点</strong>：热通道与冷通道（Hot and Cold Aisle）技术——密集堆叠易产生局部热岛效应，冷热隔离大幅提升散热效率。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-x10">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>机房谁都能进，保洁也带钥匙</h3></div>
+    </summary>
+    <p>机房门口随便进，没有登记，摄像头还有死角。</p>
+    <p><strong>落地动作</strong>：门禁权限管理制度＋值守制度；不间断无盲点监控；物理隔离手段；进出登记、双人在场；机柜钥匙专人保管。</p>
+    <p><strong>挂的知识点</strong>：物理环境安全五条——安全管理规范、物理隔离手段、值守制度、门禁权限管理制度、不间断无盲点监控。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-x11">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>机房选在临街铺面，隔壁是印刷厂</h3></div>
+    </summary>
+    <p>机房旁边粉尘大、噪声大，附近还有强电磁设备，服务器老出故障。</p>
+    <p><strong>落地动作</strong>：选址远离产生粉尘、强噪声源的场所，避开强电磁场干扰；设备侧做防水防潮、防静电、温湿度与防尘配置。</p>
+    <p><strong>挂的知识点</strong>：物理位置选择＋设备安全（电磁兼容、防水防潮、防静电、温湿度配置、防尘）。</p>
+  </details>
+
+  <div class="section-label">组四 · 数据保密落地</div>
+
+  <details class="card fold-card" id="sec-ywaq-x12">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>库里手机号、身份证明文存，DBA 全能查</h3></div>
+    </summary>
+    <p>一张 SQL 就能把全量客户信息拉走，系统里没有任何加密。</p>
+    <p><strong>落地动作</strong>：敏感字段加密存储（对称加密如 AES，密钥与数据分开管）；库开启 TDE 透明加密；DBA 权限拆分，按角色最小授权。</p>
+    <p><strong>挂的知识点</strong>：数据加密是信息安全的核心、最基本的网络安全技术，保证存储和传输过程中的保密性；TDE 透明加密属第四法。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-x13">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>报表导出把客户手机号、卡号全明文给了业务部门</h3></div>
+    </summary>
+    <p>数据分析要明细数据，直接把含敏感信息的表给出去，流转全程无控制。</p>
+    <p><strong>落地动作</strong>：预处理阶段先脱敏（手机号掩码 138****1234、卡号替换）；动态脱敏联动——不同岗位看到不同程度的脱敏结果；数据打分类标签，DLP 按标签管流转。</p>
+    <p><strong>挂的知识点</strong>：第三法数据脱敏（替换、加密、掩码，预处理阶段实施是关键步骤）；第四法 TDE 与动态脱敏联动构建全链路防护；第五法数据标签为 DLP 提供识别依据。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-x14">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>所有人点开客户表都能看全行客户</h3></div>
+    </summary>
+    <p>权限按"部门"粗分，客户经理能看别的地区的客户数据。</p>
+    <p><strong>落地动作</strong>：上 RBAC（按角色授权），区域客户经理只看本地区；高敏数据叠加 ABAC（按部门、密级、时间属性判断）；权限定期复核回收。</p>
+    <p><strong>挂的知识点</strong>：第二法访问控制——基于角色的访问控制（RBAC）和基于属性的访问控制（ABAC）。</p>
+  </details>
+
+  <div class="section-label">组五 · 供应链与分发攻击</div>
+
+  <details class="card fold-card" id="sec-ywaq-x15">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>升级包直接从群里下载，装上就中招</h3></div>
+    </summary>
+    <p>运维图方便，安装包从网盘拉下来就往生产装，没验证过来源和完整性。</p>
+    <p><strong>落地动作</strong>：升级包做完整性校验（哈希比对）与软件签名验证；只走官方渠道下载；变更走审批；留存升级日志可审计。</p>
+    <p><strong>挂的知识点</strong>：分发攻击防范——加强供应链安全管理、升级包完整性校验、软件签名验证、运维操作审计和变更审批。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-x16">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>新到货服务器里藏着一个不知道的管理员账号</h3></div>
+    </summary>
+    <p>开箱验收只看外观，没查账号列表，半年后这个"出厂后门"被人用了。</p>
+    <p><strong>落地动作</strong>：到货验收清单里加一项账号与镜像核查；新机先在隔离区扫描加固再入网；系统镜像统一用自有可信镜像。</p>
+    <p><strong>挂的知识点</strong>：分发攻击典型表现——在设备中预置后门账号、在镜像中植入恶意程序；防范靠供应链安全管理。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-ywaq-x17">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>面试被问"运维环节最大的安全风险是什么"</h3></div>
+    </summary>
+    <p>只答"人容易出错"，没答到大纲点上。</p>
+    <p><strong>落地动作</strong>：按大纲答——运维不规范（资质不匹配的机构、运维人员违规操作）使运维环节成为境外间谍情报机关网络渗透窃密的突破口；对策五条：三同机制、准入资质审查、关非必要端口、定期漏洞扫描、定期审计账户口令。</p>
+    <p><strong>挂的知识点</strong>：运维安全风险定义与防范五条；分发攻击定义作为对比项一起答。</p>
+  </details>
+</div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

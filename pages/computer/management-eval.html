@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>安全管理与评估 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/computer/management-eval.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 计算机 › 信息安全 › 安全管理与评估</div>
+
+<div class="doc-head">
+  <h1>安全管理与评估</h1>
+  <p>考点七把镜头从设备和代码转向人和制度：再好的防火墙，制度没人执行、权限没人复核、系统没定等保级别，等于没做。本页五块——制度四层、人员与权限、风险评估国标、评估维度、等保五级，是申论、面试和监管检查的高频区，两个标准号和五级名称必须逐字背。</p>
+  <div class="stat">知 <b>5</b> 个知识块 · 行 <b>18</b> 个场景</div>
+</div>
+
+<div class="sec-block" id="sec-aqgl">
+  <div class="sec-h"><h2 id="sec-aqgl-zhi">知 · 概念与理论</h2><span class="years">制度四层 · 人员权限 · 风险评估国标 · 评估维度 · 等保五级</span></div>
+
+  <details class="card fold-card" id="sec-aqgl-c1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>安全管理制度：四层文件与一个生命周期</h3></div>
+      <div class="badges">
+        <span class="badge new">三部法律依据</span>
+        <span class="badge sediment">四层构成</span>
+        <span class="badge new">制定→更新</span>
+      </div>
+    </summary>
+    <div class="human-origin">一个单位的安全制度就像小区的管理体系：业主公约（方针）、物业各岗守则（专项制度）、保安巡逻 SOP（操作规程）、签到与报修表（记录表单）——缺任何一层，出了事都查无对证、无人可问。</div>
+
+    <div class="section-label new">法律依据（三部法点名）</div>
+    <p>《中华人民共和国网络安全法》明确规定，网络运营者应当"制定内部安全管理制度和操作规程，确定网络安全负责人，落实网络安全保护责任"。《数据安全法》《个人信息保护法》同样对组织内部安全管理制度的建立提出了明确要求。</p>
+
+    <div class="section-label new">制度的四层构成</div>
+    <table class="tbl">
+      <thead><tr><th>层级</th><th>内容</th><th>作用</th></tr></thead>
+      <tbody>
+        <tr><td>方针性文件</td><td>安全工作总体方针、原则、目标</td><td>确立安全工作的战略方向</td></tr>
+        <tr><td>管理制度文件</td><td>网络安全管理、数据安全、机房管理、保密管理等专项制度</td><td>规范各项安全管理活动</td></tr>
+        <tr><td>操作规程</td><td>系统运维、应急响应等标准化流程</td><td>指导具体技术操作</td></tr>
+        <tr><td>记录表单</td><td>巡检记录、审批记录、事件处理记录</td><td>制度执行的证据留存</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label new">制度的生命周期</div>
+    <div class="chain"><span class="chain-note">五步循环：</span>制定 → 发布 → 执行 → 检查 → 更新</div>
+    <p>管理制度的有效性依赖于持续的生命周期管理。组织应定期对安全管理制度的合理性和适用性进行审定，及时修订完善。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">制度不是写一次挂墙上：方针定方向、专项制度管活动、操作规程管动作、记录表单留证据，五步循环定期审定</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-c2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>人员权限管理：全生命周期、三员分立、受限制接口</h3></div>
+      <div class="badges">
+        <span class="badge new">入职·在职·离岗</span>
+        <span class="badge sediment">三员分立</span>
+        <span class="badge new">最小特权</span>
+      </div>
+    </summary>
+    <div class="human-origin">权限管理像银行柜台：开柜前先验人（入职审查），在岗时只给办当前业务的章（最小特权），走的时候立刻收章（离岗注销）；记账的、管章的、查账的必须是三个人——管章的人不能自己查自己。</div>
+
+    <div class="section-label new">人员全生命周期安全管理（三阶段）</div>
+    <table class="tbl">
+      <thead><tr><th>阶段</th><th>管理措施</th></tr></thead>
+      <tbody>
+        <tr><td>入职</td><td>身份背景审查、签订保密协议、岗前安全培训</td></tr>
+        <tr><td>在职</td><td>遵守安全规定、账号密码专人专用、禁止账号共用</td></tr>
+        <tr><td>离岗</td><td>清理账户权限、交接信息资产、回收证件和设备</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label new">权限管理的四条核心原则</div>
+    <p>①<strong>最小特权原则（最小授权原则）</strong>：主体仅被授予执行任务和完成工作所必需的权限，权限设定应依据工作范围给予对应操作权限。②<strong>职责分离原则（三员分立）</strong>：系统管理员（负责日常运维与 DBA 操作）、安全管理员（负责账号权限分配与策略配置）、审计管理员（负责审计日志审查），三者权限相互隔离、不得兼任。③<strong>账号实名制管理</strong>：严格落实"一人一账号，权责相匹配"；人员转岗离岗时，应及时收回相关数据权限并重新分配。④<strong>权限定期复核</strong>：应定期进行权限复核，及时清理离岗离职人员的访问账户及权限。</p>
+
+    <div class="section-label new">受限制接口：认证之后还要"限能干什么"</div>
+    <p>受限制接口是指系统根据用户身份、角色、权限或安全策略，只向用户开放其工作所需的功能、菜单、按钮、数据字段或 API 接口，限制用户执行超出授权范围的操作。其核心目的<span class="em-old">不是认证用户身份</span>，而是在认证和授权之后，限制用户"能看到什么、能访问什么、能执行什么操作"，从而落实最小特权原则，降低越权访问和误操作风险。例如：普通员工只能查询本人相关数据，不能修改系统配置；业务人员可以录入数据，但不能审批自己录入的数据。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">进人要审、在岗要限、离人要收；三员（系统·安全·审计）互相隔离不兼任；受限制接口管的是"认证之后"的越权，不是重复验身份</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-c3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>风险评估：四步流程与两个国标号</h3></div>
+      <div class="badges">
+        <span class="badge new">GB/T 20984—2022</span>
+        <span class="badge new">GB/T 45577—2025</span>
+        <span class="badge sediment">四步流程</span>
+      </div>
+    </summary>
+    <div class="human-origin">风险评估像给房子做体检：先定查哪几栋（准备），再找裂缝、找小偷前科、看现有防盗措施（识别），然后算被偷的概率和损失（分析），最后定成几级危房（评价）。两个国标号就是这次体检的官方操作规程。</div>
+
+    <div class="section-label new">风险评估是什么</div>
+    <p>风险评估是量化评判安全事件带来的影响或损失的可能程度的过程，是对信息资产所面临的威胁、存在的弱点、造成的影响及三者综合作用所带来风险的可能性的评估。<strong>风险评估是风险管理的基础</strong>。</p>
+
+    <div class="section-label new">两个核心标准（标准号与日期逐字背）</div>
+    <table class="tbl">
+      <thead><tr><th>标准号</th><th>名称</th><th>发布与实施</th></tr></thead>
+      <tbody>
+        <tr><td>GB/T 20984—2022</td><td>《信息安全技术 信息安全风险评估方法》</td><td>2022 年 4 月发布、11 月正式实施，有效指导各行业信息安全风险评估工作</td></tr>
+        <tr><td>GB/T 45577—2025</td><td>《数据安全技术 数据安全风险评估方法》</td><td>2025 年 4 月 25 日发布，2025 年 11 月 1 日起实施</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label new">风险评估基本流程四步</div>
+    <table class="tbl">
+      <thead><tr><th>步骤</th><th>核心工作</th></tr></thead>
+      <tbody>
+        <tr><td>①评估准备</td><td>明确评估范围，组建跨部门团队，制定评估方案</td></tr>
+        <tr><td>②风险识别</td><td>资产识别、威胁识别、已有安全措施识别、脆弱性识别</td></tr>
+        <tr><td>③风险分析</td><td>依据识别的结果计算风险值</td></tr>
+        <tr><td>④风险评价</td><td>依据风险评价准则确定风险等级</td></tr>
+      </tbody>
+    </table>
+    <p>主要内容四块：①<strong>技术层面评估</strong>——通过网络弱点检测手段识别系统技术安全弱点；②<strong>管理层面评估</strong>——分析人员、制度等安全管理现状；③<strong>综合风险分析与报告</strong>——汇总安全风险，形成风险评估报告；④<strong>安全建议</strong>——根据评估结果提出安全建设建议。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">准备→识别（资产·威胁·已有措施·脆弱性）→分析算风险值→评价定等级；信息安全看 GB/T 20984—2022，数据安全看 GB/T 45577—2025</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-c4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>安全评估的两大维度与三项内容</h3></div>
+      <div class="badges">
+        <span class="badge new">技术评估</span>
+        <span class="badge new">管理评估</span>
+        <span class="badge sediment">五面覆盖</span>
+      </div>
+    </summary>
+    <div class="human-origin">安全评估不能只拿扫描仪扫一遍漏洞就收工——那只查了"门锁结实吗"，没查"谁拿钥匙、制度贴没贴墙上"。技术加管理两条腿走路，才叫真评估。</div>
+
+    <div class="section-label new">评估的定位</div>
+    <p>网络安全评估是一个发现、量化和分析系统安全隐患的综合过程。安全评估是验证安全控制措施有效性的重要手段，包括测试、评估和审计，定期验证安全控制是否正常运行并有效保护信息资产。</p>
+
+    <div class="section-label new">三项主要内容</div>
+    <p>①<strong>漏洞扫描</strong>：识别系统技术缺陷；②<strong>威胁评估</strong>：分析潜在外部威胁来源；③<strong>风险评估</strong>：综合量化风险级别。</p>
+
+    <div class="section-label new">两大维度、五个方面</div>
+    <p>安全评估通常分为<strong>技术评估和管理评估</strong>两大维度，涵盖<strong>物理安全、网络安全、主机安全、应用安全、数据安全</strong>等方面。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">评估＝漏洞扫描＋威胁评估＋风险评估；技术与管理两条腿，物理·网络·主机·应用·数据五个面全覆盖</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-c5">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>网络安全等级保护五级</h3></div>
+      <div class="badges">
+        <span class="badge new">自主保护级</span>
+        <span class="badge new">监督保护级</span>
+        <span class="badge sediment">专控保护级</span>
+      </div>
+    </summary>
+    <div class="human-origin">等保像给系统贴"抗震等级"：小区门禁、学校官网、银行核心库、能源调度网、国家指挥中心，损毁后的后果天差地别，所以保护强度、测评频率、监管力度逐级加码。五级名称一句话都不许背错。</div>
+
+    <div class="section-label new">制度一句话</div>
+    <p>网络安全等级保护是对国家重要信息及信息系统分等级实行安全保护，对信息安全产品按等级管理，对安全事件分等级响应处置。</p>
+
+    <div class="section-label new">五级逐级清单（名称＋适用对象＋测评监管要求＋后果）</div>
+    <table class="tbl">
+      <thead><tr><th>级别</th><th>级别名称</th><th>典型适用对象</th><th>测评/监管要求</th><th>受侵害后果（大纲原文）</th></tr></thead>
+      <tbody>
+        <tr><td>第一级</td><td>自主保护级</td><td>一般信息系统，受损主要影响组织自身</td><td>单位自主定级、自主保护，不强制测评</td><td>对公民、法人和其他组织的合法权益造成一般损害，但不损害社会秩序、公共利益和国家安全</td></tr>
+        <tr><td>第二级</td><td>指导保护级</td><td>有一定社会影响的系统</td><td>自主定级、备案，接受指导，可自行测评</td><td>对合法权益造成严重损害，或者对社会秩序和公共利益造成一般损害，但不损害国家安全</td></tr>
+        <tr><td>第三级</td><td>监督保护级</td><td>重要业务系统（金融、政务、能源等关键系统）</td><td>定级备案、每年定期测评，公安机关监督检查</td><td>对社会秩序和公共利益造成严重损害，或者对国家安全造成一般损害</td></tr>
+        <tr><td>第四级</td><td>强制保护级</td><td>关键信息基础设施、核心业务系统</td><td>强制测评、更高频率，重点监管</td><td>对社会秩序和公共利益造成特别严重损害，或者对国家安全造成严重损害</td></tr>
+        <tr><td>第五级</td><td>专控保护级</td><td>国家极端重要的核心系统</td><td>专门部门专控，最高强度保护</td><td>对国家安全造成特别严重损害</td></tr>
+      </tbody>
+    </table>
+    <p>注：表内"典型适用对象""测评/监管要求"两列为通行等保要求的补充说明，大纲原表只给等级、级别名称与受侵害后果三类信息；复习时<span class="em-sed">以大纲三列为准</span>，两列补充帮助理解，不要求逐字背。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">一自主、二指导、三监督、四强制、五专控；后果逐级加码——从"只损合法权益"到"特别严重损害国家安全"；级别越高，测评越频、监管越硬</span>。</p>
+  </details>
+</div>
+
+<div class="sec-block" id="sec-aqgl-xing">
+  <div class="sec-h"><h2 id="sec-aqgl-xing-title">行 · 场景落地</h2><span class="years">18 个场景 · 点开看具体动作</span></div>
+  <p>管理类知识点的好处是"动作很实在"：改个流程、定个级别、收个账号，全是日常。下面按写代码、人事权限、制度评估、测评合规、面试申论五组排，遇到相似场景直接套。</p>
+
+  <div class="section-label">组一 · 写代码 / 做系统</div>
+
+  <details class="card fold-card" id="sec-aqgl-x1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>报销系统里，录入员自己就能审批自己的单子</h3></div>
+      <div class="badges"><span class="badge new">职责分离</span><span class="badge sediment">受限制接口</span></div>
+    </summary>
+    <p>"提交"和"审批"两个按钮在同一人账号下都能点，报销单自己报自己批。</p>
+    <p><strong>落地动作</strong>：受限制接口按角色拆——录入角色与审批角色互斥；后端校验"审批人不等于录入人"；菜单、按钮、接口三层同时收敛。</p>
+    <p><strong>挂的知识点</strong>：c2——受限制接口原文例子"业务人员可以录入数据，但不能审批自己录入的数据"；职责分离原则。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-x2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>后台人人都看得到"数据导出"按钮，点了才报错</h3></div>
+      <div class="badges"><span class="badge new">最小特权</span><span class="badge old">越权</span></div>
+    </summary>
+    <p>菜单对所有登录用户显示，靠前端隐藏按钮；抓包后直接调导出接口照样能拖表。</p>
+    <p><strong>落地动作</strong>：按角色只返回工作所需的功能、菜单、按钮、字段与 API；前端隐藏只是排版，后端按权限逐接口校验。</p>
+    <p><strong>挂的知识点</strong>：c2——最小特权原则；受限制接口在认证授权之后限制"能看到、能访问、能执行什么"。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-x3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>三个管理账号，实际全是同一个运维在登录</h3></div>
+      <div class="badges"><span class="badge sediment">三员分立</span><span class="badge new">不得兼任</span></div>
+    </summary>
+    <p>系统管理员、安全管理员、审计管理员的密码都在一个人手里，操作日志谁来查？</p>
+    <p><strong>落地动作</strong>：三员账号物理分开、密码分人保管；审计管理员独立抽审日志，系统管理员看不到审计配置；每半年核对一次账号实际使用人。</p>
+    <p><strong>挂的知识点</strong>：c2——系统管理员（运维与 DBA）、安全管理员（账号权限与策略）、审计管理员（日志审查），权限相互隔离、不得兼任。</p>
+  </details>
+
+  <div class="section-label">组二 · 人事 / 权限管理</div>
+
+  <details class="card fold-card" id="sec-aqgl-x4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>新人入职第一天，权限"先全开再说"</h3></div>
+      <div class="badges"><span class="badge new">入职</span><span class="badge old">最小特权缺位</span></div>
+    </summary>
+    <p>新员工还没定岗，账号已经能看全部客户数据。</p>
+    <p><strong>落地动作</strong>：入职三件套——身份背景审查、签订保密协议、岗前安全培训；权限按岗位最小化清单逐项开通；转岗时先收回旧权限再发新权限。</p>
+    <p><strong>挂的知识点</strong>：c2——入职阶段管理措施；账号实名制"一人一账号，权责相匹配"。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-x5">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>销售离职当天，VPN 和邮箱账号还没停</h3></div>
+      <div class="badges"><span class="badge new">离岗注销</span><span class="badge old">内部风险</span></div>
+    </summary>
+    <p>离职手续办了一下午，那边账号还连着内网导出客户名单。</p>
+    <p><strong>落地动作</strong>：离岗当天清理账户权限、交接信息资产、回收证件和设备；账号即时冻结；离职名单与权限台账每月对账。</p>
+    <p><strong>挂的知识点</strong>：c2——离岗三动作；权限定期复核，清理离岗离职人员的访问账户及权限。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-x6">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">06</span><h3>运维组共用一个"root 共享账号"，出事查不到人</h3></div>
+      <div class="badges"><span class="badge new">一人一账号</span><span class="badge old">账号共用</span></div>
+    </summary>
+    <p>高危操作日志里全是 root，追责时谁都不承认自己动过。</p>
+    <p><strong>落地动作</strong>：废止共享账号，一人一账号、密码专人专用；所有操作经堡垒机留痕；在职期间禁止账号共用。</p>
+    <p><strong>挂的知识点</strong>：c2——在职要求"账号密码专人专用、禁止账号共用"＋账号实名制管理。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-x7">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">07</span><h3>两年没人复核权限，离职三年的人还能登录</h3></div>
+      <div class="badges"><span class="badge sediment">权限复核</span><span class="badge old">僵尸账号</span></div>
+    </summary>
+    <p>审计抽查发现十几个离职两年的账号仍然 active。</p>
+    <p><strong>落地动作</strong>：每季度权限复核一次；离岗离职人员账户到期自动停用；复核结果写进记录表单留证据。</p>
+    <p><strong>挂的知识点</strong>：c2——权限定期复核；c1——记录表单是制度执行的证据留存。</p>
+  </details>
+
+  <div class="section-label">组三 · 制度与风险评估</div>
+
+  <details class="card fold-card" id="sec-aqgl-x8">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">08</span><h3>单位墙上只有一页"安全须知"，检查时拿不出依据</h3></div>
+      <div class="badges"><span class="badge sediment">四层构成</span><span class="badge old">制度缺失</span></div>
+    </summary>
+    <p>被问到机房管理、数据安全、应急流程，一样制度文件都拿不出来。</p>
+    <p><strong>落地动作</strong>：按四层补齐——方针性文件（总体方针、原则、目标）、管理制度文件（网络安全、数据安全、机房管理、保密管理专项）、操作规程（运维、应急标准化流程）、记录表单（巡检、审批、事件处理）。</p>
+    <p><strong>挂的知识点</strong>：c1——制度四层构成及各自作用。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-x9">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">09</span><h3>制度发布三年没动过，服务器和系统早换了一轮</h3></div>
+      <div class="badges"><span class="badge new">生命周期</span><span class="badge sediment">定期审定</span></div>
+    </summary>
+    <p>规程里还写着旧机房位置，新系统上线也没人修订制度。</p>
+    <p><strong>落地动作</strong>：按制定→发布→执行→检查→更新循环管理；每年审定一次制度的合理性和适用性；系统变更时同步修订规程。</p>
+    <p><strong>挂的知识点</strong>：c1——制度生命周期五步；组织应定期审定、及时修订完善。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-x10">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">10</span><h3>第一次做风险评估，团队上来就扫漏洞</h3></div>
+      <div class="badges"><span class="badge new">评估准备</span><span class="badge sediment">四步</span></div>
+    </summary>
+    <p>跳过定范围和组队，直接拿扫描器全网扫，最后报告没人认。</p>
+    <p><strong>落地动作</strong>：第一步评估准备——明确范围、组建跨部门团队、制定方案；再做风险识别（资产、威胁、已有安全措施、脆弱性四个识别）；然后依据识别结果计算风险值；最后按评价准则确定风险等级。</p>
+    <p><strong>挂的知识点</strong>：c3——风险评估四步基本流程。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-x11">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">11</span><h3>检查组问"你们风险评估依据哪个标准"</h3></div>
+      <div class="badges"><span class="badge exam">监管检查</span><span class="badge new">国标号</span></div>
+    </summary>
+    <p>答不上标准号，等于没做过评估。</p>
+    <p><strong>落地动作</strong>：背两个号——信息安全风险评估《GB/T 20984—2022》（2022 年 4 月发布、11 月实施）；数据安全风险评估《GB/T 45577—2025》（2025 年 4 月 25 日发布、11 月 1 日实施）。</p>
+    <p><strong>挂的知识点</strong>：c3——两个核心标准及其发布实施时间。</p>
+  </details>
+
+  <div class="section-label">组四 · 测评 / 合规检查</div>
+
+  <details class="card fold-card" id="sec-aqgl-x12">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">12</span><h3>新政务服务系统上线，该定等第几级</h3></div>
+      <div class="badges"><span class="badge new">等保五级</span><span class="badge sediment">监督保护级</span></div>
+    </summary>
+    <p>承载社保查询与缴费的系统，被问"过几级等保"。</p>
+    <p><strong>落地动作</strong>：按受侵害后果对号——重要业务系统按第三级监督保护级准备：定级备案、每年定期测评、接受公安机关监督检查；只影响组织自身的小系统才按第一级自主保护。</p>
+    <p><strong>挂的知识点</strong>：c5——第三级后果原文"对社会秩序和公共利益造成严重损害，或者对国家安全造成一般损害"。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-x13">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">13</span><h3>银行核心交易系统被要求按第四级整改</h3></div>
+      <div class="badges"><span class="badge new">强制保护级</span><span class="badge old">关键系统</span></div>
+    </summary>
+    <p>监管通知下发，核心系统按第四级强制保护级整改，不达标不得投产。</p>
+    <p><strong>落地动作</strong>：按第四级做更高强度保护与更高频率强制测评；整改项逐条销号；后果原文记牢——"对社会秩序和公共利益造成特别严重损害，或者对国家安全造成严重损害"。</p>
+    <p><strong>挂的知识点</strong>：c5——第四级强制保护级；第五级专控保护级留给国家极端重要系统，后果是"对国家安全造成特别严重损害"。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-x14">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">14</span><h3>安全评估只做了漏洞扫描，管理一项空白</h3></div>
+      <div class="badges"><span class="badge new">两大维度</span><span class="badge old">管理评估缺位</span></div>
+    </summary>
+    <p>扫描仪报告厚厚一本，但人员制度、机房物理安全没人查。</p>
+    <p><strong>落地动作</strong>：按技术＋管理两个维度铺开；物理、网络、主机、应用、数据五个方面全覆盖；漏洞扫描、威胁评估、风险评估三项内容都要有结论。</p>
+    <p><strong>挂的知识点</strong>：c4——评估两大维度与三个方面内容。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-x15">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">15</span><h3>公安检查问"你们怎么验证控制措施一直有效"</h3></div>
+      <div class="badges"><span class="badge exam">监管检查</span><span class="badge sediment">定期验证</span></div>
+    </summary>
+    <p>答"上线时做过一次安全测试"被直接打回。</p>
+    <p><strong>落地动作</strong>：建立定期测试、评估、审计机制，定期验证安全控制是否正常运行并有效保护信息资产；验证结果进记录表单留存。</p>
+    <p><strong>挂的知识点</strong>：c4——"包括测试、评估和审计，定期验证安全控制是否正常运行"。</p>
+  </details>
+
+  <div class="section-label">组五 · 面试 / 申论</div>
+
+  <details class="card fold-card" id="sec-aqgl-x16">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">16</span><h3>面试问"三员分立是哪三员、为什么不能兼任"</h3></div>
+      <div class="badges"><span class="badge exam">面试</span><span class="badge sediment">三员分立</span></div>
+    </summary>
+    <p>背不全三个角色的分工，这题就漏分。</p>
+    <p><strong>落地动作</strong>：背三员——系统管理员（日常运维与 DBA 操作）、安全管理员（账号权限分配与策略配置）、审计管理员（审计日志审查）；兼任的后果是管操作的人自己查自己，审计失效，三者权限必须相互隔离。</p>
+    <p><strong>挂的知识点</strong>：c2——职责分离原则（三员分立）原文分工。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-x17">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">17</span><h3>申论问"如何在企业落实最小特权"</h3></div>
+      <div class="badges"><span class="badge exam">申论</span><span class="badge new">最小特权</span></div>
+    </summary>
+    <p>只答"权限给最小"太空，要给出三层抓手。</p>
+    <p><strong>落地动作</strong>：三层作答——授权层按岗位只给完成工作必需的权限；接口层用受限制接口限制能看到、能访问、能执行什么；复核层定期复核、离岗即收、一人一账号。</p>
+    <p><strong>挂的知识点</strong>：c2——最小特权原则＋受限制接口＋权限定期复核的组合拳。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqgl-x18">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">18</span><h3>监管问"制度为什么不能发下去就算完"</h3></div>
+      <div class="badges"><span class="badge exam">监管检查</span><span class="badge new">生命周期</span></div>
+    </summary>
+    <p>这题考的是"制度不是一锤子买卖"。</p>
+    <p><strong>落地动作</strong>：用生命周期答——制定、发布、执行、检查、更新五步循环，定期审定制度的合理性和适用性；配套记录表单留证据，检查环节发现问题驱动更新。</p>
+    <p><strong>挂的知识点</strong>：c1——制度生命周期＋四层构成（记录表单＝证据留存）。</p>
+  </details>
+</div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

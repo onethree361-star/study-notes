@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>网络访问控制与边界防范 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/computer/access-control.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 计算机 › 信息安全 › 网络访问控制与边界防范</div>
+
+<div class="doc-head">
+  <h1>网络访问控制与边界防范</h1>
+  <p>考点五是"认清敌人"之后的"修墙装监控"：防火墙守边界、IDS 盯异常、扫描器定期体检、访问控制管授权。这一页的数字同样硬——防火墙两类准则、四种类型、四项功能三条局限，IDS 三类数据源，检测两派，扫描器四类，访问控制三要素三原则，<strong>每个数字都对应大纲原文，多选常考</strong>。</p>
+  <div class="stat">知 <b>5</b> 个知识块 · 行 <b>16</b> 个场景</div>
+</div>
+
+<div class="sec-block" id="sec-fanghu">
+  <div class="sec-h"><h2 id="sec-fanghu-zhi">知 · 概念与理论</h2><span class="years">防火墙 · IDS · 误用/异常检测 · 扫描器四类 · 访问控制</span></div>
+
+  <details class="card fold-card" id="sec-fanghu-c1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>防火墙：边界上的访问控制保安</h3></div>
+      <div class="badges">
+        <span class="badge new">两类准则</span>
+        <span class="badge new">四种类型</span>
+        <span class="badge old">三条局限</span>
+      </div>
+    </summary>
+    <div class="human-origin">小区大门保安：外面进小区要查通行证，里面往外寄大件要登记。防火墙就是网络边界上这个保安，专门在"可信任的内部网"和"不可信的公共网"之间设一道屏障。</div>
+
+    <div class="section-label new">防火墙是什么（定义）</div>
+    <p>防火墙是保护计算机网络安全的重要技术措施，是一种典型的<span class="em-new">网络边界访问控制设备</span>。它在某个机构的网络和不安全的网络（如 Internet）之间设置屏障，阻止对信息资源的非法访问，也可以通过防火墙策略限制敏感信息、商业机密或内部数据被非法外传。</p>
+    <p>它设置在不同网络（如可信任的企业内部网和不可信的公共网）或网络安全域之间，是一系列部件的组合；在规范的网络安全架构中，通常部署为不同网络或安全域之间的<span class="em-new">主要或统一访问控制点</span>，能根据企业的安全策略控制（允许、拒绝、监测）出入网络的信息流，且本身具有较强的抗攻击能力。</p>
+
+    <div class="section-label new">两类基本准则（答题必考，优劣别记反）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>准则</th><th>怎么做</th><th>优点</th><th>弊端</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>一切未被允许的就是禁止的</td><td>封锁所有信息流，然后对希望提供的服务逐项开放</td><td>非常实用，可以造成一种十分安全的环境</td><td>安全性高于用户使用的方便性，用户所能使用的服务范围受到限制</td></tr>
+        <tr><td>一切未被禁止的就是允许的</td><td>转发所有信息流，然后逐项屏蔽可能有害的服务</td><td>构成更为灵活的应用环境，可为用户提供更多的服务</td><td>网管人员疲于奔命；受保护网络范围增大时，很难提供可靠的安全防护</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label new">四种类型（技术原理分）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>类型</th><th>部署与位置</th><th>工作原理</th><th>关键特点</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>包过滤型（Packet Filtering）</td><td>通常安装在路由器上，大多数商用路由器自带包过滤功能</td><td>以 IP 包信息为基础，对 IP 源地址、IP 目标地址、封装协议、端口号等筛选；工作在 OSI 模型的网络层和传输层，检查每个数据包的头部信息决定允许还是拒绝</td><td>只看包头，不看会话上下文</td></tr>
+        <tr><td>代理服务型（Proxy Service）</td><td>由服务器端程序和客户端程序两部分构成</td><td>客户端程序与中间节点连接，中间节点再与要访问的外部服务器实际连接</td><td>内部网与外部网之间不存在直接连接；同时提供日志及审计服务</td></tr>
+        <tr><td>状态检测型（Stateful Inspection）</td><td>采用状态检测包过滤机制</td><td>维护动态连接表，实现网络层和传输层行为的会话级检测；除第三层网络参数外，还利用网络连接及应用服务的各种状态执行决策</td><td>比传统包过滤"多记住了会话"</td></tr>
+        <tr><td>复合型防火墙</td><td>在部分代理型或屏蔽子网结构中使用经过安全加固的堡垒主机</td><td>综合采用包过滤、状态检测、代理服务等多种技术</td><td>以提高访问控制和安全检测能力</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label new">功能（四条）</div>
+    <p>① <strong>保护易受攻击的服务</strong>：过滤不安全的服务，只有预先被允许的服务才能通过防火墙；<br>② <strong>控制对特殊站点的访问</strong>：控制哪些主机能被外部网络访问；<br>③ <strong>集中化的安全管理</strong>：将经过修改的软件以及附加安全软件部署于防火墙设备上，实现安全能力的集中管控；<br>④ <strong>对网络访问进行日志记录和统计</strong>。</p>
+
+    <div class="section-label old">局限（三条，大纲原文，一个字不能编）</div>
+    <p>① <span class="em-old">防火墙不能防范不经由防火墙的攻击</span>（如 U 盘、内网直连）；<br>② <span class="em-old">防火墙不能防范人为因素的攻击</span>（如钓鱼骗员工自己把数据交出去）；<br>③ <span class="em-old">防火墙是被动防卫技术，对内部非法访问难以有效控制</span>。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">默认拒绝（未允许即禁止）最安全但难用，默认允许（未禁止即允许）最方便但难防住；防火墙挡墙外，挡不住穿墙的（不经防火墙）和内鬼（内部非法访问）</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-fanghu-c2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>入侵检测系统 IDS：不拦人，只报警的监控室</h3></div>
+      <div class="badges">
+        <span class="badge new">动态防御</span>
+        <span class="badge new">HIDS / NIDS</span>
+        <span class="badge inherit">模式匹配</span>
+      </div>
+    </summary>
+    <div class="human-origin">保安站门口查通行证（防火墙），监控室里还有人盯着屏幕——不拦人，但一有异常就报警。这就是 IDS：防火墙是静态隔离，IDS 是动态监测，两者是互补关系。</div>
+
+    <div class="section-label new">IDS 是什么（定义与地位）</div>
+    <p>入侵检测系统 IDS 是用于<span class="em-new">监测网络或主机活动、发现可疑行为或入侵迹象并发出告警</span>的安全系统。入侵检测技术是网络安全领域重要的<span class="em-new">动态防御技术</span>——相对于传统的操作系统加固技术和防火墙隔离技术等静态安全防御技术，它是一种动态的安全核心技术。</p>
+    <p>入侵检测是一个监测计算机网络和系统以发现违反安全策略事件的过程，它拓宽了传统审计的概念，以几乎不间断的方式进行检测，形成连续的检测过程。IDS 能够帮助网络系统快速发现攻击的发生，通过对计算机网络收集信息并分析，从中发现是否有违反安全策略的行为和被攻击的迹象。入侵检测的软件与硬件的组合便是入侵检测系统；与其他安全产品不同，它需要更多的智能，必须将得到的数据进行分析并得出有用的结果。</p>
+
+    <div class="section-label new">按检测数据来源分三类</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>类型</th><th>部署与数据源</th><th>查什么 / 怎么查</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>基于主机的 IDS（HIDS）</td><td>安装在主机上；以主机的审计数据、系统日志、应用程序日志等为数据源；从主机/服务器采集操作系统日志、系统进程、文件访问和注册表访问等信息</td><td>主要检测主机上的异常行为，如文件篡改、异常进程等</td></tr>
+        <tr><td>基于网络的 IDS（NIDS）</td><td>部署在网络的关键节点；通常通过镜像端口、网络分光器或混杂模式网卡采集网络流量，对经过关键链路或关键网段的数据包进行分析</td><td>通过检测网络流量识别潜在入侵行为；采用模式匹配（Pattern Matching）、协议分析等技术，将捕获的数据包与已知的攻击特征库比对，当检测到入侵行为与现有规则匹配时发出告警</td></tr>
+        <tr><td>分布式入侵检测系统</td><td>结合分布式系统和入侵检测技术，在多个节点上同时进行检测</td><td>将各节点的检测结果汇总到中央控制节点进行综合分析，实现更全面的安全监控</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">防火墙是静态门禁，IDS 是动态监控：HIDS 盯单机日志与进程，NIDS 镜像流量做特征匹配，分布式把多节点结果汇到中央一起判</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-fanghu-c3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>误用检测 vs 异常检测：通缉令比脸 vs 行为反常</h3></div>
+      <div class="badges">
+        <span class="badge new">误用检测</span>
+        <span class="badge new">异常检测</span>
+        <span class="badge old">误报 / 漏报</span>
+      </div>
+    </summary>
+    <div class="human-origin">两种抓小偷的思路：一种拿通缉令照片挨个对脸——见过的才能认，新面孔没办法；另一种看谁的行为不像这个楼里的人——没见过的也可能被抓，但容易把早起扔垃圾的老人当贼。</div>
+
+    <div class="section-label new">两种检测方法逐条对比（优点缺点别记串）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th></th><th>误用检测（Misuse Detection）</th><th>异常检测（Anomaly Detection）</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>原理</td><td>基于模式匹配原理，收集攻击行为的特征并建立特征库；当监控的用户行为活动与特征库中的记录相匹配时，系统将该行为判断为入侵</td><td>假设入侵者活动异常于正常主体活动；先定义一组系统处于正常的数据，建立主体正常活动的"活动简档"，将当前主体的活动状况与"活动简档"比较，违反统计规律时认为可能是"入侵"行为</td></tr>
+        <tr><td>优点</td><td>针对性强，对已知攻击检测准确</td><td>能检测未知攻击</td></tr>
+        <tr><td>缺点</td><td>只能检测已知攻击，对未知攻击无能为力</td><td>难点在于如何建立准确的活动简档和设计统计算法，容易出现误报和漏报</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">误用＝拿通缉令比脸，准但认不出新面孔；异常＝看行为像不像"活动简档"，能抓未知但容易误报漏报——实战两派一起上</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-fanghu-c4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>扫描器四类：只体检、不动手的自动化工具</h3></div>
+      <div class="badges">
+        <span class="badge new">Nmap</span>
+        <span class="badge new">Nessus</span>
+        <span class="badge old">不能直接攻击</span>
+      </div>
+    </summary>
+    <div class="human-origin">体检四步走：先量体温看屋里有哪些机器活着（网络发现）→ 再数身上有几个敞开的口子（端口扫描）→ 再查内脏有没有病灶（网络漏洞）→ 最后给胃肠单独做个镜（Web 漏洞）。扫描器的规矩是"只发现问题，不能直接攻击目标机器"。</div>
+
+    <div class="section-label new">扫描器是什么（定义）</div>
+    <p>扫描器（Scanners）是用于检测网络和主机漏洞的自动化工具，主要应用于网络安全领域。扫描器不同于一些常见的攻击工具，<span class="em-new">它只能用来发现问题，而不能直接攻击目标机器</span>。安全扫描器是自动检测远端或本地网络和主机安全脆弱点的软件——系统管理员借此发现所维护的 Web 服务器的各种 TCP 端口的分配、提供的服务、Web 服务软件版本和这些服务及软件呈现的安全漏洞，从而做到"有的放矢"，及时修补漏洞。</p>
+
+    <div class="section-label new">四类扫描器逐条（扫什么 / 能发现什么）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>类别</th><th>扫什么</th><th>能发现什么 / 代表产品</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>端口扫描器</td><td>探测目标主机上开放的端口，确定哪些服务正在运行；把网络查询指令发送到目标设备或网络系统的不同端口上，分析结果检测端口是敞开的、关闭的还是过滤的</td><td>敞开的端口表明可能存在安全漏洞或可通过网络非法访问的服务；端口扫描技术与漏洞扫描技术是网络安全扫描技术中的两种核心技术，如著名的 Nmap</td></tr>
+        <tr><td>网络漏洞扫描器</td><td>远程检测目标主机 TCP/IP 不同端口的运行服务，侧重识别主机系统、网络服务层面的通用安全漏洞</td><td>识别系统补丁缺失、弱口令、远程代码执行等网络层/主机层漏洞；部分综合型可附带基础 Web 漏洞检测能力，但并非其核心定位；代表 Nessus、Retina、CyberCop</td></tr>
+        <tr><td>网络发现扫描器（网络资产发现）</td><td>通过 ICMP ping、ACK 扫描等技术探测网络中的活跃主机</td><td>网络扫描是渗透测试的第一步，目的在于发现目标的操作系统类型、开放端口等基础信息，为后续的漏洞扫描工作做基础铺垫</td></tr>
+        <tr><td>Web 漏洞扫描器</td><td>专门针对 Web 应用程序设计的自动化安全测试工具，聚焦 HTTP/HTTPS 应用层的安全风险检测，支持对 Web 站点进行持续性安全监控</td><td>检测 SQL 注入、XSS 跨站脚本、文件上传等 Web 专属应用层漏洞的专用工具，检测精度和覆盖度远高于通用网络漏洞扫描器</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">扫描四步顺序：先发现活机器（网络发现，渗透第一步）→ 再数开了哪些口（端口 Nmap）→ 再查系统漏洞（Nessus 系）→ 网页单独扫（Web 扫描器专管 HTTP/HTTPS）；它只"体检"不动手</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-fanghu-c5">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>访问控制三要素与三原则：钥匙该怎么发</h3></div>
+      <div class="badges">
+        <span class="badge new">主体·客体·策略</span>
+        <span class="badge new">最小特权</span>
+        <span class="badge inherit">职责分离</span>
+      </div>
+    </summary>
+    <div class="human-origin">门禁三问：谁要进（主体）、进哪扇门（客体）、凭什么进（策略）。再加三条发钥匙的规矩：只给干活必需的钥匙（最小特权）、开票的不能盖章（职责分离）、钥匙不仅能开门还能开"审批发布"这种高级动作（数据抽象）。</div>
+
+    <div class="section-label new">访问控制是什么（定义）</div>
+    <p>访问控制是网络安全防范和保护的主要核心策略，它的主要任务是保证网络资源不被非法使用和访问。它是一种安全手段，控制用户和系统与其他的系统和资源进行通信和交互，能够保护系统和资源免受未经授权的访问。</p>
+
+    <div class="section-label new">三个要素（S / O / A）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>要素</th><th>英文</th><th>是什么</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>主体</td><td>Subject（S）</td><td>提出访问资源具体请求或某一操作动作的发起者；可能是某一用户，也可以是用户启动的进程、服务和设备等</td></tr>
+        <tr><td>客体</td><td>Object（O）</td><td>被访问的资源实体</td></tr>
+        <tr><td>控制策略</td><td>Authorization（A）</td><td>主体对客体的访问规则集合，直接决定主体是否可以对客体实施特定的操作</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label new">三条核心原则</div>
+    <p>① <strong>最小特权原则（Least Privilege Principle，也称最小授权原则）</strong>：确保主体仅被授予执行任务和完成工作所必需的权限——分配给与某用户对应的角色的权限只要不超过该用户完成其任务的需要就可以了。要充分考虑主体的角色定义和岗位职责，结合业务场景分析主体在系统内的访问内容、方式、权限级别、时间限制等约束条件，并根据安全策略释放最契合业务需求又不多余的权限。在 <span class="em-new">RBAC（基于角色的访问控制）</span>模型中，通过限制分配给角色权限的多少和大小来实现；遵循该原则可以降低安全问题的风险，并确保访问控制符合业务需求。<br>② <strong>职责分离原则（Separation of Duties）</strong>：相对于不相容的权限来说，要求不相容的权限要形成相互制约的关系——<span class="em-new">一个人不能创建并审批同一条受控记录</span>。<br>③ <strong>数据抽象原则（Data Abstraction）</strong>：访问控制不应仅限于对数据对象的读写操作，还应当支持更高级别的抽象操作，如对业务对象的创建、审批、发布等操作。</p>
+    <p>大纲原话要点：<span class="em-sed">RBAC 模型直接支持三个基本的安全原则——职责分离、最小权限和数据抽象</span>。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">主体—客体—策略三要素；最小特权只给必需、职责分离不让一个人既当运动员又当裁判、数据抽象把权限从"读写"升到"创建·审批·发布"</span>。</p>
+  </details>
+</div>
+
+<div class="sec-block" id="sec-fanghu-xing">
+  <div class="sec-h"><h2 id="sec-fanghu-xing-title">行 · 场景落地</h2><span class="years">16 个场景 · 点开看具体动作</span></div>
+  <p>同一套边界体系，写代码的人管"接口给什么权限"，运维的人管"防火墙策略怎么写"，安全岗的人管"告警怎么配"。下面按身份分组，遇到相似场景直接套动作。</p>
+
+  <div class="section-label">组一 · 写代码 / 做系统</div>
+
+  <details class="card fold-card" id="sec-fanghu-x1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>接口只认"登录没登录"，谁都能改别人的订单</h3></div>
+      <div class="badges"><span class="badge old">越权</span><span class="badge new">三要素</span></div>
+    </summary>
+    <p>订单详情接口拿到登录态就直接返回全量数据，把订单号改成别人的就能看、能改。</p>
+    <p><strong>落地动作</strong>：每次请求同时校验"主体是谁＋对哪个客体＋允不允许"（S/O/A 三要素）；按角色收敛接口权限；加行级数据权限（只能看本人单子）。</p>
+    <p><strong>挂的知识点</strong>：c5 访问控制三要素——控制策略直接决定主体能否对客体实施特定操作。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-fanghu-x2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>报销系统里，填报人自己就能点"审批通过"</h3></div>
+      <div class="badges"><span class="badge old">职责分离</span><span class="badge new">不相容权限</span></div>
+    </summary>
+    <p>报销单从填报到审批同一个账号全能做，自己报自己批，审计来了没法交代。</p>
+    <p><strong>落地动作</strong>：创建人与审批人角色强制分离；审批接口校验当前用户不是单据创建人；金额超限加二级审批。</p>
+    <p><strong>挂的知识点</strong>：c5 职责分离原则——"一个人不能创建并审批同一条受控记录"。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-fanghu-x3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>运维账号一把 root 密码全组共用，谁用的查不出</h3></div>
+      <div class="badges"><span class="badge new">最小特权</span><span class="badge old">共享账号</span></div>
+    </summary>
+    <p>图省事，全组共用一个 root，服务器上出了操作根本无法追溯到人。</p>
+    <p><strong>落地动作</strong>：按角色（RBAC）发账号，只给完成任务必需的权限；高危操作走堡垒机、录屏留痕；权限随岗位调整及时回收。</p>
+    <p><strong>挂的知识点</strong>：c5 最小特权原则——"权限只要不超过该用户完成其任务的需要就可以了"，RBAC 通过限制角色权限多少和大小实现。</p>
+  </details>
+
+  <div class="section-label">组二 · 单位运维 / 边界建设</div>
+
+  <details class="card fold-card" id="sec-fanghu-x4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>新防火墙策略默认全开，只封几个知名恶意域名</h3></div>
+      <div class="badges"><span class="badge old">未禁止即允许</span><span class="badge new">默认拒绝</span></div>
+    </summary>
+    <p>图方便上线时"转发所有信息流，逐项屏蔽有害服务"，服务越开越多，防护面失控。</p>
+    <p><strong>落地动作</strong>：核心业务区按"一切未被允许的就是禁止的"——先封锁所有信息流，再逐项白名单开放需要的服务；每季度复核一次策略，下线过期规则。</p>
+    <p><strong>挂的知识点</strong>：c1 两类基本准则——默认允许灵活但"很难提供可靠的安全防护"，默认拒绝安全但服务范围受限。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-fanghu-x5">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>路由器只按 IP 和端口过滤，放行流量里藏着木马回连</h3></div>
+      <div class="badges"><span class="badge new">状态检测</span><span class="badge old">包过滤局限</span></div>
+    </summary>
+    <p>包过滤只看每个数据包的头部，出站 443 全放行，木马借正常端口回连根本认不出。</p>
+    <p><strong>落地动作</strong>：边界升级状态检测型防火墙，维护动态连接表、做会话级检测；出站连接也入策略，异常外联告警。</p>
+    <p><strong>挂的知识点</strong>：c1 四种类型——包过滤工作在网络层和传输层、只检查包头；状态检测利用网络连接及应用服务的各种状态执行决策。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-fanghu-x6">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>内外网直连没有中转，谁访问了什么全无记录</h3></div>
+      <div class="badges"><span class="badge new">代理服务型</span><span class="badge inherit">日志审计</span></div>
+    </summary>
+    <p>内网服务器与外部网直接连通，出事想查"谁、几点、访问了哪台外部服务器"，一条记录都没有。</p>
+    <p><strong>落地动作</strong>：外网访问走代理服务器中转，内外网之间不建直接连接；代理层开启日志及审计服务，访问记录留存可查。</p>
+    <p><strong>挂的知识点</strong>：c1 代理服务型——"内部网与外部网之间不存在直接连接，同时提供日志及审计服务"；功能第 4 条"对网络访问进行日志记录和统计"。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-fanghu-x7">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>领导说"上了防火墙就安全了"，U 盘和钓鱼邮件没人管</h3></div>
+      <div class="badges"><span class="badge old">三条局限</span><span class="badge new">被动防卫</span></div>
+    </summary>
+    <p>预算全砸在边界设备上，结果数据是员工自己用 U 盘拷出去的，还有人点钓鱼链接。</p>
+    <p><strong>落地动作</strong>：承认防火墙防不住三类事——不经防火墙的攻击（移动介质、内网直连）、人为因素的攻击（钓鱼）、内部非法访问；配套上终端管控、邮件网关、IDS 与权限审计。</p>
+    <p><strong>挂的知识点</strong>：c1 局限三条原文——"不能防范不经由防火墙的攻击、不能防范人为因素的攻击、对内部非法访问难以有效控制"。</p>
+  </details>
+
+  <div class="section-label">组三 · 监测与告警</div>
+
+  <details class="card fold-card" id="sec-fanghu-x8">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>夜里服务器文件被批量加密，第二天上班才发现</h3></div>
+      <div class="badges"><span class="badge new">HIDS</span><span class="badge old">文件篡改</span></div>
+    </summary>
+    <p>网络流量一切正常，勒索软件在主机本地动手，边界设备毫无感觉。</p>
+    <p><strong>落地动作</strong>：关键服务器装 HIDS，采集系统日志、进程、文件访问和注册表访问；文件批量篡改、异常进程拉起立即告警。</p>
+    <p><strong>挂的知识点</strong>：c2 HIDS——安装在主机上，以主机审计数据、系统日志、应用程序日志为数据源，主要检测文件篡改、异常进程等主机异常行为。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-fanghu-x9">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>出口流量镜像后，已知攻击签名一到就该报警</h3></div>
+      <div class="badges"><span class="badge new">NIDS</span><span class="badge inherit">模式匹配</span></div>
+    </summary>
+    <p>边界放行了大量可疑报文，需要一个系统对经过关键链路的数据包逐个分析，命中攻击特征立刻告警。</p>
+    <p><strong>落地动作</strong>：关键节点用镜像端口（或分光器、混杂模式网卡）采集流量；NIDS 用模式匹配把数据包与已知攻击特征库比对；特征库随情报定期更新。</p>
+    <p><strong>挂的知识点</strong>：c2 NIDS——部署在关键节点、镜像端口采集、模式匹配（Pattern Matching）与协议分析，与现有规则匹配时发出告警。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-fanghu-x10">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>员工账号凌晨两点批量导出客户表，没人发现</h3></div>
+      <div class="badges"><span class="badge new">异常检测</span><span class="badge old">活动简档</span></div>
+    </summary>
+    <p>这个账号平时上午十点查报表，突然凌晨大批量拖库——这不是任何已知攻击签名，但行为明显反常。</p>
+    <p><strong>落地动作</strong>：为岗位建立正常活动"活动简档"（常用时段、查询量、数据范围）；当前行为偏离统计规律时自动告警并要求二次验证；异常告警先别全拦，人工复核降误报。</p>
+    <p><strong>挂的知识点</strong>：c3 异常检测——建立主体正常活动的"活动简档"，违反统计规律时认为可能是入侵；难点是活动简档要建准，否则误报漏报。</p>
+  </details>
+
+  <div class="section-label">组四 · 扫描与加固</div>
+
+  <details class="card fold-card" id="sec-fanghu-x11">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>新接管一个网段，先搞清楚里面活着哪些机器</h3></div>
+      <div class="badges"><span class="badge new">网络发现</span><span class="badge inherit">渗透第一步</span></div>
+    </summary>
+    <p>接手新网段，资产清单一张纸都没有，先扫一遍才知道有哪些活跃主机、什么操作系统。</p>
+    <p><strong>落地动作</strong>：用网络发现扫描器做 ICMP ping、ACK 扫描；摸清活跃主机、操作系统类型、开放端口；结果形成资产台账，再排后续漏洞扫描。</p>
+    <p><strong>挂的知识点</strong>：c4 网络发现扫描器——"网络扫描是渗透测试的第一步"，为后续漏洞扫描做基础铺垫。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-fanghu-x12">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>服务器 3389、22、8080 一堆端口敞着，不知道谁在用</h3></div>
+      <div class="badges"><span class="badge new">端口扫描</span><span class="badge inherit">Nmap</span></div>
+    </summary>
+    <p>管理员想知道维护的服务器开了哪些 TCP 端口、跑什么服务、软件版本号，以便"有的放矢"修缺陷。</p>
+    <p><strong>落地动作</strong>：用 Nmap 扫一遍，按敞开/关闭/过滤分类；用不到的端口（如暴露的 3389）直接关掉；版本号已知有漏洞的限期升级。</p>
+    <p><strong>挂的知识点</strong>：c4 端口扫描器——把查询指令发到不同端口，分析哪些端口敞开、关闭或过滤；敞开的端口表明可能存在安全漏洞。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-fanghu-x13">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>要测政务网站有没有 SQL 注入和 XSS，该用哪种扫描器</h3></div>
+      <div class="badges"><span class="badge new">Web 漏洞扫描器</span><span class="badge old">别用错工具</span></div>
+    </summary>
+    <p>任务是测网站应用层的注入和跨站脚本，拿通用网络漏洞扫描器扫一遍基本白扫。</p>
+    <p><strong>落地动作</strong>：选 Web 漏洞扫描器，针对 HTTP/HTTPS 应用层持续监控；专项扫 SQL 注入、XSS、文件上传；结果按站点建持续监控台账。</p>
+    <p><strong>挂的知识点</strong>：c4 Web 漏洞扫描器——"检测精度和覆盖度远高于通用网络漏洞扫描器"；网络漏洞扫描器核心定位是补丁缺失、弱口令、远程代码执行这类网络层/主机层漏洞。</p>
+  </details>
+
+  <div class="section-label">组五 · 个人用网 / 面试 / 监管检查</div>
+
+  <details class="card fold-card" id="sec-fanghu-x14">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>家里路由器管理页还是 admin/admin 默认密码</h3></div>
+      <div class="badges"><span class="badge old">不安全配置</span><span class="badge new">默认账户</span></div>
+    </summary>
+    <p>宽带买回来从没改过管理口令，隔壁一扫描就能登进路由器改 DNS。</p>
+    <p><strong>落地动作</strong>：登录口立即改强口令；关掉 WPS 与远程管理；定期升级固件；家里网段不用的端口服务关闭。</p>
+    <p><strong>挂的知识点</strong>：c1 包过滤/边界控制思想＋c4 端口扫描器——敞开的管理端口用默认口令正是"可通过网络非法访问的服务"。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-fanghu-x15">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>面试：防火墙能不能防住内部员工偷数据</h3></div>
+      <div class="badges"><span class="badge exam">面试</span><span class="badge old">三条局限</span></div>
+    </summary>
+    <p>这题考的是"防火墙的能力边界"，答"能"就掉坑。</p>
+    <p><strong>落地动作</strong>：直接答不能——防火墙是被动防卫技术，对内部非法访问难以有效控制；补配套：最小特权与职责分离管授权、HIDS 盯主机行为、访问审计留痕。</p>
+    <p><strong>挂的知识点</strong>：c1 局限第 3 条原文。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-fanghu-x16">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>金融监管检查：误用检测和异常检测有什么区别</h3></div>
+      <div class="badges"><span class="badge exam">监管检查</span><span class="badge new">两派对比</span></div>
+    </summary>
+    <p>检查组想听的是你对 IDS 检测原理的理解，不是背名词。</p>
+    <p><strong>落地动作</strong>：误用检测＝模式匹配、建攻击特征库，对已知攻击准、对未知无能为力；异常检测＝建"活动简档"、违反统计规律就告警，能抓未知但易误报漏报；我们两套一起用，误用保准、异常补盲。</p>
+    <p><strong>挂的知识点</strong>：c3 误用检测 vs 异常检测整表。</p>
+  </details>
+</div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

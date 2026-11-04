@@ -1,0 +1,497 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>信息安全错题 · 错题本 · 公考备考笔记</title>
+<link rel="stylesheet" href="../css/style.css">
+<script>window.SITE_ROOT='../';window.PAGE_PATH='errors/computer.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../notes.html">首页</a> › 错题本 › 计算机/信息安全</div>
+
+<div class="doc-head">
+  <h1>信息安全错题</h1>
+  <p>按 2027 国笔新大纲金融监管局专项计算机岗第四章 8 个考点分区，每题五栏（题面/正确答案/常见错误/解析/关联概念），解析含正确原理、错项排雷、方法论、记忆锚点四件套。</p>
+  <div class="stat">8 个考点 · 46 题 · 五栏 + 解析四件套</div>
+</div>
+
+<div class="sec-block" id="sec-err-jc">
+  <div class="sec-h"><h2 id="h2-err-jc">考点一 信息安全基本概念</h2><span class="years">5 题</span></div>
+
+  <div class="err-card" id="err-computer-001">
+    <div class="err-q">【多选】以下哪些属于信息安全事件。<br>A. 服务器被控制<br>B. 网络钓鱼<br>C. 数据被篡改<br>D. 机房火灾</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">ABCD —— 四项全部属于信息安全事件</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">漏选 A 或 D。"服务器被控制"听着像"威胁"而不是"事件"，"机房火灾"像天灾，容易凭主观严重性排除；大纲把六类事件全部列入，不管名头大不大。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——信息安全事件分六类：恶意程序事件（病毒、木马、勒索软件）、网络攻击事件（网络钓鱼、拒绝服务攻击、漏洞利用）、数据安全事件（数据泄露、数据篡改、数据损毁）、设备设施故障事件（服务器故障、机房断电、设备损坏）、违规操作事件、不可抗力事件（火灾、地震、洪水）。A 服务器被控制＝网络攻击事件之"漏洞利用"，B 网络钓鱼＝网络攻击事件，C 数据被篡改＝数据安全事件，D 机房火灾＝不可抗力事件。② 错项逐个排：本题为全选题，无错项；陷阱是漏项型——凭"听起来严不严重"主观排除。③ 方法论：用【结构拆解】把事件清单背成六类标签，遇到任何题干先问"它属于哪一类"，能对号就选。④ 记忆锚点："六类事件：恶意程序、网络攻击、数据安全、设备故障、违规操作、不可抗力"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/basics.html#sec-aqjc-c5">信息安全事件与安全优先级</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点一第 1 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-002">
+    <div class="err-q">【单选】下列哪项不是对保密性的破坏。<br>A. 使用键盘输入记录工具窃取密码<br>B. 窃听无线网络通信<br>C. 纵火造成存储设备毁坏<br>D. 欺骗用户向虚假网站提供个人信息</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">C —— 纵火造成存储设备毁坏，破坏的是可用性与数据完整性，全过程信息未被未授权获取</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 D。"欺骗用户提供信息"听起来像用户自己给的，不像"攻击"；但保密性管的是信息有没有落入未授权者之手，不管手段高明与否。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"保密性的核心是授权访问：确保信息只能被经过合法授权的主体获取，杜绝未授权泄露"。A 窃取密码、B 窃听、D 骗取个人信息，结果都是信息落入未授权者之手，破坏保密性；C 纵火毁设备，毁的是"可访问性"（可用性）和数据本身，与"未授权获取信息"无关。② 错项逐个排：A 窃取密码＝未授权获取信息，属破坏保密性（偷换概念陷阱：以为"破坏"必须是技术入侵）；B 窃听＝被动获取信息，破坏保密性（方向反陷阱：以为只有主动攻击才算）；D 钓鱼骗取＝未授权获取，破坏保密性（漏项陷阱：以为用户自愿交出就不算泄密）。③ 方法论：用【概念对偶】背三组——保密性管"不让看"、完整性管"不让改"、可用性管"一直能用"；题目问"不是保密性"，就找"毁东西"的那项。④ 记忆锚点："毁设备毁数据是可用性、完整性的事，保密只管'不让不该看的人看'"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/basics.html#sec-aqjc-c2">CIA 三元组：保密性、完整性、可用性</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点一第 2 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-003">
+    <div class="err-q">【单选】你被安排在一家跨国大型金融机构的信息安全规划团队中，负责创建一个优先级列表。所有安全工作的首要目标是（　）。<br>A. 预防信息泄露<br>B. 保持完整性<br>C. 人身安全<br>D. 维持可用性</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">C —— 人员生命和人身安全，排安全工作优先级第一位</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 A 或 D。安全工程师第一反应是"防泄露、保可用"，但大纲明确排了优先级，人身安全压倒一切技术目标。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——安全工作优先级依次为：人员生命和人身安全、关键业务连续性、信息系统和数据资产安全、系统恢复调查取证和责任追踪；并明确"火灾、爆炸、自然灾害等场景中，应首先保障人员安全，而不是优先保护数据或设备"。② 错项逐个排：A 预防信息泄露＝数据资产安全，排第三（配错对陷阱：把业务目标当首要目标）；B 保持完整性＝数据资产保护，同排第三（漏项陷阱）；D 维持可用性＝关键业务连续性之后的诉求，排第二（方向反陷阱）。③ 方法论：用【因果传导链】想——人在系统在，人亡则数据再完好也无人可用；先有人，才有后面的业务与数据。④ 记忆锚点："人＞业务＞数据＞恢复取证"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/basics.html#sec-aqjc-c5">信息安全事件与安全优先级</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：时间错位</span><span class="err-tag">来源：大纲第四章·题解·考点一第 3 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-004">
+    <div class="err-q">【单选】张三在 A 银行开立了账户，李四通过技术手段获知了张三账户中的余额，破坏了该系统的（　）。<br>A. 机密性<br>B. 完整性<br>C. 可用性<br>D. 可控性</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">A —— 机密性：未授权主体获知账户余额＝未授权获取信息</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 D 可控性。"可控性"是伪选项，CIA 三元组根本不含可控性；看到"技术手段控制"就望文生义联想。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲核心目标只有三个——保密性、完整性、可用性。"获知了余额"＝未授权主体读到了信息，正撞"保密性＝授权访问，杜绝未授权泄露"。② 错项逐个排：B 完整性要求信息不被篡改，余额只是被知道没被改（配错对陷阱）；C 可用性要求授权主体随时能访问，银行服务没中断（偷换概念陷阱）；D 可控性根本不在 CIA 三元组里（偷换概念陷阱：把"控制手段"偷换成"控制属性"）。③ 方法论：用【概念对偶】先排掉非 CIA 选项，再按"泄露/篡改/中断"三分法对号——看＝泄密，改＝毁完整，停＝毁可用。④ 记忆锚点："偷看＝泄密，偷看＝机密，没偷没改没停，就是机密性"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/basics.html#sec-aqjc-c2">CIA 三元组：保密性、完整性、可用性</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点一第 4 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-005">
+    <div class="err-q">【单选】"确保信息只能被经过合法授权的主体获取"属于信息安全核心目标中的哪一项？<br>A. 保密性（Confidentiality）<br>B. 完整性（Integrity）<br>C. 可用性（Availability）<br>D. 可控性（Controllability）</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">A —— 保密性：题干是大纲"保密性＝授权访问"的逐字复述</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 D。句式里有"授权"两个字，容易被"可控"联想带跑。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"保密性的核心是授权访问：确保信息只能被经过合法授权的主体获取，杜绝未授权泄露"。② 错项逐个排：B 完整性管"真实与不可篡改"，对应哈希校验、数字签名（配错对陷阱）；C 可用性管"及时、顺畅地获取"，对应扩容、流量调度（方向反陷阱：把"能获取"读成"被授权获取"）；D 可控性非 CIA 三元组成员（偷换概念陷阱）。③ 方法论：用【概念对偶】背三组关键词——保密性＝授权访问，完整性＝真实不可篡改，可用性＝可访问、及时；题干出现"授权获取"直接对号保密性。④ 记忆锚点："授权访问＝保密，篡改防护＝完整，随时能用＝可用"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/basics.html#sec-aqjc-c2">CIA 三元组：保密性、完整性、可用性</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点一第 5 题</span></div>
+  </div>
+
+</div>
+
+<div class="sec-block" id="sec-err-mima">
+  <div class="sec-h"><h2 id="h2-err-mima">考点二 密码技术基础及公钥基础设施</h2><span class="years">6 题</span></div>
+
+  <div class="err-card" id="err-computer-006">
+    <div class="err-q">【单选】张三在 A 银行开立了账户，并通过网银交易。银行可以通过（　）技术防止数据被篡改。<br>A. 对称加密<br>B. 迪杰斯特拉算法<br>C. 布尔算法<br>D. 数字签名</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">D —— 数字签名提供完整性验证与不可否认性，是防篡改技术</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 A。对称加密只解决"别人看不懂"（保密性），看不懂的人照样能篡改密文——加密不等于防篡改。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"数字签名在技术上可以实现类似亲笔签名的身份确认、完整性验证和不可否认性功能"；完整性正是靠哈希校验与数字签名保障。防篡改＝完整性＝数字签名。② 错项逐个排：A 对称加密管机密性，密文被改了接收方无法发现（配错对陷阱：加密≠防篡改）；B 迪杰斯特拉是最短路径算法，与密码无关（张冠李戴陷阱）；C 布尔算法是逻辑运算，不是密码技术（张冠李戴陷阱）。③ 方法论：用【因果传导链】想——谁改了数据，接收方怎么发现？靠"签名验证失败"这一环；加密链路上没有这一环。防篡改就找签名。④ 记忆锚点："加密防偷看，签名防篡改，认证防冒充"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/crypto.html#sec-mima-c4">消息认证四要求与数字签名设计要求</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点二第 1 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-007">
+    <div class="err-q">【单选】以下属于非对称加密的是（　）。<br>A. 流密码<br>B. 分组密码<br>C. DES<br>D. RSA</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">D —— RSA：大纲明确"非对称加密使用公钥-私钥对，其中最著名的是 RSA 算法"</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 B 或 C。"分组/流"是按加密结构分的类，DES 是对称分组密码，别被名字里的"密码"晃住。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"非对称加密使用公钥-私钥对解决密钥分发问题，其中最著名的是 RSA 算法。公钥用于加密，私钥用于解密"。② 错项逐个排：A 流密码是对称体制按结构分的类，密钥只有一把（配错对陷阱）；B 分组密码同样是对称体制（AES 即分组），按"一次加密多大块"分类（偷换概念陷阱：把结构分类当成体制分类）；C DES 是经典对称分组密码（张冠李戴陷阱）。③ 方法论：用【结构拆解】先问"这是按什么维度分的"——对称/非对称看"密钥对是不是一对两把"，分组/流看"一次处理多少比特"。维度不同不能混。④ 记忆锚点："公钥私钥两把钥匙＝非对称＝RSA；一把钥匙开一把锁＝对称"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/crypto.html#sec-mima-c1">对称与非对称体制对比</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点二第 2 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-008">
+    <div class="err-q">【单选】张三使用密钥，将 zhang 加密成为 ckdqj，这种加密方法属于（　）。<br>A. 非对称加密<br>B. 凯撒加密<br>C. 哈希加密<br>D. 盘子加密</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">B —— 凯撒加密：大纲原话示例"明文 zhang，向后偏移 3 位后变成密文 ckdqj"</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 A。"使用密钥"听起来像公钥密码，其实题干就是大纲凯撒 k=3 的原句演示。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"凯撒密码是一种最经典的单表移位替代密码……当密钥 k=3 时……若给定的明文为 zhang，向后偏移 3 位后，即变成密文 ckdqj"。② 错项逐个排：A 非对称靠公私钥对＋数论难题，不是固定移位（张冠李戴陷阱）；C 哈希是单向杂凑，不可解密回去（配错对陷阱）；D "盘子加密"是仿射/希尔密码的俗称，与单字母固定移位不符（偷换概念陷阱）。③ 方法论：用【结构拆解】看变换方式——字母表内固定位数平移＝替代法里的凯撒；明文字母被逐个换字符、位置不动，就是替代。④ 记忆锚点："字母排队挪座位＝移位＝凯撒，k=3 就挪 3 格"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/crypto.html#sec-mima-c1">三种数据变换基本模式（置换/替代/代数）</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点二第 3 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-009">
+    <div class="err-q">【单选】量子密钥分发的主要目的是（　）。<br>A. 实现超光速通信<br>B. 生成和分发无条件安全的密钥<br>C. 提高数据传输速率<br>D. 实现量子计算</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">B —— 生成和分发无条件安全的密钥</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 D。"量子"两个字把人引向量子计算；QKD 干的是"发钥匙"，不是"算东西"。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"量子密钥分发（QKD）允许通信双方生成共享的随机秘密密钥……让空间分离的用户共享无条件安全的密钥，这是经典通信无法完成的任务"。② 错项逐个排：A 超光速违反物理常识，与 QKD 无关（张冠李戴陷阱）；C 提高速率是 QoS 类诉求，QKD 不传业务数据（配错对陷阱）；D 量子计算是算力方向，QKD 是密钥分发方向（偷换概念陷阱：共享"量子"二字）。③ 方法论：用【因果传导链】想——密钥分发的终点是"一把双方都有、别人偷不到的钥匙"，QKD 用物理定律保证这一点；目的不是修网络、不是算大数。④ 记忆锚点："QKD＝发一把无条件安全的钥匙，只管钥匙不管数据"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/crypto.html#sec-mima-c5">数字信封、PKI 与量子密钥分发</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点二第 4 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-010">
+    <div class="err-q">【单选】如果张三收到李四发来的一条有数字签名的消息，那么张三应该使用（　）来验证消息确实发自李四。<br>A. 张三的公钥<br>B. 张三的私钥<br>C. 李四的公钥<br>D. 李四的私钥</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">C —— 李四的公钥：用发送者的公钥验证其签名</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 D。以为"签名"就得用对方私钥——私钥是签发者自己攥着的，别人碰不到。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"数据接收方则利用对方的公钥来解读收到的数字签名……在数字签名应用中，发送者的公钥可以很方便地得到，但他的私钥则需要严格保密"。李四用私钥签，张三拿李四的公钥验。② 错项逐个排：A 张三的公钥是张三自己的，与李四签名无关（张冠李戴陷阱）；B 张三的私钥是张三签名用的，不能验别人签名（配错对陷阱）；D 李四的私钥只有李四有，拿私钥验签在逻辑上就不成立（方向反陷阱：把"签发钥匙"当成"验证钥匙"）。③ 方法论：用【因果传导链】记链路——李四私钥签→公开传→张三拿李四公钥验。签名与验签天然是一对钥匙分两步走。④ 记忆锚点："私钥签、公钥验；谁的私钥签的，就用谁的公钥验"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/crypto.html#sec-mima-c4">数字签名五设计要求</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：时间错位</span><span class="err-tag">来源：大纲第四章·题解·考点二第 5 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-011">
+    <div class="err-q">【单选】对于国产密码算法，下列说法错误的是（　）。<br>A. SM1、SM4 是对称加密算法，分组长度为 256 比特<br>B. SM2 是非对称加密算法<br>C. SM3 是杂凑算法，杂凑值长度为 256 比特<br>D. SM9 是标识密码算法</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">A —— SM1、SM4 分组长度是 128 比特，不是 256</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 C。SM3 输出 256 比特看着也"大"，容易怀疑；其实大纲明确 SM3＝256 比特是对的，错的是 SM1/SM4 的分组长度被写成 256。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"SM1 是分组对称密码算法……分组长度为 128 比特，密钥长度为 128 比特"；"SM4 是分组对称密码算法，分组长度为 128 比特，密钥长度为 128 比特"。A 把 128 写成 256，错误点在数字。② 错项逐个排：B SM2 基于椭圆曲线的非对称算法，表述正确（张冠李戴干扰：想成 SM2 是杂凑）；C SM3 杂凑值 256 比特，表述正确（数字错觉陷阱：256 像 AES-256，其实是 SM3 的固定输出）；D SM9 标识密码算法，表述正确。③ 方法论：用【结构拆解】把 SM 家族排成表——SM1/SM4 对称 128+128，SM2 非对称椭圆曲线，SM3 杂凑 256，SM9 标识；数字全靠背表。④ 记忆锚点："SM 对称都是 128 比特，SM3 杂凑 256，SM2 椭圆非对称，SM9 标识认人"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/crypto.html#sec-mima-c3">国产 SM 系列算法参数与用途</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点二第 6 题</span></div>
+  </div>
+
+</div>
+
+<div class="sec-block" id="sec-err-gongji">
+  <div class="sec-h"><h2 id="h2-err-gongji">考点三 常见网络攻击类型与恶意软件识别</h2><span class="years">8 题</span></div>
+
+  <div class="err-card" id="err-computer-012">
+    <div class="err-q">【单选】李四通过网络聊天等方式掌握张三的相关信息后，并由此通过技术手段控制了张三的邮箱，李四的攻击属于（　）。<br>A. 腊肠攻击<br>B. DDoS 攻击<br>C. 社会工程攻击<br>D. XSS 攻击</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">C —— 社会工程攻击：先套情报再技术下手，利用人的心理弱点</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 A。"腊肠攻击"（salami）是金融上一点点蚕食小额资金的手法，与"从聊天套情报"无关。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"社会工程学攻击利用人的心理弱点而非技术漏洞实施攻击，常见形式包括网络钓鱼、pretexting（借口欺骗）和 baiting（诱饵攻击）"。先聊天套情报、再技术下手，正是借口欺骗式社会工程。② 错项逐个排：A 腊肠攻击是持续小额蚕食式金融攻击，题干无此特征（张冠李戴陷阱）；B DDoS 是打流量让服务瘫痪，与控制邮箱无关（配错对陷阱）；D XSS 是往网页注脚本，与聊天套情报路径不同（偷换概念陷阱）。③ 方法论：用【因果传导链】看路径——先"看人"再"用技术"就是社会工程；直接用技术漏洞就是纯技术攻击。入口是人，不是系统。④ 记忆锚点："骗到人才能骗到系统，先聊后黑＝社会工程"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/attacks.html#sec-gongji-c2">常见攻击十二类</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：因果判断</span><span class="err-tag">来源：大纲第四章·题解·考点三第 1 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-013">
+    <div class="err-q">【单选】通过制作和银行网站一样的仿冒网站，以欺骗手段获取个人敏感信息的攻击方式，被称为（　）。<br>A. 网络钓鱼<br>B. 拒绝服务<br>C. 网络窃听<br>D. 会话劫持</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">A —— 网络钓鱼：伪造站点骗用户主动交出信息</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 D。会话劫持是偷已登录的凭证"接着用"，仿冒网站是先骗用户自己输信息，路径不同。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——社会工程学攻击"常见形式包括网络钓鱼、pretexting（借口欺骗）和 baiting（诱饵攻击）……例如攻击者伪造银行客服邮件，诱导用户点击恶意链接并输入账户信息"。仿冒银行网站＝钓鱼。② 错项逐个排：B 拒绝服务是打瘫服务，不取信息（配错对陷阱）；C 网络窃听是被动截获通信，不造网站（方向反陷阱：主动假冒≠被动偷听）；D 会话劫持是窃取会话 cookie 冒用身份，题干是让用户自己输入（偷换概念陷阱）。③ 方法论：用【结构拆解】看仿冒点——造假站点＋骗用户主动交信息＝钓鱼；偷现成会话＝劫持。④ 记忆锚点："长得像的假网站钓你，钓鱼；偷来的 cookie 接着用，劫持"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/attacks.html#sec-gongji-c2">常见攻击十二类</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：因果判断</span><span class="err-tag">来源：大纲第四章·题解·考点三第 2 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-014">
+    <div class="err-q">【单选】在不同网站使用相同的密码，容易被（　）攻破。<br>A. 拒绝服务攻击<br>B. 撞库攻击<br>C. 暴力破解<br>D. 中间人攻击</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">B —— 撞库攻击：用已泄露的账号密码到其他网站批量尝试</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 C。暴力破解是"猜"，撞库是"拿别处已经漏的账来你这试"；相同密码正是撞库的入场券。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"撞库攻击：使用已泄露账号密码到其他网站批量尝试"。多站同密码＝一处泄露处处失守。② 错项逐个排：A 拒绝服务打流量，与密码无关（配错对陷阱）；C 暴力破解是枚举所有可能密码，不利用别处泄露（偷换概念陷阱：把"用现成泄露表"说成"猜"）；D 中间人是拦截通信内容，不批量试密码（方向反陷阱）。③ 方法论：用【因果传导链】想——某站 A 拖库→账号密码明文凭泄露→拿这份清单去站 B 批量撞。同密码就是 B 的门票。④ 记忆锚点："一库泄露、处处试密码＝撞库；穷举瞎猜才是暴力"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/attacks.html#sec-gongji-c2">常见攻击十二类</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：因果判断</span><span class="err-tag">来源：大纲第四章·题解·考点三第 3 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-015">
+    <div class="err-q">【多选】以下哪些属于网络安全攻击类型。<br>A. DDoS<br>B. SQL 注入<br>C. ARP 欺骗<br>D. XSS</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">ABCD —— 四项均在大纲攻击清单内</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">漏选 C。ARP 欺骗藏在"中间人攻击"的手段里，不直接叫"攻击"，容易漏。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲攻击清单覆盖——拒绝服务（DDoS）、SQL 注入攻击、跨站脚本（XSS）、中间人攻击"通过 ARP 欺骗或 DNS 劫持实现流量重定向"。逐项对号：A＝拒绝服务攻击，B＝SQL 注入攻击，C＝中间人攻击手段，D＝XSS。② 错项逐个排：本题无错项；陷阱是漏项型——看到 C 觉得"ARP 只是协议细节"而漏选。③ 方法论：用【结构拆解】把攻击清单背成一串——社会工程、恶意软件、DoS、中间人、密码、SQL 注入、XSS、零日、重放、APT、缓冲区溢出、Web 攻击；任何候选先归进这串，归得进就选。④ 记忆锚点："DDoS、SQLi、XSS 明面上是攻击，ARP 欺骗是中间人这根线下的手段"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/attacks.html#sec-gongji-c2">常见攻击十二类</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点三第 4 题（题干据大纲整理：D 选项后夹排残句"窃取小额资金"已剔除）</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-016">
+    <div class="err-q">【多选】以下哪些属于恶意软件。<br>A. 勒索病毒<br>B. 蠕虫<br>C. 特洛伊木马<br>D. 熊猫烧香</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">ABCD —— 四项均属恶意软件</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">漏选 D。"熊猫烧香"像个段子或人名，不认识就不选；它是当年大规模爆发的蠕虫病毒，是恶意软件。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"恶意软件包括病毒、蠕虫、特洛伊木马、勒索软件等，通过感染系统实现数据窃取、系统破坏或勒索钱财"。逐项：A 勒索病毒＝勒索软件，B 蠕虫＝大纲明列，C 特洛伊木马＝大纲明列，D 熊猫烧香是 2006 年爆发的蠕虫病毒，属恶意程序。② 错项逐个排：本题无错项；陷阱是漏项型——不认识名字就漏选。③ 方法论：用【结构拆解】把大纲"恶意软件八类"背全——病毒、蠕虫、木马、勒索软件、逻辑炸弹、宏病毒、引导型病毒、文件型病毒；任何具体名称先问它是不是这八类的实例。④ 记忆锚点："勒索、蠕虫、木马、宏、引导、文件型、逻辑炸弹——八类全是恶意软件"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/attacks.html#sec-gongji-c3">恶意软件八类</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点三第 5 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-017">
+    <div class="err-q">【单选】以下哪种恶意软件利用社会工程伎俩诱骗受害者安装该软件。<br>A. 病毒<br>B. 蠕虫<br>C. 木马<br>D. 逻辑炸弹</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">C —— 木马：伪装成正常程序诱骗用户安装</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 A。病毒靠宿主文件复制传播，不需要"骗你装"；木马的招牌动作才是伪装成正常软件引你上钩。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"特洛伊木马常伪装成正常程序、工具、游戏、破解软件等，诱骗用户安装。运行后可能窃取信息、开启后门或远程控制主机"。② 错项逐个排：A 病毒依附宿主文件、需触发传播，核心是自我复制而非伪装诱导（配错对陷阱）；B 蠕虫靠网络自动传播，不依赖用户安装（方向反陷阱：把"自动传播"说成"诱骗安装"）；D 逻辑炸弹是条件触发的预埋代码，平时不声张（偷换概念陷阱：把"藏条件"说成"骗安装"）。③ 方法论：用【结构拆解】看传播入口——骗用户手动装的是木马；靠文件寄生的是病毒；靠网络自动跑的是蠕虫。④ 记忆锚点："木马＝披着正常软件外衣骗你亲手装"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/attacks.html#sec-gongji-c3">恶意软件八类</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点三第 6 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-018">
+    <div class="err-q">【单选】杀毒软件报告发现病毒 Macro.Melissa，由该病毒名称可以推断出病毒类型是（　），这类病毒主要感染目标是（　）。<br>A. 宏病毒，EXE 或 COM 可执行文件<br>B. 引导型，磁盘引导区<br>C. 宏病毒，Word 或 Excel 文件<br>D. 引导型，DLL 系统文件</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">C —— 宏病毒，主要感染 Word 或 Excel 文件</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 A。EXE/COM 是文件型病毒的地盘；宏病毒挂在 Office 文档的宏上。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"宏病毒是利用 Office 文档中的宏语言，例如 VBA 编写的恶意代码，常感染 Word 文档、Excel 工作簿、模板文件等。典型例子有 Melissa 病毒"。名字里的 Macro 就是宏，题干是原句。② 错项逐个排：A 前半句对、后半句错——EXE/COM 是文件型病毒目标（配错对陷阱：前后各一半对一半错）；B 引导型感染磁盘引导区/主引导记录，与 Macro 无关（偷换概念陷阱）；D 同 B，张冠李戴（张冠李戴陷阱）。③ 方法论：用【结构拆解】看命名——病毒名前缀 Macro＝宏病毒，再按"宏→Office 文档"链条找感染对象。④ 记忆锚点："Macro 打头找 Word/Excel；文件型找 EXE；引导型找引导区"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/attacks.html#sec-gongji-c3">恶意软件八类</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点三第 7 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-019">
+    <div class="err-q">【单选】张三通过技术手段未经授权访问了某网站后台服务器上的文件，此行为一般使用（　）进行描述。<br>A. 浏览<br>B. 入侵<br>C. 漏洞<br>D. 威胁</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">B —— 入侵：未经授权闯入系统的行为</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 C。漏洞是系统的"缺陷"，行为是攻击者的"动作"——题干说的是行为。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲区分——威胁是"破坏信息安全目标的潜在因素"，漏洞是"设计、实现、配置或运维过程中存在的安全缺陷"；未经授权闯入后台服务器取文件，是对系统的主动闯入行为，即入侵。② 错项逐个排：A 浏览是公开正常访问，题干明确"未经授权访问后台"（方向反陷阱）；C 漏洞是系统缺陷，是被利用的对象，不是人的行为（偷换概念陷阱：把"被利用的缺口"说成"闯入的动作"）；D 威胁是潜在因素/可能性，不是已发生的具体行为（配错对陷阱）。③ 方法论：用【结构拆解】分三层——系统有"漏洞"（缺陷）、面临"威胁"（潜在风险）、被人"入侵"（已发生的闯入行为）。题干是已发生动作，找"入侵"。④ 记忆锚点："缺陷是漏洞，可能是威胁，闯进来是入侵"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/attacks.html#sec-gongji-c2">常见攻击十二类</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点三第 8 题</span></div>
+  </div>
+
+</div>
+
+<div class="sec-block" id="sec-err-webgj">
+  <div class="sec-h"><h2 id="h2-err-webgj">考点四 协议漏洞、Web 攻击原理与安全防御</h2><span class="years">6 题</span></div>
+
+  <div class="err-card" id="err-computer-020">
+    <div class="err-q">【单选】使用伪基站对手机开展网络攻击的方式，是利用（　）的缺陷。<br>A. HTTP 协议<br>B. TCP/UDP 协议<br>C. HTTPS 协议<br>D. GSM 协议</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">D —— GSM 协议：基站与手机终端间仅单向鉴权</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 C。伪基站发的是"短信"不是网页，跟 HTTPS 无关；它打的是移动通信网的认证漏洞。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"伪基站主要是利用了 GSM 协议中基站与手机终端间仅单向鉴权的漏洞……在 GSM 系统中，只有网络对用户的认证鉴权机制，而缺乏用户对网络的认证"。手机认基站，基站不认手机，于是假基站冒充。② 错项逐个排：A HTTP 是 Web 明文协议，与手机接入基站无关（配错对陷阱）；B TCP/UDP 是 DoS 类协议，与伪基站无关（张冠李戴陷阱）；C HTTPS 是 Web 加密协议，题干是短信通道（偷换概念陷阱）。③ 方法论：用【因果传导链】想——假基站怎么让手机"连"过来？因为手机只验基站发的信号、不验基站身份，这个缺口写在 GSM 协议里。④ 记忆锚点："手机只信基站、基站不认手机＝GSM 单向鉴权＝伪基站的命门"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/web-attack.html#sec-webgj-c1">伪基站与 GSM 单向认证缺陷</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：因果判断</span><span class="err-tag">来源：大纲第四章·题解·考点四第 1 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-021">
+    <div class="err-q">【多选】张三开发的某 Web 表单包含姓名的输入，输入的信息会被发送到服务器。假设服务器将"姓名"字段数据写入可以容纳 N 个字符的缓冲区，但服务器软件不验证姓名的长度，则可能发生（　）。<br>A. 缓冲区溢出<br>B. 服务器瘫痪<br>C. 被覆盖重要内容<br>D. 被黑客利用</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">ABCD —— 四项均为缓冲区溢出的直接后果</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">漏选 B 或 C。"服务器瘫痪""覆盖内容"是溢出的直接后果，不是额外条件；大纲说溢出可致程序失败、宕机、重启，还能覆盖与程序状态有关的数据。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"缓冲区溢出是指向程序的缓冲区输入超出其容量的数据，导致数据溢出并覆盖相邻内存空间……可以导致程序运行失败、系统宕机、重新启动……可以利用缓冲区溢出执行非授权指令，甚至取得系统特权"。A 是现象本体，B 系统宕机即瘫痪，C 覆盖相邻内存即覆盖重要内容，D 取得控制权即被黑客利用。② 错项逐个排：本题无错项；陷阱是漏项型——把"后果"误当"另一道措施"而漏选。③ 方法论：用【因果传导链】串——不查长度→超长写入→溢出盖相邻内存→程序/系统崩→攻击者借此拿控制权。环环相扣，每一环都是"可能发生"。④ 记忆锚点："不验长度＝溢出；溢出＝崩＋被改＋被接管"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/web-attack.html#sec-webgj-c3">缓冲区溢出与栈金丝雀/NX/ASLR</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：因果判断</span><span class="err-tag">来源：大纲第四章·题解·考点四第 2 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-022">
+    <div class="err-q">【单选】以下对跨站脚本攻击（XSS）的解释最准确的一项是（　）。<br>A. 引诱用户点击虚假网络链接的一种攻击方法<br>B. 构造精妙的关系数据库的结构化查询语言对数据库进行非法的访问<br>C. 一种很强大的木马攻击手段<br>D. 将恶意代码嵌入到用户浏览的 WEB 网页中，从而达到恶意的目的</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">D —— 将恶意代码嵌入用户浏览的网页，在浏览器执行</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 A。钓鱼也是"引诱点击"，XSS 是"注入脚本在浏览器里执行"，主体是代码不是链接。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"XSS 是通过注入恶意脚本代码实现非授权操作的 Web 安全漏洞……应用未对输入进行安全处理，直接将恶意代码嵌入 HTML、JavaScript 或 DOM 中，浏览器解析并执行恶意脚本"。D 项逐字对得上。② 错项逐个排：A 是网络钓鱼/诱饵攻击的特征（张冠李戴陷阱：把钓鱼的"引诱点击"安到 XSS 上）；B 是 SQL 注入的定义（偷换概念陷阱：Web 攻击兄弟俩互换）；C XSS 是脚本注入不是木马（配错对陷阱）。③ 方法论：用【结构拆解】分 Web 攻击——XSS 往网页注脚本、SQLi 往数据库拼 SQL、钓鱼造假站点骗点击；三个兄弟各管一段，题干问"嵌入网页"就找 XSS。④ 记忆锚点："网页里注脚本＝XSS，数据库里拼语句＝SQL 注入，假链接骗点击＝钓鱼"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/web-attack.html#sec-webgj-c4">XSS 三类与输出编码/CSP/HttpOnly</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点四第 3 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-023">
+    <div class="err-q">【单选】以下哪一项协议不能被攻击者用来进行 DoS 攻击（　）。<br>A. TCP<br>B. ICMP<br>C. UDP<br>D. IPSec</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">D —— IPSec：加密认证的安全协议，不在 DoS 攻击面内</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 C。UDP 无连接、易放大，是被滥用的常客；IPSec 是安全协议，大纲讲 DoS 时只点名 SYN（TCP）、UDP、ICMP 三类。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲 DoS 章节点名三类——SYN-Flood 利用 TCP 三次握手半开连接队列；UDP-Flood 利用 UDP 无连接特性；ICMP-Flood 打大量 Echo 请求。IPSec 是工作在网络层、提供机密性与认证的安全协议，不在攻击面清单里。② 错项逐个排：A TCP 是 SYN-Flood 的载体（张冠李戴干扰：以为 TCP 有连接就安全）；B ICMP 是 Ping 洪泛的载体（方向反陷阱：以为协议无害）；C UDP 是流量型 DoS 载体（漏项陷阱）。③ 方法论：用【结构拆解】背"DoS 三协议"——TCP/SYN、UDP、ICMP；出现第四个选项（IPSec/HTTP 等）就是答案。④ 记忆锚点："DoS 三兄弟 TCP/UDP/ICMP，IPSec 是保镖不是靶子"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/web-attack.html#sec-webgj-c2">SYN/UDP/ICMP Flood 原理与防御</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：张冠李戴</span><span class="err-tag">来源：大纲第四章·题解·考点四第 4 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-024">
+    <div class="err-q">【单选】管理员发现本机上存在多个 webshell，之后查看日志信息，发现服务器本身的日志被删除了，所以登录 Web 后台，查看后台日志，此时发现后台有被管理员登录的情况，且有很多管理员登录失败的信息，之后有成功登录后并执行了一些操作的情况。下面可能是攻击者的攻击手段的是（　）。<br>A. 利用 SQL 注入，获取管理员的密码，直接登录后台，上传 webshell<br>B. 直接利用 SQL 注入，上传 webshell，获取管理员密码，登录后台<br>C. 利用暴力破解登录后台，上传 webshell<br>D. 利用跨站语句，窃取 cookie 后，利用 cookie 登录，上传 webshell，窃取管理员后台密码登录</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">C —— 暴力破解：后台日志中大量登录失败记录是其指纹</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 A。SQL 注入拿到密码会"直接登录成功"，不会留下"大量登录失败"记录；题干最刺眼的指纹是失败记录。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——暴力破解"在系统日志中会留下明显的痕迹特征：高频登录失败、固定凭证模式、多服务尝试"。后台日志里"很多管理员登录失败的信息"正是暴力破解指纹，之后成功登录即破解成功。② 错项逐个排：A 注入取到密码后登录不该伴随大量失败记录（方向反陷阱：有了密码就不会反复试）；B 顺序颠倒，webshell 不能当登录钥匙（逻辑链错误）；D 窃取 cookie 是会话劫持，不留登录失败日志（偷换概念陷阱：把"登录动作"说成"冒用会话"）。③ 方法论：用【因果传导链】做日志取证——先找最独特的指纹（大量失败登录），指纹唯一指向暴力破解，其余环节（上传 webshell、删日志）都是后续动作。④ 记忆锚点："满屏失败日志＝暴力破解的脸"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/web-attack.html#sec-webgj-c5">暴力破解痕迹与勒索软件防御</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：因果判断</span><span class="err-tag">来源：大纲第四章·题解·考点四第 5 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-025">
+    <div class="err-q">【多选】2017 年 5 月，全球大面积爆发 WannaCry 勒索病毒，受害者电脑会被黑客锁定并勒索赎金。为有效应对勒索病毒攻击，下列说法正确的是（　）。<br>A. 尽快升级操作系统版本<br>B. 安装操作系统补丁<br>C. 重启已中病毒的计算机以恢复数据<br>D. 加强防火墙访问控制策略，关闭不必要的文件共享端口</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">ABD —— 升级版本与补丁堵漏洞、防火墙加访问控制关端口均正确；重启不能恢复被加密的数据</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 C。中了勒索软件重启毫无用处，文件已被加密，重启既不解密也不阻止扩散。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲"九要"——要备份重要数据和系统、要设置复杂密码、要常杀毒关端口、要严格访问控制策略（网络隔离、关闭远程管理端口）、要定期安全风险评估；感染后应急是隔离网络、分类处置与及时报告、排查加固与专业恢复。WannaCry 正是打补丁可防的漏洞利用。② 错项逐个排：C 重启不恢复数据，也违背"隔离网络、排查加固"的应急路径（方向反陷阱：把"重启"当恢复手段）；A 升级 OS 版本＝及时修补漏洞的广义动作（合理）；B 安装补丁＝及时修复漏洞（直接对应）；D 防火墙＋关不必要共享端口＝"要严格访问控制策略""关端口"（直接对应）。③ 方法论：用【因果传导链】对九要逐条打勾——防勒索＝堵漏洞＋减暴露面＋备份；感染后＝隔离不重启。④ 记忆锚点："勒索应急三动作：断网、报告、排查加固；重启不在其中"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/web-attack.html#sec-webgj-c5">勒索软件"九要"与感染后应急</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点四第 6 题</span></div>
+  </div>
+
+</div>
+
+<div class="sec-block" id="sec-err-fanghu">
+  <div class="sec-h"><h2 id="h2-err-fanghu">考点五 网络访问控制与边界防范</h2><span class="years">5 题</span></div>
+
+  <div class="err-card" id="err-computer-026">
+    <div class="err-q">【单选】在传统意义上，用于隔离内部网络与外部网络，实现访问控制的网络安全设备是（　）。<br>A. 防火墙<br>B. 路由器<br>C. 交换机<br>D. 入侵检测系统（IDS）</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">A —— 防火墙：典型的网络边界访问控制设备</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 D。IDS 是"发现攻击"的报警器，不是"拦住流量"的门。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"防火墙是一种典型的网络边界访问控制设备……在某个机构的网络和不安全的网络（如 Internet）之间设置屏障，阻止对信息资源的非法访问"。② 错项逐个排：B 路由器负责路由转发，不做访问控制策略（张冠李戴陷阱）；C 交换机负责内网数据交换（配错对陷阱）；D IDS 是动态防御、监测告警，本身不拦流量（方向反陷阱：把"报警的"当成"把门的"）。③ 方法论：用【结构拆解】分边界设备——防火墙＝门（能进能拦），IDS＝监控摄像头（只看不拦）。题干要"隔离＋访问控制"就是门。④ 记忆锚点："防火墙拦，IDS 看；路由器发，交换机转"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/access-control.html#sec-fanghu-c1">防火墙两类基本准则与四种类型</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：张冠李戴</span><span class="err-tag">来源：大纲第四章·题解·考点五第 1 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-027">
+    <div class="err-q">【单选】某公司希望在网络上测试系统是否存在 SQL 注入漏洞。以下（　）最适合此任务。<br>A. 端口扫描器<br>B. 网络漏洞扫描器<br>C. 网络发现扫描器<br>D. Web 漏洞扫描器</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">D —— Web 漏洞扫描器：检测 SQL 注入、XSS 等应用层漏洞的专用工具</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 B。网络漏洞扫描器查的是系统补丁、弱口令、远程代码执行等主机/网络层漏洞；SQL 注入是 Web 应用层专属漏洞。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"Web 漏洞扫描器是专门针对 Web 应用程序设计的自动化安全测试工具……它是检测 SQL 注入、XSS 跨站脚本、文件上传等 Web 专属应用层漏洞的专用工具，检测精度和覆盖度远高于通用网络漏洞扫描器"。② 错项逐个排：A 端口扫描器只探开放端口与服务（配错对陷阱）；B 网络漏洞扫描器识别系统补丁缺失、弱口令、远程代码执行，"部分综合型可附带基础 Web 检测，但并非核心定位"（偷换概念陷阱：拿"附带能力"当"专门能力"）；C 网络发现扫描器用 ping/ACK 探活跃主机（方向反陷阱）。③ 方法论：用【结构拆解】按扫描对象选工具——查端口选端口扫描器，探主机选发现扫描器，查系统层漏洞选网络漏洞扫描器，查 Web 应用层（SQLi/XSS/上传）选 Web 漏洞扫描器。④ 记忆锚点："Web 层漏洞找 Web 扫描器"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/access-control.html#sec-fanghu-c4">扫描器四类</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：张冠李戴</span><span class="err-tag">来源：大纲第四章·题解·考点五第 2 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-028">
+    <div class="err-q">【单选】作为对防火墙的有力补充，入侵检测系统（IDS）能够帮助网络系统快速发现网络攻击的发生。网络入侵检测系统的实现手段主要是（　）。<br>A. 检索行为特征<br>B. 监视设备日志<br>C. 跟踪程序行为<br>D. 扫描报文序列</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">A —— 检索行为特征：NIDS 采用模式匹配，将数据包与攻击特征库比对</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 D。NIDS 确实要"看报文"，但它的工作方式是模式匹配——把抓到的包与攻击特征库比对；"扫描报文序列"更像端口扫描动作。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——NIDS"采用模式匹配（Pattern Matching）、协议分析等技术……将捕获的数据包与已知的攻击特征库进行比对，发现匹配的异常行为"；误用检测"基于模式匹配原理，收集攻击行为的特征并建立特征库"。即"检索行为特征"。② 错项逐个排：B 监视设备日志是 HIDS 的数据源（张冠李戴陷阱：把主机 IDS 手段安到网络 IDS 上）；C 跟踪程序行为偏主机运行时监控，不是 NIDS 的主手段（配错对陷阱）；D NIDS 被动嗅探流量而非主动扫描报文序列（方向反陷阱：把"被动分析"说成"主动扫描"）。③ 方法论：用【结构拆解】分两条线——HIDS 看日志、NIDS 看流量；NIDS 的检测动作＝拿流量包去特征库里比对检索。④ 记忆锚点："NIDS＝拿流量对特征库；检索特征就是它的实现手段"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/access-control.html#sec-fanghu-c3">误用检测与异常检测</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：因果判断</span><span class="err-tag">来源：大纲第四章·题解·考点五第 3 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-029">
+    <div class="err-q">【单选】关于防火墙的访问控制准则，以下说法正确的是（　）。<br>A. "一切未被允许的就是禁止的"准则下，用户可使用的服务范围较广，安全性较高<br>B. "一切未被禁止的就是允许的"准则下，防火墙应转发所有信息流，然后逐项屏蔽有害服务<br>C. 两种访问控制准则中，"一切未被允许的就是禁止的"更侧重于用户使用的方便性<br>D. 两种访问控制准则中，"一切未被禁止的就是允许的"更容易实现可靠的安全防护</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">B —— 与准则二原文逐字一致：转发所有信息流，再逐项屏蔽有害服务</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 A。"默认禁止"安全高但服务范围被限制，A 却说范围广——半句话错。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——准则一"一切未被允许的就是禁止的……封锁所有信息流，然后逐项开放。弊端是安全性高于方便性，用户使用的服务范围受限"；准则二"一切未被禁止的就是允许的……转发所有信息流，然后逐项屏蔽有害服务……弊端是很难提供可靠的安全防护"。B 项与准则二原文逐字一致。② 错项逐个排：A 错在"范围较广"——该准则范围受限（配错对陷阱：前对后错）；C 错在"方便性"——该准则牺牲方便换安全（方向反陷阱）；D 错在"容易可靠防护"——原文说该准则"很难提供可靠的安全防护"（方向反陷阱）。③ 方法论：用【概念对偶】把两准则对比着背——默认禁止：安全高、服务少、不方便；默认允许：服务多、方便、难防护。四项选项逐条对。④ 记忆锚点："白名单：安全但紧；黑名单：方便但险"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/access-control.html#sec-fanghu-c1">防火墙两类基本准则</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点五第 4 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-030">
+    <div class="err-q">【单选】某企业系统管理员需要了解其维护的服务器开放了哪些 TCP 端口、运行着什么网络服务以及对应软件的版本号，以便"有的放矢"地修补系统安全缺陷。此时，管理员最适合使用（　）。<br>A. 端口扫描器<br>B. 网络发现扫描器<br>C. Web 漏洞扫描器<br>D. 数据库扫描器</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">A —— 端口扫描器：探测开放端口、确定正在运行的服务</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 B。发现扫描器回答"这台机器在不在"（活跃主机），端口扫描器才回答"开了哪些门、跑了什么服务"。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"端口扫描器用于探测目标主机上开放的端口，确定哪些服务正在运行"；安全扫描器可"发现所维护的 Web 服务器的各种 TCP 端口的分配、提供的服务、Web 服务软件版本和这些服务及软件呈现的安全漏洞"，端口扫描技术与漏洞扫描技术是网络安全扫描技术的核心。② 错项逐个排：B 网络发现扫描器通过 ICMP ping、ACK 扫描探测活跃主机，只回答"活着没"（配错对陷阱：把"找主机"说成"查端口"）；C Web 漏洞扫描器专查应用层漏洞，不查端口清单（张冠李戴陷阱）；D 数据库扫描器不在大纲四类扫描器之列（偷换概念陷阱）。③ 方法论：用【结构拆解】按目的选工具——要端口和服务清单＝端口扫描器；要主机是否在线＝发现扫描器；要漏洞＝对应漏洞扫描器。④ 记忆锚点："开门挂牌＝端口扫描器的活"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/access-control.html#sec-fanghu-c4">扫描器四类</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：张冠李戴</span><span class="err-tag">来源：大纲第四章·题解·考点五第 5 题</span></div>
+  </div>
+
+</div>
+
+<div class="sec-block" id="sec-err-webtx">
+  <div class="sec-h"><h2 id="h2-err-webtx">考点六 Web 通信安全</h2><span class="years">6 题</span></div>
+
+  <div class="err-card" id="err-computer-031">
+    <div class="err-q">【多选】下列关于 JavaScript 脚本正确的有（　）。<br>A. 可以访问 cookie<br>B. 不能访问 cookie<br>C. 可以发送 HTTP 请求<br>D. 不能发送 HTTP 请求</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">AC —— 默认情况下 JS 可读写 cookie，也可通过 XHR/fetch 发送 HTTP 请求</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 B。"HttpOnly 让 JS 读不到 cookie"是被例外处理的特殊设置，不是默认行为；默认情况下 JS 既能读 cookie 也能发请求。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"在默认情况下（未设置 HttpOnly 属性时），浏览器中的 JavaScript 脚本可以通过 document.cookie 属性直接读取或写入 Cookie；同时，JavaScript 可以通过 XMLHttpRequest 或 fetch API 在客户端直接发送 HTTP 请求"。② 错项逐个排：B 与默认行为相反（方向反陷阱：把 HttpOnly 特例当默认）；D 与默认行为相反（方向反陷阱）。③ 方法论：用【因果传导链】分默认与特例——默认：JS 读写 cookie、发 HTTP 请求；打了 HttpOnly 标记的那部分 cookie：JS 读不到。题目问"默认能干什么"选 AC。④ 记忆锚点："默认 JS 能读 cookie 能发请求；HttpOnly 只是给特定 cookie 加了锁"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/web-security.html#sec-webtx-c4">SQL 注入防护四法与 HttpOnly</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：因果判断</span><span class="err-tag">来源：大纲第四章·题解·考点六第 1 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-032">
+    <div class="err-q">【单选】用于 Web 浏览的"套接字层"，位于（　）。<br>A. 应用层与传输层之间<br>B. 传输层与网络层之间<br>C. 网络层与链路层之间<br>D. 链路层与物理层之间</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">A —— 应用层与传输层之间：SSL/TLS 工作在传输层与应用层之间</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 B。TLS 是给应用层（HTTP）加壳的，它坐在应用层下面、传输层上面。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"SSL/TLS 协议工作在传输层（TCP/IP 层）与应用层之间……应用层的数据不再直接发往传输层，而是发送给 SSL 层，经过 SSL 加密后再进行下一步的处理"。② 错项逐个排：B 传输层与网络层之间是 IPSec 的地盘（张冠李戴陷阱：把网络层安全协议的位置安到 SSL 上）；C/D 更低层与 Web 加密无关（配错对陷阱）。③ 方法论：用【结构拆解】画栈——HTTP（应用层）→SSL/TLS（夹层）→TCP（传输层）→IP（网络层）。SSL 的家就是夹在中间那格。④ 记忆锚点："TLS 骑在传输层脖子上，给应用层当保镖"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/web-security.html#sec-webtx-c1">SSL/TLS 协议位置与 HTTPS 443</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：张冠李戴</span><span class="err-tag">来源：大纲第四章·题解·考点六第 2 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-033">
+    <div class="err-q">【单选】某单位为用户提供网上服务，允许用户通过浏览器管理自己的账户信息。为保障通信的安全性，该 Web 服务器可选的协议是（　）。<br>A. POP<br>B. HTTPS<br>C. HTTP<br>D. SNMP</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">B —— HTTPS：用加密、身份认证和完整性校验保护通信过程</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 C。HTTP 明文＝窃听＋篡改＋冒充三大风险全开，正是要换掉的对象。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"HTTPS 即 HTTP over TLS/SSL，是在 HTTP 和 TCP 之间加入 TLS/SSL 层，用加密、身份认证和完整性校验来保护通信过程，默认运行在 443 端口"。② 错项逐个排：A POP 是收邮件协议（张冠李戴陷阱）；C HTTP 明文传输，面临窃听/篡改/冒充三风险，正是不安全的那个（方向反陷阱：把要换的协议当答案）；D SNMP 是网络设备管理协议（偷换概念陷阱）。③ 方法论：用【结构拆解】看需求——浏览器管账户＝要加密＋认证＋完整性，三项打包就是 HTTPS。④ 记忆锚点："管账户的网页必须 HTTPS，443 是它的门牌号"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/web-security.html#sec-webtx-c1">HTTPS 与 SSL/TLS 协议</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：张冠李戴</span><span class="err-tag">来源：大纲第四章·题解·考点六第 3 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-034">
+    <div class="err-q">【单选】黑客破解了连接 Wi-Fi 的新安装的婴儿监视器，对婴儿播放恐怖的声音，使孩子受到惊吓，在这个案例中，攻击者是通过（　）访问婴儿监视器的。<br>A. 未及时更新的恶意软件扫描程序<br>B. 支持 5GHz 信道的 WAP<br>C. 对孩子父母实施社会工程学攻击<br>D. 利用默认配置</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">D —— 利用默认配置：新设备默认密码未改是 IoT 最常被利用的攻击向量</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 C。"新安装的"是题眼——设备还在厂商出厂状态，默认密码没改，根本用不着骗父母。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"默认用户名和密码仍然是物联网（IoT）设备最常被利用的攻击向量。许多物联网设备存在默认密码未修改……尤其是智能摄像头、对讲机等通讯设备，一旦被控制，便可能对敏感涉密场所进行实时监控"。新安装的婴儿监视器正是默认配置未改。② 错项逐个排：A 扫描程序没更新与入侵无关（配错对陷阱）；B 5GHz 信道是正常技术参数，不是漏洞（偷换概念陷阱）；C 题干无任何欺骗父母情节（方向反陷阱：把"设备漏洞"说成"骗到人"）。③ 方法论：用【因果传导链】看时间线——新设备→厂商默认口令公开→攻击者按默认账号登录。关键词"新安装"＝默认配置未改。④ 记忆锚点："新设备联网先改默认密码，摄像头才不被人看娃"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/web-security.html#sec-webtx-c5">IoT 默认配置漏洞与 App 安全加固</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：因果判断</span><span class="err-tag">来源：大纲第四章·题解·考点六第 4 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-035">
+    <div class="err-q">【多选】在 Web 系统开发时，下列选项中的技术能避免注入漏洞出现的是（　）。<br>A. 使用预编译语句<br>B. 给关键 Cookie 植入 HttpOnly 标识<br>C. 使用存储过程来验证用户的输入<br>D. 在数据类型、长度、格式和范围等方面对用户输入进行过滤</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">ACD —— 预编译、存储过程、输入过滤是 SQL 注入防护法；HttpOnly 只缓解 XSS 后果，不能阻止注入本身</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 B。HttpOnly 防的是"XSS 得手后偷不到 cookie"这个后果，不是防注入本身；大纲明说 HttpOnly 不能完全阻止 XSS。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲 SQL 注入防护四法——预编译语句（代码与数据分开）、参数化查询、存储过程（用户输入仅作参数传递）、输入验证与过滤（白名单）。② 错项逐个排：B HttpOnly 只切断 JS 对 cookie 的访问，"不能完全阻止 XSS 攻击——它只影响对 Cookie 的访问，其他 XSS 影响（如页面篡改或 CSRF 令牌窃取）仍然可能发生"，防的是后果不是注入本身（方向反陷阱：把"减轻后果"说成"堵住漏洞"）；A/C/D 分别对应四法中的预编译、存储过程、输入过滤。③ 方法论：用【结构拆解】记"防注入四法"——预编译、参数化、存储过程、输入过滤；HttpOnly 是 XSS 的后果缓解，不在防注入清单。④ 记忆锚点："防注入四件套：预编译、参数化、存储过程、白名单过滤"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/web-security.html#sec-webtx-c4">注入漏洞防护</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点六第 5 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-036">
+    <div class="err-q">【单选】张三在开发移动 App 程序时，故意插入部分无关代码，他的这一行为属于（　）。<br>A. 防反编译<br>B. 防篡改<br>C. 防窃取<br>D. 防调试</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">A —— 防反编译：插入无关代码是代码混淆手段，提高反编译后阅读难度</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 D。防调试是检测调试器（IDA Pro、Frida、ptrace）；插无关代码是混淆手段，目的是让反编译出来的代码看不懂。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——代码混淆包括"插入无关代码、控制流混淆、字符串加密、无用分支构造等手段，用于提高反编译后代码阅读和逆向分析难度"，属于防反编译保护。② 错项逐个排：B 防篡改靠数字签名完整性校验、运行时验签（配错对陷阱）；C 防窃取偏数据加密范畴，不是 App 加固三类的对应项（偷换概念陷阱）；D 防调试是双向 ptrace、反调试代码插入、调试器检测（张冠李戴陷阱）。③ 方法论：用【结构拆解】把 App 加固三分——防反编译（加壳/混淆/插无关代码）、防篡改（签名校验）、防调试（检测调试器）。插代码＝混淆＝防反编译。④ 记忆锚点："塞垃圾代码让反编译读不懂＝防反编译"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/web-security.html#sec-webtx-c5">应用程序安全防护</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点六第 6 题</span></div>
+  </div>
+
+</div>
+
+<div class="sec-block" id="sec-err-aqgl">
+  <div class="sec-h"><h2 id="h2-err-aqgl">考点七 安全管理与评估</h2><span class="years">5 题</span></div>
+
+  <div class="err-card" id="err-computer-037">
+    <div class="err-q">【单选】商业银行工作人员辞职离开商业银行时，其在信息系统中的账户授权应（　）。<br>A. 集中批量注销用户身份<br>B. 离职即注销用户身份<br>C. 一年一次集中注销用户身份<br>D. 仅限制其账户权限</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">B —— 离职即注销：离岗应及时清理账户权限</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 A。"集中批量"听着像稳妥管理，但离职当天权限就必须清掉，等批量清理＝长期后门。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——离岗管理"清理账户权限、交接信息资产、回收证件和设备"；"人员转岗离岗时，应及时收回相关数据权限并重新分配"；"权限定期复核，及时清理离岗离职人员的访问账户及权限"。"及时"即离职即办。② 错项逐个排：A 集中批量＝离岗人员账户长期有效（方向反陷阱：把"定期复核"错当"定期才注销"）；C 一年一次＝放任越权一年（时间错陷阱）；D 仅限制不注销＝账户仍存在，限制规则一改即复活（偷换概念陷阱）。③ 方法论：用【因果传导链】想——人走了还留着账户＝数据泄露通道；所以离岗动作第一环就是注销权限。④ 记忆锚点："人走账清，离岗即注销"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/management-eval.html#sec-aqgl-c2">人员全生命周期管理与三员分立</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：时间错位</span><span class="err-tag">来源：大纲第四章·题解·考点七第 1 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-038">
+    <div class="err-q">【单选】在信息安全风险评估中，风险等级的确定主要在哪个环节（　）。<br>A. 风险识别<br>B. 风险分析<br>C. 风险评价<br>D. 风险处置</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">C —— 风险评价：依据风险评价准则确定风险等级</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 B。分析是"算风险值"，评价是"对照准则定等级"——等级这一步在评价。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——流程四步：①评估准备；②风险识别（资产识别、威胁识别、已有安全措施识别、脆弱性识别）；③风险分析（依据识别的结果计算风险值）；④风险评价（依据风险评价准则确定风险等级）。定等级＝风险评价。② 错项逐个排：A 风险识别是找资产/威胁/弱点（配错对陷阱：把"找出来"当"定级"）；B 风险分析是计算风险值，值不等于等级（方向反陷阱：把"算分"当"评级"）；D 风险处置不在大纲四步流程内（偷换概念陷阱：流程外环节）。③ 方法论：用【结构拆解】按动词对号——识别＝找、分析＝算、评价＝定等级。题干问"定等级"找"评价"。④ 记忆锚点："识别找、分析算、评价定级"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/management-eval.html#sec-aqgl-c3">风险评估四步与核心标准</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：时间错位</span><span class="err-tag">来源：大纲第四章·题解·考点七第 2 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-039">
+    <div class="err-q">【单选】作为应用程序设计人员，你需要通过执行各种安全机制来保护软件访问和处理的各类数据，执行受约束或受限制接口的目的是（　）。<br>A. 限制授权用户和未经授权人员的行动<br>B. 执行身份认证<br>C. 跟踪用户事件和检查违规情况<br>D. 在主内存和次内存之间交换数据集</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">A —— 限制用户执行超出授权范围的操作，落实最小特权原则</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 B。大纲原文明确"其核心目的不是认证用户身份，而是在认证和授权之后"再限制能干什么。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——受限制接口"只向用户开放其工作所需的功能、菜单、按钮、数据字段或 API 接口，限制用户执行超出授权范围的操作……核心目的不是认证用户身份，而是在认证和授权之后，限制用户'能看到什么、能访问什么、能执行什么操作'，从而落实最小特权原则"。② 错项逐个排：B 身份认证是登录环节的事，受限制接口在其后（方向反陷阱：把"前置环节"当"目的"）；C 跟踪事件、查违规是审计的活（配错对陷阱）；D 主存/次存交换是虚拟内存分页（张冠李戴陷阱：计算机术语干扰）。③ 方法论：用【因果传导链】分层——先认证（你是谁）→再授权（你能干什么）→再受限制接口（界面上只露出你该看的）。目的在最后一环。④ 记忆锚点："认证管你是谁，受限接口管你只看你该看的"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/management-eval.html#sec-aqgl-c2">受限制接口与功能级访问控制</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点七第 3 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-040">
+    <div class="err-q">【单选】当数据中心运行岗位员工离职或轮岗时，必须首先进行（　）。<br>A. 明确此人不再具有以前的职责<br>B. 确保归还应当归还的资产<br>C. 确保属于以前职责的访问权限被撤销<br>D. 安全管理员陪同此人离开工作场所</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">C —— 撤销以前职责的访问权限：离岗首要是收回系统钥匙</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 A。"明确不再履职"是观念声明，撤权限才是技术动作——信息安全问题的核心是账户还在不在。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——离岗"清理账户权限、交接信息资产、回收证件和设备"；账号实名制要求"一人一账号，权责相匹配"，人员转岗离岗时应及时收回相关数据权限。风险排序上，未撤权限＝最大的系统侧后门。② 错项逐个排：A 职责声明不等于权限清理，声明了权限还开着（配错对陷阱：把"宣布"当"动作"）；B 归还资产是交接环节，可与权限并行但不是"必须首先"的安全动作（方向反陷阱）；D 物理陪同是离场管理，防的是人身冲突，不是系统权限（偷换概念陷阱）。③ 方法论：用【因果传导链】想——人变了，最危险的是他手上还留着进入系统的钥匙；先撤钥匙，再谈交接与陪同。④ 记忆锚点："轮岗离职第一步：撤权限"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/management-eval.html#sec-aqgl-c2">人员权限管理</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：时间错位</span><span class="err-tag">来源：大纲第四章·题解·考点七第 4 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-041">
+    <div class="err-q">【多选】以下属于网络安全评估内容的有（　）。<br>A. 漏洞扫描<br>B. 风险评估<br>C. 漏洞缓解<br>D. 威胁评估</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">ABD —— 漏洞扫描、风险评估、威胁评估是大纲列的网络安全评估三大内容；漏洞缓解是评估之后的处置动作，不属于评估内容</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 C。"漏洞缓解"听着像安全工作，但它是漏洞找出来之后"去修"的处置动作，不在"评估内容"清单里。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——网络安全评估"其主要内容包括：漏洞扫描（识别系统技术缺陷）、威胁评估（分析潜在外部威胁来源）、风险评估（综合量化风险级别）等"。三项正好对应 A、D、B。② 错项逐个排：C 漏洞缓解是发现漏洞后的修复处置，属于"评估之后"的闭环动作，不是评估本身（方向反陷阱：把"修"当"评"）；A 漏洞扫描＝识别技术缺陷，是评估入口；B 风险评估＝综合量化定级；D 威胁评估＝分析外部威胁来源，三项均在大纲列举内。③ 方法论：用【结构拆解】记"评估三内容"——漏洞扫描（找技术缺陷）、威胁评估（找外部威胁）、风险评估（量化定级）；"缓解/修复/加固"是处置，不在评估清单。④ 记忆锚点："评估三兄弟：扫漏洞、评威胁、算风险；修漏洞是后续动作"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/management-eval.html#sec-aqgl-c4">安全评估内容与等级保护</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点七第 5 题</span></div>
+  </div>
+</div>
+
+<div class="sec-block" id="sec-err-ywaq">
+  <div class="sec-h"><h2 id="h2-err-ywaq">考点八 运维安全与数据防护</h2><span class="years">5 题</span></div>
+
+  <div class="err-card" id="err-computer-042">
+    <div class="err-q">【单选】某运维人员在设备和系统升级过程中随意修改硬件配置，设置隐藏攻击路径，属于（　）的典型行为。<br>A. 物理破坏攻击<br>B. 拒绝服务攻击<br>C. 被动攻击<br>D. 分发攻击</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">D —— 分发攻击：在软硬件产品生产、交付、安装、升级、部署、维护等流转环节中恶意篡改、植入后门、预留隐藏通道</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 C。"被动攻击"只窃听不改动；题干"随意修改硬件配置、设置隐藏攻击路径"是主动篡改＋留后门，属于分发攻击。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"分发攻击是指攻击者在软硬件产品的生产、交付、安装、升级、部署、维护等流转环节中，恶意篡改硬件配置、软件代码、系统镜像或安全参数，植入后门、木马或隐藏访问路径的攻击方式……在系统升级过程中修改配置、在镜像中植入恶意程序、在设备中预置后门账号、在运维过程中保留隐藏通道等"。升级时改配置、设隐藏路径＝分发攻击典型。② 错项逐个排：A 物理破坏是砸设备、断线缆，不改配置留后门（配错对陷阱）；B 拒绝服务是耗尽资源让服务不可用，与"升级时改配置"无关（偷换概念陷阱）；C 被动攻击只截获不篡改，题干是主动篡改（方向反陷阱）。③ 方法论：用【因果传导链】看发生环节——攻击发生在"产品流转/升级/运维"这个供应链环节＝分发攻击，不是当场打进来的网络攻击。④ 记忆锚点："在升级、交付、运维途中改配置留后门＝分发攻击"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/ops-data.html#sec-ywaq-c5">分发攻击与供应链安全</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：因果判断</span><span class="err-tag">来源：大纲第四章·题解·考点八第 1 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-043">
+    <div class="err-q">【单选】某管理员对即将上线的操作系统进行了以下四项安全部署工作，其中（　）设置不利于提高运行环境安全。<br>A. 操作系统安装完成后安装最新的安全补丁，确保操作系统不存在可被利用的安全漏洞<br>B. 为了方便进行数据备份，安装操作系统时只使用一个分区，所有数据和操作系统都存放在该分区<br>C. 操作系统上部署防病毒软件，以对抗病毒的威胁<br>D. 将默认的管理员账号改名，降低口令暴力破解攻击的发生可能</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">B —— 系统与数据挤在一个分区，违背最小安装与隔离原则，系统重装/故障时数据同毁，也不利于备份与权限隔离</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 D。改默认管理员名是常见加固手段，听着像"不规范"其实安全；真正不利于安全的是把系统和数据塞进同一个分区。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——操作系统部署遵循"最小安装原则，仅安装必要的组件和应用程序"；安全配置要"对操作系统、办公软件、浏览器、BIOS 系统和防恶意代码软件等基础软件中影响安全的关键参数进行设置"；并要求定期更新补丁。A 打补丁、C 部署防病毒软件、D 改默认管理员账号都是大纲认可的安全部署动作。B 把操作系统和数据都放一个分区，违背隔离与最小化原则，系统损坏时数据一并丢失。② 错项逐个排：A 及时打补丁是大纲"定期更新补丁"原文（正当措施）；C 部署防病毒属防恶意代码安全配置（正当措施）；D 改默认管理员账号是身份鉴别加固（正当措施）；只有 B 是把安全与便利对立起来的错误做法。③ 方法论：用【结构拆解】把操作系统部署四要点列出来——最小安装、安全配置、身份鉴别与访问控制、定期补丁；凡"为了方便而破坏隔离/最小化"的选项即不利安全。④ 记忆锚点："系统归系统、数据归数据，分区要隔离；图省事单分区＝埋雷"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/ops-data.html#sec-ywaq-c1">操作系统安全部署与最小安装</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点八第 2 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-044">
+    <div class="err-q">【单选】数据中心多次出现硬件故障，审核员意识到服务器以密集的方式堆叠在一起，没有条理。应该采取（　）来解决这个问题。<br>A. 门禁控制<br>B. 综合布线<br>C. 气体灭火<br>D. 热通道与冷通道</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">D —— 热通道与冷通道：机柜面对面、背对背交替排列，使冷热气流物理隔离，解决密集堆叠导致的热岛效应</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 B。"综合布线"听着像"整理没有条理"，但题干根因是密集堆叠散热不良导致硬件故障，不是线缆乱。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"数据中心服务器密集堆叠部署时，极易产生局部热岛效应导致硬件故障。热通道与冷通道（Hot and Cold Aisle）技术通过将机柜面对面、背对背交替排列，使冷空气从前门进入服务器（冷通道），热空气从背面排出（热通道），实现冷热气流物理隔离，从而大幅提升散热效率，保障密集部署下的服务器运行安全"。② 错项逐个排：A 门禁控制管的是人员进出，不是散热（配错对陷阱）；B 综合布线理的是线缆，题干没说线乱，说的是堆叠散热（偷换概念陷阱：把"没条理"往布线方向引）；C 气体灭火管火灾，与硬件过热故障无关（方向反陷阱）。③ 方法论：用【因果传导链】抓根因——密集堆叠→局部热岛→硬件故障，对应措施必是"冷热气流隔离"即冷热通道。④ 记忆锚点："机柜面对面、背对背，冷热分流不串味"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/ops-data.html#sec-ywaq-c3">数据中心物理安全与冷热通道</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：因果判断</span><span class="err-tag">来源：大纲第四章·题解·考点八第 3 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-045">
+    <div class="err-q">【多选】你在排除用户计算机上的故障。你查看了基于主机的入侵检测系统（HIDS）的日志后确定这台计算机已被恶意软件入侵。为查明原因、降低损失，接下来你应该（　）。<br>A. 把计算机与网络隔离开来<br>B. 查看邻近计算机的 HIDS 日志<br>C. 重启计算机<br>D. 对系统进行分析，查明它是怎样被感染的</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">ABD —— 先隔离遏制、再排查邻近主机日志确认范围、再分析取证感染途径；不能重启，会丢失内存证据与现场</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 C。"重启电脑"是普通用户习惯，但在已确认入侵的应急现场，重启会清空内存中的恶意代码、破坏取证现场。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——PDCERF 六阶段：②检测（监控和发现应急事件，确认漏洞和事件真实性）；③遏制（采取行动限制攻击的影响范围，防止危害扩大）；④根除（清除攻击源头，包括恶意代码、后门等）；⑤恢复。已确认被入侵：A 隔离＝遏制，防止横向扩散；B 查邻近主机日志＝检测范围、判断是否成片感染；D 分析感染途径＝为根除取证。② 错项逐个排：C 重启会清除内存驻留的恶意代码与临时证据，破坏现场，违背应急响应取证原则（方向反陷阱：把"重启恢复"当"解决问题"）；A/B/D 分别对应遏制、检测范围确认、根除前取证。③ 方法论：用【结构拆解】套 PDCERF——已确认入侵就走"遏制（隔离）→检测（查邻近）→根除（分析怎么进来的）"，绝不重启破坏证据。④ 记忆锚点："中招三件套：断网、查邻居、挖根因；别重启毁证据"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/ops-data.html#sec-ywaq-c2">应急响应 PDCERF 六阶段</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：时间错位</span><span class="err-tag">来源：大纲第四章·题解·考点八第 4 题</span></div>
+  </div>
+
+  <div class="err-card" id="err-computer-046">
+    <div class="err-q">【单选】下列措施中，能够对在用（或存储中）的敏感数据提供保密性最直接保护的是（　）。<br>A. 数据分类分级<br>B. 设置访问控制列表（ACL）<br>C. 数据加密存储<br>D. 部署数据防泄漏（DLP）系统</div>
+    <div class="err-row"><b>正确答案</b>：<span class="err-ans">C —— 数据加密存储：直接对在用/存储中的数据加密，是保证数据保密性最基本、最直接的技术手段</span></div>
+    <div class="err-row"><b>常见错误</b>：<span class="err-wrong">误选 D。DLP 是防泄漏监测拦截，管数据"流不流出去"，不是让数据内容本身保密；分类分级、ACL 都是外围手段。</span></div>
+    <div class="err-row"><b>解析</b>：① 正确原理：大纲原文——"数据加密技术是最基本的网络安全技术，被誉为信息安全的核心，主要用于保证数据在存储和传输过程中的保密性"。题干限定"在用（或存储中）"且"最直接"，正是加密存储。数据分类分级只是"按敏感程度划定级别"，是管理基础；访问控制（RBAC/ABAC/ACL）是"保障数据保密性的重要手段"，管的是"谁能看"；DLP 管的是数据防泄漏监测。② 错项逐个排：A 分类分级是划级别，不直接保护数据内容（偷换概念陷阱：把"分级"当"保护"）；B ACL 管"谁能访问"，访问控制一旦被绕过，明文仍暴露（配错对陷阱）；D DLP 是流出监测，不是对数据本身加密（方向反陷阱）；只有 C 让数据即使被拿走也看不懂。③ 方法论：用【概念对偶】区分——访问控制管"谁能看"，加密管"内容本身看不懂"；题干问"最直接保护保密性"＝加密。④ 记忆锚点："数据保密性最直接＝加密；分级是定标签，ACL 是看门，DLP 是查外流"。</div>
+    <div class="err-row"><b>关联概念</b>：<a href="../pages/computer/ops-data.html#sec-ywaq-c4">数据保密性保护与加密脱敏</a></div>
+    <div style="margin-top:6px"><span class="err-tag">考法：概念辨析</span><span class="err-tag">来源：大纲第四章·题解·考点八第 5 题</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<script src="../js/nav.js"></script>
+<script src="../js/app.js"></script>
+
+</body>
+</html>

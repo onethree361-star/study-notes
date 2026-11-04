@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web 通信安全 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/computer/web-security.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 计算机 › 信息安全 › Web 通信安全</div>
+
+<div class="doc-head">
+  <h1>Web 通信安全</h1>
+  <p>考点六回答"数据在路上"的安全问题：HTTP 明文跑、远程访问怎么走公网、家里 WiFi 用什么加密、接口怎么不被注入、智能设备怎么不被控制。技术含量在整章最高，同时也是监管检查最爱翻的一页——HTTPS 用哪个端口、VPN 有哪几种、无线协议怎么演进，全是原文考点。</p>
+  <div class="stat">知 <b>5</b> 个知识块 · 行 <b>18</b> 个场景</div>
+</div>
+
+<div class="sec-block" id="sec-webtx">
+  <div class="sec-h"><h2 id="sec-webtx-zhi">知 · 概念与理论</h2><span class="years">HTTP/HTTPS · SSL/TLS · VPN · 无线四代 · 注入与加固</span></div>
+
+  <details class="card fold-card" id="sec-webtx-c1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>HTTP 的三个风险，SSL/TLS 在哪一层</h3></div>
+      <div class="badges">
+        <span class="badge new">HTTP 三风险</span>
+        <span class="badge new">HTTPS 443</span>
+        <span class="badge sediment">四子协议</span>
+      </div>
+    </summary>
+    <div class="human-origin">HTTP 像寄明信片：内容谁都能看，还能被人改两行再寄出；HTTPS 像带封条的挂号信——有身份核验、有封口、有签收记录。这一卡就讲清楚"明信片"有哪三个洞、"挂号机制"装在协议栈的哪个位置。</div>
+
+    <div class="section-label new">HTTP 的三个安全风险（明文传输，原文背）</div>
+    <p>HTTP 协议在传输数据时采用明文方式，不提供有效的数据加密和身份验证机制，因此面临三大安全风险：<span class="em-new">①窃听风险</span>——通信数据在传输过程中可被第三方截获并读取；<span class="em-new">②篡改风险</span>——通信数据在传输过程中可被第三方修改；<span class="em-new">③冒充风险</span>——通信双方的身份无法得到有效验证，可能遭遇中间人攻击。</p>
+
+    <div class="section-label new">SSL/TLS 的协议位置（考试高频）</div>
+    <p>SSL（Secure Sockets Layer，安全套接字层）是由网景公司于 1995 年发布的协议，用以保障数据在互联网上安全地进行传输。TLS（Transport Layer Security，传输层安全性协议）是以 SSL 3.0 为基础发展而来的标准化后继协议。</p>
+    <p>SSL/TLS 协议工作在<strong>传输层（TCP/IP 层）与应用层之间</strong>。未使用时，应用层数据直接发往传输层；引入 SSL/TLS 后，应用层数据不再直接发往传输层，而是先发送给 SSL 层，经加密后再进行下一步处理。HTTPS 即"HTTP over TLS/SSL"，是在 HTTP 和 TCP 之间加入 TLS/SSL 层，用加密、身份认证和完整性校验来保护通信过程，<span class="em-new">HTTPS 默认运行在 443 端口</span>。SSL/TLS 也可用于其他应用层协议，如加密的 SMTP、加密的 FTP。</p>
+
+    <div class="section-label new">SSL/TLS 的核心安全机制（三件套）</div>
+    <p>①<strong>加密机制</strong>：通常结合非对称密码、公钥证书、密钥交换算法和对称加密算法实现安全通信。握手阶段通过 RSA、DHE、ECDHE 等机制完成身份认证和密钥协商，现代 TLS 更常使用 ECDHE 等具备前向安全性的密钥交换方式；随后使用 AES、ChaCha20 等对称加密算法保护实际传输数据。②<strong>身份认证机制</strong>：通过数字证书体系，服务器（可选地包括客户端）向对方证明自己的合法身份，防止冒充风险。③<strong>完整性校验机制</strong>：通过消息认证码（MAC）或数字签名，确保数据在传输过程中未被篡改，防止篡改风险。</p>
+
+    <div class="section-label sediment">四个子协议（体系结构，逐条背）</div>
+    <p>SSL/TLS 的体系结构主要包括握手协议、更改密码规范协议、警告协议和记录协议四个子协议。职责原文：<span class="em-new">握手协议负责通信双方的身份认证和密钥协商；记录协议负责数据的封装、压缩和加密处理</span>。</p>
+    <div class="chain"><span class="chain-note">四子协议：</span>握手协议（身份认证·密钥协商）→ 更改密码规范协议 → 警告协议 → 记录协议（封装·压缩·加密）</div>
+    <p><span class="em-sed">HTTP 是明信片，窃听、篡改、冒充三个洞靠 SSL/TLS 一次堵上；它夹在应用层与传输层之间，HTTPS 默认 443 端口</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-c2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>VPN：公网上的上锁隧道与五种隧道协议</h3></div>
+      <div class="badges">
+        <span class="badge new">三类 VPN</span>
+        <span class="badge old">PPTP/L2F 已淘汰</span>
+        <span class="badge sediment">QoS 四参数</span>
+      </div>
+    </summary>
+    <div class="human-origin">VPN 像快递的"封闭车厢"：货还是走公共马路（Internet），但车厢上锁、只有指定装卸口能开——外人看不见里面是什么，也换不了里面的货。这一卡讲这条隧道给谁用、用什么协议封装、为什么还需要 QoS。</div>
+
+    <div class="section-label new">VPN 是什么、给谁用（三类方案对号入座）</div>
+    <p>VPN 是通过一个公用网络（通常是 Internet）建立的一个临时的、安全的连接，是一条穿过混乱的公用网络的安全、稳定的隧道，是对企业内部网的扩展，可帮助远程用户、公司分支机构、商业伙伴及供应商同公司的内部网建立可信的安全连接。</p>
+    <table class="tbl">
+      <thead><tr><th>方案</th><th>对应传统网络</th><th>典型用户</th></tr></thead>
+      <tbody>
+        <tr><td>远程访问虚拟网（Access VPN）</td><td>远程访问网络</td><td>出差、居家的远程员工</td></tr>
+        <tr><td>企业内部虚拟网（Intranet VPN）</td><td>企业内部 Intranet</td><td>公司各分支机构互联互通</td></tr>
+        <tr><td>企业扩展虚拟网（Extranet VPN）</td><td>企业网与合作伙伴网构成的 Extranet（外部扩展）</td><td>商业伙伴、供应商</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label inherit">VPN 的四个特点</div>
+    <p>①<strong>安全保障</strong>：所有 VPN 均应保证通过公用网络平台传输数据的专用性和安全性；②<strong>服务质量保证（QoS）</strong>：不同用户和业务要求差别大——移动办公用户要广泛连接和覆盖，众多分支机构的专线 VPN 要求良好稳定性，视频等应用对时延和误码率提出更明确要求；③<strong>可扩充性和灵活性</strong>：支持任何类型数据流、方便增加新结点、支持多种传输媒介，满足同时传输语音、图像和数据的需求；④<strong>可管理性</strong>：从用户和运营商角度方便管理维护，目标为减小网络风险、高扩展性、经济性、高可靠性。</p>
+
+    <div class="section-label new">隧道技术：五种协议逐个记（不许合并）</div>
+    <p>隧道技术是 VPN 的基本技术，类似于点对点连接：原始报文在 A 地封装，到达 B 地后把封装去掉还原成原始报文，形成一条由 A 到 B 的通信隧道。</p>
+    <table class="tbl">
+      <thead><tr><th>协议</th><th>工作层次</th><th>特点（原文要点）</th></tr></thead>
+      <tbody>
+        <tr><td>PPTP 点对点隧道协议</td><td>基于 TCP/IP 的数据网络</td><td>远程客户端到专用企业服务器的安全传输；<span class="em-old">目前已淘汰</span></td></tr>
+        <tr><td>L2F（Layer 2 Forwarding）</td><td>链路层封装</td><td>可在 ATM、帧中继、IP 网等多种介质上建立多协议安全虚拟专用网，把 PPP 等链路层协议封装传送，网络链路层独立于用户链路层协议；<span class="em-old">目前已淘汰</span></td></tr>
+        <tr><td>L2TP（Layer 2 Tunneling Protocol）</td><td>二层隧道协议</td><td>本身主要负责封装和隧道传输，通常与 IPsec 结合，由 IPsec 提供加密、认证和完整性保护</td></tr>
+        <tr><td>IPsec</td><td>网络层安全协议簇</td><td>含封装安全载荷 ESP、认证报头 AH 及 ISAKMP 协议；为上层协议提供机密性、完整性与源认证保护，对上层应用透明、不依赖链路层技术；可构成 L2TP/IPsec，支持用户级与计算机级双重身份认证，安全等级更高</td></tr>
+        <tr><td>GRE</td><td>源路由与终路由之间的隧道</td><td>隧道通常是点对点（一个源地址、一个目的地址），部分实现允许点对多点</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label new">加密技术与 QoS</div>
+    <p>VPN 实现的两个关键技术是<strong>隧道技术和加密技术</strong>，QoS 技术对 VPN 的实现也至关重要。加密可由 IPsec 的 ESP 实现：发送者在发送数据前加密、接收者收到后解密；算法有对称加密（单钥）与非对称加密（公钥），如 AES 用于数据加密、RSA 用于密钥交换和签名；加密可在协议栈任意层进行，可对数据或报头加密。</p>
+    <p>QoS 是网络服务质量保障机制，主要解决网络带宽、时延、抖动、丢包等问题；它不直接提供加密、认证等安全能力，但可以提高 VPN 业务传输的稳定性和可用性。四个参数：<span class="em-new">带宽（用户传输率）、反应时间（可容忍的传递延时）、抖动（延时的变化）、丢失率（数据包丢失比率）</span>。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">VPN ＝ 公网上的上锁隧道；远程员工、分支机构、合作伙伴对应 Access/Intranet/Extranet；PPTP、L2F 已淘汰，现役靠 L2TP/IPsec 与 GRE；语音视频卡不卡，看 QoS 四参数</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-c3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>无线安全四代：WEP → WPA → WPA2 → WPA3</h3></div>
+      <div class="badges">
+        <span class="badge old">WEP 已弃用</span>
+        <span class="badge new">WPA2 AES-CCMP</span>
+        <span class="badge sediment">WPA3 前向保密</span>
+      </div>
+    </summary>
+    <div class="human-origin">家里门锁换过四代：第一把钥匙谁都能配（WEP），第二把换了锁芯但还是老式（WPA），第三把换了新式防盗锁（WPA2），第四把加了"偷了旧钥匙也开不了昨天的门"（WPA3）。每一代都在补上一代被攻破的洞。</div>
+
+    <div class="section-label old">WEP（有线等效加密）：第一代，2004 年弃用</div>
+    <p>WEP 作为 1997 年批准的原始 802.11 标准的一部分引入，是最早的 Wi-Fi 安全协议。它采用 RC4 流密码算法确保隐私，使用 CRC-32 校验和确保传输数据的完整性。严重漏洞：RC4 流密码与 24 位初始化向量（IV）的组合方式存在弱点；CRC-32 校验和是线性的且无密钥的哈希函数，攻击者可以在不知道密钥的情况下修改加密消息并更新校验和。<span class="em-old">2004 年，WEP-40 和 WEP-104 均被宣布弃用</span>。随着计算能力提高，WEP 已不能满足安全需要。</p>
+
+    <div class="section-label new">WPA（Wi-Fi 保护访问）：WEP 的临时补丁</div>
+    <p>WPA 是 WEP 的升级版本，针对 WEP 的几个缺点进行了弥补。WPA 是 802.11i 的组成部分，在 802.11i 没有完备之前，是 802.11i 的临时替代版本。</p>
+
+    <div class="section-label new">WPA2：正式版，AES-CCMP 上岗</div>
+    <p>WPA2 是 Wi-Fi 联盟对采用 IEEE 802.11i 安全增强功能的产品的认证计划。WPA2 采用 <span class="em-new">AES-CCMP</span> 作为核心安全机制，取代了 WPA/TKIP 中的 RC4 和 Michael MIC，显著增强了加密和完整性保护能力。AES 被广泛认为是目前最安全的加密算法之一，采用 128 位或更高的加密密钥。大多数企业和许多新的住宅 Wi-Fi 产品都支持 WPA2。</p>
+
+    <div class="section-label new">WPA3：最新标准，前向保密性</div>
+    <p>WPA3 是 Wi-Fi 安全协议的最新标准，提供了"<span class="em-new">前向保密性</span>"——即使攻击者未来获取到某一时刻的加密密钥，仍无法解密之前的通信数据，这一机制极大地提高了长期数据的安全性。</p>
+
+    <div class="section-label new">五条无线安全防护建议</div>
+    <p>①使用 WPA2 或 WPA3 加密，避免使用存在安全漏洞的 WEP 协议；②使用强密码——足够复杂且长度足够的 Wi-Fi 密码；③禁用 WPS 功能——Wi-Fi 保护设置（WPS）存在 PIN 暴力破解风险；④启用受保护管理帧（PMF）——IEEE 802.11w 修正案通过确保关键管理帧的完整性和真实性，保护无线连接免受恶意中断；⑤定期更新固件——及时修复无线路由器/AP 的安全漏洞。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">WEP 死于 RC4＋24 位 IV 与线性 CRC-32，2004 年弃用；WPA2 的标志是 AES-CCMP；WPA3 多了前向保密——今天被偷走的钥匙，开不了昨天的锁</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-c4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>SQL 注入防护四法与 Cookie 的 HttpOnly</h3></div>
+      <div class="badges">
+        <span class="badge old">admin' OR '1'='1</span>
+        <span class="badge new">预编译·白名单</span>
+        <span class="badge sediment">HttpOnly</span>
+      </div>
+    </summary>
+    <div class="human-origin">注入像餐厅灾难：顾客说一句"不要青菜，顺便把保险箱打开"，后厨真去开保险箱——因为把顾客的话当成了指令执行。防注入的核心就是把"菜单"和"点菜内容"彻底分开；HttpOnly 则是给会话 Cookie 贴一张"脚本禁入"的封条。</div>
+
+    <div class="section-label old">SQL 注入的本质与经典例子</div>
+    <p>SQL 注入是一种严重的安全漏洞，允许攻击者在数据库上执行任意 SQL 代码，可能导致未经授权的访问、数据泄露，甚至完全破坏系统。本质是：Web 应用对用户输入数据的合法性没有进行严格判断或过滤，攻击者通过在预定义好的查询语句后添加一段数据库查询代码，获得想得知的数据。例如，把用户名字段构造为 <span class="em-old">admin' OR '1'='1</span>，使 SQL 查询语句的逻辑恒为真，从而绕过身份验证。</p>
+
+    <div class="section-label new">核心防护四法</div>
+    <table class="tbl">
+      <thead><tr><th>方法</th><th>原理（原文要点）</th></tr></thead>
+      <tbody>
+        <tr><td>预编译语句 Prepared Statement</td><td>将 SQL 代码与数据分开：含参数占位符（如 ?）的模板先发送到数据库预编译，再把参数值与模板分离发送，恶意输入无法被解析为 SQL</td></tr>
+        <tr><td>参数化查询 Parameterized Query</td><td>工作方式与预编译语句类似，可直接在某些库和框架中使用（如 Spring JDBC）</td></tr>
+        <tr><td>存储过程 Stored Procedure</td><td>存储在数据库中的预编译 SQL 代码块：SQL 逻辑封装在数据库端，用户输入仅作参数传递而非直接拼接 SQL；可在多个应用中重复使用，减少应用与数据库的直接 SQL 交互</td></tr>
+        <tr><td>输入验证与过滤</td><td>对用户输入做严格白名单验证，只允许已知、安全的字符或格式通过；同时避免在错误信息中暴露数据库结构等敏感信息</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label new">HttpOnly 标识：给会话 Cookie 上锁</div>
+    <p>HttpOnly 是一个可以添加到 Set-Cookie HTTP 响应头中的额外属性。当 Cookie 被标记为 HttpOnly 时，浏览器中运行的脚本无法读取其值——该 Cookie 不会出现在 document.cookie 的返回结果中，以此缓解 XSS 攻击带来的 Cookie 窃取风险。对于会话标识符（如 JSESSIONID），尤其重要的是不要让 JavaScript 访问，以帮助防止会话劫持。微软 Michael Howard 指出，大多数 XSS 攻击的目标就是窃取会话 Cookie。</p>
+    <p>默认情况下（未设置 HttpOnly 时），浏览器中的 JavaScript 脚本可以通过 document.cookie 属性直接读取或写入 Cookie，同时可以通过 XMLHttpRequest 或 fetch API 在客户端直接发送 HTTP 请求；HttpOnly 的作用就是切断 JS 脚本对 Cookie 的访问权限。</p>
+    <p><span class="em-old">注意</span>：HttpOnly 不能完全阻止 XSS 攻击——它只影响对 Cookie 的访问，其他 XSS 影响（如页面篡改或 CSRF 令牌窃取）仍然可能发生。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">防注入靠"代码与数据分离"（预编译、参数化、存储过程）加白名单输入验证；HttpOnly 只锁 Cookie 不锁 XSS，会话 Cookie 必须打这个标</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-c5">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>IoT 默认配置、App 加固三防与加密传输收发四步</h3></div>
+      <div class="badges">
+        <span class="badge old">默认密码</span>
+        <span class="badge new">防反编译/篡改/调试</span>
+        <span class="badge sediment">数字信封四步</span>
+      </div>
+    </summary>
+    <div class="human-origin">智能设备像刚出厂的防盗门：锁没换、钥匙还挂在门上（默认密码）；手机 App 像一本写着交易秘密的笔记本——要防人偷看抄走（反编译）、防人撕页重订（篡改）、防人按着眼皮看脑内活动（调试）。最末尾的"收发四步"，就是把这两样合成一次真实的加密转账。</div>
+
+    <div class="section-label old">物联网设备默认配置漏洞</div>
+    <p>默认用户名和密码仍然是物联网（IoT）设备最常被利用的攻击向量。许多物联网设备存在默认密码未修改、固件更新滞后等问题，成为黑客最易攻破的薄弱环节。IoT 设备普遍计算资源有限、安全机制简单，又具有"无处不在"、长时间在线的特征，因此更容易出现安全漏洞；被控设备可能沦为"僵尸节点"，对网络发起流量攻击。</p>
+    <p>典型风险：智能摄像头、对讲机等通讯设备一旦被默认口令攻破，便可能对敏感涉密场所进行实时监控；调试接口外露、密钥硬编码、固件未签名同样构成严重安全隐患。</p>
+    <p>防护五条：①立即修改默认密码——组织必须有明确流程确保设备安装后立即更改凭证；②建立物联网设备采购安全规范——对问题设备以白名单或黑名单方式管制采购；③定期更新固件——及时修补已知安全漏洞；④关闭不必要的网络服务，如 Telnet（端口 23）、未加密的 HTTP 等不安全服务，防止设备成为僵尸网络的一部分；⑤网络隔离——将物联网设备部署在独立的网络分段中，限制其与核心业务网络的通信。</p>
+
+    <div class="section-label new">应用安全加固：防反编译、防篡改、防调试</div>
+    <p>应用加固是保护应用程序不被逆向、篡改、调试的最后一道防线，技术主要包括源码加固、运行环境加固和业务场景加固三个方面。</p>
+    <table class="tbl">
+      <thead><tr><th>类别</th><th>主要技术手段</th></tr></thead>
+      <tbody>
+        <tr><td>防反编译（抵御 apktool、ApkIDE、jd-gui）</td><td>DEX 文件加壳保护；DEX 函数抽取加密（关键函数加密存储、运行时动态解密）；SO 库加固（加壳、深度混淆、ELF 数据隐藏）；代码混淆（函数名、变量名、类名重命名，插入无关代码、控制流混淆、字符串加密、无用分支构造）；资源文件加密（音视频、配置文件、数据库）</td></tr>
+        <tr><td>防篡改（防二次打包、加恶意代码）</td><td>完整性校验（数字签名确保应用完整性）；运行时验证自身签名合法性；分散实施多个检查点提高整体有效性</td></tr>
+        <tr><td>防调试（防查看内部运行状态与敏感数据）</td><td>双向 ptrace 保护（防进程被跟踪调试）；关键代码处插入反调试检测逻辑；异常检测（调试器引发的异常）；调试器检测（IDA Pro 等）</td></tr>
+        <tr><td>运行环境安全检测</td><td>Root/越狱检测；模拟器识别；防 Hook（Frida 等 Hook 工具运行时动态修改应用行为）</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label sediment">加密传输全流程（笔记 p5/p6：发送方四步、接收方反四步）</div>
+    <p>情境：你要给银行发一份转账指令。</p>
+    <div class="chain"><span class="chain-note">发送方四步：</span>①算数字指纹 H=Hash(转账指令)（只做摘要不加密，后面用来防篡改）→ ②用自己私钥签哈希 S=Sign(私钥,H)（证明"数据确实是你发的"、不可否认；签哈希不签原文，原文太长签哈希效率高）→ ③生成会话密钥 K，对称加密"数据＋签名" C=Enc(K, 转账指令‖S)（签名也连一起加密，防止被替换或分析）→ ④用银行公钥加密会话密钥 C_K=Enc(银行公钥,K)（安全地把 K 送给银行，只有银行私钥能解出 K）</div>
+    <p>发送方最终发出：<strong>C_K（加密的会话密钥）＋ C（加密的数据和签名）</strong>。</p>
+    <div class="chain"><span class="chain-note">接收方反四步：</span>①银行私钥非对称解密拿 K=Dec(银行私钥,C_K) → ②用 K 对称解密得 转账指令‖S=Dec(K,C)（还原原始数据和签名）→ ③用你的公钥验签 H′=Verify(你的公钥,S)（确认签名确实是你发的）→ ④重算哈希 H″=Hash(转账指令)，比对 H′ 与 H″</div>
+    <p>比对结果：<span class="em-new">相等 → 数据完整、签名有效；不等 → 拒绝</span>。这就是"数字信封"——对称加密护正文（快），非对称加密护会话密钥（安全分发），哈希＋签名护完整性与来源（不可否认）。<span class="em-sed">发的顺序是哈希→签名→对称加密正文→公钥加密 K；收的顺序正好倒过来</span>。</p>
+  </details>
+</div>
+
+<div class="sec-block" id="sec-webtx-xing">
+  <div class="sec-h"><h2 id="sec-webtx-xing-title">行 · 场景落地</h2><span class="years">18 个场景 · 点开看具体动作</span></div>
+  <p>同一套"通信安全"，落在写代码的人、政务网银业务、运维、个人和监管检查眼里是完全不同的动作。下面按身份分五组，遇到相似场景直接套。</p>
+
+  <div class="section-label">组一 · 写代码 / 做系统</div>
+
+  <details class="card fold-card" id="sec-webtx-x1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>登录框直接拼 SQL，被 admin' OR '1'='1 绕过</h3></div>
+      <div class="badges"><span class="badge old">SQL 注入</span><span class="badge new">预编译</span></div>
+    </summary>
+    <p>登录查询写成 "SELECT * FROM users WHERE name='" + name + "'"，输入 admin' OR '1'='1 直接进了后台。</p>
+    <p><strong>落地动作</strong>：全部查询改 PreparedStatement 参数绑定（? 占位符），MyBatis 用 #{} 不用 ${}；用户名加长度与字符白名单；无论对错都只回"用户名或密码错误"，绝不回数据库原文。</p>
+    <p><strong>挂的知识点</strong>：c4——SQL 注入本质是代码与数据没分开；对应防护四法的预编译语句与输入验证两条。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-x2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>登录成功的 JSESSIONID 没打 HttpOnly</h3></div>
+      <div class="badges"><span class="badge sediment">HttpOnly</span><span class="badge old">会话劫持</span></div>
+    </summary>
+    <p>Set-Cookie 头里只有一串会话 ID，被一个存储型 XSS 用 document.cookie 偷走，会话被劫持。</p>
+    <p><strong>落地动作</strong>：会话 Cookie 一律加 HttpOnly 与 Secure 标志，配合 SameSite；前端输出转义另防 XSS；记住 HttpOnly 不挡页面篡改，XSS 本身要单独治。</p>
+    <p><strong>挂的知识点</strong>：c4——HttpOnly 切断 JS 对 Cookie 的访问，缓解 XSS 窃取会话 Cookie；对 JSESSIONID 尤其重要。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-x3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>老用户输入 http:// 还能直接打开明文站</h3></div>
+      <div class="badges"><span class="badge new">HTTPS 443</span><span class="badge sediment">301 跳 https</span></div>
+    </summary>
+    <p>地址栏输 http:// 照样打开登录页，账号密码就在明文 HTTP 上跑。</p>
+    <p><strong>落地动作</strong>：全站 80 端口 301 跳 https（443）；启用 HSTS；证书用受信任 CA，过期前 30 天告警；内部接口与加密 SMTP、加密 FTP 同样走 TLS。</p>
+    <p><strong>挂的知识点</strong>：c1——HTTP 三风险（窃听、篡改、冒充）；HTTPS＝HTTP over TLS/SSL、默认 443 端口。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-x4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>报错页把 SQL 语句和数据库版本吐给用户</h3></div>
+      <div class="badges"><span class="badge new">白名单</span><span class="badge old">信息泄露</span></div>
+    </summary>
+    <p>一条异常直接在 500 页面回显 SQL 语法错误原文，攻击者照着就能构造注入。</p>
+    <p><strong>落地动作</strong>：全局异常拦截，生产环境只回友好提示；详细堆栈只进内部日志；用户输入按类型、长度、格式、范围做白名单校验。</p>
+    <p><strong>挂的知识点</strong>：c4——输入验证与过滤条款原文"避免在错误信息中暴露数据库结构等敏感信息"。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-x5">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>手机 App 发版，接口密钥写死在代码里</h3></div>
+      <div class="badges"><span class="badge new">防反编译</span><span class="badge sediment">防篡改</span></div>
+    </summary>
+    <p>反编译工具一打开，密钥常量一目了然；安装包还能被人二次打包换图标上架仿冒。</p>
+    <p><strong>落地动作</strong>：DEX 加壳＋函数抽取加密；关键类名函数名混淆；资源与配置文件加密；运行时自验签名，被重打包即退出；检测 Root 环境与 Frida Hook。</p>
+    <p><strong>挂的知识点</strong>：c5——App 加固三防（防反编译、防篡改、防调试）加运行环境安全检测。</p>
+  </details>
+
+  <div class="section-label">组二 · 网银 / 政务业务</div>
+
+  <details class="card fold-card" id="sec-webtx-x6">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>政务自助机和手机银行还在明文 HTTP 上跑</h3></div>
+      <div class="badges"><span class="badge old">中间人攻击</span><span class="badge new">数字证书</span></div>
+    </summary>
+    <p>群众在自助机输身份证号，同网段抓包一览无余；连着假冒热点还能收到被改过的页面。</p>
+    <p><strong>落地动作</strong>：政务系统全站 HTTPS；客户端严格校验证书链，证书异常直接断开而不是点"继续访问"；登录、缴费、查社保页面强制 443。</p>
+    <p><strong>挂的知识点</strong>：c1——冒充风险（中间人攻击）；身份认证机制靠数字证书体系证明服务器合法身份。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-x7">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>员工居家办公，把数据库端口直接映射到公网</h3></div>
+      <div class="badges"><span class="badge new">Access VPN</span><span class="badge sediment">一人一用</span></div>
+    </summary>
+    <p>为了远程查账，数据库公网映射加弱口令，半夜被扫描器拖了库。</p>
+    <p><strong>落地动作</strong>：居家远程一律走 Access VPN；撤掉数据库公网映射；VPN 账号一人一用、开二要素认证；下班自动断开。</p>
+    <p><strong>挂的知识点</strong>：c2——三类 VPN 方案中，远程访问虚拟网（Access VPN）对应远程员工场景。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-x8">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>二十个分支网点互通，视频会议卡顿丢包</h3></div>
+      <div class="badges"><span class="badge new">Intranet VPN</span><span class="badge new">QoS</span></div>
+    </summary>
+    <p>分支机构之间的报账系统经常超时，跨网点视频会议全程马赛克。</p>
+    <p><strong>落地动作</strong>：分支机构之间建 Intranet VPN 隧道；先算带宽、反应时间、抖动、丢失率四个参数，给语音视频实时业务留优先队列。</p>
+    <p><strong>挂的知识点</strong>：c2——Intranet VPN 对应企业内部网互联；QoS 四参数解决时延、抖动、丢包。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-x9">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>给供应商开对账接口，不能让他进内网</h3></div>
+      <div class="badges"><span class="badge new">Extranet VPN</span><span class="badge old">PPTP 淘汰</span></div>
+    </summary>
+    <p>供货商需要定期传对账数据，直接开放内网等于把钥匙交出去。</p>
+    <p><strong>落地动作</strong>：用 Extranet VPN 只把对接区的接口暴露给对方，独立网段、最小权限、操作留痕；禁用 PPTP/L2F，改用 L2TP/IPsec 双重认证。</p>
+    <p><strong>挂的知识点</strong>：c2——Extranet VPN 对应合作伙伴互联；PPTP、L2F 目前已淘汰。</p>
+  </details>
+
+  <div class="section-label">组三 · 运维 / 设备</div>
+
+  <details class="card fold-card" id="sec-webtx-x10">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>交换机插上内网没改密码，23 端口还开着 Telnet</h3></div>
+      <div class="badges"><span class="badge old">默认密码</span><span class="badge old">Telnet 23</span></div>
+    </summary>
+    <p>新设备上机图省事，admin/admin 加 Telnet 23 端口，扫描器半小时就破。</p>
+    <p><strong>落地动作</strong>：上架流程第一条——立即改默认凭证；关 Telnet（23）与未加密 HTTP，只留 SSH/HTTPS；固件升到最新；设备入独立管理网段。</p>
+    <p><strong>挂的知识点</strong>：c5——IoT 默认配置漏洞与防护五条（立即改密、关 Telnet 23、网络隔离）。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-x11">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>办公室 WiFi 还在用 WEP，WPS 指示灯亮着</h3></div>
+      <div class="badges"><span class="badge old">WEP 弃用</span><span class="badge new">WPA3</span></div>
+    </summary>
+    <p>老路由器图省事配了 WEP，隔壁半天就破了，WPS 还开着让人 PIN 爆破。</p>
+    <p><strong>落地动作</strong>：换成 WPA2 或 WPA3；密码 16 位以上混合字符；管理页关掉 WPS；支持的话开 PMF（802.11w）；每月检查一次固件更新。</p>
+    <p><strong>挂的知识点</strong>：c3——WEP 2004 年弃用；防护建议第①③④条（WPA2/WPA3、禁 WPS、启 PMF）。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-x12">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>安全巡检发现一条五年前的 PPTP 拨入通道</h3></div>
+      <div class="badges"><span class="badge old">PPTP 淘汰</span><span class="badge new">L2TP/IPsec</span></div>
+    </summary>
+    <p>配置文档里早没人提了，PPTP 通道还在公网上跑着。</p>
+    <p><strong>落地动作</strong>：登记后下线；迁移到 L2TP/IPsec（用户级＋计算机级双重身份认证）或原生 IPsec；GRE 点对点隧道用于网络互联时单独配加密。</p>
+    <p><strong>挂的知识点</strong>：c2——五种隧道协议各写清：PPTP/L2F 已淘汰，L2TP 本身不加密、靠 IPsec 补，IPsec 工作在网络层含 ESP/AH/ISAKMP。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-x13">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>监控告警：几十台摄像头凌晨批量对外发小包</h3></div>
+      <div class="badges"><span class="badge old">僵尸节点</span><span class="badge new">网络隔离</span></div>
+    </summary>
+    <p>智能摄像头凌晨向境外 IP 发起大量连接——成了 DDoS 僵尸节点。</p>
+    <p><strong>落地动作</strong>：立刻把 IoT 网段从核心网隔离、断外联；逐台改默认密码、升级固件、关 Telnet；事后把问题品牌列入采购黑名单。</p>
+    <p><strong>挂的知识点</strong>：c5——"被控设备可能沦为僵尸节点，对网络发起流量攻击"；防护第②⑤条（采购白名单、网络隔离）。</p>
+  </details>
+
+  <div class="section-label">组四 · 个人用网 / 生活</div>
+
+  <details class="card fold-card" id="sec-webtx-x14">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>在咖啡店免费 WiFi 上查工资卡余额</h3></div>
+      <div class="badges"><span class="badge old">公共 WiFi</span><span class="badge old">嗅探</span></div>
+    </summary>
+    <p>连上同名"咖啡 Free WiFi"，实际是旁边人架的钓鱼热点，流量全被嗅探。</p>
+    <p><strong>落地动作</strong>：公共 WiFi 不做支付和办公；必须用就切手机流量或走 VPN；打开网址前确认是 https 且证书正常，警告页一律不点"继续"。</p>
+    <p><strong>挂的知识点</strong>：c1——窃听、冒充风险；c3——早期无线网络易遭破解、窃听、中间人攻击。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-x15">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>家里 WiFi 密码 12345678，WPS 还开着</h3></div>
+      <div class="badges"><span class="badge old">弱口令</span><span class="badge new">WPA3</span></div>
+    </summary>
+    <p>邻居手机一搜就连上，网课账号还被人顶号。</p>
+    <p><strong>落地动作</strong>：密码改 16 位以上随机串；加密方式选 WPA3（老设备保底 WPA2）；管理页关掉 WPS；路由器管理密码另设，不与 WiFi 密码相同。</p>
+    <p><strong>挂的知识点</strong>：c3——防护建议：强密码、禁用 WPS（PIN 暴力破解风险）、使用 WPA2/WPA3。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-x16">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>新买的婴儿监视器，插电就上了家里主 WiFi</h3></div>
+      <div class="badges"><span class="badge old">默认配置</span><span class="badge new">访客网络</span></div>
+    </summary>
+    <p>设备还没改默认密码就连上家庭主网，靠出厂口令就能被人远程看孩子。</p>
+    <p><strong>落地动作</strong>：先改默认密码再联网；固件升级到最新；放到路由器的 IoT/访客隔离网段；管理后台远程访问全关，只用局域网。</p>
+    <p><strong>挂的知识点</strong>：c5——默认口令风险（摄像头被攻破可实时监控敏感场所）＋网络隔离防护。</p>
+  </details>
+
+  <div class="section-label">组五 · 面试 / 监管检查</div>
+
+  <details class="card fold-card" id="sec-webtx-x17">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>监管问"你们 Web 通信安全是怎么做的"</h3></div>
+      <div class="badges"><span class="badge exam">监管检查</span><span class="badge sediment">全链路</span></div>
+    </summary>
+    <p>只答"我们上了防火墙"，会被追问到下不来。</p>
+    <p><strong>落地动作</strong>：按链路答——传输层全站 HTTPS/443＋证书体系；应用层预编译防注入、会话 Cookie 打 HttpOnly、输出转义防 XSS；远程接入走 VPN 且淘汰 PPTP/L2F；无线侧 WPA3 并关 WPS；IoT 改默认口令并隔离网段。</p>
+    <p><strong>挂的知识点</strong>：把 c1（HTTPS）、c4（注入/HttpOnly）、c2（VPN）、c3（无线）、c5（IoT）串成一张图。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-webtx-x18">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>面试问 SSL/TLS 工作在哪一层、四个子协议是啥</h3></div>
+      <div class="badges"><span class="badge exam">面试</span><span class="badge new">四子协议</span></div>
+    </summary>
+    <p>位置答错，这题基本就废了。</p>
+    <p><strong>落地动作</strong>：背位置——传输层（TCP/IP 层）与应用层之间；背四子协议——握手（身份认证·密钥协商）、更改密码规范、警告、记录（封装·压缩·加密）；补一句 HTTPS 默认 443，握手用 ECDHE 前向保密、正文用 AES/ChaCha20。</p>
+    <p><strong>挂的知识点</strong>：c1——SSL/TLS 协议栈位置与体系结构四个子协议。</p>
+  </details>
+</div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

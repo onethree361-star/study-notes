@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>常见网络攻击类型与恶意软件识别 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/computer/attacks.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 计算机 › 信息安全 › 常见网络攻击类型与恶意软件识别</div>
+
+<div class="doc-head">
+  <h1>常见网络攻击类型与恶意软件识别</h1>
+  <p>考点三处在"知道了 CIA 要保什么"之后、"边界怎么防"之前：先认清敌人——漏洞是门、攻击是撬门的手法、恶意软件是进门后住下来的东西。这一页的背诵量是全章最大的一页：漏洞八类、攻击十二类、恶意软件八类，三组数字<strong>一条都不许合并、不许漏项</strong>，考试多选几乎全从这三组里出。</p>
+  <div class="stat">知 <b>3</b> 个知识块 · 行 <b>16</b> 个场景</div>
+</div>
+
+<div class="sec-block" id="sec-gongji">
+  <div class="sec-h"><h2 id="sec-gongji-zhi">知 · 概念与理论</h2><span class="years">漏洞八类 · 攻击十二类 · 恶意软件八类</span></div>
+
+  <details class="card fold-card" id="sec-gongji-c1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>常见漏洞八类：门本来就是虚掩的</h3></div>
+      <div class="badges">
+        <span class="badge new">漏洞定义</span>
+        <span class="badge new">八类列举</span>
+        <span class="badge old">OWASP Top10</span>
+      </div>
+    </summary>
+    <div class="human-origin">把信息系统想象成一栋楼：攻击不是凭空穿墙，而是挨个试门——设计时留的后门、施工时偷工减料的锁、入住后忘了换的默认密码。这八类就是那八扇最常被推开的门，大多数安全事件都由它们引发。</div>
+
+    <div class="section-label new">漏洞是什么（定义，原文照背）</div>
+    <p><strong>系统漏洞是信息系统在设计、实现、配置或运维过程中存在的安全缺陷，可能被攻击者利用导致数据泄露、服务中断或系统被控制。</strong>根据 <span class="em-new">OWASP Top10</span> 和 <span class="em-new">CVE</span> 等权威统计，虽然漏洞类型层出不穷，但大多数安全事件都由少数常见漏洞类型引发——所以这八类要逐条背。</p>
+
+    <div class="section-label new">八类漏洞逐条（名称＋成因＋被利用方式）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>#</th><th>漏洞</th><th>成因</th><th>被利用方式 / 后果</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>SQL 注入漏洞</td><td>程序将用户输入直接拼接至数据库查询语句中</td><td>混淆代码与数据的边界，攻击者输入的恶意 SQL 指令被数据库执行</td></tr>
+        <tr><td>2</td><td>跨站脚本漏洞（XSS）</td><td>应用程序将未过滤的用户输入直接嵌入网页</td><td>恶意脚本在用户浏览器执行</td></tr>
+        <tr><td>3</td><td>文件上传漏洞</td><td>系统未对上传文件进行严格校验</td><td>攻击者可上传恶意文件获取服务器控制权</td></tr>
+        <tr><td>4</td><td>不安全配置漏洞</td><td>系统组件的错误配置：使用默认账户密码、开启调试模式、暴露版本信息等</td><td>默认口令被直接登录，版本与调试信息给攻击者递上地图</td></tr>
+        <tr><td>5</td><td>第三方组件漏洞</td><td>现代软件大量依赖第三方库</td><td>组件存在的已知漏洞会波及整个系统</td></tr>
+        <tr><td>6</td><td>反序列化漏洞</td><td>程序对不可信数据执行反序列化</td><td>可能触发恶意代码执行</td></tr>
+        <tr><td>7</td><td>敏感信息泄露</td><td>系统通过错误信息、日志或接口暴露敏感数据</td><td>系统借自己的报错和接口把数据交出去</td></tr>
+        <tr><td>8</td><td>业务逻辑漏洞</td><td>业务流程设计缺陷：验证码可重复使用、并发请求漏洞等</td><td>流程本身被绕过去，如验证码重用、并发薅羊毛</td></tr>
+      </tbody>
+    </table>
+    <p>八类对应四个留门环节：<span class="em-new">设计</span>（业务逻辑）→ <span class="em-new">实现</span>（SQL 注入、XSS、文件上传、反序列化）→ <span class="em-new">配置</span>（不安全配置、敏感信息泄露）→ <span class="em-new">运维与供应链</span>（第三方组件）。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">八类漏洞＝注入·XSS·上传·错配·组件·反序列化·泄密·逻辑；漏洞不是被黑出来的，是设计、编码、配置、运维四个环节里本来就虚掩的门</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-gongji-c2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>常见攻击十二类：撬门的十二种手法</h3></div>
+      <div class="badges">
+        <span class="badge new">十二类列举</span>
+        <span class="badge old">DoS 四型</span>
+        <span class="badge new">APT 五阶段</span>
+      </div>
+    </summary>
+    <div class="human-origin">小区里的坏人有十二种活法：有的专骗人心、有的专堵大门、有的专偷听电话、有的专配钥匙。攻击手法看着杂，其实就四个面——打人的、打端的、打网的、打应用的，记住这个归类，十二类就背不散。</div>
+
+    <div class="section-label new">攻击是什么（定义）</div>
+    <p><strong>信息安全攻击是指攻击者利用技术或非技术手段，针对信息系统的机密性、完整性和可用性发起的恶意行为。</strong>从早期的简单病毒到现在的 APT 攻击，形成了多层次、多样化的威胁体系。了解常见攻击方式的原理、特征和危害，是构建有效防御体系的基础。</p>
+
+    <div class="section-label new">十二类攻击逐条（目标＋手法＋典型后果）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>#</th><th>攻击类型</th><th>主要手法</th><th>典型后果 / 例子</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>社会工程学攻击</td><td>利用人的心理弱点而非技术漏洞：网络钓鱼、pretexting（借口欺骗）、baiting（诱饵攻击）</td><td>伪造银行客服邮件，诱导用户点击恶意链接并输入账户信息；直接针对安全意识薄弱环节，成功率往往很高</td></tr>
+        <tr><td>2</td><td>恶意软件攻击</td><td>病毒、蠕虫、特洛伊木马、勒索软件等感染系统</td><td>WannaCry 勒索软件利用 EternalBlue 漏洞在全球范围传播，加密用户文件并要求比特币赎金</td></tr>
+        <tr><td>3</td><td>拒绝服务攻击（DoS/DDoS）</td><td>发送大量请求耗尽资源；DDoS 利用僵尸网络发起分布式攻击</td><td>Memcached 反射放大攻击利用暴露的 Memcached 服务器，实现 5 万倍的放大因子</td></tr>
+        <tr><td>4</td><td>中间人攻击（MitM）</td><td>在通信双方之间拦截并可能篡改通信内容：ARP 欺骗、DNS 劫持实现流量重定向</td><td>常见于不加密的公共 Wi-Fi；在咖啡店 Wi-Fi 中窃取用户的登录凭证</td></tr>
+        <tr><td>5</td><td>密码攻击</td><td>暴力破解、字典攻击、彩虹表攻击、撞库攻击，旨在获取用户认证凭证</td><td>用常见密码字典尝试登录；利用预先计算的哈希值反向破解密码</td></tr>
+        <tr><td>6</td><td>SQL 注入攻击</td><td>向应用程序输入恶意 SQL 代码，操纵后端数据库</td><td>在登录框输入 ' OR '1'='1'-- 绕过身份验证；可窃取、篡改或删除数据库内容</td></tr>
+        <tr><td>7</td><td>跨站脚本攻击（XSS）</td><td>向网页注入恶意脚本在用户浏览器执行：存储型将恶意代码持久化在服务器，反射型通过恶意链接即时触发</td><td>在论坛发布含恶意脚本的帖子，窃取访问者的会话 Cookie</td></tr>
+        <tr><td>8</td><td>零日漏洞攻击</td><td>利用软件中未知的漏洞发起攻击，厂商发布补丁前威胁极大</td><td>Stuxnet 蠕虫利用多个零日漏洞攻击工业控制系统</td></tr>
+        <tr><td>9</td><td>重放攻击</td><td>截获通信双方之间的合法数据包（认证报文、交易请求），在之后某时刻重新发送给接收方</td><td>欺骗系统获得非法授权或重复执行操作；攻击者无需破解密文，只需"复制粘贴"，加密本身无法防御</td></tr>
+        <tr><td>10</td><td>高级持续性威胁（APT）</td><td>针对特定目标发起的长期、复杂的攻击活动</td><td>SolarWinds 供应链攻击影响多个政府机构和企业</td></tr>
+        <tr><td>11</td><td>缓冲区溢出攻击</td><td>利用缓冲区溢出漏洞进行攻击；在程序地址空间里安排适当代码、控制程序转移到攻击代码、植入代码和流程控制</td><td>程序运行失败、系统崩溃及重新启动；更严重可执行非授权指令，甚至取得系统特权进行各种非法操作</td></tr>
+        <tr><td>12</td><td>Web 攻击</td><td>黑客将注意力从传统网络服务器转向 Web 业务：网上银行、网络购物、网游、电子政务</td><td>轻则篡改网页内容，重则窃取重要内部数据，更严重在网页中植入恶意代码使网站访问者受害</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label inherit">密码攻击四式（四条定义逐字背，题解高频）</div>
+    <p><span class="em-new">暴力破解</span>：枚举所有可能密码；<br><span class="em-new">字典攻击</span>：使用常见密码字典尝试；<br><span class="em-new">撞库攻击</span>：使用已泄露账号密码到其他网站批量尝试（在不同网站用相同密码，最容易被撞库攻破）；<br><span class="em-new">彩虹表攻击</span>：利用预先计算好的哈希表反推密码。</p>
+
+    <div class="section-label inherit">拒绝服务攻击的四种类型</div>
+    <p>① <strong>带宽消耗</strong>：耗尽某个网络的所有可用带宽；两种方法——攻击者用更多带宽造成受害者网络拥塞；或征用多个站点集中拥塞受害者网络连接来放大 DoS 效果，轻易汇集相当高的带宽实现完全堵塞。<br>② <strong>系统资源消耗</strong>：盗用、滥用目标主机的资源访问权，消耗 CPU 利用率、内存、文件系统限额和系统进程总数，造成文件系统变慢、进程被挂起直至系统崩溃。<br>③ <strong>编程缺陷</strong>：利用应用程序、操作系统或嵌入式逻辑芯片处理异常情况时的失败，发送非常规的数据包分组，导致内核混乱、系统崩溃。<br>④ <strong>路由和 DNS 攻击</strong>：操纵路由表以拒绝向合法系统或网络提供服务。</p>
+
+    <div class="section-label inherit">APT 攻击过程五阶段（链式记）</div>
+    <div class="chain"><span class="chain-note">APT 打法：</span>侦察 → 初始入侵 → 持久化控制 → 横向移动 → 数据渗出</div>
+    <p>对应防护：部署多层安全防护，实施网络分段和持续威胁监测——横向移动被分段挡住，渗出流量被持续监测看见。</p>
+
+    <div class="section-label inherit">Web 攻击三类（第 12 类的内部拆分）</div>
+    <p>一是<span class="em-new">利用 Web 服务器的漏洞</span>进行攻击，如 CGI、缓冲区溢出、目录遍历漏洞利用等；<br>二是<span class="em-new">利用网页自身的安全漏洞</span>进行攻击，如 SQL 注入、跨站脚本攻击、Cookie 假冒、认证逃避、非法输入、强制访问、隐藏变量篡改等；<br>三是<span class="em-new">利用僵尸网络的分布式 DoS 攻击</span>，造成网站拒绝服务。<br>后果：网站遭受声誉损失、经济损失，甚至造成政治影响。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">十二类＝社工·恶意软件·DoS·MitM·密码·SQL 注入·XSS·零日·重放·APT·缓冲区溢出·Web；打人的靠意识培训，打端的靠补丁杀软，打网的靠流量清洗和加密，打应用的靠参数化和输出过滤</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-gongji-c3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>恶意软件八类：进门后住下来的八种东西</h3></div>
+      <div class="badges">
+        <span class="badge new">八类列举</span>
+        <span class="badge old">病毒 vs 蠕虫</span>
+        <span class="badge new">宏病毒 Melissa</span>
+      </div>
+    </summary>
+    <div class="human-origin">坏人混进楼里有八种住法：有的贴在门上不走（病毒）、有的自己会跑楼层间（蠕虫）、有的装成快递员敲门（木马）、有的锁门要钱（勒索）、有的定时才响（逻辑炸弹）、有的藏在表格里（宏病毒）、有的开机就到（引导型）、有的藏在 EXE 里（文件型）。</div>
+
+    <div class="section-label new">八类恶意软件逐条（特征＋传播方式）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>#</th><th>类别</th><th>关键特征</th><th>传播 / 驻留方式</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>病毒</td><td>能够自我复制</td><td>依附在其他程序、文件或引导区上；通常需要宿主文件或用户操作触发传播</td></tr>
+        <tr><td>2</td><td>蠕虫</td><td>能够自我复制</td><td>通常可通过网络自动传播，不一定依赖宿主文件</td></tr>
+        <tr><td>3</td><td>特洛伊木马</td><td>伪装成正常程序、工具、游戏、破解软件等，诱骗用户安装</td><td>运行后可能窃取信息、开启后门或远程控制主机</td></tr>
+        <tr><td>4</td><td>勒索软件</td><td>通过加密用户文件或锁定系统，要求用户支付赎金</td><td>不一定是传统意义上的"病毒"，更规范的名称是"勒索软件"</td></tr>
+        <tr><td>5</td><td>逻辑炸弹</td><td>隐藏在程序中的恶意代码</td><td>在满足特定条件时触发，如特定日期、特定用户操作或特定数据变化</td></tr>
+        <tr><td>6</td><td>宏病毒</td><td>利用 Office 文档中的宏语言，例如 VBA 编写的恶意代码</td><td>常感染 Word 文档、Excel 工作簿、模板文件等；典型例子有 Melissa 病毒</td></tr>
+        <tr><td>7</td><td>引导型病毒</td><td>感染磁盘引导区或主引导记录</td><td>在系统启动时被加载并执行</td></tr>
+        <tr><td>8</td><td>文件型病毒</td><td>感染可执行文件</td><td>如 EXE、COM 文件等</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label inherit">三组高频区分（题目就爱考边界）</div>
+    <p>① <span class="em-old">病毒 ≠ 蠕虫</span>：都能自我复制，但病毒要宿主文件或用户操作触发，蠕虫靠网络自动传播、不挑宿主。<br>② <span class="em-old">木马靠社会工程诱骗安装</span>：题目问"利用社会工程伎俩诱骗受害者安装的恶意软件"，答案就是特洛伊木马；病毒、蠕虫、逻辑炸弹都不靠骗人安装。<br>③ <span class="em-old">看名字定类型</span>：杀毒软件报告 Macro. Melissa——Macro 说明是宏病毒，宏病毒主要感染 Word 或 Excel 文件；引导型感染磁盘引导区，文件型才感染 EXE 或 COM。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">八类＝病毒·蠕虫·木马·勒索·逻辑炸弹·宏病毒·引导型·文件型；复制要宿主的是病毒、自己跑网的是蠕虫、装好人的是木马、定时炸的是逻辑炸弹、锁门要钱的是勒索</span>。</p>
+  </details>
+</div>
+
+<div class="sec-block" id="sec-gongji-xing">
+  <div class="sec-h"><h2 id="sec-gongji-xing-title">行 · 场景落地</h2><span class="years">16 个场景 · 点开看具体动作</span></div>
+  <p>同样三组名词，写代码的人看见的是"我哪行代码留了门"，运维的人看见的是"哪台机器要补丁"，柜员看见的是"哪封邮件是钓鱼"。下面按身份分组，遇到相似场景直接套动作。</p>
+
+  <div class="section-label">组一 · 写代码 / 做系统</div>
+
+  <details class="card fold-card" id="sec-gongji-x1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>登录框拼接 SQL，被 ' OR '1'='1'-- 直接顶开</h3></div>
+      <div class="badges"><span class="badge new">SQL 注入</span><span class="badge old">代码与数据混边</span></div>
+    </summary>
+    <p>登录接口把用户输入拼进查询语句，有人在密码框输一句 ' OR '1'='1'--，语句恒真，不用密码就登进去了。</p>
+    <p><strong>落地动作</strong>：全部改用参数化查询（预编译语句），输入与代码彻底分开；对输入做严格过滤和验证；数据库账号只给最小权限，被注入也拖不走全库。</p>
+    <p><strong>挂的知识点</strong>：c2 第 6 类 SQL 注入攻击＋c1 第 1 类 SQL 注入漏洞——漏洞是病根，攻击是发作。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-gongji-x2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>评论区存了段脚本，所有访客的 Cookie 被偷</h3></div>
+      <div class="badges"><span class="badge new">存储型 XSS</span><span class="badge old">会话 Cookie</span></div>
+    </summary>
+    <p>论坛帖子把恶意脚本原样存进服务器，谁打开谁的浏览器就执行，访问者登录态被拿走。</p>
+    <p><strong>落地动作</strong>：用户输入输出时做 HTML 编码过滤；响应头设置 Content-Security-Policy 头部；Cookie 加 HttpOnly 不让脚本读。</p>
+    <p><strong>挂的知识点</strong>：c2 第 7 类 XSS（存储型持久化在服务器）＋c1 第 2 类 XSS 漏洞。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-gongji-x3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>头像只校验后缀，一张 webshell 拿下服务器</h3></div>
+      <div class="badges"><span class="badge new">文件上传漏洞</span><span class="badge old">服务器控制权</span></div>
+    </summary>
+    <p>上传接口放过 .php，攻击者传一句话木马，再从浏览器直接访问，服务器就归他了。</p>
+    <p><strong>落地动作</strong>：校验文件内容而非后缀；上传文件重命名并存到 Web 根目录之外；图片服务器禁止执行脚本；白名单限定 jpg/png。</p>
+    <p><strong>挂的知识点</strong>：c1 第 3 类文件上传漏洞；后果就是"获取服务器控制权"。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-gongji-x4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>报错页把 SQL 和堆栈全吐出来，还开着调试模式</h3></div>
+      <div class="badges"><span class="badge old">敏感信息泄露</span><span class="badge old">不安全配置</span></div>
+    </summary>
+    <p>接口一报错就返回完整堆栈、表名、版本号，等于把攻击路线图白送给对方。</p>
+    <p><strong>落地动作</strong>：生产环境统一返回模糊提示（"系统繁忙，请稍后重试"）；关闭调试模式；版本信息不外泄；详细堆栈只写进服务器内部日志并收敛访问权限。</p>
+    <p><strong>挂的知识点</strong>：c1 第 7 类敏感信息泄露（错误信息、日志、接口暴露）＋第 4 类不安全配置（开启调试模式、暴露版本信息）。</p>
+  </details>
+
+  <div class="section-label">组二 · 单位运维 / 终端与供应链</div>
+
+  <details class="card fold-card" id="sec-gongji-x5">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>公网 445 敞着没打补丁，内网一夜之间互相加密</h3></div>
+      <div class="badges"><span class="badge old">WannaCry 式</span><span class="badge new">EternalBlue</span></div>
+    </summary>
+    <p>一台办公机中招，蠕虫靠网络自动传播，第二天整片内网共享盘全变成勒索加密文件。</p>
+    <p><strong>落地动作</strong>：关闭公网 445 端口、打 MS17-010 补丁；部署终端防护软件；内网分段，一处感染不横向；定期离线备份重要数据。</p>
+    <p><strong>挂的知识点</strong>：c2 第 2 类恶意软件攻击（WannaCry 利用 EternalBlue）＋c3 蠕虫"通过网络自动传播"。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-gongji-x6">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>随便插的 U 盘，把引导型病毒带进了财务机</h3></div>
+      <div class="badges"><span class="badge new">引导型病毒</span><span class="badge old">移动介质</span></div>
+    </summary>
+    <p>捡到的 U 盘在前台电脑一插，重启后病毒先于系统从引导区加载，杀软都来不及拦。</p>
+    <p><strong>落地动作</strong>：办公 U 盘白名单管理、外来 U 盘先查杀再用；关闭系统从移动介质引导；财务机与互联网隔离。</p>
+    <p><strong>挂的知识点</strong>：c3 第 7 类引导型病毒——感染磁盘引导区或主引导记录，系统启动时被加载执行。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-gongji-x7">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>项目里引了个老版本第三方组件，CVE 一爆全盘皆输</h3></div>
+      <div class="badges"><span class="badge old">第三方组件漏洞</span><span class="badge new">供应链</span></div>
+    </summary>
+    <p>业务代码一行没写错，引的日志组件被曝出远程执行漏洞，整个系统跟着沦陷。</p>
+    <p><strong>落地动作</strong>：建立组件版本台账；上线前做 SCA 成分扫描；组件漏洞库周报跟进，高危漏洞限期升级；下线不再维护的依赖。</p>
+    <p><strong>挂的知识点</strong>：c1 第 5 类第三方组件漏洞——"组件存在的已知漏洞会波及整个系统"；APT 里 SolarWinds 也是供应链路线。</p>
+  </details>
+
+  <div class="section-label">组三 · 银行 / 政务业务</div>
+
+  <details class="card fold-card" id="sec-gongji-x8">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>客户收到"银行客服"邮件，要点链接更新身份证</h3></div>
+      <div class="badges"><span class="badge old">网络钓鱼</span><span class="badge new">社会工程学</span></div>
+    </summary>
+    <p>邮件版式和真银行一模一样，点进去的仿冒页面把卡号密码全收走。</p>
+    <p><strong>落地动作</strong>：外部邮件自动打标；付款与变更收款账户必须电话双人核实；启用多因素认证；定期给员工和客户做钓鱼演练。</p>
+    <p><strong>挂的知识点</strong>：c2 第 1 类社会工程学攻击——网络钓鱼、pretexting（借口欺骗）、baiting（诱饵攻击）；防护正是"安全意识教育、多因素认证、可疑请求验证机制"。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-gongji-x9">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>政务验证码能反复提交，接口被刷了一夜</h3></div>
+      <div class="badges"><span class="badge old">业务逻辑漏洞</span><span class="badge new">验证码重用</span></div>
+    </summary>
+    <p>验证码只校验对不对、不校验用没用，一段脚本拿着一个码刷了几千次查询。</p>
+    <p><strong>落地动作</strong>：验证码一次性使用、用完即废；设有效期；同一账号同一接口加并发上限；异常频率触发图形验证码升级。</p>
+    <p><strong>挂的知识点</strong>：c1 第 8 类业务逻辑漏洞——大纲点名的例子正是"验证码可重复使用、并发请求漏洞"。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-gongji-x10">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>转账报文被截获重发，同一笔款扣了两次</h3></div>
+      <div class="badges"><span class="badge old">重放攻击</span><span class="badge new">加密防不住</span></div>
+    </summary>
+    <p>传输全程加密，但攻击者把合法的扣款报文原样再发一遍，系统照单全收。</p>
+    <p><strong>落地动作</strong>：报文加时间戳和一次性 nonce；验签防篡改；同一流水号唯一幂等，重复请求直接拒。</p>
+    <p><strong>挂的知识点</strong>：c2 第 9 类重放攻击——"攻击者无需破解密文，只需复制粘贴，加密本身无法防御此类攻击"。</p>
+  </details>
+
+  <div class="section-label">组四 · 个人用网 / 生活</div>
+
+  <details class="card fold-card" id="sec-gongji-x11">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>咖啡店连了同名假 WiFi，登录凭证被中间人截走</h3></div>
+      <div class="badges"><span class="badge old">MitM</span><span class="badge new">ARP 欺骗 / DNS 劫持</span></div>
+    </summary>
+    <p>隔壁桌架了个叫"XX咖啡"的热点，手机自动连上，流量全经他的机器过。</p>
+    <p><strong>落地动作</strong>：公共 Wi-Fi 不做支付和登录敏感账号；必须用时切手机流量或走 VPN；确认网址是 https 且证书正常，不点"继续访问"。</p>
+    <p><strong>挂的知识点</strong>：c2 第 4 类中间人攻击——常见于不加密的公共 Wi-Fi，通过 ARP 欺骗或 DNS 劫持实现流量重定向；防护用端到端加密（TLS/SSL）并验证证书。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-gongji-x12">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>所有网站同一个密码，一个库泄露全站遭殃</h3></div>
+      <div class="badges"><span class="badge old">撞库攻击</span><span class="badge new">一站一密</span></div>
+    </summary>
+    <p>小论坛被脱库，攻击者拿这批"账号＋密码"去银行、电商批量试登录，中了一大片。</p>
+    <p><strong>落地动作</strong>：重要网站一站一密，用密码管理器；平台侧密码加盐哈希存储；登录失败锁定；异地登录二次验证。</p>
+    <p><strong>挂的知识点</strong>：c2 第 5 类密码攻击——撞库＝用已泄露账号密码到其他网站批量尝试；防护正是强密码策略、加盐哈希、登录失败锁定。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-gongji-x13">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>"会议纪要.xlsm"一点宏，全家中招（Melissa 式）</h3></div>
+      <div class="badges"><span class="badge new">宏病毒</span><span class="badge old">VBA 恶意代码</span></div>
+    </summary>
+    <p>伪装成表格的文档，启用宏后 VBA 代码开始往外发邮件、感染其他文档。</p>
+    <p><strong>落地动作</strong>：Office 宏默认禁用，外部来源文档一律不开宏；邮件网关拦带宏的附件；企业版统一封堵 VBA。</p>
+    <p><strong>挂的知识点</strong>：c3 第 6 类宏病毒——利用 Office 文档宏语言（如 VBA），常感染 Word 文档、Excel 工作簿、模板文件；典型例子 Melissa 病毒。</p>
+  </details>
+
+  <div class="section-label">组五 · 应急 / 面试 / 监管检查</div>
+
+  <details class="card fold-card" id="sec-gongji-x14">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>官网突然打不开，出口带宽被反射放大打满</h3></div>
+      <div class="badges"><span class="badge old">DDoS</span><span class="badge new">带宽消耗</span></div>
+    </summary>
+    <p>监控显示出口流量瞬间冲到极限，查来源是被反射放大攻击，正常用户根本进不来。</p>
+    <p><strong>落地动作</strong>：接入流量清洗系统；边界做速率限制和黑名单；暴露的 Memcached 等服务关停或限内网；关键业务提前准备高防线路。</p>
+    <p><strong>挂的知识点</strong>：c2 第 3 类拒绝服务攻击——Memcached 反射放大 5 万倍放大因子；四型之首"带宽消耗"正是耗尽网络可用带宽。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-gongji-x15">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>面试：病毒和蠕虫什么区别？宏病毒感染什么文件？</h3></div>
+      <div class="badges"><span class="badge exam">面试</span><span class="badge sediment">边界题</span></div>
+    </summary>
+    <p>这两题是恶意软件章节的送分题，答反了很显眼。</p>
+    <p><strong>落地动作</strong>：病毒——自我复制但需宿主文件或用户操作触发；蠕虫——自我复制且通过网络自动传播、不依赖宿主。宏病毒——利用 VBA，感染 Word 文档、Excel 工作簿、模板文件（Melissa）；引导型感染引导区/主引导记录，文件型感染 EXE、COM。</p>
+    <p><strong>挂的知识点</strong>：c3 八类恶意软件的区分边界。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-gongji-x16">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>零日漏洞爆发、补丁还没出，系统怎么办</h3></div>
+      <div class="badges"><span class="badge old">零日</span><span class="badge new">深度防御</span></div>
+    </summary>
+    <p>厂商还没发补丁，攻击已经在野利用，传统"等补丁"的路子走不通。</p>
+    <p><strong>落地动作</strong>：实施深度防御策略，限制应用程序权限（最小权限）；部署入侵检测系统盯异常；网络分段把横向移动断掉；临时关停暴露面端口。</p>
+    <p><strong>挂的知识点</strong>：c2 第 8 类零日漏洞攻击（Stuxnet 利用多个零日漏洞攻击工业控制系统）＋第 10 类 APT 的"持久化控制、横向移动、数据渗出"五阶段对应防护。</p>
+  </details>
+</div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

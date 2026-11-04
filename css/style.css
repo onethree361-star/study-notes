@@ -458,3 +458,9 @@ html[data-theme="dark"] .stage-title{background:rgba(24,121,78,.18)}
 .story-caption{margin:12px 0 0;font-size:12.5px;line-height:1.7;color:var(--t3)}
 html[data-theme="dark"] .tl-dot{box-shadow:0 0 0 3px rgba(24,121,78,.25)}
 html[data-theme="dark"] .tl-item.bad .tl-dot{box-shadow:0 0 0 3px rgba(159,58,56,.25)}
+
+/* ===== 计算机 · 信息安全 页面表格（2026-11-04 新增）===== */
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0 6px;line-height:1.7}
+.tbl th,.tbl td{border:1px solid var(--divider);padding:6px 9px;text-align:left;vertical-align:top;color:var(--t2)}
+.tbl th{background:var(--bg-alt);color:var(--t1);font-weight:600;white-space:nowrap}
+.tbl tbody tr:hover td{background:var(--bg-soft)}

@@ -128,6 +128,19 @@ const NAV_DATA = [
     ]},
   ]},
 
+  { t: '计算机', children: [
+    { t: '信息安全', n: '8', links: [
+      { t: '信息安全基本概念', u: 'pages/computer/basics.html#sec-aqjc' },
+      { t: '密码技术基础及公钥基础设施', u: 'pages/computer/crypto.html#sec-mima' },
+      { t: '常见网络攻击类型与恶意软件识别', u: 'pages/computer/attacks.html#sec-gongji' },
+      { t: '协议漏洞、Web 攻击原理与安全防御', u: 'pages/computer/web-attack.html#sec-webgj' },
+      { t: '网络访问控制与边界防范', u: 'pages/computer/access-control.html#sec-fanghu' },
+      { t: 'Web 通信安全', u: 'pages/computer/web-security.html#sec-webtx' },
+      { t: '安全管理与评估', u: 'pages/computer/management-eval.html#sec-aqgl' },
+      { t: '运维安全与数据防护', u: 'pages/computer/ops-data.html#sec-ywaq' },
+    ]},
+  ]},
+
   { t: '英语', children: [
     { t: '语法结构', u: 'pages/english/grammar.html' },
     { t: '单词每日记', u: 'pages/english/vocabulary.html', disabled: true, n: '待更新' },
@@ -240,6 +253,7 @@ const NAV_DATA = [
       { t: '经济', u: 'errors/economy.html' },
       { t: '金融', u: 'errors/finance.html' },
       { t: '言语', u: 'errors/verbal.html' },
+      { t: '计算机/信息安全', u: 'errors/computer.html' },
     ]},
   ]},
 ];

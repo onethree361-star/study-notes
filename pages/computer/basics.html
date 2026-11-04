@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>信息安全基本概念 · 公考备考笔记</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/computer/basics.html';</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../../notes.html">首页</a> › 计算机 › 信息安全 › 信息安全基本概念</div>
+
+<div class="doc-head">
+  <h1>信息安全基本概念</h1>
+  <p>考点一是整章的地基：后面七个考点（密码、攻击、Web、边界、通信、管理、运维）说到底都在回答同一件事——怎么把 CIA 保住。所以这一页最该背的不是名词，是<strong>看任何安全问题的四层视角</strong>：手段（技术·管理·制度·人员）→ 环节（存储·处理·传输·使用）→ 目标（CIA）→ 对象（数据·系统·流程）。</p>
+  <div class="stat">知 <b>5</b> 个知识块 · 行 <b>20</b> 个场景 · 大纲题解 5 题</div>
+</div>
+
+<div class="sec-block" id="sec-aqjc">
+  <div class="sec-h"><h2 id="sec-aqjc-zhi">知 · 概念与理论</h2><span class="years">定义 · CIA · 保护对象 · 威胁 · 事件与优先级</span></div>
+
+  <details class="card fold-card" id="sec-aqjc-c1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>信息安全是什么：一句话里的四个手段、三段环节、五类伤害</h3></div>
+      <div class="badges">
+        <span class="badge new">定义原文</span>
+        <span class="badge inherit">数据≠信息</span>
+        <span class="badge sediment">八环节表</span>
+      </div>
+    </summary>
+    <div class="human-origin">柜台办业务要核身份证、手机银行要短信验证码、机房门口要刷卡——这些动作看着零散，其实都在干同一件事：让该看的人看到，让该改的人改得对，让该用的时候用得上。</div>
+
+    <div class="section-label new">定义（原文，能背就背）</div>
+    <p><strong>信息安全是指通过技术、管理、制度和人员等综合措施，保护信息在存储、处理、传输和使用过程中不被未授权访问、泄露、篡改、破坏或中断，从而保障信息的保密性、完整性和可用性。</strong></p>
+    <p>拆四段记，考试问"信息安全的内涵"，照这四段答就不会散：<span class="em-new">手段</span>＝技术＋管理＋制度＋人员（不是只有技术）；<span class="em-new">环节</span>＝存储·处理·传输·使用；<span class="em-new">五类伤害</span>＝未授权访问、泄露、篡改、破坏、中断；<span class="em-new">目标</span>＝保密性、完整性、可用性（CIA）。</p>
+
+    <div class="section-label inherit">数据 ≠ 信息（笔记原话，一句话分清）</div>
+    <p><strong>数据</strong>是原始未处理的符号；<strong>信息</strong>是经过处理后有价值的数据。同一条东西，位置不同名字就不同：日志里一行"09:12 转账 5000 元"是数据；把一万行汇总成"上午九点是转账高峰"才是信息。这个区分决定了后面一句话——<span class="em-sed">数据是载体，信息是价值，安全保的是信息，手段落在数据上</span>。</p>
+
+    <div class="section-label new">信息是怎么"长"出来的（笔记：信息产生过程）</div>
+    <div class="chain"><span class="chain-note">产生链：</span>获取（数据采集）→ 运输 → 清洗 → 落地 → 加工（变成可用数据）→ 赋予语境与解释（赋予价值）→ 验证（准确性·完整性·时效性）→ 形成信息 → 入库 → 使用与反馈</div>
+    <p>这条链记两个要点：一是<span class="em-new">"赋予语境与解释"才产生价值</span>（同样一堆数字，放到账单里是消费信息，放到病历里是健康信息）；二是<span class="em-new">验证要验三条</span>——准确、完整、时效，正好对应后面的完整性与可用性。</p>
+
+    <div class="section-label sediment">信息应用全链路八环节（笔记表格，全章最值钱的一张表）</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>环节</th><th>做什么</th><th>金融场景例子</th><th>主要安全风险</th><th>对应防护</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1 采集接入</td><td>从业务系统、终端、日志、外部接口获取数据</td><td>开户信息、交易流水、征信数据、系统日志</td><td>来源伪造、超范围采集、录入篡改</td><td>身份认证、采集授权、输入校验、最小必要</td></tr>
+        <tr><td>2 传输交换</td><td>信息在网络和系统间传递</td><td>核心系统到数据中台、银行到监管报送</td><td>窃听、篡改、重放</td><td>加密传输、完整性校验、数字签名、VPN</td></tr>
+        <tr><td>3 存储管理</td><td>落库、备份、归档</td><td>客户信息库、交易库、日志库</td><td>泄露、丢失、越权访问</td><td>加密存储、访问控制、备份容灾、分级分类</td></tr>
+        <tr><td>4 加工处理</td><td>清洗、转换、汇总、计算</td><td>反洗钱规则计算、报表汇总</td><td>规则被篡改、处理越权、数据污染</td><td>权限分离、操作审计、流程留痕、校验</td></tr>
+        <tr><td>5 分析建模</td><td>统计、挖掘、风控建模、AI 分析</td><td>可疑交易识别、信用评分、监管指标分析</td><td>模型滥用、偏见、结果泄露</td><td>模型审批、数据脱敏、结果审计</td></tr>
+        <tr><td>6 服务应用</td><td>把信息提供给业务、风控、监管使用</td><td>手机银行、风控系统、监管报送系统</td><td>越权查看、接口滥用、页面泄露</td><td>最小权限、RBAC、脱敏展示、WAF/API 防护</td></tr>
+        <tr><td>7 共享使用</td><td>跨部门、跨机构、跨系统共享</td><td>总分行共享、集团并表、监管数据报送</td><td>超范围共享、二次传播、接口泄露</td><td>共享审批、协议约束、脱敏、水印、审计</td></tr>
+        <tr><td>8 归档销毁</td><td>留存、归档、到期销毁</td><td>交易记录留存、日志留存、过期数据删除</td><td>残留泄露、违规销毁、无法追溯</td><td>归档加密、留存期限管理、安全销毁、销毁审计</td></tr>
+      </tbody>
+    </table>
+    <p>这张表别当资料背，当<strong>检查清单</strong>用：任何一个环节漏了防护，就是一条完整的攻击路径。<span class="em-sed">八环节 = 采集·传输·存储·加工·分析·服务·共享·销毁，安全要从头管到尾</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-c2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>CIA 三元组：保密性、完整性、可用性</h3></div>
+      <div class="badges">
+        <span class="badge new">C 保密性</span>
+        <span class="badge new">I 完整性</span>
+        <span class="badge new">A 可用性</span>
+        <span class="badge old">可控性不是 CIA</span>
+      </div>
+    </summary>
+    <div class="human-origin">拿一张体检报告想三件事：不该看的人看了没有（保密性）、血糖值被改成正常了没有（完整性）、急诊时系统打得开吗（可用性）。三个问题各问一个维度，合起来才是"这张报告是安全的"。</div>
+
+    <div class="section-label new">保密性（Confidentiality）：核心是"授权访问"</div>
+    <p>确保信息只能被经过合法授权的主体（人或系统）获取，杜绝未授权泄露。手段是<strong>加密</strong>（文件加密、传输加密）＋<strong>权限控制</strong>（如仅管理员可查看核心数据）。典型对象：企业客户隐私数据、个人银行流水、医院病历。</p>
+
+    <div class="section-label new">完整性（Integrity）：核心是"真实性与不可篡改"</div>
+    <p>确保信息在存储、传输过程中不被未授权行为篡改、破坏或伪造。手段是<strong>哈希校验</strong>（验证数据是否被改动）＋<strong>数字签名</strong>（确认数据来源与完整性）。典型场景：具有法律效力的电子合同若条款被改即失效；金融交易金额记录被改会引发资金纠纷。</p>
+
+    <div class="section-label new">可用性（Availability）：核心是"需要时能及时、顺畅拿到"</div>
+    <p>确保授权主体在需要时能及时、顺畅地获取信息或使用服务。手段是<strong>扩容、流量调度、冗余备份、灾备切换</strong>。典型场景：电商"双十一"大促防宕机；政务服务 APP 需 24 小时稳定运行，随时能办社保、户籍。可用性缺失直接导致业务中断或服务失效。</p>
+
+    <div class="section-label old">三个高频误判（题目最爱在这儿下套）</div>
+    <p>① <span class="em-old">可控性（Controllability）不属于 CIA 三元组</span>，它是题目里的标准干扰项；<br>② <span class="em-old">"纵火造成存储设备毁坏"破坏的不是保密性，是可用性</span>——设备烧了，数据根本读不到；<br>③ <span class="em-old">"只看到余额、没改动余额"是机密性（保密性）被破坏，不是完整性</span>——只读不改，完整性毫发无损。<br>反过来，"窃听无线通信""用键盘记录工具偷密码""骗用户向假网站提交信息"，这三件都只是"知道了不该知道的东西"，同属<strong>保密性</strong>。</p>
+
+    <div class="section-label sediment">三性会互相打架：安全从来是取舍</div>
+    <p>加密越强，运维排查越难（保密性↑、可用性↓）；审批链越长越安全，办事越慢；备份越多越扛打，成本越高。取舍的依据不是"哪个更重要"，而是<strong>数据分级 + 业务等级</strong>：核心数据宁可慢一点也要保保密性，对外服务宁可少一点功能也要保可用性。这句是申论和面试能直接用的话。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-c3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>三类保护对象：数据、信息系统、业务流程</h3></div>
+      <div class="badges">
+        <span class="badge new">数据</span>
+        <span class="badge new">信息系统</span>
+        <span class="badge new">业务流程</span>
+        <span class="badge sediment">三者缺一不可</span>
+      </div>
+    </summary>
+    <div class="human-origin">把信息当成货物：数据是货，信息系统是车，业务流程是路线。只给货上锁、车不检修、路线没人管，货照样到不了、也保不住。</div>
+
+    <div class="section-label new">数据：信息的直接载体，保护的核心</div>
+    <p>分两类：<strong>结构化数据</strong>，如数据库中规整的用户信息表、交易记录；<strong>非结构化数据</strong>，如文档、图片、音频、视频。哪一类出事都直接产生风险——丢失（硬盘损坏）、泄露（被黑客窃取）。后果具体到：企业客户数据泄露可能面临合规处罚，个人身份信息泄露可能遭遇电信诈骗。</p>
+
+    <div class="section-label new">信息系统：数据"存储、处理、传输"的硬件＋软件组合</div>
+    <p>硬件如服务器、计算机、路由器；软件如操作系统、办公软件、数据库管理系统。<strong>信息系统安全是数据安全的前提</strong>：若服务器存在漏洞被入侵，或操作系统被病毒感染，即使数据本身加密，也可能被窃取或破坏（加密数据被连库带走、密钥被一并拿走）。</p>
+
+    <div class="section-label new">业务流程：依赖信息系统与数据运行的具体环节</div>
+    <p>例如企业在线支付流程、供应链信息同步流程、政府审批流程。业务流程安全直接关系组织正常运营：在线支付流程被攻击导致交易失败；政务审批流程因系统故障中断，影响群众办事效率。<strong>业务流程安全是信息安全从"技术"走向"实际应用"的关键</strong>。</p>
+
+    <div class="section-label sediment">三者关系一句话</div>
+    <p><span class="em-sed">数据是核心，系统是前提，流程是落地</span>。所以制定安全策略（大纲原话："明确保护对象是制定安全策略的前提"）必须三样一起看：数据分级分类、系统加固与漏洞管理、业务流程的权限与审计。只做一样，另外两样就是缺口。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-c4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>三类威胁：网络攻击、内部风险、物理安全威胁</h3></div>
+      <div class="badges">
+        <span class="badge old">网络攻击</span>
+        <span class="badge old">内部风险</span>
+        <span class="badge old">物理威胁</span>
+        <span class="badge new">主动 vs 被动</span>
+      </div>
+    </summary>
+    <div class="human-origin">威胁不是一个"黑客"能概括的：外面有人攻、里面有人错、地上有人搬。三条路都能把数据弄丢，只是丢法不一样。</div>
+
+    <div class="section-label old">一、网络攻击：通过网络的主动破坏行为</div>
+    <p>常见类型：<strong>病毒、木马、钓鱼、DDoS 攻击</strong>。特点是传播快、影响范围广，是个人与企业面临的主要风险。</p>
+    <p><strong>主动攻击</strong>：攻击者通过篡改、伪造、中断、重放或破坏等方式，主动影响系统状态、数据内容或服务功能。典型手法：截获并篡改邮件服务器配置数据导致服务中断；伪造无效 IP 地址去连接服务器，让系统浪费时间连一个非法地址。包括<span class="em-old">拒绝服务攻击、信息篡改、资源占用、欺骗</span>。部分主动攻击会留下操作日志，可通过审计追溯；但篡改、欺骗类隐蔽性强，没有对应防护很难及时发现。</p>
+    <p><strong>被动攻击</strong>：在不改变系统状态和数据内容的前提下，秘密获取或分析信息。常见形式：<span class="em-old">窃听、嗅探、流量分析、信息收集</span>。因为不影响系统运行，所以较难被发现。</p>
+
+    <div class="section-label old">二、内部风险：来自组织内部，更隐蔽</div>
+    <p>两类：<strong>员工误操作</strong>——误删重要数据、把敏感文件发到外部邮箱、使用"123456"这类弱密码；<strong>内部人员恶意行为</strong>（恶意 Insider 威胁）——出于利益或恶意故意窃取核心数据（销售带走客户名单）、破坏系统（删除关键文件）。攻击者熟悉内部环境，防范难度更高。</p>
+
+    <div class="section-label old">三、物理安全威胁：针对物理载体</div>
+    <p>计算机、服务器被盗窃，服务器机房被非法闯入，U 盘等移动存储设备丢失。<strong>物理设备一旦失控，即使数据加密，也可能被专业人员破解</strong>；服务器被破坏还会导致数据永久丢失。所以物理安全是信息安全的<span class="em-old">"第一道防线"</span>。</p>
+
+    <div class="section-label sediment">主动/被动一眼分</div>
+    <p>判据只有一个：<strong>有没有改动系统状态或数据</strong>。没改动、只是"偷看偷听"＝被动；改了、伪造了、打瘫了＝主动。<span class="em-sed">被动靠加密（让它听不见），主动靠认证、完整性校验与审计（让它改不了、赖不掉）</span>。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-c5">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>信息安全事件与安全优先级</h3></div>
+      <div class="badges">
+        <span class="badge new">事件定义</span>
+        <span class="badge inherit">六类事件</span>
+        <span class="badge sediment">四级优先级</span>
+      </div>
+    </summary>
+    <div class="human-origin">出了事，先救什么是有顺序的。顺序错了，救回来的数据和设备也白救——因为人没了。</div>
+
+    <div class="section-label new">信息安全事件的定义</div>
+    <p>指由于<strong>人为原因、网络攻击、系统漏洞、软硬件故障、自然灾害或其他不可抗力</strong>等因素，对网络、信息系统、数据或业务应用造成危害，并可能对组织、社会或经济造成负面影响的事件。</p>
+
+    <div class="section-label inherit">六类常见事件（按起因归堆，答题别漏类）</div>
+    <p>① <strong>恶意程序事件</strong>：病毒、木马、勒索软件；<br>② <strong>网络攻击事件</strong>：网络钓鱼、拒绝服务攻击、漏洞利用；<br>③ <strong>数据安全事件</strong>：数据泄露、数据篡改、数据损毁；<br>④ <strong>设备设施故障事件</strong>：服务器故障、机房断电、设备损坏；<br>⑤ <strong>违规操作事件</strong>：误删数据、越权访问；<br>⑥ <strong>不可抗力事件</strong>：火灾、地震、洪水等。</p>
+
+    <div class="section-label sediment">安全工作的四级优先级（顺序不能换）</div>
+    <p>① <strong>人员生命和人身安全</strong>；② <strong>关键业务连续性</strong>；③ <strong>信息系统和数据资产安全</strong>；④ <strong>系统恢复、调查取证和责任追踪</strong>。</p>
+    <p>大纲给的那句话要能脱口而出：<span class="em-sed">在火灾、爆炸、自然灾害等场景中，应首先保障人员安全，而不是优先保护数据或设备</span>。这条同时是应急演练和监管检查的"必答项"。</p>
+    <p>口诀：<strong>人—业务—资产—取证</strong>，四步往下走，不许跳级。</p>
+  </details>
+</div>
+
+<div class="sec-block" id="sec-aqjc-xing">
+  <div class="sec-h"><h2 id="sec-aqjc-xing-title">行 · 场景落地</h2><span class="years">20 个场景 · 点开看具体动作</span></div>
+  <p>同一套 CIA，落在不同人身上是不同的动作：写代码的人关心"字段怎么存、接口返什么"，运维的人关心"权限、备份、应急"，普通人关心"照片存哪、WiFi 能不能转账"。下面按身份分组，遇到相似场景直接套。</p>
+
+  <div class="section-label">组一 · 写代码 / 做系统</div>
+
+  <details class="card fold-card" id="sec-aqjc-x1">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>用户表里存手机号、身份证，直接明文行不行</h3></div>
+      <div class="badges"><span class="badge inherit">数据</span><span class="badge new">保密性</span></div>
+    </summary>
+    <p>报名系统的用户表就 name / phone / idcard 三列，后台那个"导出 Excel"按钮谁都能点。真出事，一次拖库就是全量明文。</p>
+    <p><strong>落地动作</strong>：手机号、身份证加密存储（字段级加密）；导出走审批并脱敏（138****1234）；查询权限按角色收敛，只给业务必需的岗位。</p>
+    <p><strong>挂的知识点</strong>：保密性＝授权访问；数据是三类保护对象里的核心。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-x2">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>支付回调直接改余额：完整性交给了运气</h3></div>
+      <div class="badges"><span class="badge inherit">业务流程</span><span class="badge new">完整性</span></div>
+    </summary>
+    <p>回调来了就执行一条 update，扣钱改状态，既不验签也没有幂等键。重复回调扣两次，伪造回调凭空加钱。</p>
+    <p><strong>落地动作</strong>：验签确认来源；金额用整数分存储；变更写审计日志（谁、何时、原值→新值）；对账文件做哈希校验；回调加唯一幂等键。</p>
+    <p><strong>挂的知识点</strong>：完整性＝不可篡改＋来源可确认，手段是哈希与数字签名；这是"业务流程"这一保护对象。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-x3">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>报名系统只在开放那天上线，一开就卡死</h3></div>
+      <div class="badges"><span class="badge inherit">信息系统</span><span class="badge new">可用性</span></div>
+    </summary>
+    <p>平时没人用，开放当天几十万人同时提交，页面转圈，家长在群里骂。</p>
+    <p><strong>落地动作</strong>：限流（按 IP、按账号）；排队与验证码；读写分离、静态资源上 CDN；提前压测；故障时降级——先保"提交报名"，关掉统计报表和花哨展示。</p>
+    <p><strong>挂的知识点</strong>：可用性＝需要时能及时顺畅拿到；信息系统的安全是数据安全的前提。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-x4">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>接口把整个对象吐出去，靠前端隐藏字段</h3></div>
+      <div class="badges"><span class="badge new">保密性</span><span class="badge old">前端隐藏≠安全</span></div>
+    </summary>
+    <p>列表接口直接返回 user 全字段，前端用 CSS 把"工资"那一列藏起来，看着挺干净。</p>
+    <p><strong>落地动作</strong>：后端按角色裁剪字段（DTO 只带要用的），敏感字段脱敏后再返回；前端藏字段只是排版，不是安全措施。</p>
+    <p><strong>挂的知识点</strong>：保密性靠授权控制，不靠界面；抓包或改前端就能看到全部。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-x5">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>为了排查方便，把密码和身份证打进日志</h3></div>
+      <div class="badges"><span class="badge old">日志泄露</span><span class="badge sediment">存储环节</span></div>
+    </summary>
+    <p>登录接口一出错就 logger.info 整个请求体，手机号、密码、身份证全进日志文件，还保留一年。</p>
+    <p><strong>落地动作</strong>：日志脱敏（手机号中间四位打码、密码与证件号一律不打印）；日志访问权限单独收敛；按留存期限到期销毁。</p>
+    <p><strong>挂的知识点</strong>：八环节里的"存储"与"归档销毁"；日志往往权限最松、留存最久，是泄露重灾区。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-x6">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>对接第三方短信、支付：回调谁都能 POST</h3></div>
+      <div class="badges"><span class="badge new">完整性</span><span class="badge old">重放·伪造</span></div>
+    </summary>
+    <p>短信服务商的回调地址暴露在公网，任何人构造一个请求就能让系统认为"发送成功"。</p>
+    <p><strong>落地动作</strong>：签名校验＋时间戳防重放＋IP 白名单；密钥放配置中心，绝不进代码仓库；回调失败可重试但必须幂等。</p>
+    <p><strong>挂的知识点</strong>：主动攻击里的"伪造、重放"；完整性校验与身份认证是配套手段。</p>
+  </details>
+
+  <div class="section-label">组二 · 单位里 / 运维与管理</div>
+
+  <details class="card fold-card" id="sec-aqjc-x7">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>备份拷进移动硬盘带回家，机房谁都能进</h3></div>
+      <div class="badges"><span class="badge old">物理威胁</span><span class="badge new">第一道防线</span></div>
+    </summary>
+    <p>运维图省事，把客户库备份拷到 U 盘塞包里；机房一张门禁卡全组共用，保洁也能进。</p>
+    <p><strong>落地动作</strong>：备份盘加密＋出入库登记；机房双人进出、门禁留痕、视频监控；报废设备先消磁或物理销毁；移动介质禁止私自带出。</p>
+    <p><strong>挂的知识点</strong>：物理安全威胁是"第一道防线"——设备失控，加密也可能被专业破解；服务器被毁，数据永久没了。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-x8">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>销售离职前，把客户表导成 Excel 发私人邮箱</h3></div>
+      <div class="badges"><span class="badge old">内部风险</span><span class="badge new">审计追溯</span></div>
+    </summary>
+    <p>离职面谈那天，他把三年的客户名单导出，分几封邮件发出去，没人发现。</p>
+    <p><strong>落地动作</strong>：批量导出需审批；导出文件加水印（带员工号），泄露可追到人；离职当天回收账号与权限；敏感数据分级，核心数据默认不可导出。</p>
+    <p><strong>挂的知识点</strong>：内部人员恶意行为（恶意 Insider）；违规操作事件。外部防护挡不住熟人，只能靠权限＋审计＋追溯。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-x9">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>后台口令 123456，还开在公网</h3></div>
+      <div class="badges"><span class="badge old">弱口令</span><span class="badge new">最小暴露面</span></div>
+    </summary>
+    <p>新系统上线，管理员图快，后台登录页直接暴露在公网，口令六个数字。</p>
+    <p><strong>落地动作</strong>：强制口令复杂度与定期改密；后台不暴露公网，走 VPN 或堡垒机；登录失败锁定＋异常登录告警。</p>
+    <p><strong>挂的知识点</strong>：内部风险里的"安全意识不足"；这是成本最低、命中率最高的入口。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-x10">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>新人在生产库执行了一条没写 WHERE 的 DELETE</h3></div>
+      <div class="badges"><span class="badge new">可用性</span><span class="badge old">违规操作事件</span></div>
+    </summary>
+    <p>一条 DELETE 把当天订单清空，业务停了两个小时。</p>
+    <p><strong>落地动作</strong>：生产库只给只读账号；高危操作双人复核；删除走软删＋回收站；每小时快照＋异地备份；执行前先 SELECT 看条数。</p>
+    <p><strong>挂的知识点</strong>：可用性不只是"防攻击"，误操作一样能让业务停摆；属违规操作事件与数据损毁事件。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-x11">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>一封"财务对账"邮件，全公司电脑中招</h3></div>
+      <div class="badges"><span class="badge old">钓鱼</span><span class="badge inherit">人的防线</span></div>
+    </summary>
+    <p>附件叫"对账单.xlsx.exe"，财务一点，内网开始横向扩散。</p>
+    <p><strong>落地动作</strong>：邮件网关拦可执行附件、外部邮件打标；付款与改收款账户必须电话双人核实；员工定期钓鱼演练；终端杀软＋补丁强制更新。</p>
+    <p><strong>挂的知识点</strong>：网络攻击中的钓鱼；恶意程序事件。攻击打的是人，只能靠流程加培训。</p>
+  </details>
+
+  <div class="section-label">组三 · 个人用网 / 生活</div>
+
+  <details class="card fold-card" id="sec-aqjc-x12">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>把身份证正反面拍照发给"客服"微信</h3></div>
+      <div class="badges"><span class="badge inherit">非结构化数据</span><span class="badge new">保密性</span></div>
+    </summary>
+    <p>办个业务，对方要"核实身份"，直接把身份证照片、银行卡照片全发过去。</p>
+    <p><strong>落地动作</strong>：加显式水印"仅用于××业务办理，他用无效"；办完即删；快递单撕掉信息面再扔。</p>
+    <p><strong>挂的知识点</strong>：非结构化数据（图片）也是数据；照片能拼出完整身份，泄露后果是电信诈骗。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-x13">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>咖啡店连免费 WiFi，打开手机银行转账</h3></div>
+      <div class="badges"><span class="badge old">被动攻击</span><span class="badge new">传输加密</span></div>
+    </summary>
+    <p>连上一个叫"XX咖啡"的热点，实际是隔壁桌架的同名热点，流量全被嗅探。</p>
+    <p><strong>落地动作</strong>：不在公共 WiFi 做支付；必须用时切流量或走 VPN；确认网址是 https 且证书正常，别点"继续访问"。</p>
+    <p><strong>挂的知识点</strong>：被动攻击（窃听、嗅探、流量分析）不改系统所以难发现；传输环节只能靠加密。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-x14">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>孩子照片、合同扫描件只存手机，手机丢了就全没了</h3></div>
+      <div class="badges"><span class="badge new">可用性</span><span class="badge inherit">备份取舍</span></div>
+    </summary>
+    <p>手机丢了或泡水，几年的照片、签好的合同扫描件一起归零。</p>
+    <p><strong>落地动作</strong>：云备份＋本地备份两份；开启手机远程锁定与擦除；重要文件加密压缩后再传云。</p>
+    <p><strong>挂的知识点</strong>：可用性（丢失即不可用）＋物理安全威胁；同时注意——备份到云上，保密性又成了新问题，所以要选可信云并加密。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-x15">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>打印店电脑登过网银，直接关窗口走人</h3></div>
+      <div class="badges"><span class="badge new">会话安全</span><span class="badge old">使用环节</span></div>
+    </summary>
+    <p>查完流水关掉窗口就走，Cookie 还留着，下一个人打开浏览器就进了你的账户。</p>
+    <p><strong>落地动作</strong>：退出登录并清 Cookie；用无痕窗口；公共电脑绝不保存密码；办完顺手清浏览器记录。</p>
+    <p><strong>挂的知识点</strong>：保密性；信息"使用"环节的边界——会话不销毁，授权就等于没过期。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-x16">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>手电筒 App 要通讯录、短信和定位</h3></div>
+      <div class="badges"><span class="badge old">超范围采集</span><span class="badge new">最小必要</span></div>
+    </summary>
+    <p>装个照明工具，权限清单里通讯录、短信、位置全勾上，不同意就不给用。</p>
+    <p><strong>落地动作</strong>：只给功能必需权限；定期在系统设置里回收授权；不用就卸载；来源不明的 App 不装。</p>
+    <p><strong>挂的知识点</strong>：八环节第一环"采集接入"的风险——超范围采集是泄露的上游，数据先被拿走，后面防什么都没用。</p>
+  </details>
+
+  <div class="section-label">组四 · 应急与业务连续性</div>
+
+  <details class="card fold-card" id="sec-aqjc-x17">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>机房冒烟了，先搬服务器还是先撤人</h3></div>
+      <div class="badges"><span class="badge new">优先级第一</span><span class="badge old">顺序错=全错</span></div>
+    </summary>
+    <p>凌晨机房起火报警，值班员第一反应是冲进去拔服务器电源。</p>
+    <p><strong>落地动作</strong>：先疏散人员、报火警、切断非消防电源；再按预案切备用中心保业务；最后才是设备抢救与现场取证。</p>
+    <p><strong>挂的知识点</strong>：安全优先级第一条"人员生命和人身安全"；大纲明确写"应首先保障人员安全，而不是优先保护数据或设备"。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-x18">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>勒索病毒弹窗：先断网，还是先交钱</h3></div>
+      <div class="badges"><span class="badge old">恶意程序事件</span><span class="badge new">业务连续优先</span></div>
+    </summary>
+    <p>财务电脑文件全变成 .locked，桌面弹出付款页面，限时 48 小时。</p>
+    <p><strong>落地动作</strong>：立刻断网（拔网线、关共享、停映射盘）、保留样本别重启别格盘；按预案上报；从离线备份恢复；事后倒查入口（钓鱼邮件、弱口令、未打补丁）。</p>
+    <p><strong>挂的知识点</strong>：恶意程序事件；优先级里"关键业务连续性"排第二——先止损保业务，再谈数据与取证。</p>
+  </details>
+
+  <div class="section-label">组五 · 面试、申论、监管检查</div>
+
+  <details class="card fold-card" id="sec-aqjc-x19">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>面试被问"你怎么理解信息安全"</h3></div>
+      <div class="badges"><span class="badge new">结构化作答</span><span class="badge exam">面试</span></div>
+    </summary>
+    <p>这题最容易答成名词罗列，考官听完记不住。</p>
+    <p><strong>落地动作</strong>：按四层说——手段（技术／管理／制度／人员）→ 环节（存储／处理／传输／使用）→ 目标（CIA）→ 对象（数据／系统／流程），最后落到一个具体业务（如政务数据共享要"授权采集、加密传输、最小权限、共享审批、到期销毁"）。</p>
+    <p><strong>挂的知识点</strong>：定义的四段结构，直接就是答题框架。</p>
+  </details>
+
+  <details class="card fold-card" id="sec-aqjc-x20">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><h3>金融监管局来检查，问"你们的数据安全怎么做的"</h3></div>
+      <div class="badges"><span class="badge exam">监管检查</span><span class="badge sediment">八环节闭环</span></div>
+    </summary>
+    <p>检查组坐在科技部会议室，第一个问题就是这个。答"我们上了防火墙"基本等于没答。</p>
+    <p><strong>落地动作</strong>：按八环节讲闭环——采集有授权、传输有加密、存储有加密与分级、加工有权限分离与留痕、建模有脱敏与审批、服务有最小权限与 WAF、共享有审批与协议、销毁有期限与审计；再补事件分级与应急优先级。</p>
+    <p><strong>挂的知识点</strong>：八环节表＋保护对象＋事件与优先级。监管问的是"全链路有没有闭环"，不是"用了什么算法"。</p>
+  </details>
+</div>
+
+</div>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>
