@@ -34,28 +34,31 @@
   <h1>数据结构</h1>
   <p><strong>一段总括：</strong>数据结构是相互之间存在一种或多种特定关系的数据元素的集合。它由三件事咬在一起组成——<span class="em-new">逻辑结构</span>（元素之间是什么关系）、<span class="em-new">存储结构</span>（这层关系在内存里怎么摆）、<span class="em-new">运算</span>（在这个结构上能做什么、做多快）。同一批数据、同一种关系，换一种摆法，操作的快慢就完全不同，所以"选数据结构"本质上是"选关系的表示方式"。</p>
   <div class="stat">总括 <b>1</b> 篇 · 存储结构 <b>4</b> 种 · 逻辑结构 <b>4</b> 类 · 查找 <b>4</b> 种 · 图算法 <b>4</b> 类 · 排序 <b>8</b> 种</div>
+
+<div class="doc-toc">
+  <a href="#sec-sjjg-dingyi">定义与术语</a>
+  <a href="#sec-sjjg-wuli">物理结构</a>
+  <a href="#sec-sjjg-luoji">逻辑结构</a>
+  <a href="#sec-sjjg-xianxing">线性表·栈·队列</a>
+  <a href="#sec-sjjg-shu">树与堆</a>
+  <a href="#sec-sjjg-tu">图与图算法</a>
+  <a href="#sec-sjjg-chazhao">查找</a>
+  <a href="#sec-sjjg-paixu">排序</a>
+</div>
 </div>
 
 <div class="sec-block" id="sec-sjjg-dingyi">
   <div class="sec-h"><h2 id="sec-sjjg-dingyi-h">数据结构定义</h2><span class="years">四个基本术语 · 三个面 · 抽象数据类型</span></div>
 
-  <details class="card fold-card" id="sec-sjjg-c1">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">01</span><h3>一句话总括：数据结构 = 关系 + 摆放 + 动作</h3></div>
-      <div class="badges">
-        <span class="badge new">定义原文</span>
-        <span class="badge inherit">四个基本术语</span>
-        <span class="badge sediment">三元一体</span>
-      </div>
-    </summary>
-    <div class="human-origin">手机通讯录人人都用过：几百个联系人，按拼音排、按首字母分栏、按最近通话排——同一批人，换一种"排法"，你要找一个号码的动作就完全不同。数据结构讲的就是这件事：数据怎么组织，决定了你怎么用它。</div>
+  <section class="topic" id="sec-sjjg-c1">
+    <div class="topic-h"><h3>一句话总括：数据结构 = 关系 + 摆放 + 动作</h3></div>
 
-    <div class="section-label new">定义（能背就背这一段）</div>
+<div class="sub-h">定义（能背就背这一段）</div>
     <p><strong>数据结构是相互之间存在一种或多种特定关系的数据元素的集合。</strong>它包含三个组成部分：<span class="em-new">逻辑结构</span>——数据元素之间的抽象关系（谁挨着谁、谁是谁的上级）；<span class="em-new">存储结构</span>——逻辑结构在计算机内存中的表示（放在哪、怎么找）；<span class="em-new">数据的运算</span>——定义在这种结构上的操作（增、删、查、改、遍历、排序）。</p>
     <p>一句话拆开记：<strong>数据结构 = 数据元素 + 元素间关系 + 关系上的操作</strong>。注意定义里"一种或多种特定关系"这几个字——集合、线性、树、图，差别全都在这句"关系"上。</p>
 
-    <div class="section-label inherit">四个基本术语：数据、数据元素、数据项、数据对象</div>
-    <table class="tbl">
+    <div class="sub-h">四个基本术语：数据、数据元素、数据项、数据对象</div>
+    <div class="tbl-wrap"><table class="tbl">
       <thead>
         <tr><th>术语</th><th>定义</th><th>学生信息里的例子</th><th>记法</th></tr>
       </thead>
@@ -65,26 +68,18 @@
         <tr><td>数据项</td><td>数据元素中不可分割的最小单位</td><td>学号、姓名、分数</td><td>拆到不能再拆</td></tr>
         <tr><td>数据对象</td><td>性质相同的数据元素的集合，是数据的一个子集</td><td>全体在校学生</td><td>同款元素凑一批</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>考法就一种：给你三个东西，问谁是数据、谁是数据元素、谁是数据项。<span class="em-old">别把"数据元素"和"数据项"搞反</span>——一条记录是元素，记录里的字段才是项。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">数据是材料，数据元素是砖，数据项是砖里的沙，数据对象是一批同款砖。</span>三层套娃，从大到小，别混层。</p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c2">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">02</span><h3>三个面怎么咬在一起：逻辑、存储、运算</h3></div>
-      <div class="badges">
-        <span class="badge new">逻辑结构</span>
-        <span class="badge new">存储结构</span>
-        <span class="badge inherit">运算效率</span>
-      </div>
-    </summary>
-    <div class="human-origin">同一盘棋，可以画在纸上（逻辑），也可以做成实体棋盘（存储）；棋子怎么摆，决定你伸手拿子快不快（运算）。棋盘还是那盘棋，换个做法，手感完全不同。</div>
+  <section class="topic" id="sec-sjjg-c2">
+    <div class="topic-h"><h3>三个面怎么咬在一起：逻辑、存储、运算</h3></div>
 
-    <div class="section-label new">三个面各回答一个问题</div>
-    <table class="tbl">
+<div class="sub-h">三个面各回答一个问题</div>
+    <div class="tbl-wrap"><table class="tbl">
       <thead>
         <tr><th>面</th><th>回答什么</th><th>面向谁</th><th>例子</th></tr>
       </thead>
@@ -93,32 +88,24 @@
         <tr><td>存储结构</td><td>这层关系在内存里怎么表示</td><td>面向机器</td><td>连号座位（数组）或散坐加指路条（链表）</td></tr>
         <tr><td>运算</td><td>能对它们做什么、代价多大</td><td>面向使用者</td><td>查第 i 个、插入一个、按分数排序</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
-    <div class="section-label inherit">三者是"一体三面"，不是三件独立的事</div>
+    <div class="sub-h">三者是"一体三面"，不是三件独立的事</div>
     <p><strong>逻辑结构独立于存储结构</strong>：同一个"线性表"，可以存成数组，也可以存成链表——问题本身没变，机器的实现变了。<br>
     <strong>存储结构是逻辑结构的映像</strong>：内存里必须真的能表达出"相邻"或"上下级"这层语义，否则逻辑结构落不了地。<br>
     <strong>运算效率由存储结构决定</strong>：取第 5 个元素，数组一步到位 O(1)，链表得从头数 5 次 O(n)。同一个逻辑结构、同一个操作，代价差一个数量级。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">逻辑决定"是什么"，存储决定"快不快"，运算决定"合不合用"。</span>答题时若问"为什么选这种存储结构"，答案永远落在"这个业务最常做的运算是哪个"。</p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c3">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">03</span><h3>抽象数据类型：先定"能做什么"，再谈"怎么做"</h3></div>
-      <div class="badges">
-        <span class="badge new">ADT</span>
-        <span class="badge inherit">接口与实现分离</span>
-        <span class="badge sediment">写代码直接可用</span>
-      </div>
-    </summary>
-    <div class="human-origin">银行的取号机只承诺"取号、叫号、办理"三件事，从不管你柜台里坐几个人、用什么系统。承诺的是能力，不是做法——这就是抽象数据类型。</div>
+  <section class="topic" id="sec-sjjg-c3">
+    <div class="topic-h"><h3>抽象数据类型：先定"能做什么"，再谈"怎么做"</h3></div>
 
-    <div class="section-label new">定义</div>
+<div class="sub-h">定义</div>
     <p><strong>抽象数据类型（ADT）＝ 数据对象 ＋ 数据关系 ＋ 一组基本操作。</strong>它只规定"这个类型能做什么"，不规定"底层用数组还是链表实现"。所以 ADT 属于<span class="em-new">逻辑层面</span>的定义，与存储结构无关。</p>
 
-    <div class="section-label inherit">写成代码就是一张接口</div>
+    <div class="sub-h">写成代码就是一张接口</div>
 <pre class="code-block">ADT List {
   数据对象：D = { a_i | a_i ∈ ElemSet, i = 1, 2, ..., n, n ≥ 0 }
   数据关系：R = { &lt;a_(i-1), a_i&gt; | a_(i-1), a_i ∈ D, i = 2, ..., n }
@@ -132,27 +119,18 @@
 }  // 全篇没有一个字提"数组"或"链表"</pre>
     <p>换成 Java 的说法：<code>List</code> 接口规定了 <code>add / get / remove</code>，<code>ArrayList</code> 和 <code>LinkedList</code> 是两个实现。<span class="em-new">调用方只认接口，换实现不改一行代码</span>——这就是抽象的意义。</p>
 
-    <div class="section-label sediment">考点与一句话记</div>
+    <div class="sub-h note">考点与一句话记</div>
     <p>考试常问"ADT 与数据结构的关系"：ADT 是逻辑层面的规格说明，数据结构是它在存储层面的具体实现。<span class="em-sed">接口不变、实现随便换，这就是"抽象"。</span></p>
-  </details>
+  </section>
 </div>
 
 <div class="sec-block" id="sec-sjjg-wuli">
   <div class="sec-h"><h2 id="sec-sjjg-wuli-h">一、物理结构（存储结构）</h2><span class="years">顺序 · 链式 · 索引 · 散列</span></div>
 
-  <details class="card fold-card" id="sec-sjjg-c4">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">04</span><h3>四种存储结构：算出来、顺着走、查目录、哈希定位</h3></div>
-      <div class="badges">
-        <span class="badge new">顺序</span>
-        <span class="badge new">链式</span>
-        <span class="badge new">索引</span>
-        <span class="badge new">散列</span>
-      </div>
-    </summary>
-    <div class="human-origin">同样十个学生找座位：可以按学号坐连号位（顺序），可以散坐、每人手里写下一个人的位置（链式），可以散坐但门口挂一张"谁在哪"的表（索引），也可以按"学号后两位"直接算座位（散列）。四种办法，四种找人的速度。</div>
+  <section class="topic" id="sec-sjjg-c4">
+    <div class="topic-h"><h3>四种存储结构：算出来、顺着走、查目录、哈希定位</h3></div>
 
-    <div class="stage-svg">
+<div class="stage-svg">
       <svg viewBox="0 0 740 320" width="740" height="320" role="img" aria-label="四种存储结构示意图">
         <!-- ① 顺序 -->
         <text x="10" y="22" font-size="12.5" fill="var(--t1)">① 顺序存储：逻辑相邻 = 物理相邻</text>
@@ -204,8 +182,8 @@
       </svg>
     </div>
 
-    <div class="section-label new">四种办法对照表</div>
-    <table class="tbl">
+    <div class="sub-h">四种办法对照表</div>
+    <div class="tbl-wrap"><table class="tbl">
       <thead>
         <tr><th>存储方式</th><th>关系怎么表示</th><th>取第 i 个</th><th>插入/删除</th><th>额外代价</th><th>典型载体</th></tr>
       </thead>
@@ -215,26 +193,17 @@
         <tr><td>索引存储</td><td>数据区 + 索引表（关键字 → 地址）</td><td>先查索引 O(log n)，再取数据</td><td>要同步维护索引表</td><td>索引本身占空间，写多时维护贵</td><td>数据库索引、图书目录、字典附录</td></tr>
         <tr><td>散列存储</td><td>关键字经哈希函数算出存储地址</td><td>平均 O(1)，最坏 O(n)</td><td>扩容时全表 rehash</td><td>装填因子、冲突处理、不支持范围查询</td><td>HashMap、Redis 字典、布隆过滤器</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">四种存储本质是四种"由关系找位置"的办法：算出来（顺序）、顺着走（链式）、查目录（索引）、哈希定位（散列）。</span>选哪种，只看你的操作里"找"多还是"改"多。</p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c5">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">05</span><h3>顺序 vs 链式：五个维度算总账，别只看插入删除</h3></div>
-      <div class="badges">
-        <span class="badge new">存储密度</span>
-        <span class="badge new">随机访问</span>
-        <span class="badge old">链表插入一定更快？</span>
-        <span class="badge sediment">缓存局部性</span>
-      </div>
-    </summary>
-    <div class="human-origin">同样一排储物柜：连续的一整排，你说"第 5 个"伸手就开；分散的柜子，每格里塞着下一格的钥匙，你得一间间开过去。但要在中间插一格，连排的得把后面全挪一遍，分散的只要改两把钥匙。</div>
+  <section class="topic" id="sec-sjjg-c5">
+    <div class="topic-h"><h3>顺序 vs 链式：五个维度算总账，别只看插入删除</h3></div>
 
-    <div class="section-label new">五个维度逐项比</div>
-    <table class="tbl">
+<div class="sub-h">五个维度逐项比</div>
+    <div class="tbl-wrap"><table class="tbl">
       <thead>
         <tr><th>维度</th><th>顺序存储（数组）</th><th>链式存储（链表）</th><th>谁赢</th></tr>
       </thead>
@@ -245,46 +214,37 @@
         <tr><td>空间弹性</td><td>要预留容量，满了整体扩容并拷贝</td><td>用一个申请一个，天然弹性</td><td>链式</td></tr>
         <tr><td>缓存局部性</td><td>连续内存，CPU 一次读一整块进缓存，遍历极快</td><td>每次跳指针，大概率缓存未命中（cache miss）</td><td>顺序，实测差数倍</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
-    <div class="section-label old">最容易错的三个判断</div>
+    <div class="sub-h warn">最容易错的三个判断</div>
     <p>① <span class="em-old">"链表插入删除一定比数组快"——错。</span>链表的 O(1) 有个前提：你已经站在要操作的那个结点上（手里有它的前驱指针 / 迭代器）。如果还得先"找到位置"，那一步是 O(n)，总账跟数组一样是 O(n)，而且链表常数更大。<br>
     ② <span class="em-old">"数组插入是 O(n)，所以数组一定慢"——错。</span>如果插入的是末尾（append），没有元素要挪，数组是 O(1) 摊销；ArrayList 的 add 就是走这条。<br>
     ③ <span class="em-old">"链表省空间"——不一定。</span>数据本身很小时（比如只存一个 int），每个结点多 8 字节指针，空间开销可能翻两三倍。</p>
 
-    <div class="section-label sediment">结论：按"最常做的操作"选，不按"听起来高级"选</div>
+    <div class="sub-h note">结论：按"最常做的操作"选，不按"听起来高级"选</div>
     <p><span class="em-sed">查多改少用数组，改多且位置已知用链表；绝大多数业务是查多改少，所以 ArrayList 比 LinkedList 更常用。</span>这句话能直接答"为什么 Java 里常用 ArrayList"。</p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c6">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">06</span><h3>真实系统里怎么选：B+ 树、哈希表、跳表、LRU</h3></div>
-      <div class="badges">
-        <span class="badge new">MySQL B+ 树</span>
-        <span class="badge new">HashMap</span>
-        <span class="badge new">Redis 跳表</span>
-        <span class="badge sediment">按操作选结构</span>
-      </div>
-    </summary>
-    <div class="human-origin">课本上的四种存储，到了工程里会拼起来用：数据库拿 B+ 树把"查一次"压到三四次磁盘 IO，缓存拿哈希表加双向链表把"最近用的"留在手边。看懂了它们为什么这么拼，才算真懂存储结构。</div>
+  <section class="topic" id="sec-sjjg-c6">
+    <div class="topic-h"><h3>真实系统里怎么选：B+ 树、哈希表、跳表、LRU</h3></div>
 
-    <div class="section-label new">MySQL InnoDB：为什么索引是 B+ 树，不是二叉树、不是哈希</div>
+<div class="sub-h">MySQL InnoDB：为什么索引是 B+ 树，不是二叉树、不是哈希</div>
     <p><strong>B+ 树的样子</strong>：多叉平衡树，非叶结点只存键、不存数据，叶子结点存全部数据并用链表串起来；一个页默认 <span class="em-new">16KB</span>，能装几百个键，所以三到四层就能覆盖上亿行。<br>
     <strong>为什么不用二叉树</strong>：二叉树一个结点只有两个分支，上亿数据树高 20 多层，每层一次磁盘 IO，查一行要 20 多次 IO。<br>
     <strong>为什么不用哈希索引</strong>：哈希等值查询是 O(1)，但<span class="em-old">不支持范围查询和排序</span>——<code>where id between 100 and 200</code>、<code>order by</code> 全废。B+ 树叶子是链表，范围查询顺着叶子扫就行。</p>
 
-    <div class="section-label new">Java HashMap：数组 + 链表 + 红黑树</div>
+    <div class="sub-h">Java HashMap：数组 + 链表 + 红黑树</div>
     <p>主体是一个<span class="em-new">数组（散列表）</span>，冲突的元素挂成链表；JDK 8 起，链表长度达到 <span class="em-new">8</span> 且数组容量不小于 <span class="em-new">64</span> 时，链表转成<span class="em-new">红黑树</span>，把最坏情况的查找从 O(n) 压到 O(log n)。默认容量 16，负载因子 0.75，超过阈值就扩容一倍并 rehash。</p>
 
-    <div class="section-label new">Redis：zset 用跳表，dict 用哈希表</div>
+    <div class="sub-h">Redis：zset 用跳表，dict 用哈希表</div>
     <p><strong>有序集合 zset</strong> = 跳表（多层链表，上层是下层的"快速通道"）+ 哈希表（按成员 O(1) 取分数）。选跳表而不选平衡树，是因为<span class="em-new">范围查询（ZRANGE）顺着底层链表走就行</span>，实现也比红黑树简单。<br>
     <strong>字典 dict</strong> = 哈希表 + 渐进式 rehash：扩容时不一次性搬完，每次操作顺带搬一点，避免卡顿。</p>
 
-    <div class="section-label new">LRU 缓存：哈希表 + 双向链表</div>
+    <div class="sub-h">LRU 缓存：哈希表 + 双向链表</div>
     <p>哈希表负责"O(1) 找到这个缓存项在链表里的结点"，双向链表负责"O(1) 把它移到头部 / 从尾部淘汰最久未用的"。<span class="em-sed">一个负责定位、一个负责排序，两个结构拼起来才同时满足两个 O(1)。</span></p>
 
-    <div class="section-label sediment">一张选用对照</div>
-    <table class="tbl">
+    <div class="sub-h note">一张选用对照</div>
+    <div class="tbl-wrap"><table class="tbl">
       <thead>
         <tr><th>系统</th><th>用的结构</th><th>为什么</th></tr>
       </thead>
@@ -295,27 +255,18 @@
         <tr><td>LRU 缓存</td><td>哈希表 + 双向链表</td><td>定位 O(1) + 移动淘汰 O(1)</td></tr>
         <tr><td>消息队列 / 订单超时</td><td>时间轮（数组 + 链表）</td><td>按时间分槽，到点扫一格，比堆更省</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p><span class="em-sed">规律：单个结构总有短板，真实系统都是两三个结构拼起来互补。</span>面试问"为什么这么设计"，答的就是"它要同时满足哪两个操作"。</p>
-  </details>
+  </section>
 </div>
 
 <div class="sec-block" id="sec-sjjg-luoji">
   <div class="sec-h"><h2 id="sec-sjjg-luoji-h">二、逻辑结构</h2><span class="years">集合 · 线性 · 树 · 图</span></div>
 
-  <details class="card fold-card" id="sec-sjjg-c7">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">07</span><h3>四类逻辑结构：一对一、一对多、多对多</h3></div>
-      <div class="badges">
-        <span class="badge new">集合</span>
-        <span class="badge new">线性</span>
-        <span class="badge new">树形</span>
-        <span class="badge new">图形</span>
-      </div>
-    </summary>
-    <div class="human-origin">看一群人怎么"有关系"：同一间教室的同学（只是同属一个班，没别的顺序）、排队买票的一列人（前后分明）、一家公司的组织架构（一个上级管几个人）、微信好友互相认识（谁都能连谁）。四种关系，正好对应四类逻辑结构。</div>
+  <section class="topic" id="sec-sjjg-c7">
+    <div class="topic-h"><h3>四类逻辑结构：一对一、一对多、多对多</h3></div>
 
-    <div class="stage-svg">
+<div class="stage-svg">
       <svg viewBox="0 0 740 176" width="740" height="176" role="img" aria-label="四类逻辑结构示意图">
         <!-- 集合 -->
         <text x="10" y="20" font-size="12.5" fill="var(--t1)">① 集合结构</text>
@@ -359,8 +310,8 @@
       </svg>
     </div>
 
-    <div class="section-label new">四类一次分清</div>
-    <table class="tbl">
+    <div class="sub-h">四类一次分清</div>
+    <div class="tbl-wrap"><table class="tbl">
       <thead>
         <tr><th>逻辑结构</th><th>关系形态</th><th>典型代表</th><th>生活例子</th></tr>
       </thead>
@@ -370,23 +321,14 @@
         <tr><td>树形结构</td><td>一对多，有唯一根，层级分明</td><td>树、二叉树、堆、B+ 树</td><td>公司组织架构、文件目录、家谱</td></tr>
         <tr><td>图形结构</td><td>多对多，任意结点都可能相连</td><td>有向图、无向图、网</td><td>微信好友、地铁线路、资金流向</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p><span class="em-sed">判别只看一句话：除首尾外每个元素有几个直接前驱、几个直接后继——0 个（集合）、1 个（线性）、≤1 个前驱但多后继（树）、任意（图）。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c8">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">08</span><h3>线性结构：线性表、栈、队列、串、数组</h3></div>
-      <div class="badges">
-        <span class="badge new">线性表</span>
-        <span class="badge new">栈 LIFO</span>
-        <span class="badge new">队列 FIFO</span>
-        <span class="badge inherit">串与数组</span>
-      </div>
-    </summary>
-    <div class="human-origin">同样是一列东西，规矩不同：抽屉可以随便抽（线性表），叠盘子只能从最上面拿（栈），排队只能队尾进、队头出（队列）。</div>
+  <section class="topic" id="sec-sjjg-c8">
+    <div class="topic-h"><h3 id="sec-sjjg-xianxing">线性结构：线性表、栈、队列、串、数组</h3></div>
 
-    <div class="stage-svg">
+<div class="stage-svg">
       <svg viewBox="0 0 740 200" width="740" height="200" role="img" aria-label="栈与队列示意图">
         <!-- 栈 -->
         <text x="10" y="20" font-size="12.5" fill="var(--t1)">栈：只在一端进出（LIFO 后进先出）</text>
@@ -416,38 +358,29 @@
       </svg>
     </div>
 
-    <div class="section-label new">线性表：n 个同类型元素的有限序列</div>
+    <div class="sub-h">线性表：n 个同类型元素的有限序列</div>
     <p>除第一个元素无前驱、最后一个无后继，其余每个元素有且只有一个前驱和一个后继。两种实现：<span class="em-new">顺序表</span>（数组，随机访问 O(1)、插入删除 O(n)）与<span class="em-new">链表</span>（单链表/双向链表/循环链表，插入删除 O(1)、查找 O(n)）。</p>
 
-    <div class="section-label new">栈：只在一端（栈顶）操作</div>
+    <div class="sub-h">栈：只在一端（栈顶）操作</div>
     <p>插入叫 push、删除叫 pop，都在栈顶，<strong>后进先出（LIFO）</strong>。两种实现：顺序栈（数组 + 栈顶指针 top）与链栈（链表头当栈顶）。<br>
     <strong>为什么到处都在用</strong>：函数调用靠它保存返回地址与局部变量（递归本质就是栈）、括号匹配（左括号入栈，右括号弹栈比对）、表达式求值（中缀转后缀）、浏览器的后退、编辑器的撤销（Ctrl+Z）。</p>
 
-    <div class="section-label new">队列：一端进（队尾）、另一端出（队头）</div>
+    <div class="sub-h">队列：一端进（队尾）、另一端出（队头）</div>
     <p><strong>先进先出（FIFO）</strong>。顺序队列反复入队出队会出现"队尾到头了但前面空着"的假溢出，解决办法是<span class="em-new">循环队列</span>：用 <code>(rear + 1) % MAXSIZE == front</code> 判满，牺牲一个单元区分队空队满。<br>
     <strong>用在哪</strong>：打印机任务排队、消息队列（Kafka/RabbitMQ 的模型）、BFS 层序遍历、抢票/秒杀请求削峰。</p>
 
-    <div class="section-label inherit">串与数组：两个"看起来简单但不能忽略"的线性结构</div>
+    <div class="sub-h">串与数组：两个"看起来简单但不能忽略"的线性结构</div>
     <p><strong>串</strong>是零个或多个字符的有限序列，核心操作是模式匹配（在主串里找子串）。朴素匹配最坏 O(n×m)，<span class="em-new">KMP</span> 用 next 数组把已匹配的信息复用，做到 O(n+m)。<br>
     <strong>数组</strong>是下标与值一一对应的线性结构，重点是地址计算：二维数组按行优先存储时 <code>LOC(i,j) = LOC(0,0) + (i × 列数 + j) × 每个元素字节数</code>；按列优先则把 i、j 换成"行数"。这一条是纯计算题，套公式即可。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">线性表随你怎么取，栈只动最上面，队列只两头动，串在字符里找模式，数组靠公式算地址。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c9">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">09</span><h3>树结构：二叉树、遍历、二叉搜索树、堆</h3></div>
-      <div class="badges">
-        <span class="badge new">二叉树性质</span>
-        <span class="badge new">三种遍历</span>
-        <span class="badge new">BST</span>
-        <span class="badge new">堆</span>
-      </div>
-    </summary>
-    <div class="human-origin">公司组织架构就是一棵树：一个总经理往下分几个部门，部门再分小组。每个人只有一个直接上级，上级可以有好几个下级——这就是"一对多"。</div>
+  <section class="topic" id="sec-sjjg-c9">
+    <div class="topic-h"><h3 id="sec-sjjg-shu">树结构：二叉树、遍历、二叉搜索树、堆</h3></div>
 
-    <div class="stage-svg">
+<div class="stage-svg">
       <svg viewBox="0 0 740 250" width="740" height="250" role="img" aria-label="二叉搜索树与中序遍历示意图">
         <text x="10" y="18" font-size="12.5" fill="var(--t1)">一棵二叉搜索树：左边都比根小，右边都比根大</text>
         <line x1="370" y1="62" x2="266" y2="104" stroke="var(--t3)" stroke-width="1.2"/>
@@ -472,10 +405,10 @@
       </svg>
     </div>
 
-    <div class="section-label new">基础术语与二叉树性质（计算题必背）</div>
+    <div class="sub-h">基础术语与二叉树性质（计算题必背）</div>
     <p><strong>结点、根、叶子</strong>：度＝结点拥有的子树个数；度为 0 的是叶子；树的度＝各结点度的最大值；结点的层次从根算第 1 层，树的深度＝最大层次。<br>
     <strong>二叉树</strong>：每个结点至多两棵子树，且分左右（左右不能颠倒）。四条性质必须记：</p>
-    <table class="tbl">
+    <div class="tbl-wrap"><table class="tbl">
       <thead>
         <tr><th>性质</th><th>结论</th><th>怎么用</th></tr>
       </thead>
@@ -485,39 +418,30 @@
         <tr><td>叶子与二度结点</td><td>n0 = n2 + 1</td><td>给叶子数求总度数，最常考</td></tr>
         <tr><td>完全二叉树深度</td><td>⌊log₂n⌋ + 1</td><td>n 个结点求层高；编号 i 的左孩子 2i、右孩子 2i+1、父 ⌊i/2⌋</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
-    <div class="section-label new">三种遍历：先序、中序、后序（＋层序）</div>
+    <div class="sub-h">三种遍历：先序、中序、后序（＋层序）</div>
     <p>先序＝根左右，中序＝左根右，后序＝左右根；层序＝从上到下一层一层，用队列实现。三条铁律：<span class="em-new">先序遍历的第一个必是根，后序遍历的最后一个必是根</span>；给了"先序 + 中序"或"后序 + 中序"能唯一还原一棵二叉树，<span class="em-old">只给先序 + 后序还原不出来</span>（分不清左右子树）。</p>
 
-    <div class="section-label new">二叉搜索树（BST）：查得快，但会退化</div>
+    <div class="sub-h">二叉搜索树（BST）：查得快，但会退化</div>
     <p>性质：左子树所有结点值 &lt; 根 &lt; 右子树所有结点值，且左右子树也都是 BST。<strong>查找、插入、删除平均 O(log n)</strong>，因为每比较一次就砍掉一半。<br>
     但<span class="em-old">按顺序插入会退化成一条链表</span>（1,2,3,4,5 依次插入，树变成一条斜线），查找退化为 O(n)。解决办法是<span class="em-new">平衡树</span>：AVL 树（严格平衡，旋转多）、红黑树（近似平衡，插入删除更快，Java 的 TreeMap、HashMap 冲突树都用它）。</p>
 
-    <div class="section-label new">堆：完全二叉树 + 堆序，专管"最值"</div>
+    <div class="sub-h">堆：完全二叉树 + 堆序，专管"最值"</div>
     <p><strong>大顶堆</strong>：每个结点都不小于它的孩子，堆顶就是最大值；<strong>小顶堆</strong>反之。堆是一棵<span class="em-new">完全二叉树</span>，所以能直接塞进数组，下标 i 的孩子是 2i 和 2i+1。<br>
     插入：放到末尾再"上浮"；删除堆顶：把末尾元素换到堆顶再"下沉"，都是 O(log n)。<strong>建堆</strong>从最后一个非叶结点往前下沉，整体 O(n)。<strong>用在哪</strong>：优先队列、TopK 问题（求最大 100 个用最小堆）、任务调度、堆排序。</p>
 
-    <div class="section-label inherit">再往上：B 树与 B+ 树（多叉，为磁盘而生）</div>
+    <div class="sub-h">再往上：B 树与 B+ 树（多叉，为磁盘而生）</div>
     <p>二叉树每个结点只有两个分支，数据量大时树太高。B 树让一个结点存多个键、多个分支（m 阶 B 树每个结点最多 m 个孩子），把树高压到 3～4 层；B+ 树进一步让非叶结点只存索引、所有数据放叶子并用链表串起来，范围查询顺着叶子扫——这就是数据库索引的底层结构。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">二叉树记四条性质 + 三种遍历，BST 记"左小右大、中序有序、会退化"，堆记"完全二叉树、堆顶最值、上浮下沉"。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c10">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">10</span><h3>图结构：多对多，最灵活也最难算</h3></div>
-      <div class="badges">
-        <span class="badge new">有向/无向</span>
-        <span class="badge new">完全图</span>
-        <span class="badge new">邻接矩阵</span>
-        <span class="badge new">DFS/BFS</span>
-      </div>
-    </summary>
-    <div class="human-origin">地铁线路图就是一张图：站点是结点，线路是边；有的是双向（无向），有的是单向换乘通道（有向）。想知道"从 A 到 B 怎么走最快"，就是图上的最短路径问题。</div>
+  <section class="topic" id="sec-sjjg-c10">
+    <div class="topic-h"><h3 id="sec-sjjg-tu">图结构：多对多，最灵活也最难算</h3></div>
 
-    <div class="stage-svg">
+<div class="stage-svg">
       <svg viewBox="0 0 740 250" width="740" height="250" role="img" aria-label="有向图与邻接表示意图">
         <text x="10" y="18" font-size="12.5" fill="var(--t1)">有向图 G = (V, E)：顶点集 + 边集（弧有方向）</text>
         <line x1="150" y1="60" x2="272" y2="46" stroke="var(--green-1)" stroke-width="1.4"/><polygon points="272,46 264,42 266,50" fill="var(--green-1)"/>
@@ -550,14 +474,14 @@
       </svg>
     </div>
 
-    <div class="section-label new">基本概念（考试就考这几条）</div>
+    <div class="sub-h">基本概念（考试就考这几条）</div>
     <p><strong>有向图 / 无向图</strong>：边有方向叫弧（用 &lt;A,B&gt; 表示），没方向叫边（用 (A,B) 表示），无向边等于双向。<br>
     <strong>完全图</strong>：任意两顶点间都有边。无向完全图有 <span class="em-new">n(n−1)/2</span> 条边；有向完全图有 <span class="em-new">n(n−1)</span> 条弧。<br>
     <strong>度</strong>：无向图顶点 v 的度＝与它相连的边数，全部顶点度之和＝边数的 2 倍；有向图分入度、出度，入度之和＝出度之和＝弧数。<br>
     <strong>连通</strong>：无向图中任意两顶点都有路径叫连通图；有向图要求"任意两点互相可达"才叫强连通。n 个顶点的连通图至少 n−1 条边，此时就是一棵<span class="em-new">生成树</span>。</p>
 
-    <div class="section-label new">两种存储：邻接矩阵 vs 邻接表</div>
-    <table class="tbl">
+    <div class="sub-h">两种存储：邻接矩阵 vs 邻接表</div>
+    <div class="tbl-wrap"><table class="tbl">
       <thead>
         <tr><th>存储方式</th><th>怎么存</th><th>空间</th><th>判断两点相邻</th><th>遍历某点的邻居</th><th>适合</th></tr>
       </thead>
@@ -565,29 +489,20 @@
         <tr><td>邻接矩阵</td><td>n×n 二维数组，有边填 1（带权填权值）</td><td>O(n²)，与边数无关</td><td>O(1)</td><td>O(n)</td><td>稠密图、点数少</td></tr>
         <tr><td>邻接表</td><td>每个顶点挂一条链表，存它的所有邻居</td><td>O(n + e)</td><td>O(该点度数)</td><td>O(该点度数)</td><td>稀疏图、点数大</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
-    <div class="section-label new">遍历与最短路径</div>
+    <div class="sub-h">遍历与最短路径</div>
     <p><strong>DFS（深度优先）</strong>：一条路走到黑，走不动再退回，靠<span class="em-new">栈/递归</span>；<strong>BFS（广度优先）</strong>：一层一层扩散，靠<span class="em-new">队列</span>。无权图求最短路径就用 BFS，第一次到达就是最短。<br>
     <strong>Dijkstra</strong>：单源最短路径，每次选当前距离最小的未确定顶点，要求权值非负，复杂度 O(n²) 或堆优化 O((n+e)log n)；<strong>Floyd</strong>：求任意两点间最短路径，三重循环 O(n³)，代码只有五行。</p>
 
-    <div class="section-label sediment">生活里的图</div>
+    <div class="sub-h note">生活里的图</div>
     <p>社交关系（好友是边，关注是有向边）、地图导航（路口是点、路是带权边）、项目依赖（A 必须先于 B，是有向无环图 DAG，拓扑排序判断能否排完）、银行资金流向（账户是点、转账是带方向的边，用来做反洗钱环检测）。<span class="em-sed">树是图的特例——没有环的连通图。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c11">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">11</span><h3>图的两件正经事：排顺序（拓扑）、连最省（生成树）</h3></div>
-      <div class="badges">
-        <span class="badge new">AOV 网</span>
-        <span class="badge new">入度为 0</span>
-        <span class="badge new">Prim / Kruskal</span>
-        <span class="badge new">关键路径</span>
-      </div>
-    </summary>
-    <div class="human-origin">装修一套房子：得先改水电，才能贴砖，砖贴完才能刷墙，刷完墙才装门。哪道工序卡着哪道工序，画出来就是一张<span class="em-new">有向无环图</span>。工程上真正要回答的只有两个问题——"这些活的先后顺序能不能排完"（拓扑排序），"把所有房间都接通、用最少的线"（最小生成树）。第三问才是"整个工期由哪几条活卡着"（关键路径）。</div>
+  <section class="topic" id="sec-sjjg-c11">
+    <div class="topic-h"><h3>图的两件正经事：排顺序（拓扑）、连最省（生成树）</h3></div>
 
-    <div class="stage-svg">
+<div class="stage-svg">
       <svg viewBox="0 0 740 240" width="740" height="240" role="img" aria-label="拓扑排序示意：有向无环图与逐层出队顺序">
         <text x="8" y="18" font-size="12.5" fill="var(--t1)">AOV 网：顶点 = 活动，弧 = 先后约束（A 干完才能干 B）</text>
         <line x1="82" y1="72" x2="176" y2="52" stroke="var(--green-1)" stroke-width="1.4"/><polygon points="176,52 168,49 170,56" fill="var(--green-1)"/>
@@ -620,7 +535,7 @@
       </svg>
     </div>
 
-    <div class="section-label new">拓扑排序：谁"没人卡着"，谁先出队</div>
+    <div class="sub-h">拓扑排序：谁"没人卡着"，谁先出队</div>
     <p>把活动看成顶点、先后约束看成有向边，得到 <span class="em-new">AOV 网</span>。算法只有三步：<br>
     ① 统计每个顶点的<strong>入度</strong>（有几个人排在它前面）；② 把所有入度为 0 的顶点入队；③ 出队一个、记入结果，把它指向的每个邻居入度减 1，减到 0 就入队。<br>
     队列走空时，如果记下的顶点数等于 n，说明没有环、顺序排出来了；<span class="em-old">不等于 n 就说明剩下的点互相卡着，存在循环依赖</span>——这就是"能否排完"的判定。</p>
@@ -638,9 +553,9 @@
     return cnt == n;                            // 0 表示有环，排不完
 }</pre>
 
-    <div class="section-label new">最小生成树：n 个点连通，只要 n−1 条边</div>
+    <div class="sub-h">最小生成树：n 个点连通，只要 n−1 条边</div>
     <p>连通图的一棵生成树含全部 n 个顶点、恰好 n−1 条边（再少一条就断开，再多一条就有环）。在所有生成树里，边权之和最小的那棵叫<span class="em-new">最小生成树</span>。两种做法，分场合用：</p>
-    <table class="tbl">
+    <div class="tbl-wrap"><table class="tbl">
       <thead>
         <tr><th>算法</th><th>怎么长</th><th>复杂度</th><th>适合</th></th></tr>
       </thead>
@@ -648,36 +563,28 @@
         <tr><td>Prim（普里姆）</td><td>从一个点出发，每次挑"已选集合↔未选集合"之间最短的那条边，把新点拉进来</td><td>O(n²)</td><td>稠密图（点多边更多）</td></tr>
         <tr><td>Kruskal（克鲁斯卡尔）</td><td>把所有边按权排序，从小到大一条条加，加进去不成环就要（用并查集判环）</td><td>O(e log e)</td><td>稀疏图（边少）</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p><span class="em-sed">一句话区分：Prim 盯着点长，Kruskal 盯着边挑。</span></p>
 
-    <div class="section-label inherit">关键路径：决定工期的是最长那条路</div>
+    <div class="sub-h">关键路径：决定工期的是最长那条路</div>
     <p>AOE 网里顶点是"事件"、边是"活动"、边权是持续时间。从源点到汇点的<span class="em-new">最长路径</span>就是关键路径，它的长度等于整个工程的最短工期。<br>
     算法核心是两个时间：每个事件的最早发生时间 <strong>ve</strong>（正推取最大）、最迟发生时间 <strong>vl</strong>（逆推取最小）；两者之差为 0 的活动就是<span class="em-new">关键活动</span>，串起来就是关键路径。<br>
     <span class="em-old">缩短非关键活动对工期毫无帮助</span>——那是白花钱；只有压缩关键活动才可能提前完工。</p>
 
-    <div class="section-label old">三个必考的坑</div>
+    <div class="sub-h warn">三个必考的坑</div>
     <p>✗ "拓扑序唯一"——不唯一，A B C D 和 A C B D 都合法；唯一的是"能不能排完"。<br>
     ✗ "最小生成树唯一"——树可能不唯一（等权边时），但<span class="em-new">总权值一定唯一</span>。<br>
     ✗ "关键路径只有一条"——可能有多条并行的最长路，压缩其中一条，工期不一定缩短。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">拓扑排序 = 入度为 0 的排队出队，出不完就是有环；最小生成树 = n−1 条边连全图，Prim 看点、Kruskal 看边；关键路径 = 最长路定工期，松弛为 0 的活动才值得压。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c12">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">12</span><h3>同一逻辑结构，可以有几种存储实现</h3></div>
-      <div class="badges">
-        <span class="badge inherit">逻辑与存储分离</span>
-        <span class="badge new">实现对照</span>
-        <span class="badge sediment">按操作选</span>
-      </div>
-    </summary>
-    <div class="human-origin">同一份名单，可以写在连号的本子上，也可以写成一张张带"下一位是谁"的便签。名单还是那份名单，找人的方式变了——这就是"逻辑结构不变、存储结构可变"。</div>
+  <section class="topic" id="sec-sjjg-c12">
+    <div class="topic-h"><h3>同一逻辑结构，可以有几种存储实现</h3></div>
 
-    <div class="section-label new">常见的一对多实现</div>
-    <table class="tbl">
+<div class="sub-h">常见的一对多实现</div>
+    <div class="tbl-wrap"><table class="tbl">
       <thead>
         <tr><th>逻辑结构</th><th>可选存储实现</th><th>怎么选</th></tr>
       </thead>
@@ -689,50 +596,34 @@
         <tr><td>图</td><td>邻接矩阵 / 邻接表 / 逆邻接表 / 十字链表</td><td>稠密用矩阵；稀疏用邻接表；既要出度又要入度用十字链表</td></tr>
         <tr><td>串</td><td>顺序串（字符数组）/ 链串</td><td>模式匹配基本都用顺序串，链串指针开销大</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p><span class="em-sed">记忆抓手：先问"这个结构最常做的操作是哪个"，再回存储结构那张表查它的代价——答案自然出来。</span></p>
-  </details>
+  </section>
 </div>
 
 <div class="sec-block" id="sec-sjjg-caozuo">
   <div class="sec-h"><h2 id="sec-sjjg-caozuo-h">三、操作（查询与排序）</h2><span class="years">顺序 · 二分 · 哈希 · 八种排序</span></div>
 
-  <details class="card fold-card" id="sec-sjjg-c13">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">13</span><h3>先看清"操作"的账本：时间复杂度、空间、稳定性</h3></div>
-      <div class="badges">
-        <span class="badge new">大 O</span>
-        <span class="badge new">空间复杂度</span>
-        <span class="badge new">稳定性</span>
-      </div>
-    </summary>
-    <div class="human-origin">同一件事，做法不同，代价差几个数量级：100 万条数据，O(n) 扫一遍要 100 万次，O(log n) 只要 20 次，O(n²) 要一万亿次——后者根本不是"慢一点"，是跑不完。所以评价任何结构或算法，先看它落在哪一档。</div>
+  <section class="topic" id="sec-sjjg-c13">
+    <div class="topic-h"><h3 id="sec-sjjg-chazhao">先看清"操作"的账本：时间复杂度、空间、稳定性</h3></div>
 
-    <div class="section-label new">三种评价口径</div>
+<div class="sub-h">三种评价口径</div>
     <p><strong>时间复杂度</strong>：随数据规模 n 增长，基本操作执行次数的量级。只保留最高阶项、丢掉常数系数（3n² + 5n + 7 记作 O(n²)）。<br>
     <strong>空间复杂度</strong>：除输入数据外额外占用的空间。只用几个临时变量叫<span class="em-new">原地（in-place）</span>，记 O(1)。<br>
     <strong>稳定性</strong>：排序前相等的两个元素，排序后相对次序不变，就叫稳定。判断意义：先按"成绩"排、再按"班级"排，若第二次排序稳定，同班内成绩顺序不会被冲乱。</p>
 
-    <div class="section-label new">增长速度排序（从小到大）</div>
+    <div class="sub-h">增长速度排序（从小到大）</div>
     <div class="chain"><span class="chain-note">快到慢：</span>O(1) → O(log n) → O(n) → O(n log n) → O(n²) → O(n³) → O(2^n) → O(n!)</div>
     <p>能背下来的分界线：<span class="em-new">O(log n) 是"每次砍一半"</span>（二分、平衡树）；<span class="em-new">O(n log n) 是比较类排序的理论下限</span>；<span class="em-old">O(n²) 只适合小数据</span>（几千条以内）；O(2^n) 以上只能处理很小规模（暴力枚举、递归不剪枝）。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">看算法先问三句：n 变大时它多快（时间）、要多占多少内存（空间）、相等元素会不会乱序（稳定性）。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c14">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">14</span><h3>顺序查找：从头挨个问，简单但慢</h3></div>
-      <div class="badges">
-        <span class="badge new">O(n)</span>
-        <span class="badge inherit">无序也能用</span>
-        <span class="badge old">数据量大就慢</span>
-      </div>
-    </summary>
-    <div class="human-origin">找一个人，手里没有名册顺序，只能从第一间办公室开始一间间敲门问"在不在"。运气好第一间就中，运气差问到最后一间——平均问一半。</div>
+  <section class="topic" id="sec-sjjg-c14">
+    <div class="topic-h"><h3>顺序查找：从头挨个问，简单但慢</h3></div>
 
-    <div class="stage-svg">
+<div class="stage-svg">
       <svg viewBox="0 0 740 140" width="740" height="140" role="img" aria-label="顺序查找示意图">
         <text x="10" y="20" font-size="12" fill="var(--t2)">在 [5, 3, 8, 1, 9, 2] 里找 8：从头逐个比对</text>
         <rect x="14" y="44" width="62" height="36" rx="4" fill="var(--bg-alt)" stroke="var(--divider)"/><text x="45" y="67" font-size="13" fill="var(--t1)" text-anchor="middle">5</text>
@@ -749,7 +640,7 @@
       </svg>
     </div>
 
-    <div class="section-label new">关键代码</div>
+    <div class="sub-h">关键代码</div>
 <pre class="code-block">int seqSearch(int a[], int n, int key) {
     for (int i = 0; i &lt; n; i++)
         if (a[i] == key) return i;   // 命中，返回下标
@@ -764,26 +655,18 @@ int seqSearch2(int a[], int n, int key) {
     return i;                        // 返回 0 表示没找到
 }</pre>
 
-    <div class="section-label inherit">什么时候用</div>
+    <div class="sub-h">什么时候用</div>
     <p>数据<span class="em-new">无序</span>、量小、或存在<span class="em-new">链表</span>里只能顺着走时，顺序查找就是唯一选择。它没有任何前提条件，这是它唯一的优势。<br>
     <span class="em-old">数据量上万又频繁查，还用顺序查找就是设计问题</span>——该建索引、排序后二分，或直接上哈希表。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">顺序查找 = 逐个敲门，无序万能、代价 O(n)；平均要查一半，最坏查到底。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c15">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">15</span><h3>二分查找：每次砍掉一半，但前提很硬</h3></div>
-      <div class="badges">
-        <span class="badge new">O(log n)</span>
-        <span class="badge inherit">必须有序 + 顺序存储</span>
-        <span class="badge old">链表不能用</span>
-      </div>
-    </summary>
-    <div class="human-origin">猜数字 1 到 100，聪明人不会从 1 开始猜，而是先猜 50："大了"就往 1–49 猜，"小了"就往 51–100 猜。每猜一次砍一半，7 次必中——这就是二分。</div>
+  <section class="topic" id="sec-sjjg-c15">
+    <div class="topic-h"><h3>二分查找：每次砍掉一半，但前提很硬</h3></div>
 
-    <div class="stage-svg">
+<div class="stage-svg">
       <svg viewBox="0 0 740 200" width="740" height="200" role="img" aria-label="二分查找折半过程示意图">
         <text x="10" y="20" font-size="12" fill="var(--t2)">有序表 [1, 3, 5, 7, 9, 11, 13]，找 11：low=0，high=6</text>
         <!-- 第一轮 -->
@@ -815,7 +698,7 @@ int seqSearch2(int a[], int n, int key) {
       </svg>
     </div>
 
-    <div class="section-label new">关键代码</div>
+    <div class="sub-h">关键代码</div>
 <pre class="code-block">int binarySearch(int a[], int n, int key) {
     int low = 0, high = n - 1;
     while (low &lt;= high) {                    // 注意是 &lt;=，区间里还有元素
@@ -827,29 +710,20 @@ int seqSearch2(int a[], int n, int key) {
     return -1;                               // 区间空了 = 没找到
 }</pre>
 
-    <div class="section-label old">三个前提、三个坑</div>
+    <div class="sub-h warn">三个前提、三个坑</div>
     <p><strong>前提一：必须有序</strong>——没排序先二分，结果一定是错的。<br>
     <strong>前提二：必须顺序存储</strong>——二分要靠下标直接跳到 mid，<span class="em-old">链表只能顺着走，用不了二分</span>。<br>
     <strong>前提三：数据不再频繁变动</strong>——每次插入删除都要维持有序（顺序表插入本身 O(n)），动态数据用二分不划算，该换平衡树或跳表。<br>
     <strong>三个坑</strong>：① <code>while (low &lt; high)</code> 少了一个边界，单元素时直接漏掉；② <code>high = mid</code> 而不是 <code>mid - 1</code>，会死循环；③ mid 用 <code>(low + high) / 2</code>，low 和 high 都接近 int 上限时相加溢出成负数。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">二分 = 每比一次砍一半，O(log n)，前提是有序且能按下标跳；三个坑记"等号、减一、防溢出"。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c16">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">16</span><h3>哈希查找：不算不找，直接算地址</h3></div>
-      <div class="badges">
-        <span class="badge new">平均 O(1)</span>
-        <span class="badge inherit">除留余数法</span>
-        <span class="badge new">冲突处理</span>
-        <span class="badge old">不支持范围查询</span>
-      </div>
-    </summary>
-    <div class="human-origin">图书馆不按书名找书，而是给每本书算一个"架号"：书名拼音首字母转成数字，对 100 取余，余数就是架子编号。到了直接去那个架子——不用翻目录，也不用从头找。代价是：两本书可能算到同一个架子（冲突）。</div>
+  <section class="topic" id="sec-sjjg-c16">
+    <div class="topic-h"><h3>哈希查找：不算不找，直接算地址</h3></div>
 
-    <div class="stage-svg">
+<div class="stage-svg">
       <svg viewBox="0 0 740 180" width="740" height="180" role="img" aria-label="哈希表与冲突链表示意图">
         <text x="10" y="18" font-size="12" fill="var(--t2)">h(key) = key % 7，把 18、25、32 存进 7 个桶</text>
         <text x="10" y="52" font-size="11.5" fill="var(--t1)">18 % 7 = 4</text>
@@ -880,11 +754,11 @@ int seqSearch2(int a[], int n, int key) {
       </svg>
     </div>
 
-    <div class="section-label new">哈希函数怎么设计</div>
+    <div class="sub-h">哈希函数怎么设计</div>
     <p>目标是"算得快、分布匀"。最常用<span class="em-new">除留余数法</span>：<code>h(key) = key % p</code>，p 取不大于表长的最大质数（质数能减少规律性冲突）。其他还有直接定址（key 本身线性映射）、数字分析（抽几位）、平方取中、折叠法。原则是：<span class="em-sed">同样的 key 永远算出同一个地址，不同的 key 尽量落到不同桶。</span></p>
 
-    <div class="section-label new">冲突了怎么办（两类办法）</div>
-    <table class="tbl">
+    <div class="sub-h">冲突了怎么办（两类办法）</div>
+    <div class="tbl-wrap"><table class="tbl">
       <thead>
         <tr><th>办法</th><th>做法</th><th>优点</th><th>缺点</th></tr>
       </thead>
@@ -893,9 +767,9 @@ int seqSearch2(int a[], int n, int key) {
         <tr><td>开放定址·二次探测</td><td>按 +1², −1², +2², −2²… 跳着找</td><td>缓解聚集</td><td>不一定能探到全表</td></tr>
         <tr><td>链地址法（拉链）</td><td>每个桶挂一条链表，冲突就挂上去</td><td>冲突多也不怕、删除方便、装填因子可超过 1</td><td>指针额外空间、缓存不友好</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
-    <div class="section-label new">关键代码（除留余数 + 链地址）</div>
+    <div class="sub-h">关键代码（除留余数 + 链地址）</div>
 <pre class="code-block">#define M 13                       // 桶数取质数
 typedef struct Node { int data; struct Node* next; } Node;
 
@@ -914,26 +788,18 @@ int find(Node* ht[], int key) {
     return 0;                             // 没找到
 }</pre>
 
-    <div class="section-label old">哈希的边界（最容易答错的点）</div>
+    <div class="sub-h warn">哈希的边界（最容易答错的点）</div>
     <p>哈希查找<span class="em-old">平均 O(1)，但最坏会退化成 O(n)</span>——所有 key 都落到同一个桶、挂成一条长链时就是这样。所以"哈希查找时间复杂度是 O(1)"这句话严格说不完整，正确说法是"平均 O(1)，最坏 O(n)"。<br>
     另一个边界：<span class="em-old">哈希表里的数据是无序的，不支持范围查询、排序、找最大最小</span>。所以数据库有哈希索引但主索引仍然是 B+ 树。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">哈希 = 用函数把 key 变成地址，平均一步到位；代价是冲突处理、扩容 rehash、以及彻底放弃有序性。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c17">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">17</span><h3>分块查找：先翻目录再扫那一叠，介于顺序与二分之间</h3></div>
-      <div class="badges">
-        <span class="badge new">索引顺序</span>
-        <span class="badge new">块间有序</span>
-        <span class="badge new">ASL ≈ √n + 1</span>
-      </div>
-    </summary>
-    <div class="human-origin">查纸质字典不会从第一页翻：先按首字母定位到"L 部"，再在 L 这一叠里一页页找。分块查找干的就是这件事——先把数据切成若干块、给每块建一条<span class="em-new">索引</span>，先用索引粗定位到块，再在块内顺序扫。<span class="em-sed">块间有序，块内可以无序。</span></div>
+  <section class="topic" id="sec-sjjg-c17">
+    <div class="topic-h"><h3>分块查找：先翻目录再扫那一叠，介于顺序与二分之间</h3></div>
 
-    <div class="stage-svg">
+<div class="stage-svg">
       <svg viewBox="0 0 740 210" width="740" height="210" role="img" aria-label="分块查找：索引表定位到块，再块内顺序查找">
         <text x="8" y="18" font-size="12.5" fill="var(--t1)">索引表：每块存"本块最大关键字"和"起始下标"，表本身按关键字有序</text>
         <rect x="40" y="32" width="150" height="30" fill="var(--green-soft)" stroke="var(--green-1)"/><text x="115" y="52" font-size="12" fill="var(--t1)" text-anchor="middle">最大 24 · 起始 0</text>
@@ -959,38 +825,30 @@ int find(Node* ht[], int key) {
       </svg>
     </div>
 
-    <div class="section-label new">规则与代价</div>
+    <div class="sub-h">规则与代价</div>
     <p><strong>前提</strong>：块间必须有序（后一块的所有关键字都大于前一块的最大值），块内随便是无序的——正因为块内无序，所以<span class="em-old">块内只能用顺序查找，不能二分</span>。<br>
     <strong>查找过程</strong>：① 在索引表里找"最大关键字 ≥ key"的第一个块（索引表元素少时顺序比，多时可对索引表再二分）；② 到该块里从头顺序扫。<br>
     <strong>平均查找长度</strong>：设 n 个元素分 b 块、每块 s 个，则 ASL = <span class="em-new">(b+1)/2 + (s+1)/2</span>，在 s = √n 时取到最优，约 <span class="em-new">√n + 1</span> 次比较。</p>
 
-    <div class="section-label inherit">什么时候真会用它</div>
+    <div class="sub-h">什么时候真会用它</div>
     <p>① 数据量大、而且<span class="em-new">经常插入删除</span>：链表做不了二分（不能随机访问），但可以按块挂成"索引 + 链表"，这就是分块查找的现实版本。<br>
     ② 数据库的<span class="em-new">稀疏索引</span>：B+ 树叶子上一层层块，先定位块、块内再扫，思路完全一致。<br>
     ③ 磁盘文件：一次 I/O 读一整块，块内多扫几个元素几乎不花钱，所以"块间二分 + 块内顺序"是外存的常规套路。</p>
 
-    <div class="section-label old">三个坑</div>
+    <div class="sub-h warn">三个坑</div>
     <p>✗ 把块内也当有序去做二分——块内无序，二分会漏。<br>
     ✗ 把 ASL 记成 O(1)——它是 O(√n)，比顺序 O(n) 好、比二分 O(log n) 差。<br>
     ✗ 索引表里存"最小关键字"——必须存<span class="em-old">每块的最大关键字</span>，否则无法判断 key 该落哪块。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">分块查找 = 索引表粗定位 + 块内顺序扫；块间有序块内乱，ASL 约 √n+1，胜在能动态增删、适合外存。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c18">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">18</span><h3>八种排序先看总账：谁快、谁稳、谁费内存</h3></div>
-      <div class="badges">
-        <span class="badge new">总表</span>
-        <span class="badge inherit">稳定性口诀</span>
-        <span class="badge sediment">先记这张表</span>
-      </div>
-    </summary>
-    <div class="human-origin">八个排序不是"学会八个"，而是"记住八张牌面"：谁最快、谁最稳、谁最省内存、谁最怕数据已经有序。先把牌面摊开，再一个个看它怎么打。</div>
+  <section class="topic" id="sec-sjjg-c18">
+    <div class="topic-h"><h3 id="sec-sjjg-paixu">八种排序先看总账：谁快、谁稳、谁费内存</h3></div>
 
-    <div class="section-label new">八种排序总表（考试就背这张）</div>
-    <table class="tbl">
+<div class="sub-h">八种排序总表（考试就背这张）</div>
+    <div class="tbl-wrap"><table class="tbl">
       <thead>
         <tr><th>排序</th><th>最好</th><th>平均</th><th>最坏</th><th>额外空间</th><th>稳定性</th><th>一句话特点</th></tr>
       </thead>
@@ -1004,31 +862,23 @@ int find(Node* ht[], int key) {
         <tr><td>堆排序</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td><td>O(1)</td><td>不稳定</td><td>建大顶堆，每次摘走堆顶</td></tr>
         <tr><td>基数排序</td><td>O(d(n+r))</td><td>O(d(n+r))</td><td>O(d(n+r))</td><td>O(n+r)</td><td>稳定</td><td>按个位、十位、百位轮流装桶</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
-    <div class="section-label inherit">稳定性口诀（只背这一句）</div>
+    <div class="sub-h">稳定性口诀（只背这一句）</div>
     <p><span class="em-new">"快些选堆"不稳定</span>——快速排序、希尔排序、选择排序、堆排序；剩下的冒泡、插入、归并、基数都稳定。<br>
     为什么这几个不稳定？一句话：<span class="em-sed">它们都做了"跨距离的交换或移动"，相等元素的相对位置会被打乱；稳定的那四个都是"相邻比较、顺序挪位"。</span></p>
 
-    <div class="section-label sediment">三条一眼判断</div>
+    <div class="sub-h note">三条一眼判断</div>
     <p>① 要求<span class="em-new">最坏也是 O(n log n)</span> → 归并、堆排（快排最坏 O(n²)，不能承诺）。<br>
     ② 要求<span class="em-new">原地、不许多占内存</span> → 堆排（O(1)）；归并要 O(n) 额外数组。<br>
     ③ 要求<span class="em-new">稳定</span> → 归并（O(n log n) 里唯一稳定的），数据量小就冒泡/插入。<br>
     <span class="em-old">快排最坏 O(n²) 的触发条件：数据已经有序（或逆序）且固定取首/尾元素做基准</span>——这时每次划分都退化成 1 和 n−1 两段。</p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c19">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">19</span><h3>冒泡排序：相邻两两比，一趟把最大的顶到队尾</h3></div>
-      <div class="badges">
-        <span class="badge new">稳定</span>
-        <span class="badge inherit">最好 O(n)</span>
-        <span class="badge old">交换次数多</span>
-      </div>
-    </summary>
-    <div class="human-origin">一队人比身高，从排头开始两两比：左边比右边高就换位。一趟走下来，全场最高的那个人一定被一路"顶"到了队尾——像水里的气泡往上冒，一趟浮出一个最大的。</div>
+  <section class="topic" id="sec-sjjg-c19">
+    <div class="topic-h"><h3>冒泡排序：相邻两两比，一趟把最大的顶到队尾</h3></div>
 
-    <div class="section-label new">最直戳的特点</div>
+<div class="sub-h">最直戳的特点</div>
     <p><span class="em-new">每一趟只干一件事：把当前没排好的里面最大的那个，通过相邻交换送到队尾。</span>走 n−1 趟，队尾依次填满 n−1、n−2……最后剩下一个自然最小。它的交换次数最多（平均 n²/4 次），是"慢但稳"的代表。</p>
 
     <div class="stage-svg">
@@ -1060,7 +910,7 @@ int find(Node* ht[], int key) {
       </svg>
     </div>
 
-    <div class="section-label new">关键代码</div>
+    <div class="sub-h">关键代码</div>
 <pre class="code-block">void bubbleSort(int a[], int n) {
     for (int i = 0; i &lt; n - 1; i++) {               // 一共 n-1 趟
         int swapped = 0;
@@ -1073,26 +923,18 @@ int find(Node* ht[], int key) {
     }
 }</pre>
 
-    <div class="section-label inherit">为什么它"最好情况是 O(n)"</div>
+    <div class="sub-h">为什么它"最好情况是 O(n)"</div>
     <p>数据本来就基本有序时，第一趟只会做少量比较、几乎不交换；加了这个 <code>swapped</code> 标志，第一次发现"整趟没换过"就直接退出——所以最好 O(n)。<span class="em-old">没写这个标志的版本，最好也是 O(n²)。</span></p>
     <p><strong>稳定在哪儿</strong>：只有 <code>a[j] &gt; a[j+1]</code> 才交换，相等时不换，所以相等元素的先后次序不会被打乱。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">冒泡 = 每趟把最大的顶到队尾，稳定、原地、最坏 O(n²)，是"教学用"的排序，实战基本不用。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c20">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">20</span><h3>选择排序：每轮只挑一个最小的，跟队头换位</h3></div>
-      <div class="badges">
-        <span class="badge new">交换次数最少</span>
-        <span class="badge inherit">O(n²) 恒定</span>
-        <span class="badge old">不稳定</span>
-      </div>
-    </summary>
-    <div class="human-origin">一排人报数，你不动手排，只用眼睛扫：第一轮从头扫到尾，记住最矮的那个，让他跟排头换位置；第二轮扫剩下的，记住第二矮的，跟第二个位置换——每轮只换一次，绝不多动。</div>
+  <section class="topic" id="sec-sjjg-c20">
+    <div class="topic-h"><h3>选择排序：每轮只挑一个最小的，跟队头换位</h3></div>
 
-    <div class="section-label new">最直戳的特点</div>
+<div class="sub-h">最直戳的特点</div>
     <p><span class="em-new">它的比较次数和交换次数是"分家"的：比较永远是 n(n−1)/2 次（不管数据长什么样），但交换最多只做 n−1 次。</span>所以数据量大、单次交换成本高（比如元素是很大的结构体）时，它反而有优势。</p>
 
     <div class="stage-svg">
@@ -1124,7 +966,7 @@ int find(Node* ht[], int key) {
       </svg>
     </div>
 
-    <div class="section-label new">关键代码</div>
+    <div class="sub-h">关键代码</div>
 <pre class="code-block">void selectSort(int a[], int n) {
     for (int i = 0; i &lt; n - 1; i++) {
         int min = i;                         // 假设当前位置最小
@@ -1136,27 +978,18 @@ int find(Node* ht[], int key) {
     }
 }</pre>
 
-    <div class="section-label inherit">为什么不稳定，以及"数据有序也没用"</div>
+    <div class="sub-h">为什么不稳定，以及"数据有序也没用"</div>
     <p><strong>不稳定的例子</strong>：序列 <code>5(a), 5(b), 2</code>，第一轮把 2 跟第一个 5 交换，变成 <code>2, 5(b), 5(a)</code>——两个 5 的相对次序反了。跨距离交换就是这样把相等元素的次序打乱的。</p>
     <p><span class="em-old">它不管数据是否有序，比较次数永远是 n(n−1)/2</span>：已排好序的情况下，它仍然要把每一轮从头扫到尾，一趟都省不掉。这是它跟冒泡、插入最大的不同——后两者在"近乎有序"时能快起来。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">选择排序 = 每轮扫一遍挑最小、只换一次；比较恒定 O(n²)、交换最少、不稳定。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c21">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">21</span><h3>插入排序：像摸牌，拿到一张就往手里合适的位置塞</h3></div>
-      <div class="badges">
-        <span class="badge new">稳定</span>
-        <span class="badge new">近乎有序时最快</span>
-        <span class="badge new">小数组首选</span>
-        <span class="badge sediment">也被快排当"收尾"</span>
-      </div>
-    </summary>
-    <div class="human-origin">打扑克摸牌最自然：手里的牌已经按大小排好，新摸一张，从右往左比，比它大的往右挪一格，挪出来的空位就把新牌插进去。整个过程不用重排手里的牌。</div>
+  <section class="topic" id="sec-sjjg-c21">
+    <div class="topic-h"><h3>插入排序：像摸牌，拿到一张就往手里合适的位置塞</h3></div>
 
-    <div class="section-label new">最直戳的特点</div>
+<div class="sub-h">最直戳的特点</div>
     <p><span class="em-new">它排的是"前缀已有序"这件事：第 i 轮结束时，前 i+1 个一定是有序的，后面的一概没动。</span>所以数据越接近有序，它挪动的次数越少——<span class="em-new">最好情况 O(n)</span>，是所有 O(n²) 排序里对"已基本排好"最友好的。</p>
 
     <div class="stage-svg">
@@ -1179,7 +1012,7 @@ int find(Node* ht[], int key) {
       </svg>
     </div>
 
-    <div class="section-label new">关键代码</div>
+    <div class="sub-h">关键代码</div>
 <pre class="code-block">void insertSort(int a[], int n) {
     for (int i = 1; i &lt; n; i++) {
         int key = a[i];                     // 摸到的新牌先存起来（否则会被覆盖）
@@ -1193,28 +1026,20 @@ int find(Node* ht[], int key) {
 }</pre>
     <p>注意两个细节：<span class="em-new">key 必须先备份</span>（挪位会覆盖 <code>a[i]</code>）；<span class="em-new">比较用 <code>&gt;</code> 不是 <code>&gt;=</code></span>——相等就停下、插在后面，这才保证稳定。</p>
 
-    <div class="section-label inherit">它在实战里其实很常用</div>
+    <div class="sub-h">它在实战里其实很常用</div>
     <p><strong>① 小数组</strong>：n &lt; 50 时，插入排序的常数比快排小，反而更快。所以 JDK 的 <code>Arrays.sort</code>、C++ 的 <code>std::sort</code> 在递归到小片段时，会切成插入排序收尾。<br>
     <strong>② 近乎有序的数据</strong>：只有少量元素错位时，插入排序接近 O(n)，而快排反而可能因基准选不好退化。<br>
     <strong>③ 在线处理</strong>：数据是一个个来的（实时排名、日志按时间补插），插入排序能边来边排，其他排序做不到。<br>
     <strong>④ 链表</strong>：链表上做插入排序也合适——挪动只是改指针，不用整体搬家。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">插入排序 = 前缀始终有序，新元素往左找位置、大的右移；稳定、最好 O(n)、小数组和近乎有序时最快。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c22">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">22</span><h3>希尔排序：先隔几个比，间隔越缩越小，最后一轮收口</h3></div>
-      <div class="badges">
-        <span class="badge new">插入排序的升级版</span>
-        <span class="badge inherit">增量 gap</span>
-        <span class="badge old">不稳定</span>
-      </div>
-    </summary>
-    <div class="human-origin">一堆乱牌要理，你不会一张张插——先按"每隔 3 张算一组"粗粗理一遍，让小牌往前跑一大步；再把间隔缩到 2、缩到 1，最后那趟几乎不用挪，因为前面已经大致就位了。</div>
+  <section class="topic" id="sec-sjjg-c22">
+    <div class="topic-h"><h3>希尔排序：先隔几个比，间隔越缩越小，最后一轮收口</h3></div>
 
-    <div class="section-label new">最直戳的特点</div>
+<div class="sub-h">最直戳的特点</div>
     <p><span class="em-new">它解决的是插入排序"一次只能挪一格"的毛病：先用大间隔 gap 让元素一次跨很远，gap 逐轮减半，最后一轮 gap=1 时数据已经基本有序，插入排序只需微调。</span>所以它比纯插入快，但比快排、归并慢一档。</p>
 
     <div class="stage-svg">
@@ -1242,7 +1067,7 @@ int find(Node* ht[], int key) {
       </svg>
     </div>
 
-    <div class="section-label new">关键代码（就是在 gap 上的插入排序）</div>
+    <div class="sub-h">关键代码（就是在 gap 上的插入排序）</div>
 <pre class="code-block">void shellSort(int a[], int n) {
     for (int gap = n / 2; gap &gt; 0; gap /= 2) {      // 增量逐轮减半，直到 1
         for (int i = gap; i &lt; n; i++) {             // 每个位置按 gap 分组插入
@@ -1258,28 +1083,19 @@ int find(Node* ht[], int key) {
 }</pre>
     <p><span class="em-new">把代码里所有 gap 换成 1，就是插入排序</span>——所以希尔排序可以理解为"分组的插入排序，先让元素大跨步归位"。</p>
 
-    <div class="section-label inherit">增量怎么取、为什么不稳、为什么比插入快</div>
+    <div class="sub-h">增量怎么取、为什么不稳、为什么比插入快</div>
     <p><strong>增量序列</strong>：最简单是 n/2 逐次减半（希尔原始方案）；更好的有 Hibbard（2^k−1）、Sedgewick 序列。复杂度与增量取法直接相关，平均大约 <span class="em-new">O(n^1.3)</span>，最坏仍是 O(n²)。<br>
     <strong>为什么不稳</strong>：gap &gt; 1 时是跨距离移动，相等元素可能被"越过"，相对次序就乱了。<br>
     <strong>为什么比插入快</strong>：插入排序每次只挪一格，大元素要挪很多次才能到前面；希尔第一步就让它跨 gap 格，减少了总移动次数。<span class="em-sed">代价是它依赖增量序列，且不稳定。</span></p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">希尔 = 带间隔的插入排序，gap 从大到小、最后一轮 gap=1 收口；原地、不稳定、平均约 O(n^1.3)，是插入排序的加速版。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c23">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">23</span><h3>快速排序：挖个基准当桩，小的甩左边、大的甩右边</h3></div>
-      <div class="badges">
-        <span class="badge new">平均最快</span>
-        <span class="badge new">原地</span>
-        <span class="badge old">最坏 O(n²)</span>
-        <span class="badge old">不稳定</span>
-      </div>
-    </summary>
-    <div class="human-origin">一群人按身高分队：随便挑一个人站中间当标尺，比他矮的全赶到左边，比他高的全赶到右边。然后左队、右队各自再挑一个标尺重复——分到每组只剩一个人，整队就排好了。这个"挑标尺、分两边"的动作，一次就把标尺送到了它的最终位置。</div>
+  <section class="topic" id="sec-sjjg-c23">
+    <div class="topic-h"><h3>快速排序：挖个基准当桩，小的甩左边、大的甩右边</h3></div>
 
-    <div class="section-label new">最直戳的特点</div>
+<div class="sub-h">最直戳的特点</div>
     <p><span class="em-new">每一趟划分只保证一件事：基准元素归位，且它左边的全不大于它、右边的全不小于它。</span>所以它不需要"合并"——分完就已经在正确的位置上了，这是它比归并省内存的根本原因。平均 O(n log n)，实测通常是最快的比较类排序。</p>
 
     <div class="stage-svg">
@@ -1319,7 +1135,7 @@ int find(Node* ht[], int key) {
       </svg>
     </div>
 
-    <div class="section-label new">关键代码（挖坑填数版）</div>
+    <div class="sub-h">关键代码（挖坑填数版）</div>
 <pre class="code-block">void quickSort(int a[], int low, int high) {
     if (low &gt;= high) return;                 // 区间只剩 0 或 1 个，天然有序
     int pivot = a[low];                      // 挖个坑，把基准先存起来
@@ -1335,28 +1151,19 @@ int find(Node* ht[], int key) {
     quickSort(a, i + 1, high);               // 右段递归
 }</pre>
 
-    <div class="section-label old">它最怕什么：已经有序的数组</div>
+    <div class="sub-h warn">它最怕什么：已经有序的数组</div>
     <p>固定取"第一个元素"当基准时，如果数组<span class="em-old">已经有序或完全逆序</span>，每趟划分都只能分出一个长度为 1 的段，递归树退化成一条链 → <span class="em-old">O(n²)</span>，而且递归深度达到 n，<span class="em-old">可能爆栈</span>。<br>
     三个应对：① <span class="em-new">随机选基准</span>（打乱"有序"这个最坏条件）；② <span class="em-new">三数取中</span>（取首、中、尾的中位数做基准）；③ <span class="em-new">小区间切插入排序</span>（n 小于阈值时用插入，减少递归层数）。<br>
     <strong>为什么不稳定</strong>：划分时的填坑是跨距离搬动，相等元素会被换到彼此前后。要稳定就不能选快排。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">快排 = 每趟定基准位置、分两边递归、不用合并；平均最快、原地、不稳定，最坏 O(n²) 出现在数据本身有序时。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c24">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">24</span><h3>归并排序：先一刀刀砍到单个，再两两合并成有序</h3></div>
-      <div class="badges">
-        <span class="badge new">稳定</span>
-        <span class="badge new">恒定 O(n log n)</span>
-        <span class="badge old">要 O(n) 额外空间</span>
-        <span class="badge new">能排外部大文件</span>
-      </div>
-    </summary>
-    <div class="human-origin">两摞已经按大小理好的试卷，要合成一摞有序的：只看两摞的最上面那张，谁小先拿，拿走后露出下一张，继续比——一次就能合完，不用回头翻。归并排序就是先把一堆牌拆成一张张（每张天然有序），再这样两两合回去。</div>
+  <section class="topic" id="sec-sjjg-c24">
+    <div class="topic-h"><h3>归并排序：先一刀刀砍到单个，再两两合并成有序</h3></div>
 
-    <div class="section-label new">最直戳的特点</div>
+<div class="sub-h">最直戳的特点</div>
     <p><span class="em-new">它是唯一"不管数据长什么样，都是 O(n log n)"的稳定排序。</span>代价很明确：合并时必须借助一个和原数组等大的临时数组，<span class="em-old">空间 O(n)</span>。所以它的取舍是"用内存换确定性"。</p>
 
     <div class="stage-svg">
@@ -1386,7 +1193,7 @@ int find(Node* ht[], int key) {
       </svg>
     </div>
 
-    <div class="section-label new">关键代码（分 + 合）</div>
+    <div class="sub-h">关键代码（分 + 合）</div>
 <pre class="code-block">void merge(int a[], int l, int m, int r) {          // 合并 a[l..m] 与 a[m+1..r]
     int* tmp = (int*)malloc((r - l + 1) * sizeof(int));
     int i = l, j = m + 1, k = 0;
@@ -1406,27 +1213,18 @@ void mergeSort(int a[], int l, int r) {
     merge(a, l, m, r);                               // 先排好两段，再合并
 }</pre>
 
-    <div class="section-label inherit">稳定性靠一个等号，外部排序靠它的思路</div>
+    <div class="sub-h">稳定性靠一个等号，外部排序靠它的思路</div>
     <p><strong>稳定在哪儿</strong>：合并时用 <code>a[i] &lt;= a[j]</code>，相等时优先取左段元素，左段的元素原本就在前面——次序保住了。写成 <code>&lt;</code> 就会不稳定。</p>
     <p><strong>外部排序</strong>：内存装不下 10GB 数据时，归并是唯一好用的思路——先分块读进内存、各自排好写回磁盘（生成若干有序归并段），再多路归并：每次只从每个段读一小块到内存里比大小。这就是<span class="em-new">多路归并排序</span>，数据库大表排序、大数据 Shuffle 的底层都靠它。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">归并 = 一直对半拆到底，再两两有序合并；稳定、恒定 O(n log n)、要 O(n) 额外空间，排大文件只能靠它。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c25">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">25</span><h3>堆排序：先堆出一座大顶堆，然后每次摘走堆顶</h3></div>
-      <div class="badges">
-        <span class="badge new">原地</span>
-        <span class="badge new">恒定 O(n log n)</span>
-        <span class="badge old">不稳定</span>
-        <span class="badge new">TopK 用它</span>
-      </div>
-    </summary>
-    <div class="human-origin">一堆人抢座位，规则很简单：每个人都不能比自己的孩子矮（父子必须"父大子小"）。这样全场最高的一定在塔尖。把塔尖的人请走、换最后一个人上去，再让他往下沉到合适位置——每请走一个，队尾就多一个排好的。</div>
+  <section class="topic" id="sec-sjjg-c25">
+    <div class="topic-h"><h3>堆排序：先堆出一座大顶堆，然后每次摘走堆顶</h3></div>
 
-    <div class="section-label new">最直戳的特点</div>
+<div class="sub-h">最直戳的特点</div>
     <p><span class="em-new">它不比较"相邻"，只维护"父不小于子"这一条局部规则；堆顶永远是当前最大值。</span>所以取最值只要 O(1)，摘走堆顶后重新下沉只要 O(log n)——n 次摘取就是 O(n log n)，且<span class="em-new">完全不用额外数组</span>（堆就存在原数组里）。</p>
 
     <div class="stage-svg">
@@ -1465,7 +1263,7 @@ void mergeSort(int a[], int l, int r) {
       </svg>
     </div>
 
-    <div class="section-label new">关键代码（下沉 + 建堆 + 逐个摘顶）</div>
+    <div class="sub-h">关键代码（下沉 + 建堆 + 逐个摘顶）</div>
 <pre class="code-block">void siftDown(int a[], int i, int n) {          // 让 a[i] 下沉到合适位置
     while (2 * i + 1 &lt; n) {                      // 还有孩子
         int c = 2 * i + 1;                       // 左孩子
@@ -1485,28 +1283,19 @@ void heapSort(int a[], int n) {
     }
 }</pre>
 
-    <div class="section-label inherit">建堆为什么是 O(n)，以及"堆为什么不稳定"</div>
+    <div class="sub-h">建堆为什么是 O(n)，以及"堆为什么不稳定"</div>
     <p><strong>建堆 O(n)</strong>：从最后一个非叶结点往前下沉，越靠下的结点越多、但下沉高度越短，把所有结点的下沉代价加起来是线性级（不是 n log n）。之后 n−1 次摘顶每次 O(log n)，总 O(n log n)。<br>
     <strong>不稳定</strong>：堆顶换到末尾是跨越整个数组的交换，相等元素的相对次序必然被打乱。<br>
     <strong>为什么实战比快排慢</strong>：堆排序的访问是"跳着走"（i → 2i+1），<span class="em-sed">缓存命中率差</span>；快排是顺序扫。所以同样 O(n log n)，快排的实际运行时间通常只有堆排的一半左右。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">堆排 = 建大顶堆 → 摘顶换到末尾 → 重新下沉；原地、恒定 O(n log n)、不稳定、缓存不友好，TopK 用小顶堆。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c26">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">26</span><h3>基数排序：按个位装一次桶、十位再装一次，装完就排好</h3></div>
-      <div class="badges">
-        <span class="badge new">不比较大小</span>
-        <span class="badge new">稳定</span>
-        <span class="badge inherit">O(d(n+r))</span>
-        <span class="badge old">只管整数/定长串</span>
-      </div>
-    </summary>
-    <div class="human-origin">整理一堆三位数的档案卡，你不比大小，只按数字一位一位地分：先按个位数丢进 10 个筐，按筐号顺序收起来；再按十位数丢筐、收取；最后按百位数丢筐、收取。三趟之后，整摞卡片自然从小到大——因为你已经在每一个数位上都排过了。</div>
+  <section class="topic" id="sec-sjjg-c26">
+    <div class="topic-h"><h3>基数排序：按个位装一次桶、十位再装一次，装完就排好</h3></div>
 
-    <div class="section-label new">最直戳的特点</div>
+<div class="sub-h">最直戳的特点</div>
     <p><span class="em-new">它是唯一"完全不做两两比较"的排序：靠"分配"到桶里 + "收集"回来，一位一位地推进。</span>所以它不受 O(n log n) 下界约束；但代价是必须知道数的位数、必须开足够多的桶、且只能用于整数或能按位切分的定长数据。</p>
 
     <div class="stage-svg">
@@ -1531,7 +1320,7 @@ void heapSort(int a[], int n) {
       </svg>
     </div>
 
-    <div class="section-label new">关键代码（LSD：从低位到高位）</div>
+    <div class="sub-h">关键代码（LSD：从低位到高位）</div>
 <pre class="code-block">void radixSort(int a[], int n) {                  // 非负整数，十进制
     int max = a[0];
     for (int i = 1; i &lt; n; i++) if (a[i] &gt; max) max = a[i];
@@ -1548,28 +1337,20 @@ void heapSort(int a[], int n) {
     free(tmp);
 }</pre>
 
-    <div class="section-label inherit">三个必答的点</div>
+    <div class="sub-h">三个必答的点</div>
     <p><strong>① 为什么必须从后往前放</strong>：同一桶内要保证"先进先出"（先收进来的排在前面），只能从后往前倒着写入。这一步是基数排序<span class="em-new">稳定的唯一保证</span>；上一趟的次序信息全靠它传下去。<br>
     <strong>② 复杂度 O(d(n+r))</strong>：d 是最大位数（要跑几趟），n 是元素数，r 是桶数（十进制 r=10）。当 d 很小、n 很大时，它比 O(n log n) 还快。<br>
     <strong>③ 适用边界</strong>：只能排<span class="em-old">整数或定长字符串</span>；负数要先处理符号位；浮点数不能直接按位切。空间要 O(n + r)，不是原地排序。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">基数排序 = 按位分桶、按桶收集，跑 d 趟；不比较、稳定、O(d(n+r))，只能用于整数/定长串且要额外空间。</span></p>
-  </details>
+  </section>
 
-  <details class="card fold-card" id="sec-sjjg-c27">
-    <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">27</span><h3>考场上怎么选：给条件就能报出答案</h3></div>
-      <div class="badges">
-        <span class="badge new">决策表</span>
-        <span class="badge inherit">四个判据</span>
-        <span class="badge sediment">题型固定</span>
-      </div>
-    </summary>
-    <div class="human-origin">选择题不会让你现场写八种排序，只会给一个条件：<strong>"要求稳定"、"要求最坏也 O(n log n)"、"数据基本有序"、"内存只有几百 KB"</strong>——每个条件都直接指向一两个答案。这张表就是"条件 → 答案"的映射。</div>
+  <section class="topic" id="sec-sjjg-c27">
+    <div class="topic-h"><h3>考场上怎么选：给条件就能报出答案</h3></div>
 
-    <div class="section-label new">条件 → 选谁</div>
-    <table class="tbl">
+<div class="sub-h">条件 → 选谁</div>
+    <div class="tbl-wrap"><table class="tbl">
       <thead>
         <tr><th>题目给的条件</th><th>该选</th><th>为什么</th></tr>
       </thead>
@@ -1584,19 +1365,19 @@ void heapSort(int a[], int n) {
         <tr><td>"内存装不下，数据在磁盘上"</td><td>归并（多路归并的外部排序）</td><td>只有归并能分块 + 多路合并</td></tr>
         <tr><td>"没有特别要求，通用最快"</td><td>快速排序</td><td>平均常数最小、原地、缓存友好</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
-    <div class="section-label inherit">四个判据，按顺序问</div>
+    <div class="sub-h">四个判据，按顺序问</div>
     <p><span class="em-new">① 要不要稳定</span>（要 → 归并/插入/冒泡/基数）→ <span class="em-new">② 最坏能不能接受 O(n²)</span>（不能 → 归并/堆）→ <span class="em-new">③ 内存紧不紧</span>（紧 → 堆）→ <span class="em-new">④ 数据是不是近乎有序</span>（是 → 插入）。四问走完，答案唯一。</p>
 
-    <div class="section-label old">三个高频错答</div>
+    <div class="sub-h warn">三个高频错答</div>
     <p>✗ "快排是最快的，任何情况都选它"——数据有序时它最坏 O(n²)，且不稳定。<br>
     ✗ "堆排序原地又 O(n log n)，所以最好"——它缓存不友好，实测比快排慢约一倍。<br>
     ✗ "归并稳定又快，用它就对了"——它要 O(n) 额外空间，嵌入式/内存受限场景用不了。</p>
 
-    <div class="section-label sediment">一句话记</div>
+    <div class="sub-h note">一句话记</div>
     <p><span class="em-sed">稳定选归并、最坏选归并或堆、省内存选堆、近乎有序选插入、求 TopK 用堆、通用最快选快排。</span></p>
-  </details>
+  </section>
 </div>
 
 

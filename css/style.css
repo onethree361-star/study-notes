@@ -346,7 +346,7 @@ body.editing .card-tools .ct-edit{display:grid;background:var(--brand-1);border-
   #mToolbar{display:flex}
   #backTop{display:none}
   .content{padding-bottom:88px}
-  .nav-title{display:none}
+  .nav-title{display:block;font-size:12.5px;max-width:84px;overflow:hidden;text-overflow:ellipsis}
   .nav{gap:10px;padding:0 12px}
   #editBtn{padding:4px 8px}
 }
@@ -468,3 +468,22 @@ html[data-theme="dark"] .tl-item.bad .tl-dot{box-shadow:0 0 0 3px rgba(159,58,56
 /* ===== 计算机 · 数据结构 代码块（2026-11-05 新增）===== */
 .code-block{margin:10px 0 4px;padding:12px 14px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:8px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Consolas,"Courier New",monospace;font-size:12.5px;line-height:1.75;color:var(--t1);white-space:pre;tab-size:4}
 .code-block .cm{color:var(--t3)}
+
+/* ===== 知识体系页：章节式排版（2026-11-05 重设）===== */
+.topic{margin:0 0 28px;padding:0 0 24px;border-bottom:1px solid var(--divider)}
+.topic:last-child{border-bottom:0;padding-bottom:6px;margin-bottom:0}
+.topic-h{margin:0 0 12px;padding-left:12px;position:relative}
+.topic-h::before{content:"";position:absolute;left:0;top:3px;bottom:3px;width:3px;border-radius:2px;background:var(--green-1)}
+.topic-h h3{font-size:16.5px;line-height:1.55;font-weight:700;margin:0;color:var(--t1)}
+.topic .em-new{color:var(--green-1);font-weight:500}
+.topic .em-old{color:var(--red-1);font-weight:500}
+.topic .em-sed{color:var(--purple-1);font-weight:500}
+.sub-h{display:block;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--green-1);margin:18px 0 6px}
+.sub-h.warn{color:var(--red-1)}
+.sub-h.note{color:var(--t3)}
+.doc-toc{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}
+.doc-toc a{font-size:12.5px;color:var(--t2);padding:5px 11px;border-radius:14px;background:var(--bg-alt);border:1px solid var(--divider);line-height:1.4}
+.doc-toc a:hover{color:var(--green-1);border-color:var(--green-1);background:var(--green-soft);text-decoration:none}
+
+.tbl-wrap{overflow-x:auto;margin:10px 0;-webkit-overflow-scrolling:touch}
+.tbl-wrap .tbl{min-width:640px}

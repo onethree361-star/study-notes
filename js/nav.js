@@ -139,8 +139,15 @@ const NAV_DATA = [
       { t: '安全管理与评估', u: 'pages/computer/management-eval.html#sec-aqgl' },
       { t: '运维安全与数据防护', u: 'pages/computer/ops-data.html#sec-ywaq' },
     ]},
-    { t: '数据结构', n: '1', links: [
-      { t: '数据结构', u: 'pages/computer/data-structure.html#sec-sjjg-dingyi' },
+    { t: '数据结构', n: '8', links: [
+      { t: '定义与基本术语', u: 'pages/computer/data-structure.html#sec-sjjg-dingyi' },
+      { t: '物理结构（存储结构）', u: 'pages/computer/data-structure.html#sec-sjjg-wuli' },
+      { t: '逻辑结构总览', u: 'pages/computer/data-structure.html#sec-sjjg-luoji' },
+      { t: '线性表·栈·队列·串', u: 'pages/computer/data-structure.html#sec-sjjg-xianxing' },
+      { t: '树·二叉树·堆', u: 'pages/computer/data-structure.html#sec-sjjg-shu' },
+      { t: '图与图算法', u: 'pages/computer/data-structure.html#sec-sjjg-tu' },
+      { t: '查找（顺序/二分/哈希/分块）', u: 'pages/computer/data-structure.html#sec-sjjg-chazhao' },
+      { t: '八种排序与选型', u: 'pages/computer/data-structure.html#sec-sjjg-paixu' },
     ]},
   ]},
 
