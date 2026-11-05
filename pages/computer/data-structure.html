@@ -33,7 +33,7 @@
 <div class="doc-head">
   <h1>数据结构</h1>
   <p><strong>一段总括：</strong>数据结构是相互之间存在一种或多种特定关系的数据元素的集合。它由三件事咬在一起组成——<span class="em-new">逻辑结构</span>（元素之间是什么关系）、<span class="em-new">存储结构</span>（这层关系在内存里怎么摆）、<span class="em-new">运算</span>（在这个结构上能做什么、做多快）。同一批数据、同一种关系，换一种摆法，操作的快慢就完全不同，所以"选数据结构"本质上是"选关系的表示方式"。</p>
-  <div class="stat">总括 <b>1</b> 篇 · 存储结构 <b>4</b> 种 · 逻辑结构 <b>4</b> 类 · 排序 <b>8</b> 种</div>
+  <div class="stat">总括 <b>1</b> 篇 · 存储结构 <b>4</b> 种 · 逻辑结构 <b>4</b> 类 · 查找 <b>4</b> 种 · 图算法 <b>4</b> 类 · 排序 <b>8</b> 种</div>
 </div>
 
 <div class="sec-block" id="sec-sjjg-dingyi">
@@ -577,7 +577,97 @@
 
   <details class="card fold-card" id="sec-sjjg-c11">
     <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">11</span><h3>同一逻辑结构，可以有几种存储实现</h3></div>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">11</span><h3>图的两件正经事：排顺序（拓扑）、连最省（生成树）</h3></div>
+      <div class="badges">
+        <span class="badge new">AOV 网</span>
+        <span class="badge new">入度为 0</span>
+        <span class="badge new">Prim / Kruskal</span>
+        <span class="badge new">关键路径</span>
+      </div>
+    </summary>
+    <div class="human-origin">装修一套房子：得先改水电，才能贴砖，砖贴完才能刷墙，刷完墙才装门。哪道工序卡着哪道工序，画出来就是一张<span class="em-new">有向无环图</span>。工程上真正要回答的只有两个问题——"这些活的先后顺序能不能排完"（拓扑排序），"把所有房间都接通、用最少的线"（最小生成树）。第三问才是"整个工期由哪几条活卡着"（关键路径）。</div>
+
+    <div class="stage-svg">
+      <svg viewBox="0 0 740 240" width="740" height="240" role="img" aria-label="拓扑排序示意：有向无环图与逐层出队顺序">
+        <text x="8" y="18" font-size="12.5" fill="var(--t1)">AOV 网：顶点 = 活动，弧 = 先后约束（A 干完才能干 B）</text>
+        <line x1="82" y1="72" x2="176" y2="52" stroke="var(--green-1)" stroke-width="1.4"/><polygon points="176,52 168,49 170,56" fill="var(--green-1)"/>
+        <line x1="82" y1="84" x2="176" y2="112" stroke="var(--green-1)" stroke-width="1.4"/><polygon points="176,112 170,106 169,113" fill="var(--green-1)"/>
+        <line x1="204" y1="56" x2="278" y2="88" stroke="var(--t3)" stroke-width="1.4"/><polygon points="278,88 271,83 270,90" fill="var(--t3)"/>
+        <line x1="204" y1="116" x2="278" y2="96" stroke="var(--t3)" stroke-width="1.4"/><polygon points="278,96 270,94 272,101" fill="var(--t3)"/>
+        <line x1="306" y1="100" x2="372" y2="100" stroke="var(--t3)" stroke-width="1.4"/><polygon points="372,100 365,96 365,104" fill="var(--t3)"/>
+        <circle cx="64" cy="78" r="16" fill="var(--green-soft)" stroke="var(--green-1)"/><text x="64" y="83" font-size="12" fill="var(--t1)" text-anchor="middle">A</text>
+        <circle cx="190" cy="50" r="16" fill="var(--bg-alt)" stroke="var(--divider)"/><text x="190" y="55" font-size="12" fill="var(--t1)" text-anchor="middle">B</text>
+        <circle cx="190" cy="118" r="16" fill="var(--bg-alt)" stroke="var(--divider)"/><text x="190" y="123" font-size="12" fill="var(--t1)" text-anchor="middle">C</text>
+        <circle cx="292" cy="94" r="16" fill="var(--bg-alt)" stroke="var(--divider)"/><text x="292" y="99" font-size="12" fill="var(--t1)" text-anchor="middle">D</text>
+        <circle cx="388" cy="100" r="16" fill="var(--bg-alt)" stroke="var(--divider)"/><text x="388" y="105" font-size="12" fill="var(--t1)" text-anchor="middle">E</text>
+        <text x="8" y="160" font-size="11" fill="var(--t3)">入度：A 0、B 1、C 1、D 2、E 1</text>
+        <text x="8" y="180" font-size="11" fill="var(--t3)">只有 A 入度为 0，第一步只能出 A</text>
+        <text x="8" y="200" font-size="11" fill="var(--t3)">A 出队后 B、C 的入度减到 0，才有第二步</text>
+        <text x="8" y="220" font-size="11" fill="var(--t3)">"能排完"= 无环；排不完就说明存在循环依赖</text>
+
+        <text x="470" y="18" font-size="12.5" fill="var(--t1)">拓扑序：不是唯一的</text>
+        <rect x="470" y="32" width="42" height="26" fill="var(--green-soft)" stroke="var(--green-1)"/><text x="491" y="49" font-size="12" fill="var(--t1)" text-anchor="middle">A</text>
+        <rect x="522" y="32" width="42" height="26" fill="var(--bg-alt)" stroke="var(--divider)"/><text x="543" y="49" font-size="12" fill="var(--t1)" text-anchor="middle">B</text>
+        <rect x="574" y="32" width="42" height="26" fill="var(--bg-alt)" stroke="var(--divider)"/><text x="595" y="49" font-size="12" fill="var(--t1)" text-anchor="middle">C</text>
+        <rect x="626" y="32" width="42" height="26" fill="var(--bg-alt)" stroke="var(--divider)"/><text x="647" y="49" font-size="12" fill="var(--t1)" text-anchor="middle">D</text>
+        <rect x="678" y="32" width="42" height="26" fill="var(--bg-alt)" stroke="var(--divider)"/><text x="699" y="49" font-size="12" fill="var(--t1)" text-anchor="middle">E</text>
+        <text x="470" y="90" font-size="11" fill="var(--t3)">A B C D E 与 A C B D E 都对，</text>
+        <text x="470" y="108" font-size="11" fill="var(--t3)">只要每条弧的起点都排在终点前面。</text>
+        <text x="470" y="138" font-size="11" fill="var(--t3)">时间 O(n + e)：每个顶点进队一次、</text>
+        <text x="470" y="156" font-size="11" fill="var(--t3)">每条边被检查一次。</text>
+        <text x="470" y="186" font-size="11" fill="var(--t3)">判环就靠这一步：出队数 &lt; n 就是有环，</text>
+        <text x="470" y="204" font-size="11" fill="var(--t3)">整个工程永远排不完。</text>
+      </svg>
+    </div>
+
+    <div class="section-label new">拓扑排序：谁"没人卡着"，谁先出队</div>
+    <p>把活动看成顶点、先后约束看成有向边，得到 <span class="em-new">AOV 网</span>。算法只有三步：<br>
+    ① 统计每个顶点的<strong>入度</strong>（有几个人排在它前面）；② 把所有入度为 0 的顶点入队；③ 出队一个、记入结果，把它指向的每个邻居入度减 1，减到 0 就入队。<br>
+    队列走空时，如果记下的顶点数等于 n，说明没有环、顺序排出来了；<span class="em-old">不等于 n 就说明剩下的点互相卡着，存在循环依赖</span>——这就是"能否排完"的判定。</p>
+
+    <pre class="code-block">int topoSort(int n, int indeg[], int order[]) {
+    int q[MAXN], head = 0, tail = 0, cnt = 0;
+    for (int i = 0; i &lt; n; i++)
+        if (indeg[i] == 0) q[tail++] = i;        // 没人卡着的先进队
+    while (head &lt; tail) {
+        int u = q[head++];                      // 出队 = 确定它的位置
+        order[cnt++] = u;
+        for (每个邻居 v of u)
+            if (--indeg[v] == 0) q[tail++] = v;  // 依赖少了一个，减到 0 才轮得到
+    }
+    return cnt == n;                            // 0 表示有环，排不完
+}</pre>
+
+    <div class="section-label new">最小生成树：n 个点连通，只要 n−1 条边</div>
+    <p>连通图的一棵生成树含全部 n 个顶点、恰好 n−1 条边（再少一条就断开，再多一条就有环）。在所有生成树里，边权之和最小的那棵叫<span class="em-new">最小生成树</span>。两种做法，分场合用：</p>
+    <table class="tbl">
+      <thead>
+        <tr><th>算法</th><th>怎么长</th><th>复杂度</th><th>适合</th></th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Prim（普里姆）</td><td>从一个点出发，每次挑"已选集合↔未选集合"之间最短的那条边，把新点拉进来</td><td>O(n²)</td><td>稠密图（点多边更多）</td></tr>
+        <tr><td>Kruskal（克鲁斯卡尔）</td><td>把所有边按权排序，从小到大一条条加，加进去不成环就要（用并查集判环）</td><td>O(e log e)</td><td>稀疏图（边少）</td></tr>
+      </tbody>
+    </table>
+    <p><span class="em-sed">一句话区分：Prim 盯着点长，Kruskal 盯着边挑。</span></p>
+
+    <div class="section-label inherit">关键路径：决定工期的是最长那条路</div>
+    <p>AOE 网里顶点是"事件"、边是"活动"、边权是持续时间。从源点到汇点的<span class="em-new">最长路径</span>就是关键路径，它的长度等于整个工程的最短工期。<br>
+    算法核心是两个时间：每个事件的最早发生时间 <strong>ve</strong>（正推取最大）、最迟发生时间 <strong>vl</strong>（逆推取最小）；两者之差为 0 的活动就是<span class="em-new">关键活动</span>，串起来就是关键路径。<br>
+    <span class="em-old">缩短非关键活动对工期毫无帮助</span>——那是白花钱；只有压缩关键活动才可能提前完工。</p>
+
+    <div class="section-label old">三个必考的坑</div>
+    <p>✗ "拓扑序唯一"——不唯一，A B C D 和 A C B D 都合法；唯一的是"能不能排完"。<br>
+    ✗ "最小生成树唯一"——树可能不唯一（等权边时），但<span class="em-new">总权值一定唯一</span>。<br>
+    ✗ "关键路径只有一条"——可能有多条并行的最长路，压缩其中一条，工期不一定缩短。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">拓扑排序 = 入度为 0 的排队出队，出不完就是有环；最小生成树 = n−1 条边连全图，Prim 看点、Kruskal 看边；关键路径 = 最长路定工期，松弛为 0 的活动才值得压。</span></p>
+  </details>
+
+  <details class="card fold-card" id="sec-sjjg-c12">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">12</span><h3>同一逻辑结构，可以有几种存储实现</h3></div>
       <div class="badges">
         <span class="badge inherit">逻辑与存储分离</span>
         <span class="badge new">实现对照</span>
@@ -607,9 +697,9 @@
 <div class="sec-block" id="sec-sjjg-caozuo">
   <div class="sec-h"><h2 id="sec-sjjg-caozuo-h">三、操作（查询与排序）</h2><span class="years">顺序 · 二分 · 哈希 · 八种排序</span></div>
 
-  <details class="card fold-card" id="sec-sjjg-c12">
+  <details class="card fold-card" id="sec-sjjg-c13">
     <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">12</span><h3>先看清"操作"的账本：时间复杂度、空间、稳定性</h3></div>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">13</span><h3>先看清"操作"的账本：时间复杂度、空间、稳定性</h3></div>
       <div class="badges">
         <span class="badge new">大 O</span>
         <span class="badge new">空间复杂度</span>
@@ -631,9 +721,9 @@
     <p><span class="em-sed">看算法先问三句：n 变大时它多快（时间）、要多占多少内存（空间）、相等元素会不会乱序（稳定性）。</span></p>
   </details>
 
-  <details class="card fold-card" id="sec-sjjg-c13">
+  <details class="card fold-card" id="sec-sjjg-c14">
     <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">13</span><h3>顺序查找：从头挨个问，简单但慢</h3></div>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">14</span><h3>顺序查找：从头挨个问，简单但慢</h3></div>
       <div class="badges">
         <span class="badge new">O(n)</span>
         <span class="badge inherit">无序也能用</span>
@@ -682,9 +772,9 @@ int seqSearch2(int a[], int n, int key) {
     <p><span class="em-sed">顺序查找 = 逐个敲门，无序万能、代价 O(n)；平均要查一半，最坏查到底。</span></p>
   </details>
 
-  <details class="card fold-card" id="sec-sjjg-c14">
+  <details class="card fold-card" id="sec-sjjg-c15">
     <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">14</span><h3>二分查找：每次砍掉一半，但前提很硬</h3></div>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">15</span><h3>二分查找：每次砍掉一半，但前提很硬</h3></div>
       <div class="badges">
         <span class="badge new">O(log n)</span>
         <span class="badge inherit">必须有序 + 顺序存储</span>
@@ -747,9 +837,9 @@ int seqSearch2(int a[], int n, int key) {
     <p><span class="em-sed">二分 = 每比一次砍一半，O(log n)，前提是有序且能按下标跳；三个坑记"等号、减一、防溢出"。</span></p>
   </details>
 
-  <details class="card fold-card" id="sec-sjjg-c15">
+  <details class="card fold-card" id="sec-sjjg-c16">
     <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">15</span><h3>哈希查找：不算不找，直接算地址</h3></div>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">16</span><h3>哈希查找：不算不找，直接算地址</h3></div>
       <div class="badges">
         <span class="badge new">平均 O(1)</span>
         <span class="badge inherit">除留余数法</span>
@@ -832,9 +922,65 @@ int find(Node* ht[], int key) {
     <p><span class="em-sed">哈希 = 用函数把 key 变成地址，平均一步到位；代价是冲突处理、扩容 rehash、以及彻底放弃有序性。</span></p>
   </details>
 
-  <details class="card fold-card" id="sec-sjjg-c16">
+  <details class="card fold-card" id="sec-sjjg-c17">
     <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">16</span><h3>八种排序先看总账：谁快、谁稳、谁费内存</h3></div>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">17</span><h3>分块查找：先翻目录再扫那一叠，介于顺序与二分之间</h3></div>
+      <div class="badges">
+        <span class="badge new">索引顺序</span>
+        <span class="badge new">块间有序</span>
+        <span class="badge new">ASL ≈ √n + 1</span>
+      </div>
+    </summary>
+    <div class="human-origin">查纸质字典不会从第一页翻：先按首字母定位到"L 部"，再在 L 这一叠里一页页找。分块查找干的就是这件事——先把数据切成若干块、给每块建一条<span class="em-new">索引</span>，先用索引粗定位到块，再在块内顺序扫。<span class="em-sed">块间有序，块内可以无序。</span></div>
+
+    <div class="stage-svg">
+      <svg viewBox="0 0 740 210" width="740" height="210" role="img" aria-label="分块查找：索引表定位到块，再块内顺序查找">
+        <text x="8" y="18" font-size="12.5" fill="var(--t1)">索引表：每块存"本块最大关键字"和"起始下标"，表本身按关键字有序</text>
+        <rect x="40" y="32" width="150" height="30" fill="var(--green-soft)" stroke="var(--green-1)"/><text x="115" y="52" font-size="12" fill="var(--t1)" text-anchor="middle">最大 24 · 起始 0</text>
+        <rect x="278" y="32" width="150" height="30" fill="var(--green-soft)" stroke="var(--green-1)"/><text x="353" y="52" font-size="12" fill="var(--t1)" text-anchor="middle">最大 45 · 起始 4</text>
+        <rect x="516" y="32" width="150" height="30" fill="var(--green-soft)" stroke="var(--green-1)"/><text x="591" y="52" font-size="12" fill="var(--t1)" text-anchor="middle">最大 62 · 起始 8</text>
+
+        <line x1="115" y1="68" x2="115" y2="96" stroke="var(--green-1)" stroke-width="1.2"/><polygon points="115,100 111,92 119,92" fill="var(--green-1)"/>
+        <line x1="353" y1="68" x2="353" y2="96" stroke="var(--green-1)" stroke-width="1.2"/><polygon points="353,100 349,92 357,92" fill="var(--green-1)"/>
+        <line x1="591" y1="68" x2="591" y2="96" stroke="var(--green-1)" stroke-width="1.2"/><polygon points="591,100 587,92 595,92" fill="var(--green-1)"/>
+
+        <rect x="40" y="104" width="150" height="34" fill="var(--bg-alt)" stroke="var(--divider)"/>
+        <text x="115" y="126" font-size="11.5" fill="var(--t1)" text-anchor="middle">8  14  6  24</text>
+        <rect x="278" y="104" width="150" height="34" fill="var(--green-soft)" stroke="var(--green-1)"/>
+        <text x="353" y="126" font-size="11.5" fill="var(--t1)" text-anchor="middle">30  45  22  12</text>
+        <rect x="516" y="104" width="150" height="34" fill="var(--bg-alt)" stroke="var(--divider)"/>
+        <text x="591" y="126" font-size="11.5" fill="var(--t1)" text-anchor="middle">48  62  55  40</text>
+        <text x="115" y="156" font-size="10.5" fill="var(--t3)" text-anchor="middle">第 1 块（下标 0–3）</text>
+        <text x="353" y="156" font-size="10.5" fill="var(--t3)" text-anchor="middle">第 2 块（下标 4–7）</text>
+        <text x="591" y="156" font-size="10.5" fill="var(--t3)" text-anchor="middle">第 3 块（下标 8–11）</text>
+
+        <text x="8" y="184" font-size="11" fill="var(--t3)">查 45：24 &lt; 45，而 45 ≥ 45 → 定位到第 2 块（第一个"最大关键字 ≥ key"的块）</text>
+        <text x="8" y="202" font-size="11" fill="var(--t3)">块内 4 个元素顺序比，第 2 次就命中。整体 ASL = 索引 (b+1)/2 + 块内 (s+1)/2，s = √n 时最优 ≈ √n + 1</text>
+      </svg>
+    </div>
+
+    <div class="section-label new">规则与代价</div>
+    <p><strong>前提</strong>：块间必须有序（后一块的所有关键字都大于前一块的最大值），块内随便是无序的——正因为块内无序，所以<span class="em-old">块内只能用顺序查找，不能二分</span>。<br>
+    <strong>查找过程</strong>：① 在索引表里找"最大关键字 ≥ key"的第一个块（索引表元素少时顺序比，多时可对索引表再二分）；② 到该块里从头顺序扫。<br>
+    <strong>平均查找长度</strong>：设 n 个元素分 b 块、每块 s 个，则 ASL = <span class="em-new">(b+1)/2 + (s+1)/2</span>，在 s = √n 时取到最优，约 <span class="em-new">√n + 1</span> 次比较。</p>
+
+    <div class="section-label inherit">什么时候真会用它</div>
+    <p>① 数据量大、而且<span class="em-new">经常插入删除</span>：链表做不了二分（不能随机访问），但可以按块挂成"索引 + 链表"，这就是分块查找的现实版本。<br>
+    ② 数据库的<span class="em-new">稀疏索引</span>：B+ 树叶子上一层层块，先定位块、块内再扫，思路完全一致。<br>
+    ③ 磁盘文件：一次 I/O 读一整块，块内多扫几个元素几乎不花钱，所以"块间二分 + 块内顺序"是外存的常规套路。</p>
+
+    <div class="section-label old">三个坑</div>
+    <p>✗ 把块内也当有序去做二分——块内无序，二分会漏。<br>
+    ✗ 把 ASL 记成 O(1)——它是 O(√n)，比顺序 O(n) 好、比二分 O(log n) 差。<br>
+    ✗ 索引表里存"最小关键字"——必须存<span class="em-old">每块的最大关键字</span>，否则无法判断 key 该落哪块。</p>
+
+    <div class="section-label sediment">一句话记</div>
+    <p><span class="em-sed">分块查找 = 索引表粗定位 + 块内顺序扫；块间有序块内乱，ASL 约 √n+1，胜在能动态增删、适合外存。</span></p>
+  </details>
+
+  <details class="card fold-card" id="sec-sjjg-c18">
+    <summary>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">18</span><h3>八种排序先看总账：谁快、谁稳、谁费内存</h3></div>
       <div class="badges">
         <span class="badge new">总表</span>
         <span class="badge inherit">稳定性口诀</span>
@@ -871,9 +1017,9 @@ int find(Node* ht[], int key) {
     <span class="em-old">快排最坏 O(n²) 的触发条件：数据已经有序（或逆序）且固定取首/尾元素做基准</span>——这时每次划分都退化成 1 和 n−1 两段。</p>
   </details>
 
-  <details class="card fold-card" id="sec-sjjg-c17">
+  <details class="card fold-card" id="sec-sjjg-c19">
     <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">17</span><h3>冒泡排序：相邻两两比，一趟把最大的顶到队尾</h3></div>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">19</span><h3>冒泡排序：相邻两两比，一趟把最大的顶到队尾</h3></div>
       <div class="badges">
         <span class="badge new">稳定</span>
         <span class="badge inherit">最好 O(n)</span>
@@ -935,9 +1081,9 @@ int find(Node* ht[], int key) {
     <p><span class="em-sed">冒泡 = 每趟把最大的顶到队尾，稳定、原地、最坏 O(n²)，是"教学用"的排序，实战基本不用。</span></p>
   </details>
 
-  <details class="card fold-card" id="sec-sjjg-c18">
+  <details class="card fold-card" id="sec-sjjg-c20">
     <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">18</span><h3>选择排序：每轮只挑一个最小的，跟队头换位</h3></div>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">20</span><h3>选择排序：每轮只挑一个最小的，跟队头换位</h3></div>
       <div class="badges">
         <span class="badge new">交换次数最少</span>
         <span class="badge inherit">O(n²) 恒定</span>
@@ -998,9 +1144,9 @@ int find(Node* ht[], int key) {
     <p><span class="em-sed">选择排序 = 每轮扫一遍挑最小、只换一次；比较恒定 O(n²)、交换最少、不稳定。</span></p>
   </details>
 
-  <details class="card fold-card" id="sec-sjjg-c19">
+  <details class="card fold-card" id="sec-sjjg-c21">
     <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">19</span><h3>插入排序：像摸牌，拿到一张就往手里合适的位置塞</h3></div>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">21</span><h3>插入排序：像摸牌，拿到一张就往手里合适的位置塞</h3></div>
       <div class="badges">
         <span class="badge new">稳定</span>
         <span class="badge new">近乎有序时最快</span>
@@ -1057,9 +1203,9 @@ int find(Node* ht[], int key) {
     <p><span class="em-sed">插入排序 = 前缀始终有序，新元素往左找位置、大的右移；稳定、最好 O(n)、小数组和近乎有序时最快。</span></p>
   </details>
 
-  <details class="card fold-card" id="sec-sjjg-c20">
+  <details class="card fold-card" id="sec-sjjg-c22">
     <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">20</span><h3>希尔排序：先隔几个比，间隔越缩越小，最后一轮收口</h3></div>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">22</span><h3>希尔排序：先隔几个比，间隔越缩越小，最后一轮收口</h3></div>
       <div class="badges">
         <span class="badge new">插入排序的升级版</span>
         <span class="badge inherit">增量 gap</span>
@@ -1121,9 +1267,9 @@ int find(Node* ht[], int key) {
     <p><span class="em-sed">希尔 = 带间隔的插入排序，gap 从大到小、最后一轮 gap=1 收口；原地、不稳定、平均约 O(n^1.3)，是插入排序的加速版。</span></p>
   </details>
 
-  <details class="card fold-card" id="sec-sjjg-c21">
+  <details class="card fold-card" id="sec-sjjg-c23">
     <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">21</span><h3>快速排序：挖个基准当桩，小的甩左边、大的甩右边</h3></div>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">23</span><h3>快速排序：挖个基准当桩，小的甩左边、大的甩右边</h3></div>
       <div class="badges">
         <span class="badge new">平均最快</span>
         <span class="badge new">原地</span>
@@ -1198,9 +1344,9 @@ int find(Node* ht[], int key) {
     <p><span class="em-sed">快排 = 每趟定基准位置、分两边递归、不用合并；平均最快、原地、不稳定，最坏 O(n²) 出现在数据本身有序时。</span></p>
   </details>
 
-  <details class="card fold-card" id="sec-sjjg-c22">
+  <details class="card fold-card" id="sec-sjjg-c24">
     <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">22</span><h3>归并排序：先一刀刀砍到单个，再两两合并成有序</h3></div>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">24</span><h3>归并排序：先一刀刀砍到单个，再两两合并成有序</h3></div>
       <div class="badges">
         <span class="badge new">稳定</span>
         <span class="badge new">恒定 O(n log n)</span>
@@ -1268,9 +1414,9 @@ void mergeSort(int a[], int l, int r) {
     <p><span class="em-sed">归并 = 一直对半拆到底，再两两有序合并；稳定、恒定 O(n log n)、要 O(n) 额外空间，排大文件只能靠它。</span></p>
   </details>
 
-  <details class="card fold-card" id="sec-sjjg-c23">
+  <details class="card fold-card" id="sec-sjjg-c25">
     <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">23</span><h3>堆排序：先堆出一座大顶堆，然后每次摘走堆顶</h3></div>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">25</span><h3>堆排序：先堆出一座大顶堆，然后每次摘走堆顶</h3></div>
       <div class="badges">
         <span class="badge new">原地</span>
         <span class="badge new">恒定 O(n log n)</span>
@@ -1348,9 +1494,9 @@ void heapSort(int a[], int n) {
     <p><span class="em-sed">堆排 = 建大顶堆 → 摘顶换到末尾 → 重新下沉；原地、恒定 O(n log n)、不稳定、缓存不友好，TopK 用小顶堆。</span></p>
   </details>
 
-  <details class="card fold-card" id="sec-sjjg-c24">
+  <details class="card fold-card" id="sec-sjjg-c26">
     <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">24</span><h3>基数排序：按个位装一次桶、十位再装一次，装完就排好</h3></div>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">26</span><h3>基数排序：按个位装一次桶、十位再装一次，装完就排好</h3></div>
       <div class="badges">
         <span class="badge new">不比较大小</span>
         <span class="badge new">稳定</span>
@@ -1411,9 +1557,9 @@ void heapSort(int a[], int n) {
     <p><span class="em-sed">基数排序 = 按位分桶、按桶收集，跑 d 趟；不比较、稳定、O(d(n+r))，只能用于整数/定长串且要额外空间。</span></p>
   </details>
 
-  <details class="card fold-card" id="sec-sjjg-c25">
+  <details class="card fold-card" id="sec-sjjg-c27">
     <summary>
-      <div class="card-h"><span class="fold-arrow"></span><span class="idx">25</span><h3>考场上怎么选：给条件就能报出答案</h3></div>
+      <div class="card-h"><span class="fold-arrow"></span><span class="idx">27</span><h3>考场上怎么选：给条件就能报出答案</h3></div>
       <div class="badges">
         <span class="badge new">决策表</span>
         <span class="badge inherit">四个判据</span>
