@@ -583,5 +583,10 @@
     "title": "错题本：信息安全",
     "url": "errors/computer.html",
     "keywords": "信息安全 错题 题解 CIA 密码技术 PKI 网络攻击 恶意软件 Web 攻击 访问控制 Web 通信 安全管理 等保 运维 数据防护"
+  },
+  {
+    "title": "数据结构",
+    "url": "pages/computer/data-structure.html",
+    "keywords": "数据结构 逻辑结构 存储结构 物理结构 顺序存储 链式存储 索引存储 散列存储 线性表 顺序表 链表 栈 队列 串 数组 树 二叉树 遍历 二叉搜索树 哈夫曼 堆 B树 B+树 图 邻接矩阵 邻接表 DFS BFS Dijkstra Floyd 拓扑排序 顺序查找 二分查找 哈希查找 散列冲突 冒泡排序 选择排序 插入排序 希尔排序 归并排序 快速排序 堆排序 基数排序 时间复杂度 空间复杂度 稳定性"
   }
 ]

@@ -139,6 +139,9 @@ const NAV_DATA = [
       { t: '安全管理与评估', u: 'pages/computer/management-eval.html#sec-aqgl' },
       { t: '运维安全与数据防护', u: 'pages/computer/ops-data.html#sec-ywaq' },
     ]},
+    { t: '数据结构', n: '1', links: [
+      { t: '数据结构', u: 'pages/computer/data-structure.html#sec-sjjg-dingyi' },
+    ]},
   ]},
 
   { t: '英语', children: [

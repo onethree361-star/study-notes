@@ -178,7 +178,7 @@ details summary{list-style:none}
   .sidebar{transform:translateX(-100%)}
   .sidebar.open{transform:translateX(0)!important}
   .sidebar-backdrop.show{opacity:1;pointer-events:auto}
-  .content{padding:calc(var(--nav-h)+20px) 16px 60px 16px}
+  .content{padding:calc(var(--nav-h) + 20px) 16px 60px 16px}
 }
 
 /* ============================================================
@@ -464,3 +464,7 @@ html[data-theme="dark"] .tl-item.bad .tl-dot{box-shadow:0 0 0 3px rgba(159,58,56
 .tbl th,.tbl td{border:1px solid var(--divider);padding:6px 9px;text-align:left;vertical-align:top;color:var(--t2)}
 .tbl th{background:var(--bg-alt);color:var(--t1);font-weight:600;white-space:nowrap}
 .tbl tbody tr:hover td{background:var(--bg-soft)}
+
+/* ===== 计算机 · 数据结构 代码块（2026-11-05 新增）===== */
+.code-block{margin:10px 0 4px;padding:12px 14px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:8px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Consolas,"Courier New",monospace;font-size:12.5px;line-height:1.75;color:var(--t1);white-space:pre;tab-size:4}
+.code-block .cm{color:var(--t3)}
