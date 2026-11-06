@@ -139,15 +139,9 @@ const NAV_DATA = [
       { t: '安全管理与评估', u: 'pages/computer/management-eval.html#sec-aqgl' },
       { t: '运维安全与数据防护', u: 'pages/computer/ops-data.html#sec-ywaq' },
     ]},
-    { t: '数据结构', n: '8', links: [
+    { t: '数据结构', n: '2', links: [
       { t: '考点一 · 数据结构基础', u: 'pages/computer/data-structure.html#sec-kaodian-1' },
-      { t: '定义、存储与逻辑结构', u: 'pages/computer/data-structure.html#sec-sjjg-sanmian' },
-      { t: '线性表 · 栈 · 队列', u: 'pages/computer/data-structure.html#sec-sjjg-xianxingbiao' },
-      { t: '树 · 二叉树 · 遍历', u: 'pages/computer/data-structure.html#sec-sjjg-shu' },
-      { t: '图与图算法', u: 'pages/computer/data-structure.html#sec-sjjg-tu' },
-      { t: '哈希与复杂度', u: 'pages/computer/data-structure.html#sec-sjjg-haxi' },
       { t: '考点二 · 查找与排序', u: 'pages/computer/data-structure.html#sec-kaodian-2' },
-      { t: '六个排序算法', u: 'pages/computer/data-structure.html#sec-sjjg-paixu-6' },
     ]},
   ]},
 
