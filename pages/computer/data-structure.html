@@ -38,35 +38,32 @@
 
 <nav class="toc">
   <div class="toc-col">
-    <div class="toc-g"><a href="#sec-kaodian-1">考点一 · 数据结构基础</a></div>
-    <a class="toc-i" href="#sec-sjjg-sanmian">1.1 三个面：逻辑、存储、运算</a>
-    <a class="toc-i" href="#sec-sjjg-cunchu">1.2 四种存储结构</a>
-    <a class="toc-i" href="#sec-sjjg-luoji">1.3 逻辑结构：线性与非线性</a>
-    <a class="toc-i" href="#sec-sjjg-xianxingbiao">1.4 线性表：顺序表与链表</a>
-    <a class="toc-i" href="#sec-sjjg-zhandui">1.5 栈与队列</a>
-    <a class="toc-i" href="#sec-sjjg-shu">1.6 树与二叉树</a>
-    <a class="toc-i" href="#sec-sjjg-bianli">1.7 四种遍历</a>
-    <a class="toc-i" href="#sec-sjjg-dui">1.8 堆</a>
-    <a class="toc-i" href="#sec-sjjg-tu">1.9 图：存储与遍历</a>
-    <a class="toc-i" href="#sec-sjjg-tusuanfa">1.10 图的三类算法</a>
-    <a class="toc-i" href="#sec-sjjg-haxi">1.11 哈希与复杂度</a>
+    <div class="toc-g"><a href="#sec-wuli">一、物理结构（存储）</a></div>
+    <a class="toc-i" href="#sec-sjjg-cunchu">1.1 四种存储方式</a>
+    <div class="toc-g"><a href="#sec-luoji">二、逻辑结构</a></div>
+    <a class="toc-i" href="#sec-sjjg-luoji">2.1 总览：集合·线性·树·图</a>
+    <a class="toc-i" href="#sec-sjjg-xianxingbiao">2.2 线性表</a>
+    <a class="toc-i" href="#sec-sjjg-zhandui">2.3 栈与队列</a>
+    <a class="toc-i" href="#sec-sjjg-shu">2.4 树与二叉树</a>
+    <a class="toc-i" href="#sec-sjjg-bianli">2.5 四种遍历</a>
+    <a class="toc-i" href="#sec-sjjg-dui">2.6 堆</a>
+    <a class="toc-i" href="#sec-sjjg-tu">2.7 图：存储与遍历</a>
+    <a class="toc-i" href="#sec-sjjg-tusuanfa">2.8 图的三类算法</a>
+    <a class="toc-i" href="#sec-sjjg-haxi">2.9 哈希与复杂度</a>
   </div>
   <div class="toc-col">
-    <div class="toc-g"><a href="#sec-kaodian-2">考点二 · 查找与排序</a></div>
-    <a class="toc-i" href="#sec-sjjg-shunxu">2.1 顺序查找</a>
-    <a class="toc-i" href="#sec-sjjg-zheban">2.2 折半查找</a>
-    <a class="toc-i" href="#sec-sjjg-paixu-logic">2.3 排序的底层逻辑</a>
-    <a class="toc-i" href="#sec-sjjg-paixu-6">2.4 六个核心算法</a>
-    <a class="toc-i" href="#sec-sjjg-paixu-table">2.5 对比表与口诀</a>
-    <a class="toc-i" href="#sec-sjjg-zice">2.6 大纲自测 10 题</a>
+    <div class="toc-g"><a href="#sec-caozuo">三、基本操作</a></div>
+    <a class="toc-i" href="#sec-sjjg-shunxu">3.1 顺序查找</a>
+    <a class="toc-i" href="#sec-sjjg-zheban">3.2 折半查找</a>
+    <a class="toc-i" href="#sec-sjjg-paixu-logic">3.3 排序的底层逻辑</a>
+    <a class="toc-i" href="#sec-sjjg-paixu-6">3.4 六个核心算法</a>
+    <a class="toc-i" href="#sec-sjjg-paixu-table">3.5 对比表与口诀</a>
+    <a class="toc-i" href="#sec-sjjg-zice">3.6 自测 10 题</a>
   </div>
 </nav>
 
-<section class="sec-block" id="sec-kaodian-1">
-  <div class="sec-h"><h2 id="sec-kaodian-1-h">考点一 · 数据结构基础</h2><span class="years">存储 4 种 · 线性 3 类 · 树 · 图 · 哈希</span></div>
-
-  <section class="topic" id="sec-sjjg-sanmian">
-    <div class="topic-h"><h3>1.1 三个面：逻辑、存储、运算</h3></div>
+<section class="topic" id="sec-sjjg-sanmian">
+    <div class="topic-h"><h3>数据结构到底研究什么</h3></div>
     <p>数据结构 = <strong>数据元素</strong> + <strong>元素间的关系</strong> + <strong>关系上的操作</strong>。定义里"一种或多种特定关系"这几个字，就是集合、线性、树、图的全部区别。</p>
 
     <div class="stage-svg">
@@ -92,8 +89,11 @@
     <p class="keyline">记住一句：<strong>换存储不改逻辑，只改快慢。</strong>线性表用数组还是链表，逻辑上都是"一对一排队"。</p>
   </section>
 
+<section class="sec-block" id="sec-wuli">
+  <div class="sec-h"><h2 id="sec-wuli-h">一、物理结构（存储结构）</h2><span class="years">顺序 · 链式 · 索引 · 散列</span></div>
+
   <section class="topic" id="sec-sjjg-cunchu">
-    <div class="topic-h"><h3>1.2 四种存储结构</h3></div>
+    <div class="topic-h"><h3>1.1 四种存储方式</h3></div>
     <p>物理结构指数据及其关系在内存中的实际表示。四类：顺序、链式、索引、散列。</p>
 
     <div class="stage-svg">
@@ -140,9 +140,13 @@
       </tbody>
     </table></div>
   </section>
+</section><!-- /sec-wuli -->
+
+<section class="sec-block" id="sec-luoji">
+  <div class="sec-h"><h2 id="sec-luoji-h">二、逻辑结构</h2><span class="years">线性 · 树 · 图 · 哈希</span></div>
 
   <section class="topic" id="sec-sjjg-luoji">
-    <div class="topic-h"><h3>1.3 逻辑结构：线性与非线性</h3></div>
+    <div class="topic-h"><h3>2.1 总览：集合、线性、树、图</h3></div>
     <p>线性：一对一，每个元素最多一个直接前驱、一个直接后继。非线性：一对多（树）或多对多（图）。</p>
 
     <div class="stage-svg">
@@ -175,7 +179,7 @@
   </section>
 
   <section class="topic" id="sec-sjjg-xianxingbiao">
-    <div class="topic-h"><h3>1.4 线性表：顺序表与链表</h3></div>
+    <div class="topic-h"><h3>2.2 线性表：顺序表与链表</h3></div>
     <p>线性表是有序的元素集合。两种实现：顺序表（一段连续内存）、链表（节点散放、指针相连）。</p>
 
     <div class="stage-svg">
@@ -213,7 +217,7 @@
   </section>
 
   <section class="topic" id="sec-sjjg-zhandui">
-    <div class="topic-h"><h3>1.5 栈与队列</h3></div>
+    <div class="topic-h"><h3>2.3 栈与队列</h3></div>
     <p>栈：只在一端（栈顶）进出，<strong>后进先出</strong>。队列：一端进（队尾）、另一端出（队头），<strong>先进先出</strong>。</p>
 
     <div class="stage-svg">
@@ -250,7 +254,7 @@
 </section>
 
   <section class="topic" id="sec-sjjg-shu">
-    <div class="topic-h"><h3>1.6 树与二叉树</h3></div>
+    <div class="topic-h"><h3>2.4 树与二叉树</h3></div>
     <p>树是层级结构：一个根，每个节点最多一个父节点、可有多个子节点。<strong>度</strong> = 该节点的子树数；<strong>深度</strong> = 从根往下数几层；<strong>高度</strong> = 从该节点到最深叶子数几层。</p>
 
     <div class="stage-svg">
@@ -304,7 +308,7 @@
   </section>
 
   <section class="topic" id="sec-sjjg-bianli">
-    <div class="topic-h"><h3>1.7 四种遍历</h3></div>
+    <div class="topic-h"><h3>2.5 四种遍历</h3></div>
     <p>遍历 = 每个节点访问一次。<strong>先序</strong>根左右、<strong>中序</strong>左根右、<strong>后序</strong>左右根；<strong>层序</strong>按层从上到下、从左到右，用队列。</p>
 
     <div class="stage-svg">
@@ -353,7 +357,7 @@ void levelOrder(BiTree T) {        // 层序：队列，出一个就把孩子塞
   </section>
 
   <section class="topic" id="sec-sjjg-dui">
-    <div class="topic-h"><h3>1.8 堆</h3></div>
+    <div class="topic-h"><h3>2.6 堆</h3></div>
     <p>堆 = 完全二叉树 + 堆序：大根堆每个父节点 ≥ 子节点（根最大），小根堆反过来。数组存，下标 0 起：<strong>左孩子 2i+1、右孩子 2i+2</strong>。</p>
 
     <div class="stage-svg">
@@ -388,7 +392,7 @@ void levelOrder(BiTree T) {        // 层序：队列，出一个就把孩子塞
   </section>
 
   <section class="topic" id="sec-sjjg-tu">
-    <div class="topic-h"><h3>1.9 图：存储与遍历</h3></div>
+    <div class="topic-h"><h3>2.7 图：存储与遍历</h3></div>
     <p>图 = 顶点 + 边，可以随便连、可以有环。有向图看<strong>入度</strong>（指向自己）和<strong>出度</strong>（自己指出去）。</p>
 
     <div class="stage-svg">
@@ -425,7 +429,7 @@ void levelOrder(BiTree T) {        // 层序：队列，出一个就把孩子塞
   </section>
 
   <section class="topic" id="sec-sjjg-tusuanfa">
-    <div class="topic-h"><h3>1.10 图的三类算法</h3></div>
+    <div class="topic-h"><h3>2.8 图的三类算法</h3></div>
     <p>三类问题、七种算法，考的是"什么图、用什么、复杂度多少"。</p>
 
     <div class="tbl-wrap"><table class="tbl">
@@ -444,7 +448,7 @@ void levelOrder(BiTree T) {        // 层序：队列，出一个就把孩子塞
   </section>
 
   <section class="topic" id="sec-sjjg-haxi">
-    <div class="topic-h"><h3>1.11 哈希与复杂度</h3></div>
+    <div class="topic-h"><h3>2.9 哈希与复杂度</h3></div>
     <p>哈希：用 H(key) 直接把关键字算成地址，平均 O(1) 查到。两个不同 key 算到同一地址就是<strong>冲突</strong>；装填因子 α = 已存元素 / 表长，α 越大越容易撞。</p>
 
     <div class="stage-svg">
@@ -476,11 +480,11 @@ void levelOrder(BiTree T) {        // 层序：队列，出一个就把孩子塞
     <p class="keyline">复杂度链：<strong>O(1) &lt; O(log n) &lt; O(n) &lt; O(n log n) &lt; O(n²) &lt; O(n³) &lt; O(2ⁿ)</strong>。</p>
   </section>
 
-<section class="sec-block" id="sec-kaodian-2">
-  <div class="sec-h"><h2 id="sec-kaodian-2-h">考点二 · 查找与排序</h2><span class="years">顺序 · 折半 · 六个排序</span></div>
+<section class="sec-block" id="sec-caozuo">
+  <div class="sec-h"><h2 id="sec-caozuo-h">三、基本操作</h2><span class="years">查找 2 种 · 排序 6 个核心</span></div>
 
   <section class="topic" id="sec-sjjg-shunxu">
-    <div class="topic-h"><h3>2.1 顺序查找</h3></div>
+    <div class="topic-h"><h3>3.1 顺序查找</h3></div>
     <p>从一端开始逐个比，相等就成功，走完没找到就失败。查找第 i 个元素要比较 <strong>i</strong> 次，失败要 <strong>n+1</strong> 次，平均 (n+1)/2。</p>
 
     <div class="stage-svg">
@@ -507,7 +511,7 @@ void levelOrder(BiTree T) {        // 层序：队列，出一个就把孩子塞
   </section>
 
   <section class="topic" id="sec-sjjg-zheban">
-    <div class="topic-h"><h3>2.2 折半查找</h3></div>
+    <div class="topic-h"><h3>3.2 折半查找</h3></div>
     <p>前提：<strong>有序 + 顺序存储</strong>（要能按下标跳）。每次取中点 Mid 比，比目标大就去左半（High = Mid-1），小就去右半（Low = Mid+1），<strong>Low &gt; High 就是失败</strong>。</p>
 
     <div class="stage-svg">
@@ -560,7 +564,7 @@ void levelOrder(BiTree T) {        // 层序：队列，出一个就把孩子塞
   </section>
 
   <section class="topic" id="sec-sjjg-paixu-logic">
-    <div class="topic-h"><h3>2.3 排序的底层逻辑</h3></div>
+    <div class="topic-h"><h3>3.3 排序的底层逻辑</h3></div>
     <p><strong>一句话：比较两个元素的大小，然后按照规则交换或移动它们的位置。</strong></p>
     <p>不用死记代码，按"<strong>底层原理 + 生活比喻 + 考试踩坑点</strong>"记六种就够。</p>
     <p>先记<strong>稳定性</strong>：两个相等的元素，排完序后原来的前后顺序没变，就叫稳定。<strong>稳定</strong>：冒泡、插入、归并；<strong>不稳定</strong>：快排、选择、堆排（口诀"快选堆"）。</p>
@@ -568,7 +572,7 @@ void levelOrder(BiTree T) {        // 层序：队列，出一个就把孩子塞
   </section>
 
   <section class="topic" id="sec-sjjg-paixu-6">
-    <div class="topic-h"><h3>2.4 六个核心算法</h3></div>
+    <div class="topic-h"><h3>3.4 六个核心算法</h3></div>
 
     <div class="sort-list">
       <div class="sort-item">
@@ -754,7 +758,7 @@ void heapSort(int a[], int n) {
   </section>
 
   <section class="topic" id="sec-sjjg-paixu-table">
-    <div class="topic-h"><h3>2.5 对比表与口诀</h3></div>
+    <div class="topic-h"><h3>3.5 对比表与口诀</h3></div>
 
     <div class="tbl-wrap"><table class="tbl">
       <thead><tr><th>算法</th><th>平均</th><th>最坏</th><th>空间</th><th>稳定性</th><th>核心特征</th></tr></thead>
@@ -777,7 +781,7 @@ void heapSort(int a[], int n) {
   </section>
 
   <section class="topic" id="sec-sjjg-zice">
-    <div class="topic-h"><h3>2.6 大纲自测 10 题</h3></div>
+    <div class="topic-h"><h3>3.6 大纲自测 10 题</h3></div>
     <div class="tbl-wrap"><table class="tbl">
       <thead><tr><th>#</th><th>题目</th><th>答案</th></tr></thead>
       <tbody>

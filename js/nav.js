@@ -139,9 +139,10 @@ const NAV_DATA = [
       { t: '安全管理与评估', u: 'pages/computer/management-eval.html#sec-aqgl' },
       { t: '运维安全与数据防护', u: 'pages/computer/ops-data.html#sec-ywaq' },
     ]},
-    { t: '数据结构', n: '2', links: [
-      { t: '考点一 · 数据结构基础', u: 'pages/computer/data-structure.html#sec-kaodian-1' },
-      { t: '考点二 · 查找与排序', u: 'pages/computer/data-structure.html#sec-kaodian-2' },
+    { t: '数据结构', n: '3', links: [
+      { t: '一、物理结构（存储）', u: 'pages/computer/data-structure.html#sec-wuli' },
+      { t: '二、逻辑结构', u: 'pages/computer/data-structure.html#sec-luoji' },
+      { t: '三、基本操作', u: 'pages/computer/data-structure.html#sec-caozuo' },
     ]},
   ]},
 
