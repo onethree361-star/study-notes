@@ -487,3 +487,28 @@ html[data-theme="dark"] .tl-item.bad .tl-dot{box-shadow:0 0 0 3px rgba(159,58,56
 
 .tbl-wrap{overflow-x:auto;margin:10px 0;-webkit-overflow-scrolling:touch}
 .tbl-wrap .tbl{min-width:640px}
+
+/* ===== 知识体系页 v2：两级目录 + 章节流（2026-11-06）===== */
+.sec-block{margin:0 0 40px}
+.sec-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--green-1);padding:0 0 8px;margin:0 0 22px}
+.sec-h h2{font-size:20px;line-height:1.4;font-weight:700;margin:0;color:var(--t1)}
+.sec-h .years{font-size:12px;color:var(--t3)}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:6px 32px;padding:14px 18px;background:var(--bg-alt);border-radius:8px;margin:18px 0 32px}
+.toc-col{min-width:0}
+.toc-g{margin:0 0 4px}
+.toc-g a{font-size:13.5px;font-weight:700;color:var(--green-1);text-decoration:none}
+.toc-i{display:block;font-size:12.5px;line-height:1.5;color:var(--t2);padding:3px 0 3px 12px;margin-left:2px;border-left:1px solid var(--divider);text-decoration:none}
+.toc-i:hover{color:var(--green-1);border-left-color:var(--green-1)}
+.topic p{margin:0 0 8px}
+.keyline{padding:8px 12px;background:var(--bg-alt);border-radius:6px;font-size:12.8px;line-height:1.75;margin:10px 0}
+.sort-list{margin:4px 0 8px}
+.sort-item{padding:0 0 12px;margin:0 0 12px;border-bottom:1px dashed var(--divider)}
+.sort-item:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.sort-item p{margin:0 0 5px;font-size:12.8px}
+.mnemonic{padding:12px 16px;background:var(--bg-soft);border-left:3px solid var(--green-1);border-radius:0 6px 6px 0;margin:14px 0}
+.mnemonic p{margin:0 0 7px;font-size:12.8px;line-height:1.7}
+.mnemonic p:last-child{margin-bottom:0}
+@media(max-width:960px){
+.sec-h h2{font-size:18px}
+.toc{grid-template-columns:1fr;gap:14px;padding:12px 14px}
+}
