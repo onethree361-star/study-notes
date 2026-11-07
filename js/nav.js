@@ -144,6 +144,12 @@ const NAV_DATA = [
       { t: '二、逻辑结构', u: 'pages/computer/data-structure.html#sec-luoji' },
       { t: '三、基本操作', u: 'pages/computer/data-structure.html#sec-caozuo' },
     ]},
+    { t: '数据库与数据治理', n: '4', links: [
+      { t: '一、数据库系统基础', u: 'pages/computer/database.html#sec-db-base' },
+      { t: '二、SQL 语言', u: 'pages/computer/database.html#sec-db-sql' },
+      { t: '三、事务与运维', u: 'pages/computer/database.html#sec-db-yunwei' },
+      { t: '四、数据仓库与挖掘', u: 'pages/computer/database.html#sec-db-warehouse' },
+    ]},
   ]},
 
   { t: '英语', children: [
