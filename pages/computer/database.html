@@ -32,68 +32,54 @@
 
 <div class="doc-head">
   <h1>数据库与数据治理</h1>
-  <p><strong>一句话：</strong>数据库是"存数据的仓库"，核心是<strong>三级模式</strong>保证数据独立性，<strong>ACID</strong> 保证事务可靠，<strong>SQL</strong> 是操作语言。数据治理是在仓库之上加安全、备份、性能优化。</p>
-  <div class="stat">范式 <b>3</b> 级 · 事务 <b>ACID</b> · 索引 <b>5</b> 类 · 备份 <b>4</b> 种 · 挖掘算法 <b>7</b> 个</div>
+  <p><strong>一句话：</strong>数据库是"存数据的仓库"，核心是<strong>三级模式</strong>保证独立性、<strong>ACID</strong> 保证事务可靠、<strong>SQL</strong> 是操作语言。数据治理是在仓库之上加安全、备份、性能优化。</p>
+  <div class="stat">考点 <b>4</b> 块 · 事务 <b>ACID</b> · 索引 <b>5</b> 类 · 性能优化 <b>7</b> 招</div>
 </div>
 
 <nav class="toc">
   <div class="toc-col">
-    <div class="toc-g"><a href="#sec-db-base">一、数据库系统基础</a></div>
-    <a class="toc-i" href="#sec-db-gainian">1.1 核心概念</a>
-    <a class="toc-i" href="#sec-db-fanshi">1.2 范式 1NF/2NF/3NF</a>
-    <a class="toc-i" href="#sec-db-sanji">1.3 三级模式与数据独立性</a>
-    <a class="toc-i" href="#sec-db-er">1.4 E-R 模型</a>
-    <a class="toc-i" href="#sec-db-hongyu">1.5 候选码与冗余</a>
-    <div class="toc-g"><a href="#sec-db-sql">二、SQL 语言</a></div>
-    <a class="toc-i" href="#sec-sql-leibie">2.1 命令分类</a>
-    <a class="toc-i" href="#sec-sql-select">2.2 SELECT 查询</a>
-    <a class="toc-i" href="#sec-sql-join">2.3 多表连接</a>
-    <a class="toc-i" href="#sec-sql-quanxian">2.4 权限与索引</a>
+    <div class="toc-g"><a href="#sec-k1">考点1 · 数据库系统</a></div>
+    <a class="toc-i" href="#sec-k1-1">1.1 系统组成</a>
+    <a class="toc-i" href="#sec-k1-2">1.2 系统结构：三级+数据模型</a>
+    <a class="toc-i" href="#sec-k1-3">1.3 基本特点</a>
+    <a class="toc-i" href="#sec-k1-4">1.4 设计流程·对比·码·范式</a>
+    <div class="toc-g"><a href="#sec-k2">考点2 · SQL操作</a></div>
+    <a class="toc-i" href="#sec-k2-0">2.0 命令总览表</a>
+    <a class="toc-i" href="#sec-k2-1">2.1 数据查询 DQL</a>
+    <a class="toc-i" href="#sec-k2-2">2.2 数据操作 DML</a>
+    <a class="toc-i" href="#sec-k2-3">2.3 数据定义 DDL</a>
+    <a class="toc-i" href="#sec-k2-4">2.4 数据控制 DCL</a>
   </div>
   <div class="toc-col">
-    <div class="toc-g"><a href="#sec-db-yunwei">三、事务与运维</a></div>
-    <a class="toc-i" href="#sec-yunwei-acid">3.1 事务 ACID 与并发问题</a>
-    <a class="toc-i" href="#sec-yunwei-lock">3.2 封锁机制</a>
-    <a class="toc-i" href="#sec-yunwei-backup">3.3 备份恢复</a>
-    <a class="toc-i" href="#sec-yunwei-youhua">3.4 性能优化（索引+缓存）</a>
-    <div class="toc-g"><a href="#sec-db-warehouse">四、数据仓库与挖掘</a></div>
-    <a class="toc-i" href="#sec-wh-oltp">4.1 OLTP vs OLAP</a>
-    <a class="toc-i" href="#sec-wh-mining">4.2 挖掘任务与算法</a>
-    <a class="toc-i" href="#sec-wh-eval">4.3 模型评估</a>
+    <div class="toc-g"><a href="#sec-k3">考点3 · 运维设计</a></div>
+    <a class="toc-i" href="#sec-k3-safe">3.A 事务与安全运维</a>
+    <a class="toc-i" href="#sec-k3-opt">3.B 性能优化（7招）</a>
+    <div class="toc-g"><a href="#sec-k4">考点4 · 仓库与挖掘</a></div>
+    <a class="toc-i" href="#sec-k4-1">4.1 数据仓库</a>
+    <a class="toc-i" href="#sec-k4-2">4.2 数据挖掘</a>
+    <a class="toc-i" href="#sec-k4-3">4.3 模型评估</a>
   </div>
 </nav>
 
-<section class="sec-block" id="sec-db-base">
-  <div class="sec-h"><h2>一、数据库系统基础</h2><span class="years">概念 · 范式 · 三级模式 · E-R</span></div>
+<!-- ==================== 考点1 ==================== -->
+<section class="sec-block" id="sec-k1">
+  <div class="sec-h"><h2>考点1 · 数据库系统</h2><span class="years">组成 · 结构 · 特点 · 设计</span></div>
 
-  <section class="topic" id="sec-db-gainian">
-    <div class="topic-h"><h3>1.1 核心概念</h3></div>
-    <p><strong>DB</strong>（数据库）= 有统一结构、统一存储的<strong>数据集合</strong>，特点是集成 + 共享。<strong>DBMS</strong>（管理系统）= 管数据库的软件，是 DBS 的核心，属系统软件。<strong>DBA</strong> = 管库的人。<strong>DBS</strong> = DB + DBMS + 应用 + DBA + 用户。</p>
+  <section class="topic" id="sec-k1-1">
+    <div class="topic-h"><h3>一、数据库系统组成</h3></div>
+    <p>数据库系统（DBS）= <strong>DB + DBMS + 应用系统 + DBA + 用户</strong>，其中 DBMS 是核心。</p>
     <div class="tbl-wrap"><table>
       <tr><th>术语</th><th>是什么</th><th>一句话</th></tr>
-      <tr><td>DB</td><td>数据库</td><td>存数据的地方，集成+共享</td></tr>
-      <tr><td>DBMS</td><td>数据库管理系统</td><td>管库的软件，系统软件</td></tr>
-      <tr><td>DBA</td><td>数据库管理员</td><td>设计+维护+调优</td></tr>
-      <tr><td>DBS</td><td>数据库系统</td><td>DB+DBMS+人+应用，以 DBMS 为核心</td></tr>
+      <tr><td>DB</td><td>数据库</td><td>有结构、统一存储的<strong>数据集合</strong>，集成+共享</td></tr>
+      <tr><td>DBMS</td><td>数据库管理系统</td><td>管数据库的<strong>系统软件</strong>，是 DBS 的核心</td></tr>
+      <tr><td>DBA</td><td>数据库管理员</td><td>负责设计、维护、调优的人</td></tr>
+      <tr><td>DBS</td><td>数据库系统</td><td>包含硬件+软件+人+数据的完整系统</td></tr>
     </table></div>
-    <p class="keyline">特点：<strong>集成性</strong>（全局模式+局部视图）、<strong>共享性高冗余低</strong>、<strong>独立性高</strong>（逻辑+物理）、<strong>统一管理</strong>（安全+完整+并发）。</p>
   </section>
 
-  <section class="topic" id="sec-db-fanshi">
-    <div class="topic-h"><h3>1.2 范式 1NF / 2NF / 3NF</h3></div>
-    <p>范式是设计表的规范，级别越高冗余越小。目的是消除<strong>插入/删除/更新异常</strong>。</p>
-    <div class="tbl-wrap"><table>
-      <tr><th>范式</th><th>规则</th><th>消除什么</th></tr>
-      <tr><td>1NF</td><td>每个属性不可再分（原子值）</td><td>属性可拆分导致的混乱</td></tr>
-      <tr><td>2NF</td><td>在 1NF 上，非主属性完全函数依赖于主键（不部分依赖）</td><td>部分依赖导致的冗余</td></tr>
-      <tr><td>3NF</td><td>在 2NF 上，非主属性不传递依赖于主键</td><td>传递依赖导致的冗余</td></tr>
-    </table></div>
-    <p class="keyline">例：学生(学号,姓名,系,系主任)——系主任传递依赖于学号（学号→系→系主任），违背 3NF。拆成 学生(学号,姓名,系) + 系(系,系主任)。</p>
-  </section>
-
-  <section class="topic" id="sec-db-sanji">
-    <div class="topic-h"><h3>1.3 三级模式与数据独立性</h3></div>
-    <p>数据库分三级抽象，中间两级映像保证独立性。</p>
+  <section class="topic" id="sec-k1-2">
+    <div class="topic-h"><h3>二、数据库系统结构：三级模式 + 数据模型</h3></div>
+    <p><strong>三级模式</strong>：外模式（用户视图，多个）→ 模式（全局逻辑，唯一）→ 内模式（物理存储，唯一）。两级映像保证独立性。</p>
     <div class="stage-svg">
       <svg viewBox="0 0 700 200" width="700" height="200" role="img" aria-label="三级模式两级映像">
         <rect x="20" y="10" width="160" height="50" rx="6" fill="none" stroke="var(--green-1)" stroke-width="1.5"/>
@@ -109,222 +95,250 @@
         <text x="600" y="180" text-anchor="middle" font-size="10.5" fill="var(--t3)">物理存储，唯一</text>
 
         <line x1="180" y1="35" x2="270" y2="95" stroke="var(--t3)" stroke-width="1.4"/>
-        <text x="215" y="58" font-size="10.5" fill="var(--t2)">外模式/模式映像</text>
-        <text x="215" y="72" font-size="10" fill="var(--t3)">→ 逻辑独立性</text>
+        <text x="200" y="55" font-size="10.5" fill="var(--t2)">外模式/模式映像 → 逻辑独立性</text>
 
         <line x1="430" y1="100" x2="520" y2="165" stroke="var(--t3)" stroke-width="1.4"/>
-        <text x="465" y="128" font-size="10.5" fill="var(--t2)">模式/内模式映像</text>
-        <text x="465" y="142" font-size="10" fill="var(--t3)">→ 物理独立性</text>
+        <text x="445" y="130" font-size="10.5" fill="var(--t2)">模式/内模式映像 → 物理独立性</text>
       </svg>
     </div>
-    <div class="tbl-wrap"><table>
-      <tr><th>层级</th><th>别名</th><th>数量</th><th>作用</th></tr>
-      <tr><td>外模式</td><td>子模式/用户模式</td><td>多个</td><td>用户视图，接口</td></tr>
-      <tr><td>模式</td><td>逻辑模式/概念模式</td><td>一个</td><td>全局逻辑结构</td></tr>
-      <tr><td>内模式</td><td>存储模式</td><td>一个</td><td>物理存储细节</td></tr>
-    </table></div>
-    <p class="keyline"><strong>逻辑独立性</strong>：模式改了，改外模式映像，外模式不变，应用不变。<strong>物理独立性</strong>：内模式（存储）改了，改模式/内模式映像，模式不变，应用不变。</p>
+    <p><strong>数据模型三要素</strong>：数据结构 + 数据操作 + 完整性约束。三类模型：概念模型（E-R）、逻辑模型（层次/网状/关系）、物理模型。</p>
+    <p class="keyline">逻辑独立性：模式改了，改外模式映像，应用不变。物理独立性：内模式（存储）改了，改模式/内模式映像，应用不变。</p>
   </section>
 
-  <section class="topic" id="sec-db-er">
-    <div class="topic-h"><h3>1.4 E-R 模型</h3></div>
-    <p>概念模型工具：<strong>实体</strong>（矩形）、<strong>属性</strong>（椭圆）、<strong>联系</strong>（菱形）。联系有 1:1、1:n、m:n。</p>
-    <div class="stage-svg">
-      <svg viewBox="0 0 700 130" width="700" height="130" role="img" aria-label="E-R 图示例">
-        <rect x="60" y="40" width="100" height="40" fill="none" stroke="var(--green-1)" stroke-width="1.5"/>
-        <text x="110" y="65" text-anchor="middle" font-size="12" fill="var(--t1)">学生</text>
-        <ellipse cx="110" cy="15" rx="35" ry="15" fill="none" stroke="var(--t3)"/>
-        <text x="110" y="19" text-anchor="middle" font-size="10.5" fill="var(--t2)">学号</text>
-
-        <polygon points="330,45 380,60 330,75 280,60" fill="none" stroke="var(--brand-1)" stroke-width="1.5"/>
-        <text x="330" y="64" text-anchor="middle" font-size="11.5" fill="var(--t1)">选课</text>
-
-        <rect x="540" y="40" width="100" height="40" fill="none" stroke="var(--green-1)" stroke-width="1.5"/>
-        <text x="590" y="65" text-anchor="middle" font-size="12" fill="var(--t1)">课程</text>
-        <ellipse cx="590" cy="15" rx="35" ry="15" fill="none" stroke="var(--t3)"/>
-        <text x="590" y="19" text-anchor="middle" font-size="10.5" fill="var(--t2)">课程号</text>
-
-        <line x1="160" y1="60" x2="280" y2="60" stroke="var(--t3)"/>
-        <text x="220" y="55" text-anchor="middle" font-size="10.5" fill="var(--t3)">m</text>
-        <line x1="380" y1="60" x2="540" y2="60" stroke="var(--t3)"/>
-        <text x="460" y="55" text-anchor="middle" font-size="10.5" fill="var(--t3)">n</text>
-
-        <text x="330" y="110" text-anchor="middle" font-size="10.5" fill="var(--t3)">学生与课程是 m:n 联系</text>
-      </svg>
-    </div>
-    <p class="keyline">三类完整性约束：<strong>实体完整性</strong>（主键不为空）、<strong>参照完整性</strong>（外键要么为空要么参照已存在）、<strong>用户定义完整性</strong>（字段有效性）。</p>
+  <section class="topic" id="sec-k1-3">
+    <div class="topic-h"><h3>三、数据库系统基本特点</h3></div>
+    <div class="tbl-wrap"><table>
+      <tr><th>特点</th><th>含义</th></tr>
+      <tr><td>数据集成性</td><td>统一全局模式，多个视图共享，减少冗余</td></tr>
+      <tr><td>数据共享性高</td><td>多用户、多应用同时用同一数据</td></tr>
+      <tr><td>数据独立性高</td><td>逻辑独立性 + 物理独立性，应用不随存储变</td></tr>
+      <tr><td>统一管理控制</td><td>安全性、完整性、并发控制、故障恢复</td></tr>
+    </table></div>
+    <p class="keyline">三类完整性约束：<strong>实体完整性</strong>（主键不为空）、<strong>参照完整性</strong>（外键要么空要么参照已存在）、<strong>用户定义完整性</strong>（字段有效性）。</p>
   </section>
 
-  <section class="topic" id="sec-db-hongyu">
-    <div class="topic-h"><h3>1.5 候选码与冗余</h3></div>
-    <p><strong>候选码</strong>：能唯一标识元组的最小属性集（不能再删）。<strong>冗余</strong>：同一信息重复存多处。</p>
+  <section class="topic" id="sec-k1-4">
+    <div class="topic-h"><h3>四、数据库：设计流程 · 对比 · 候选码 · 范式</h3></div>
+
+    <p><strong>数据库设计流程</strong>（六阶段）：需求分析 → 概念设计（E-R图）→ 逻辑设计（转关系表）→ 物理设计（索引/存储）→ 数据库实施 → 运行维护。</p>
+
+    <p><strong>数据库对比</strong>：</p>
     <div class="tbl-wrap"><table>
-      <tr><th>冗余类型</th><th>来源</th><th>处理</th></tr>
-      <tr><td>有害冗余</td><td>设计不规范，范式不够</td><td>拆表（1NF→2NF→3NF）</td></tr>
-      <tr><td>可控冗余</td><td>为提速主动加冗余字段</td><td>配同步更新机制</td></tr>
+      <tr><th>类型</th><th>代表</th><th>特点</th><th>适用</th></tr>
+      <tr><td>关系型</td><td>MySQL/Oracle</td><td>表格结构，ACID，强一致</td><td>日常事务（OLTP）</td></tr>
+      <tr><td>NoSQL</td><td>MongoDB/Redis</td><td>灵活 schema，高扩展，弱一致</td><td>大数据、高并发</td></tr>
+      <tr><td>图数据库</td><td>Neo4j</td><td>节点+边，擅长关系穿透</td><td>社交网络、反洗钱</td></tr>
     </table></div>
-    <p class="keyline">冗余导致：存储浪费、更新异常（改一处漏多处）、插入异常（主键非空约束）、删除异常（删记录连带删基础信息）。</p>
+
+    <p><strong>候选码</strong>：能唯一标识元组的最小属性集（不能再删）。<strong>冗余</strong>：同一信息重复存多处，导致更新/插入/删除异常。</p>
+
+    <p><strong>范式</strong>（设计规范，级别越高冗余越小）：</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>范式</th><th>规则</th><th>消除什么</th></tr>
+      <tr><td>1NF</td><td>每个属性不可再分（原子值）</td><td>属性可拆分导致混乱</td></tr>
+      <tr><td>2NF</td><td>在1NF上，非主属性完全函数依赖于主键（不部分依赖）</td><td>部分依赖冗余</td></tr>
+      <tr><td>3NF</td><td>在2NF上，非主属性不传递依赖于主键</td><td>传递依赖冗余</td></tr>
+    </table></div>
+    <p class="keyline">例：学生(学号,姓名,系,系主任)——系主任传递依赖于学号，违背 3NF。拆成 学生(学号,姓名,系) + 系(系,系主任)。</p>
   </section>
 </section>
 
-<section class="sec-block" id="sec-db-sql">
-  <div class="sec-h"><h2>二、SQL 语言</h2><span class="years">查询 · 连接 · 权限 · 索引</span></div>
+<!-- ==================== 考点2 ==================== -->
+<section class="sec-block" id="sec-k2">
+  <div class="sec-h"><h2>考点2 · SQL操作</h2><span class="years">命令分类 · 查询 · 操作 · 定义 · 控制</span></div>
 
-  <section class="topic" id="sec-sql-leibie">
-    <div class="topic-h"><h3>2.1 命令分类</h3></div>
+  <section class="topic" id="sec-k2-0">
+    <div class="topic-h"><h3>2.0 SQL 命令、子句、函数总览表</h3></div>
     <div class="tbl-wrap"><table>
       <tr><th>分类</th><th>关键字</th><th>功能</th></tr>
       <tr><td>DQL 查询</td><td>SELECT</td><td>查数据</td></tr>
-      <tr><td>DML 操纵</td><td>INSERT / UPDATE / DELETE</td><td>增删改</td></tr>
-      <tr><td>DDL 定义</td><td>CREATE / DROP / ALTER</td><td>建库建表建索引</td></tr>
+      <tr><td>DML 操纵</td><td>INSERT / UPDATE / DELETE</td><td>增删改数据</td></tr>
+      <tr><td>DDL 定义</td><td>CREATE / DROP / ALTER</td><td>建表、建索引、改结构</td></tr>
       <tr><td>DCL 控制</td><td>GRANT / REVOKE</td><td>授/收权限</td></tr>
     </table></div>
-    <p class="keyline">SQL 对应三级模式：外模式=视图（VIEW）、模式=基本表（TABLE）、内模式=存储文件。</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>SELECT 子句</th><th>作用</th><th>顺序</th></tr>
+      <tr><td>FROM</td><td>从哪张表</td><td>1</td></tr>
+      <tr><td>WHERE</td><td>行级筛选（分组前）</td><td>2</td></tr>
+      <tr><td>GROUP BY</td><td>分组</td><td>3</td></tr>
+      <tr><td>HAVING</td><td>组级筛选（分组后）</td><td>4</td></tr>
+      <tr><td>ORDER BY</td><td>排序，最后</td><td>5</td></tr>
+    </table></div>
+    <p class="keyline">WHERE vs HAVING：WHERE 在分组前筛行，HAVING 在分组后筛组。COUNT(*) 含 NULL，COUNT(列名) 不含 NULL。</p>
   </section>
 
-  <section class="topic" id="sec-sql-select">
-    <div class="topic-h"><h3>2.2 SELECT 查询核心</h3></div>
+  <section class="topic" id="sec-k2-1">
+    <div class="topic-h"><h3>一、数据查询（DQL）</h3></div>
     <pre class="code-block">SELECT [DISTINCT] 目标列
 FROM 表名
 WHERE 条件
 GROUP BY 分组列
 HAVING 分组后筛选
 ORDER BY 排序列 [ASC|DESC];</pre>
-    <div class="tbl-wrap"><table>
-      <tr><th>子句</th><th>作用</th><th>顺序</th></tr>
-      <tr><td>FROM</td><td>从哪张表</td><td>1</td></tr>
-      <tr><td>WHERE</td><td>行级筛选（分组前）</td><td>2</td></tr>
-      <tr><td>GROUP BY</td><td>分组</td><td>3</td></tr>
-      <tr><td>HAVING</td><td>组级筛选（分组后）</td><td>4</td></tr>
-      <tr><td>ORDER BY</td><td>排序，只能最后</td><td>5</td></tr>
-    </table></div>
-    <p class="keyline">WHERE vs HAVING：WHERE 在分组前筛行，HAVING 在分组后筛组。COUNT(*) 含 NULL，COUNT(列名) 不含 NULL。</p>
-  </section>
 
-  <section class="topic" id="sec-sql-join">
-    <div class="topic-h"><h3>2.3 多表连接</h3></div>
+    <p><strong>条件谓词</strong>：=、&gt;、&lt;、BETWEEN...AND、IN、LIKE 模糊匹配（% 任意多字符，_ 单个字符）。</p>
+
+    <p><strong>多表连接</strong>：</p>
     <div class="tbl-wrap"><table>
-      <tr><th>连接方式</th><th>结果</th></tr>
+      <tr><th>连接</th><th>结果</th></tr>
       <tr><td>INNER JOIN</td><td>只返回两表匹配的行（交集）</td></tr>
       <tr><td>LEFT JOIN</td><td>左表全保留，右表不匹配补 NULL</td></tr>
       <tr><td>RIGHT JOIN</td><td>右表全保留，左表不匹配补 NULL</td></tr>
       <tr><td>FULL JOIN</td><td>两表全保留，不匹配都补 NULL</td></tr>
     </table></div>
-    <pre class="code-block">SELECT 列
-FROM 表1
-INNER JOIN 表2 ON 表1.主键 = 表2.外键;</pre>
-    <p class="keyline">嵌套查询（子查询）：WHERE 里套 SELECT。EXISTS 只判断"有没有"，不关心值。</p>
+
+    <p><strong>嵌套查询</strong>：WHERE 里套 SELECT。<strong>EXISTS / NOT EXISTS</strong>：只判断"有没有满足条件的行"，不关心具体值。</p>
+    <p class="keyline">聚合函数：COUNT、SUM、AVG、MAX、MIN，通常配合 GROUP BY 使用。</p>
   </section>
 
-  <section class="topic" id="sec-sql-quanxian">
-    <div class="topic-h"><h3>2.4 权限与索引</h3></div>
-    <p><strong>GRANT</strong> 授权，<strong>REVOKE</strong> 收权。<strong>WITH GRANT OPTION</strong> 允许被授权者再转给别人。<strong>CASCADE</strong> 级联收回（连转给别人的一起收）。</p>
+  <section class="topic" id="sec-k2-2">
+    <div class="topic-h"><h3>二、数据操作（DML）</h3></div>
+    <pre class="code-block">INSERT INTO 表(列) VALUES(值);
+UPDATE 表 SET 列=值 WHERE 条件;
+DELETE FROM 表 WHERE 条件;</pre>
+    <p class="keyline">DELETE 是按行删，可回滚；DROP 是删表，不可恢复。</p>
+  </section>
+
+  <section class="topic" id="sec-k2-3">
+    <div class="topic-h"><h3>三、数据定义（DDL）</h3></div>
+    <p><strong>建表</strong>：CREATE TABLE，列级/表级约束。<strong>索引</strong>：CREATE [UNIQUE] INDEX，加速查询但占空间。</p>
+    <pre class="code-block">CREATE TABLE 学生(
+  学号 CHAR(9) PRIMARY KEY,
+  姓名 CHAR(20) NOT NULL,
+  系 CHAR(20),
+  UNIQUE(姓名)
+);
+CREATE INDEX 索引名 ON 表(列);</pre>
+    <p class="keyline">四类完整性约束：PRIMARY KEY（主键）、UNIQUE（唯一）、NOT NULL（非空）、FOREIGN KEY（外键）。</p>
+  </section>
+
+  <section class="topic" id="sec-k2-4">
+    <div class="topic-h"><h3>四、数据控制（DCL）</h3></div>
+    <p><strong>GRANT</strong> 授权，<strong>REVOKE</strong> 收权。</p>
     <pre class="code-block">GRANT SELECT ON TABLE 学生 TO U1 WITH GRANT OPTION;
 REVOKE SELECT ON TABLE 学生 FROM U1 CASCADE;</pre>
-    <p><strong>索引</strong>：建在表上，加速查询。CREATE [UNIQUE] INDEX 索引名 ON 表(列)。索引占空间，写时要维护。</p>
-    <p class="keyline">索引类型：主键索引、唯一索引、普通索引、联合（复合）索引、覆盖索引。</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>关键字</th><th>含义</th></tr>
+      <tr><td>WITH GRANT OPTION</td><td>允许被授权者再转给别人</td></tr>
+      <tr><td>CASCADE</td><td>级联收回（连转给别人的一起收）</td></tr>
+      <tr><td>RESTRICT</td><td>限制收回（若已转授则拒绝执行）</td></tr>
+    </table></div>
+    <p class="keyline">角色（Role）：把一组权限打包成角色，授予用户，方便批量管理。</p>
   </section>
 </section>
 
-<section class="sec-block" id="sec-db-yunwei">
-  <div class="sec-h"><h2>三、事务与运维</h2><span class="years">ACID · 并发 · 锁 · 备份 · 性能优化</span></div>
+<!-- ==================== 考点3 ==================== -->
+<section class="sec-block" id="sec-k3">
+  <div class="sec-h"><h2>考点3 · 数据库运维设计</h2><span class="years">事务安全 · 性能优化</span></div>
 
-  <section class="topic" id="sec-yunwei-acid">
-    <div class="topic-h"><h3>3.1 事务 ACID 与并发问题</h3></div>
-    <p><strong>事务</strong> = 一组操作，要么全做，要么全不做。四个属性：</p>
+  <section class="topic" id="sec-k3-safe">
+    <div class="topic-h"><h3>3.A 事务与安全运维</h3></div>
+
+    <p><strong>事前：事务与并发控制</strong></p>
+    <p>事务 = 一组操作，要么全做要么全不做。四个属性（ACID）：</p>
     <div class="tbl-wrap"><table>
       <tr><th>属性</th><th>含义</th></tr>
       <tr><td>A 原子性</td><td>不可分割，全做或全不做</td></tr>
-      <tr><td>C 一致性</td><td>执行前后，数据库从一个一致状态到另一个</td></tr>
+      <tr><td>C 一致性</td><td>执行前后数据库从一个一致状态到另一个</td></tr>
       <tr><td>I 隔离性</td><td>多事务并发，互不干扰</td></tr>
       <tr><td>D 持久性</td><td>提交后永久生效，崩溃也不丢</td></tr>
     </table></div>
-    <p><strong>并发问题</strong>：多事务同时读写，会出现四种异常：</p>
-    <div class="tbl-wrap"><table>
-      <tr><th>异常</th><th>现象</th><th>原因</th></tr>
-      <tr><td>丢失修改</td><td>两个事务改同一数据，后提交的覆盖先提交的</td><td>写覆盖</td></tr>
-      <tr><td>脏读</td><td>读到另一事务未提交的数据（可能被回滚）</td><td>读未提交</td></tr>
-      <tr><td>不可重复读</td><td>同一事务内两次读同一行，值不同（被 UPDATE 改了）</td><td>读已提交但被改</td></tr>
-      <tr><td>幻读</td><td>同一事务内两次查，行数变了（被 INSERT/DELETE）</td><td>范围变了</td></tr>
-    </table></div>
-    <p class="keyline">不可重复读 vs 幻读：前者是<strong>值变了</strong>（UPDATE），后者是<strong>行数变了</strong>（INSERT/DELETE）。事务日志（WAL）：先写日志后写数据，崩溃可恢复。</p>
-  </section>
+    <p>并发问题：丢失修改、脏读、不可重复读（UPDATE引起）、幻读（INSERT/DELETE引起）。</p>
+    <p>封锁机制：X锁（排他/写，独占）、S锁（共享/读，可并发读）、U锁（更新，避免死锁）。</p>
 
-  <section class="topic" id="sec-yunwei-lock">
-    <div class="topic-h"><h3>3.2 封锁机制</h3></div>
-    <p>锁是并发控制的主要手段。事务先申请锁，拿到锁才能操作，释放后别人才能拿。</p>
+    <p><strong>事前：内部安全访问控制</strong></p>
     <div class="tbl-wrap"><table>
-      <tr><th>锁</th><th>别名</th><th>规则</th></tr>
-      <tr><td>排他锁 X</td><td>写锁</td><td>拿到后，其他事务不能再加任何锁，独占读写</td></tr>
-      <tr><td>共享锁 S</td><td>读锁</td><td>多个事务可同时加 S 锁读，但不能加 X 锁改</td></tr>
-      <tr><td>更新锁 U</td><td></td><td>初始化修改时加，避免死锁，确认要改再升级成 X</td></tr>
+      <tr><th>层级</th><th>措施</th></tr>
+      <tr><td>身份鉴别</td><td>强密码、IP白名单、多因素认证</td></tr>
+      <tr><td>角色 RBAC</td><td>先建角色绑权限，用户关联角色批量授权</td></tr>
+      <tr><td>行级 RLS</td><td>不同人只看本分片数据，敏感字段脱敏</td></tr>
     </table></div>
-    <p class="keyline">封锁粒度：粒度越大（整库/整表），并发越低、开销越小；粒度越小（行/页），并发越高、开销越大。短事务选小粒度，大批量选大粒度。</p>
-  </section>
+    <p class="keyline">四大原则：最小权限、权限随岗位变动回收、职责分离、高危操作双人复核。</p>
 
-  <section class="topic" id="sec-yunwei-backup">
-    <div class="topic-h"><h3>3.3 备份恢复</h3></div>
-    <p>行业通用 <strong>3-2-1 原则</strong>：至少 3 份副本、2 种介质、1 份异地。</p>
+    <p><strong>事前：整体安全控制体系</strong></p>
+    <p>网络隔离（防火墙、堡垒机）+ 传输加密（SSL/TLS）+ 透明数据加密（TDE）+ 全量审计日志 + 高危变更审批（CR+CCB）。</p>
+
+    <p><strong>事中：运维监测体系</strong></p>
+    <div class="tbl-wrap"><table>
+      <tr><th>监控项</th><th>盯什么</th></tr>
+      <tr><td>资源指标</td><td>CPU、内存、磁盘 IO、连接数、锁等待</td></tr>
+      <tr><td>异常行为</td><td>异地登录、爆破、全表导出、慢 SQL</td></tr>
+      <tr><td>故障链路</td><td>主从同步、主库宕机、备份文件完整性</td></tr>
+      <tr><td>操作留痕</td><td>堡垒机全程录屏、SQL 日志全记录</td></tr>
+    </table></div>
+
+    <p><strong>事后：备份与恢复体系</strong></p>
+    <p>行业 <strong>3-2-1 原则</strong>：至少 3 份副本、2 种介质、1 份异地。</p>
     <div class="tbl-wrap"><table>
       <tr><th>备份方式</th><th>备份内容</th><th>特点</th></tr>
-      <tr><td>全量备份</td><td>整个库</td><td>恢复最简单，备份慢、占空间大</td></tr>
-      <tr><td>增量备份</td><td>上次备份后新增的变化</td><td>快、小，但恢复要按顺序串</td></tr>
+      <tr><td>全量备份</td><td>整个库</td><td>恢复最简单，慢、占空间大</td></tr>
+      <tr><td>增量备份</td><td>上次备份后变化</td><td>快、小，恢复要按顺序串</td></tr>
       <tr><td>差异备份</td><td>上次全量后所有变化</td><td>恢复只需全量+最近一次差异</td></tr>
       <tr><td>日志归档</td><td>事务日志</td><td>最小粒度，支持任意时间点回退</td></tr>
     </table></div>
-    <p class="keyline">恢复分级：误删表/数据 → 用备份+日志回退；硬盘损坏 → 异地副本整库还原；机房灾难 → 跨机房灾备。</p>
+    <p class="keyline">恢复分级：误删表 → 备份+日志回退；硬盘损坏 → 异地副本整库还原；机房灾难 → 跨机房灾备。</p>
   </section>
 
-  <section class="topic" id="sec-yunwei-youhua">
-    <div class="topic-h"><h3>3.4 性能优化（索引+缓存+读写分离）</h3></div>
-    <p><strong>索引优化</strong>：索引是 B+ 树，换查询速度、占空间和维护成本。高频查询/排序/分组字段优先建索引；低区分度字段（性别、状态）别建；避免索引列上用函数/运算。</p>
-    <p><strong>SQL 优化</strong>：别 SELECT *；用 WHERE 先缩小范围；大分页用主键回溯；小表驱动大表。</p>
+  <section class="topic" id="sec-k3-opt">
+    <div class="topic-h"><h3>3.B 性能优化（7招）</h3></div>
 
-    <p><strong>数据库缓存优化</strong>（你问的内存缓存）：磁盘 IO 是最大瓶颈，把高频热点数据、查询结果预存到内存，下次直接从内存取，不用读磁盘。</p>
+    <p><strong>一、索引设计优化</strong></p>
+    <p>索引是 B+ 树结构，用额外空间换查询速度。五类索引：主键、唯一、普通、联合（复合）、覆盖。</p>
+    <p class="keyline">黄金原则：高频查询/排序/分组字段优先建；低区分度字段（性别）别建；避免索引列上用函数/运算；联合索引遵循最左前缀。</p>
+
+    <p><strong>二、SQL 查询优化</strong></p>
+    <p>别 SELECT *；用 WHERE 先缩小范围；大分页用主键回溯；小表驱动大表；避免大事务和慢 SQL。</p>
+
+    <p><strong>三、数据库缓存优化</strong></p>
+    <p>磁盘 IO 是最大瓶颈，把高频热点数据、查询结果预存到内存，下次直接从内存取，不用读磁盘。</p>
     <div class="stage-svg">
       <svg viewBox="0 0 700 160" width="700" height="160" role="img" aria-label="数据库缓存架构">
         <rect x="20" y="55" width="120" height="50" rx="6" fill="none" stroke="var(--brand-1)" stroke-width="1.5"/>
         <text x="80" y="78" text-anchor="middle" font-size="12" fill="var(--t1)">应用请求</text>
         <text x="80" y="95" text-anchor="middle" font-size="10" fill="var(--t3)">高频重复查询</text>
-
         <rect x="200" y="20" width="150" height="50" rx="6" fill="none" stroke="var(--green-1)" stroke-width="1.5"/>
         <text x="275" y="42" text-anchor="middle" font-size="12" fill="var(--t1)">内存缓存</text>
         <text x="275" y="59" text-anchor="middle" font-size="10" fill="var(--t3)">命中 → 直接返回</text>
-
         <rect x="200" y="95" width="150" height="50" rx="6" fill="none" stroke="var(--purple-1)" stroke-width="1.5"/>
         <text x="275" y="117" text-anchor="middle" font-size="12" fill="var(--t1)">数据库磁盘</text>
         <text x="275" y="134" text-anchor="middle" font-size="10" fill="var(--t3)">未命中 → 读磁盘</text>
-
         <line x1="140" y1="70" x2="200" y2="45" stroke="var(--t3)" stroke-width="1.4"/>
-        <text x="160" y="52" font-size="10" fill="var(--green-1)">命中</text>
+        <text x="155" y="55" font-size="10" fill="var(--green-1)">命中</text>
         <line x1="140" y1="90" x2="200" y2="120" stroke="var(--t3)" stroke-width="1.4"/>
-        <text x="155" y="115" font-size="10" fill="var(--purple-1)">未命中</text>
-
+        <text x="150" y="115" font-size="10" fill="var(--purple-1)">未命中</text>
         <line x1="350" y1="45" x2="500" y2="45" stroke="var(--green-1)" stroke-width="1.4"/>
         <text x="425" y="38" text-anchor="middle" font-size="10.5" fill="var(--green-1)">极快：内存读写</text>
         <line x1="350" y1="120" x2="500" y2="120" stroke="var(--purple-1)" stroke-width="1.4"/>
         <text x="425" y="113" text-anchor="middle" font-size="10.5" fill="var(--purple-1)">慢：磁盘 IO</text>
-
-        <text x="500" y="48" font-size="10" fill="var(--t2)">→ 返回用户</text>
-        <text x="500" y="123" font-size="10" fill="var(--t2)">→ 写入缓存再返回</text>
       </svg>
     </div>
     <div class="tbl-wrap"><table>
       <tr><th>层级</th><th>技术</th><th>缓存什么</th></tr>
-      <tr><td>内置缓存</td><td>InnoDB Buffer Pool</td><td>数据表页、索引热点页，占物理内存 50%~80%</td></tr>
-      <tr><td>分布式缓存</td><td>Redis</td><td>热点业务数据、高频查询结果、会话数据</td></tr>
+      <tr><td>内置缓存</td><td>InnoDB Buffer Pool</td><td>表页、索引热点页，占物理内存 50%~80%</td></tr>
+      <tr><td>分布式缓存</td><td>Redis</td><td>热点业务数据、高频查询结果、会话</td></tr>
     </table></div>
-    <p class="keyline">缓存三原则：① 只读热点优先缓存，频繁变更数据少缓存；② 设合理有效期，兼顾实时性与命中率；③ 杜绝缓存与数据库长期不一致。</p>
+    <p class="keyline">缓存三原则：① 只读热点优先，频繁变更少缓存；② 设合理有效期；③ 杜绝缓存与数据库长期不一致。</p>
 
-    <p><strong>其他优化</strong>：表分区（按范围/列表/哈希拆大表）、读写分离（主库写、从库读）、分库分表（垂直拆字段、水平拆行）。</p>
+    <p><strong>四、数据表分区优化</strong></p>
+    <p>大表拆成多个物理分区，逻辑上还是一张表。四种方式：范围（按时间/数值）、列表（按枚举值）、哈希（均匀打散）、键分区。</p>
+
+    <p><strong>五、读写分离架构优化</strong></p>
+    <p>主库负责写，从库负责读，通过 binlog 实时同步。一主多从，中间件自动路由。</p>
+
+    <p><strong>六、负载均衡优化</strong></p>
+    <p>读均衡：多从库按权重分发请求。写均衡：分库分表拆写入压力。垂直扩容（升硬件）+ 水平扩容（加节点）。</p>
+
+    <p><strong>七、服务与存储层优化</strong></p>
+    <p>监控 CPU/内存/磁盘/连接数；数据文件、日志、索引分到不同高性能磁盘；短期靠升级硬件，长期靠架构优化。</p>
   </section>
 </section>
 
-<section class="sec-block" id="sec-db-warehouse">
-  <div class="sec-h"><h2>四、数据仓库与挖掘</h2><span class="years">OLTP vs OLAP · 挖掘算法 · 评估指标</span></div>
+<!-- ==================== 考点4 ==================== -->
+<section class="sec-block" id="sec-k4">
+  <div class="sec-h"><h2>考点4 · 数据仓库与数据挖掘算法</h2><span class="years">OLTP vs OLAP · 算法 · 评估</span></div>
 
-  <section class="topic" id="sec-wh-oltp">
-    <div class="topic-h"><h3>4.1 OLTP vs OLAP</h3></div>
+  <section class="topic" id="sec-k4-1">
+    <div class="topic-h"><h3>一、数据仓库</h3></div>
     <div class="tbl-wrap"><table>
       <tr><th>维度</th><th>OLTP（联机事务处理）</th><th>OLAP（联机分析处理）</th></tr>
       <tr><td>面向</td><td>具体业务（存钱、下单）</td><td>宏观分析（销售趋势、风险）</td></tr>
@@ -332,11 +346,11 @@ REVOKE SELECT ON TABLE 学生 FROM U1 CASCADE;</pre>
       <tr><td>单次量</td><td>小</td><td>大</td></tr>
       <tr><td>响应</td><td>要求极高</td><td>相对宽松</td></tr>
     </table></div>
-    <p class="keyline">四种存储：关系库（OLTP）、数据仓库（OLAP）、图数据库（Neo4j，社交网络/反洗钱穿透）、流数据库（实时流）。</p>
+    <p class="keyline">四种存储：关系库（OLTP）、数据仓库（OLAP）、图数据库（Neo4j，社交网络/反洗钱）、流数据库（实时流）。</p>
   </section>
 
-  <section class="topic" id="sec-wh-mining">
-    <div class="topic-h"><h3>4.2 挖掘任务与算法</h3></div>
+  <section class="topic" id="sec-k4-2">
+    <div class="topic-h"><h3>二、数据挖掘</h3></div>
     <p><strong>监督学习</strong>：有标签，预测新样本。<strong>无监督学习</strong>：无标签，发现结构。</p>
     <div class="tbl-wrap"><table>
       <tr><th>任务</th><th>类型</th><th>代表算法</th><th>干什么</th></tr>
@@ -349,8 +363,8 @@ REVOKE SELECT ON TABLE 学生 FROM U1 CASCADE;</pre>
     <p class="keyline">K-means 步骤：选 K 个中心 → 样本归最近中心 → 重算中心 → 迭代到收敛。</p>
   </section>
 
-  <section class="topic" id="sec-wh-eval">
-    <div class="topic-h"><h3>4.3 模型评估</h3></div>
+  <section class="topic" id="sec-k4-3">
+    <div class="topic-h"><h3>三、模型评估</h3></div>
     <p>二分类用<strong>混淆矩阵</strong>：</p>
     <div class="tbl-wrap"><table>
       <tr><th></th><th>预测正</th><th>预测负</th></tr>
@@ -366,22 +380,6 @@ REVOKE SELECT ON TABLE 学生 FROM U1 CASCADE;</pre>
     </table></div>
     <p class="keyline">ROC 曲线：横轴假正例率（FPR），纵轴真正例率（TPR=召回率）。越靠左上角越好。AUC 是 ROC 下面积，0.5=瞎猜，&gt;0.8=好，&gt;0.9=优秀。不平衡数据集用 AUC 比准确率稳。</p>
   </section>
-</section>
-
-<section class="sec-block" id="sec-test">
-  <div class="sec-h"><h2>自测</h2><span class="years">关键考点速记</span></div>
-  <div class="tbl-wrap"><table>
-    <tr><th>考法</th><th>答案</th></tr>
-    <tr><td>三级模式中间那层是？</td><td>模式（逻辑模式）</td></tr>
-    <tr><td>外模式/模式映像保证什么独立性？</td><td>逻辑独立性</td></tr>
-    <tr><td>不可重复读由什么引起？</td><td>UPDATE</td></tr>
-    <tr><td>X 锁又叫什么？</td><td>排他锁/写锁</td></tr>
-    <tr><td>3-2-1 原则里的 1 指什么？</td><td>1 份异地备份</td></tr>
-    <tr><td>缓存占物理内存多少？</td><td>50%~80%</td></tr>
-    <tr><td>OLAP 面向什么？</td><td>宏观分析决策</td></tr>
-    <tr><td>K-means 是监督还是无监督？</td><td>无监督（聚类）</td></tr>
-    <tr><td>AUC=0.5 意味着？</td><td>随机瞎猜</td></tr>
-  </table></div>
 </section>
 
 </div><!-- /doc -->
