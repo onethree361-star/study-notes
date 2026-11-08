@@ -1,25 +1,25 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>数据库与数据治理 · 公考备考笔记</title>
+<title>鏁版嵁搴撲笌鏁版嵁娌荤悊 路 鍏€冨鑰冪瑪璁?/title>
 <link rel="stylesheet" href="../../css/style.css">
 <script>window.SITE_ROOT='../../';window.PAGE_PATH='pages/computer/database.html';</script>
 </head>
 <body>
 
 <div class="nav">
-  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
-  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="menu-btn" onclick="toggleSidebar()" title="灞曞紑/鏀惰捣瀵艰埅">鈽?/div>
+  <a href="../../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">璋?/div><div class="nav-title">鍏€冨鑰冪瑪璁?/div></a>
   <div class="search">
-    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+    <input type="text" id="searchInput" placeholder="鎼滅储鏈〉鍏抽敭璇嶁€?>
   </div>
-  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">缂栬緫</button>
 </div>
 
 <div class="sidebar" id="sidebar">
-  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div class="side-toggle" onclick="toggleSidebar()" title="鏀惰捣瀵艰埅">鈼€</div>
   <div id="sidebarNav"></div>
 </div>
 <div class="sidebar-resize" id="sidebarResize"></div>
@@ -28,357 +28,354 @@
 <div class="content">
 <div class="doc">
 
-<div class="crumb"><a href="../../notes.html">首页</a> › 计算机 › 数据库与数据治理</div>
+<div class="crumb"><a href="../../notes.html">棣栭〉</a> 鈥?璁＄畻鏈?鈥?鏁版嵁搴撲笌鏁版嵁娌荤悊</div>
 
 <div class="doc-head">
-  <h1>数据库与数据治理</h1>
-  <p><strong>一句话：</strong>数据库是"存数据的仓库"，核心是<strong>三级模式</strong>保证独立性、<strong>ACID</strong> 保证事务可靠、<strong>SQL</strong> 是操作语言。数据治理是在仓库之上加安全、备份、性能优化。</p>
-  <div class="stat">考点 <b>4</b> 块 · 事务 <b>ACID</b> · 索引 <b>5</b> 类 · 性能优化 <b>7</b> 招</div>
+  <h1>鏁版嵁搴撲笌鏁版嵁娌荤悊</h1>
+  <p><strong>涓€鍙ヨ瘽锛?/strong>鏁版嵁搴撴槸"瀛樻暟鎹殑浠撳簱"锛屾牳蹇冩槸<strong>涓夌骇妯″紡</strong>淇濊瘉鐙珛鎬с€?strong>ACID</strong> 淇濊瘉浜嬪姟鍙潬銆?strong>SQL</strong> 鏄搷浣滆瑷€銆傛暟鎹不鐞嗘槸鍦ㄤ粨搴撲箣涓婂姞瀹夊叏銆佸浠姐€佹€ц兘浼樺寲銆?/p>
+  <div class="stat">鑰冪偣 <b>4</b> 鍧?路 浜嬪姟 <b>ACID</b> 路 绱㈠紩 <b>5</b> 绫?路 鎬ц兘浼樺寲 <b>7</b> 鎷?/div>
 </div>
 
 <nav class="toc">
   <div class="toc-col">
-    <div class="toc-g"><a href="#sec-k1">考点1 · 数据库系统</a></div>
-    <a class="toc-i" href="#sec-k1-1">1.1 系统组成</a>
-    <a class="toc-i" href="#sec-k1-2">1.2 系统结构：三级+数据模型</a>
-    <a class="toc-i" href="#sec-k1-3">1.3 基本特点</a>
-    <a class="toc-i" href="#sec-k1-4">1.4 设计流程·对比·码·范式</a>
-    <div class="toc-g"><a href="#sec-k2">考点2 · SQL操作</a></div>
-    <a class="toc-i" href="#sec-k2-0">2.0 命令总览表</a>
-    <a class="toc-i" href="#sec-k2-1">2.1 数据查询 DQL</a>
-    <a class="toc-i" href="#sec-k2-2">2.2 数据操作 DML</a>
-    <a class="toc-i" href="#sec-k2-3">2.3 数据定义 DDL</a>
-    <a class="toc-i" href="#sec-k2-4">2.4 数据控制 DCL</a>
+    <div class="toc-g"><a href="#sec-k1">鑰冪偣1 路 鏁版嵁搴撶郴缁?/a></div>
+    <a class="toc-i" href="#sec-k1-1">1.1 绯荤粺缁勬垚</a>
+    <a class="toc-i" href="#sec-k1-2">1.2 绯荤粺缁撴瀯锛氫笁绾?鏁版嵁妯″瀷</a>
+    <a class="toc-i" href="#sec-k1-3">1.3 鍩烘湰鐗圭偣</a>
+    <a class="toc-i" href="#sec-k1-4">1.4 璁捐娴佺▼路瀵规瘮路鐮伮疯寖寮?/a>
+    <div class="toc-g"><a href="#sec-k2">鑰冪偣2 路 SQL鎿嶄綔</a></div>
+    <a class="toc-i" href="#sec-k2-0">2.0 鍛戒护鎬昏琛?/a>
+    <a class="toc-i" href="#sec-k2-1">2.1 鏁版嵁鏌ヨ DQL</a>
+    <a class="toc-i" href="#sec-k2-2">2.2 鏁版嵁鎿嶄綔 DML</a>
+    <a class="toc-i" href="#sec-k2-3">2.3 鏁版嵁瀹氫箟 DDL</a>
+    <a class="toc-i" href="#sec-k2-4">2.4 鏁版嵁鎺у埗 DCL</a>
   </div>
   <div class="toc-col">
-    <div class="toc-g"><a href="#sec-k3">考点3 · 运维设计</a></div>
-    <a class="toc-i" href="#sec-k3-safe">3.A 事务与安全运维</a>
-    <a class="toc-i" href="#sec-k3-opt">3.B 性能优化（7招）</a>
-    <div class="toc-g"><a href="#sec-k4">考点4 · 仓库与挖掘</a></div>
-    <a class="toc-i" href="#sec-k4-1">4.1 数据仓库</a>
-    <a class="toc-i" href="#sec-k4-2">4.2 数据挖掘</a>
-    <a class="toc-i" href="#sec-k4-3">4.3 模型评估</a>
+    <div class="toc-g"><a href="#sec-k3">鑰冪偣3 路 杩愮淮璁捐</a></div>
+    <a class="toc-i" href="#sec-k3-safe">3.A 浜嬪姟涓庡畨鍏ㄨ繍缁?/a>
+    <a class="toc-i" href="#sec-k3-opt">3.B 鎬ц兘浼樺寲锛?鎷涳級</a>
+    <div class="toc-g"><a href="#sec-k4">鑰冪偣4 路 浠撳簱涓庢寲鎺?/a></div>
+    <a class="toc-i" href="#sec-k4-1">4.1 鏁版嵁浠撳簱</a>
+    <a class="toc-i" href="#sec-k4-2">4.2 鏁版嵁鎸栨帢</a>
+    <a class="toc-i" href="#sec-k4-3">4.3 妯″瀷璇勪及</a>
   </div>
 </nav>
 
-<!-- ==================== 考点1 ==================== -->
+<!-- ==================== 鑰冪偣1 ==================== -->
 <section class="sec-block" id="sec-k1">
-  <div class="sec-h"><h2>考点1 · 数据库系统</h2><span class="years">组成 · 结构 · 特点 · 设计</span></div>
+  <div class="sec-h"><h2>鑰冪偣1 路 鏁版嵁搴撶郴缁?/h2><span class="years">缁勬垚 路 缁撴瀯 路 鐗圭偣 路 璁捐</span></div>
 
   <section class="topic" id="sec-k1-1">
-    <div class="topic-h"><h3>一、数据库系统组成</h3></div>
-    <p>数据库系统（DBS）= <strong>DB + DBMS + 应用系统 + DBA + 用户</strong>，其中 DBMS 是核心。</p>
-    <div class="tbl-wrap"><table>
-      <tr><th>术语</th><th>是什么</th><th>一句话</th></tr>
-      <tr><td>DB</td><td>数据库</td><td>有结构、统一存储的<strong>数据集合</strong>，集成+共享</td></tr>
-      <tr><td>DBMS</td><td>数据库管理系统</td><td>管数据库的<strong>系统软件</strong>，是 DBS 的核心</td></tr>
-      <tr><td>DBA</td><td>数据库管理员</td><td>负责设计、维护、调优的人</td></tr>
-      <tr><td>DBS</td><td>数据库系统</td><td>包含硬件+软件+人+数据的完整系统</td></tr>
+    <div class="topic-h"><h3>涓€銆佹暟鎹簱绯荤粺缁勬垚</h3></div>
+    <p>鏁版嵁搴撶郴缁燂紙DBS锛? <strong>DB + DBMS + 搴旂敤绯荤粺 + DBA + 鐢ㄦ埛</strong>锛屽叾涓?DBMS 鏄牳蹇冦€?/p>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>鏈</th><th>鏄粈涔?/th><th>涓€鍙ヨ瘽</th></tr>
+      <tr><td>DB</td><td>鏁版嵁搴?/td><td>鏈夌粨鏋勩€佺粺涓€瀛樺偍鐨?strong>鏁版嵁闆嗗悎</strong>锛岄泦鎴?鍏变韩</td></tr>
+      <tr><td>DBMS</td><td>鏁版嵁搴撶鐞嗙郴缁?/td><td>绠℃暟鎹簱鐨?strong>绯荤粺杞欢</strong>锛屾槸 DBS 鐨勬牳蹇?/td></tr>
+      <tr><td>DBA</td><td>鏁版嵁搴撶鐞嗗憳</td><td>璐熻矗璁捐銆佺淮鎶ゃ€佽皟浼樼殑浜?/td></tr>
+      <tr><td>DBS</td><td>鏁版嵁搴撶郴缁?/td><td>鍖呭惈纭欢+杞欢+浜?鏁版嵁鐨勫畬鏁寸郴缁?/td></tr>
     </table></div>
   </section>
 
   <section class="topic" id="sec-k1-2">
-    <div class="topic-h"><h3>二、数据库系统结构：三级模式 + 数据模型</h3></div>
-    <p><strong>三级模式</strong>：外模式（用户视图，多个）→ 模式（全局逻辑，唯一）→ 内模式（物理存储，唯一）。两级映像保证独立性。</p>
+    <div class="topic-h"><h3>浜屻€佹暟鎹簱绯荤粺缁撴瀯锛氫笁绾фā寮?+ 鏁版嵁妯″瀷</h3></div>
+    <p><strong>涓夌骇妯″紡</strong>锛氬妯″紡锛堢敤鎴疯鍥撅紝澶氫釜锛夆啋 妯″紡锛堝叏灞€閫昏緫锛屽敮涓€锛夆啋 鍐呮ā寮忥紙鐗╃悊瀛樺偍锛屽敮涓€锛夈€備袱绾ф槧鍍忎繚璇佺嫭绔嬫€с€?/p>
     <div class="stage-svg">
-      <svg viewBox="0 0 700 200" width="700" height="200" role="img" aria-label="三级模式两级映像">
+      <svg viewBox="0 0 700 200" width="700" height="200" role="img" aria-label="涓夌骇妯″紡涓ょ骇鏄犲儚">
         <rect x="20" y="10" width="160" height="50" rx="6" fill="none" stroke="var(--green-1)" stroke-width="1.5"/>
-        <text x="100" y="32" text-anchor="middle" font-size="13" fill="var(--t1)">外模式（用户视图）</text>
-        <text x="100" y="50" text-anchor="middle" font-size="10.5" fill="var(--t3)">用户看到的局部数据</text>
+        <text x="100" y="32" text-anchor="middle" font-size="13" fill="var(--t1)">澶栨ā寮忥紙鐢ㄦ埛瑙嗗浘锛?/text>
+        <text x="100" y="50" text-anchor="middle" font-size="10.5" fill="var(--t3)">鐢ㄦ埛鐪嬪埌鐨勫眬閮ㄦ暟鎹?/text>
 
         <rect x="270" y="75" width="160" height="50" rx="6" fill="none" stroke="var(--brand-1)" stroke-width="1.5"/>
-        <text x="350" y="97" text-anchor="middle" font-size="13" fill="var(--t1)">模式（逻辑模式）</text>
-        <text x="350" y="115" text-anchor="middle" font-size="10.5" fill="var(--t3)">全局逻辑结构，唯一</text>
+        <text x="350" y="97" text-anchor="middle" font-size="13" fill="var(--t1)">妯″紡锛堥€昏緫妯″紡锛?/text>
+        <text x="350" y="115" text-anchor="middle" font-size="10.5" fill="var(--t3)">鍏ㄥ眬閫昏緫缁撴瀯锛屽敮涓€</text>
 
         <rect x="520" y="140" width="160" height="50" rx="6" fill="none" stroke="var(--purple-1)" stroke-width="1.5"/>
-        <text x="600" y="162" text-anchor="middle" font-size="13" fill="var(--t1)">内模式（存储模式）</text>
-        <text x="600" y="180" text-anchor="middle" font-size="10.5" fill="var(--t3)">物理存储，唯一</text>
+        <text x="600" y="162" text-anchor="middle" font-size="13" fill="var(--t1)">鍐呮ā寮忥紙瀛樺偍妯″紡锛?/text>
+        <text x="600" y="180" text-anchor="middle" font-size="10.5" fill="var(--t3)">鐗╃悊瀛樺偍锛屽敮涓€</text>
 
         <line x1="180" y1="35" x2="270" y2="95" stroke="var(--t3)" stroke-width="1.4"/>
-        <text x="200" y="55" font-size="10.5" fill="var(--t2)">外模式/模式映像 → 逻辑独立性</text>
+        <text x="200" y="55" font-size="10.5" fill="var(--t2)">澶栨ā寮?妯″紡鏄犲儚 鈫?閫昏緫鐙珛鎬?/text>
 
         <line x1="430" y1="100" x2="520" y2="165" stroke="var(--t3)" stroke-width="1.4"/>
-        <text x="445" y="130" font-size="10.5" fill="var(--t2)">模式/内模式映像 → 物理独立性</text>
+        <text x="445" y="130" font-size="10.5" fill="var(--t2)">妯″紡/鍐呮ā寮忔槧鍍?鈫?鐗╃悊鐙珛鎬?/text>
       </svg>
     </div>
-    <p><strong>数据模型三要素</strong>：数据结构 + 数据操作 + 完整性约束。三类模型：概念模型（E-R）、逻辑模型（层次/网状/关系）、物理模型。</p>
-    <p class="keyline">逻辑独立性：模式改了，改外模式映像，应用不变。物理独立性：内模式（存储）改了，改模式/内模式映像，应用不变。</p>
+    <p><strong>鏁版嵁妯″瀷涓夎绱?/strong>锛氭暟鎹粨鏋?+ 鏁版嵁鎿嶄綔 + 瀹屾暣鎬х害鏉熴€備笁绫绘ā鍨嬶細姒傚康妯″瀷锛圗-R锛夈€侀€昏緫妯″瀷锛堝眰娆?缃戠姸/鍏崇郴锛夈€佺墿鐞嗘ā鍨嬨€?/p>
+    <p class="keyline">閫昏緫鐙珛鎬э細妯″紡鏀逛簡锛屾敼澶栨ā寮忔槧鍍忥紝搴旂敤涓嶅彉銆傜墿鐞嗙嫭绔嬫€э細鍐呮ā寮忥紙瀛樺偍锛夋敼浜嗭紝鏀规ā寮?鍐呮ā寮忔槧鍍忥紝搴旂敤涓嶅彉銆?/p>
   </section>
 
   <section class="topic" id="sec-k1-3">
-    <div class="topic-h"><h3>三、数据库系统基本特点</h3></div>
-    <div class="tbl-wrap"><table>
-      <tr><th>特点</th><th>含义</th></tr>
-      <tr><td>数据集成性</td><td>统一全局模式，多个视图共享，减少冗余</td></tr>
-      <tr><td>数据共享性高</td><td>多用户、多应用同时用同一数据</td></tr>
-      <tr><td>数据独立性高</td><td>逻辑独立性 + 物理独立性，应用不随存储变</td></tr>
-      <tr><td>统一管理控制</td><td>安全性、完整性、并发控制、故障恢复</td></tr>
+    <div class="topic-h"><h3>涓夈€佹暟鎹簱绯荤粺鍩烘湰鐗圭偣</h3></div>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>鐗圭偣</th><th>鍚箟</th></tr>
+      <tr><td>鏁版嵁闆嗘垚鎬?/td><td>缁熶竴鍏ㄥ眬妯″紡锛屽涓鍥惧叡浜紝鍑忓皯鍐椾綑</td></tr>
+      <tr><td>鏁版嵁鍏变韩鎬ч珮</td><td>澶氱敤鎴枫€佸搴旂敤鍚屾椂鐢ㄥ悓涓€鏁版嵁</td></tr>
+      <tr><td>鏁版嵁鐙珛鎬ч珮</td><td>閫昏緫鐙珛鎬?+ 鐗╃悊鐙珛鎬э紝搴旂敤涓嶉殢瀛樺偍鍙?/td></tr>
+      <tr><td>缁熶竴绠＄悊鎺у埗</td><td>瀹夊叏鎬с€佸畬鏁存€с€佸苟鍙戞帶鍒躲€佹晠闅滄仮澶?/td></tr>
     </table></div>
-    <p class="keyline">三类完整性约束：<strong>实体完整性</strong>（主键不为空）、<strong>参照完整性</strong>（外键要么空要么参照已存在）、<strong>用户定义完整性</strong>（字段有效性）。</p>
+    <p class="keyline">涓夌被瀹屾暣鎬х害鏉燂細<strong>瀹炰綋瀹屾暣鎬?/strong>锛堜富閿笉涓虹┖锛夈€?strong>鍙傜収瀹屾暣鎬?/strong>锛堝閿涔堢┖瑕佷箞鍙傜収宸插瓨鍦級銆?strong>鐢ㄦ埛瀹氫箟瀹屾暣鎬?/strong>锛堝瓧娈垫湁鏁堟€э級銆?/p>
   </section>
 
   <section class="topic" id="sec-k1-4">
-    <div class="topic-h"><h3>四、数据库：设计流程 · 对比 · 候选码 · 范式</h3></div>
+    <div class="topic-h"><h3>鍥涖€佹暟鎹簱锛氳璁℃祦绋?路 瀵规瘮 路 鍊欓€夌爜 路 鑼冨紡</h3></div>
 
-    <p><strong>数据库设计流程</strong>（六阶段）：需求分析 → 概念设计（E-R图）→ 逻辑设计（转关系表）→ 物理设计（索引/存储）→ 数据库实施 → 运行维护。</p>
+    <p><strong>鏁版嵁搴撹璁℃祦绋?/strong>锛堝叚闃舵锛夛細闇€姹傚垎鏋?鈫?姒傚康璁捐锛圗-R鍥撅級鈫?閫昏緫璁捐锛堣浆鍏崇郴琛級鈫?鐗╃悊璁捐锛堢储寮?瀛樺偍锛夆啋 鏁版嵁搴撳疄鏂?鈫?杩愯缁存姢銆?/p>
 
-    <p><strong>数据库对比</strong>：</p>
-    <div class="tbl-wrap"><table>
-      <tr><th>类型</th><th>代表</th><th>特点</th><th>适用</th></tr>
-      <tr><td>关系型</td><td>MySQL/Oracle</td><td>表格结构，ACID，强一致</td><td>日常事务（OLTP）</td></tr>
-      <tr><td>NoSQL</td><td>MongoDB/Redis</td><td>灵活 schema，高扩展，弱一致</td><td>大数据、高并发</td></tr>
-      <tr><td>图数据库</td><td>Neo4j</td><td>节点+边，擅长关系穿透</td><td>社交网络、反洗钱</td></tr>
+    <p><strong>鏁版嵁搴撳姣?/strong>锛?/p>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>绫诲瀷</th><th>浠ｈ〃</th><th>鐗圭偣</th><th>閫傜敤</th></tr>
+      <tr><td>鍏崇郴鍨?/td><td>MySQL/Oracle</td><td>琛ㄦ牸缁撴瀯锛孉CID锛屽己涓€鑷?/td><td>鏃ュ父浜嬪姟锛圤LTP锛?/td></tr>
+      <tr><td>NoSQL</td><td>MongoDB/Redis</td><td>鐏垫椿 schema锛岄珮鎵╁睍锛屽急涓€鑷?/td><td>澶ф暟鎹€侀珮骞跺彂</td></tr>
+      <tr><td>鍥炬暟鎹簱</td><td>Neo4j</td><td>鑺傜偣+杈癸紝鎿呴暱鍏崇郴绌块€?/td><td>绀句氦缃戠粶銆佸弽娲楅挶</td></tr>
     </table></div>
 
-    <p><strong>候选码</strong>：能唯一标识元组的最小属性集（不能再删）。<strong>冗余</strong>：同一信息重复存多处，导致更新/插入/删除异常。</p>
+    <p><strong>鍊欓€夌爜</strong>锛氳兘鍞竴鏍囪瘑鍏冪粍鐨勬渶灏忓睘鎬ч泦锛堜笉鑳藉啀鍒狅級銆?strong>鍐椾綑</strong>锛氬悓涓€淇℃伅閲嶅瀛樺澶勶紝瀵艰嚧鏇存柊/鎻掑叆/鍒犻櫎寮傚父銆?/p>
 
-    <p><strong>范式</strong>（设计规范，级别越高冗余越小）：</p>
-    <div class="tbl-wrap"><table>
-      <tr><th>范式</th><th>规则</th><th>消除什么</th></tr>
-      <tr><td>1NF</td><td>每个属性不可再分（原子值）</td><td>属性可拆分导致混乱</td></tr>
-      <tr><td>2NF</td><td>在1NF上，非主属性完全函数依赖于主键（不部分依赖）</td><td>部分依赖冗余</td></tr>
-      <tr><td>3NF</td><td>在2NF上，非主属性不传递依赖于主键</td><td>传递依赖冗余</td></tr>
+    <p><strong>鑼冨紡</strong>锛堣璁¤鑼冿紝绾у埆瓒婇珮鍐椾綑瓒婂皬锛夛細</p>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>鑼冨紡</th><th>瑙勫垯</th><th>娑堥櫎浠€涔?/th></tr>
+      <tr><td>1NF</td><td>姣忎釜灞炴€т笉鍙啀鍒嗭紙鍘熷瓙鍊硷級</td><td>灞炴€у彲鎷嗗垎瀵艰嚧娣蜂贡</td></tr>
+      <tr><td>2NF</td><td>鍦?NF涓婏紝闈炰富灞炴€у畬鍏ㄥ嚱鏁颁緷璧栦簬涓婚敭锛堜笉閮ㄥ垎渚濊禆锛?/td><td>閮ㄥ垎渚濊禆鍐椾綑</td></tr>
+      <tr><td>3NF</td><td>鍦?NF涓婏紝闈炰富灞炴€т笉浼犻€掍緷璧栦簬涓婚敭</td><td>浼犻€掍緷璧栧啑浣?/td></tr>
     </table></div>
-    <p class="keyline">例：学生(学号,姓名,系,系主任)——系主任传递依赖于学号，违背 3NF。拆成 学生(学号,姓名,系) + 系(系,系主任)。</p>
+    <p class="keyline">渚嬶細瀛︾敓(瀛﹀彿,濮撳悕,绯?绯讳富浠?鈥斺€旂郴涓讳换浼犻€掍緷璧栦簬瀛﹀彿锛岃繚鑳?3NF銆傛媶鎴?瀛︾敓(瀛﹀彿,濮撳悕,绯? + 绯?绯?绯讳富浠?銆?/p>
   </section>
 </section>
 
-<!-- ==================== 考点2 ==================== -->
+<!-- ==================== 鑰冪偣2 ==================== -->
 <section class="sec-block" id="sec-k2">
-  <div class="sec-h"><h2>考点2 · SQL操作</h2><span class="years">命令分类 · 查询 · 操作 · 定义 · 控制</span></div>
+  <div class="sec-h"><h2>鑰冪偣2 路 SQL鎿嶄綔</h2><span class="years">鍛戒护鍒嗙被 路 鏌ヨ 路 鎿嶄綔 路 瀹氫箟 路 鎺у埗</span></div>
 
   <section class="topic" id="sec-k2-0">
-    <div class="topic-h"><h3>2.0 SQL 命令、子句、函数总览表</h3></div>
-    <div class="tbl-wrap"><table>
-      <tr><th>分类</th><th>关键字</th><th>功能</th></tr>
-      <tr><td>DQL 查询</td><td>SELECT</td><td>查数据</td></tr>
-      <tr><td>DML 操纵</td><td>INSERT / UPDATE / DELETE</td><td>增删改数据</td></tr>
-      <tr><td>DDL 定义</td><td>CREATE / DROP / ALTER</td><td>建表、建索引、改结构</td></tr>
-      <tr><td>DCL 控制</td><td>GRANT / REVOKE</td><td>授/收权限</td></tr>
+    <div class="topic-h"><h3>2.0 SQL 鍛戒护銆佸瓙鍙ャ€佸嚱鏁版€昏琛?/h3></div>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>鍒嗙被</th><th>鍏抽敭瀛?/th><th>鍔熻兘</th></tr>
+      <tr><td>DQL 鏌ヨ</td><td>SELECT</td><td>鏌ユ暟鎹?/td></tr>
+      <tr><td>DML 鎿嶇旱</td><td>INSERT / UPDATE / DELETE</td><td>澧炲垹鏀规暟鎹?/td></tr>
+      <tr><td>DDL 瀹氫箟</td><td>CREATE / DROP / ALTER</td><td>寤鸿〃銆佸缓绱㈠紩銆佹敼缁撴瀯</td></tr>
+      <tr><td>DCL 鎺у埗</td><td>GRANT / REVOKE</td><td>鎺?鏀舵潈闄?/td></tr>
     </table></div>
-    <div class="tbl-wrap"><table>
-      <tr><th>SELECT 子句</th><th>作用</th><th>顺序</th></tr>
-      <tr><td>FROM</td><td>从哪张表</td><td>1</td></tr>
-      <tr><td>WHERE</td><td>行级筛选（分组前）</td><td>2</td></tr>
-      <tr><td>GROUP BY</td><td>分组</td><td>3</td></tr>
-      <tr><td>HAVING</td><td>组级筛选（分组后）</td><td>4</td></tr>
-      <tr><td>ORDER BY</td><td>排序，最后</td><td>5</td></tr>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>SELECT 瀛愬彞</th><th>浣滅敤</th><th>椤哄簭</th></tr>
+      <tr><td>FROM</td><td>浠庡摢寮犺〃</td><td>1</td></tr>
+      <tr><td>WHERE</td><td>琛岀骇绛涢€夛紙鍒嗙粍鍓嶏級</td><td>2</td></tr>
+      <tr><td>GROUP BY</td><td>鍒嗙粍</td><td>3</td></tr>
+      <tr><td>HAVING</td><td>缁勭骇绛涢€夛紙鍒嗙粍鍚庯級</td><td>4</td></tr>
+      <tr><td>ORDER BY</td><td>鎺掑簭锛屾渶鍚?/td><td>5</td></tr>
     </table></div>
-    <p class="keyline">WHERE vs HAVING：WHERE 在分组前筛行，HAVING 在分组后筛组。COUNT(*) 含 NULL，COUNT(列名) 不含 NULL。</p>
+    <p class="keyline">WHERE vs HAVING锛歐HERE 鍦ㄥ垎缁勫墠绛涜锛孒AVING 鍦ㄥ垎缁勫悗绛涚粍銆侰OUNT(*) 鍚?NULL锛孋OUNT(鍒楀悕) 涓嶅惈 NULL銆?/p>
   </section>
 
   <section class="topic" id="sec-k2-1">
-    <div class="topic-h"><h3>一、数据查询（DQL）</h3></div>
-    <pre class="code-block">SELECT [DISTINCT] 目标列
-FROM 表名
-WHERE 条件
-GROUP BY 分组列
-HAVING 分组后筛选
-ORDER BY 排序列 [ASC|DESC];</pre>
+    <div class="topic-h"><h3>涓€銆佹暟鎹煡璇紙DQL锛?/h3></div>
+    <pre class="code-block">SELECT [DISTINCT] 鐩爣鍒?FROM 琛ㄥ悕
+WHERE 鏉′欢
+GROUP BY 鍒嗙粍鍒?HAVING 鍒嗙粍鍚庣瓫閫?ORDER BY 鎺掑簭鍒?[ASC|DESC];</pre>
 
-    <p><strong>条件谓词</strong>：=、&gt;、&lt;、BETWEEN...AND、IN、LIKE 模糊匹配（% 任意多字符，_ 单个字符）。</p>
+    <p><strong>鏉′欢璋撹瘝</strong>锛?銆?gt;銆?lt;銆丅ETWEEN...AND銆両N銆丩IKE 妯＄硦鍖归厤锛? 浠绘剰澶氬瓧绗︼紝_ 鍗曚釜瀛楃锛夈€?/p>
 
-    <p><strong>多表连接</strong>：</p>
-    <div class="tbl-wrap"><table>
-      <tr><th>连接</th><th>结果</th></tr>
-      <tr><td>INNER JOIN</td><td>只返回两表匹配的行（交集）</td></tr>
-      <tr><td>LEFT JOIN</td><td>左表全保留，右表不匹配补 NULL</td></tr>
-      <tr><td>RIGHT JOIN</td><td>右表全保留，左表不匹配补 NULL</td></tr>
-      <tr><td>FULL JOIN</td><td>两表全保留，不匹配都补 NULL</td></tr>
+    <p><strong>澶氳〃杩炴帴</strong>锛?/p>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>杩炴帴</th><th>缁撴灉</th></tr>
+      <tr><td>INNER JOIN</td><td>鍙繑鍥炰袱琛ㄥ尮閰嶇殑琛岋紙浜ら泦锛?/td></tr>
+      <tr><td>LEFT JOIN</td><td>宸﹁〃鍏ㄤ繚鐣欙紝鍙宠〃涓嶅尮閰嶈ˉ NULL</td></tr>
+      <tr><td>RIGHT JOIN</td><td>鍙宠〃鍏ㄤ繚鐣欙紝宸﹁〃涓嶅尮閰嶈ˉ NULL</td></tr>
+      <tr><td>FULL JOIN</td><td>涓よ〃鍏ㄤ繚鐣欙紝涓嶅尮閰嶉兘琛?NULL</td></tr>
     </table></div>
 
-    <p><strong>嵌套查询</strong>：WHERE 里套 SELECT。<strong>EXISTS / NOT EXISTS</strong>：只判断"有没有满足条件的行"，不关心具体值。</p>
-    <p class="keyline">聚合函数：COUNT、SUM、AVG、MAX、MIN，通常配合 GROUP BY 使用。</p>
+    <p><strong>宓屽鏌ヨ</strong>锛歐HERE 閲屽 SELECT銆?strong>EXISTS / NOT EXISTS</strong>锛氬彧鍒ゆ柇"鏈夋病鏈夋弧瓒虫潯浠剁殑琛?锛屼笉鍏冲績鍏蜂綋鍊笺€?/p>
+    <p class="keyline">鑱氬悎鍑芥暟锛欳OUNT銆丼UM銆丄VG銆丮AX銆丮IN锛岄€氬父閰嶅悎 GROUP BY 浣跨敤銆?/p>
   </section>
 
   <section class="topic" id="sec-k2-2">
-    <div class="topic-h"><h3>二、数据操作（DML）</h3></div>
-    <pre class="code-block">INSERT INTO 表(列) VALUES(值);
-UPDATE 表 SET 列=值 WHERE 条件;
-DELETE FROM 表 WHERE 条件;</pre>
-    <p class="keyline">DELETE 是按行删，可回滚；DROP 是删表，不可恢复。</p>
+    <div class="topic-h"><h3>浜屻€佹暟鎹搷浣滐紙DML锛?/h3></div>
+    <pre class="code-block">INSERT INTO 琛?鍒? VALUES(鍊?;
+UPDATE 琛?SET 鍒?鍊?WHERE 鏉′欢;
+DELETE FROM 琛?WHERE 鏉′欢;</pre>
+    <p class="keyline">DELETE 鏄寜琛屽垹锛屽彲鍥炴粴锛汥ROP 鏄垹琛紝涓嶅彲鎭㈠銆?/p>
   </section>
 
   <section class="topic" id="sec-k2-3">
-    <div class="topic-h"><h3>三、数据定义（DDL）</h3></div>
-    <p><strong>建表</strong>：CREATE TABLE，列级/表级约束。<strong>索引</strong>：CREATE [UNIQUE] INDEX，加速查询但占空间。</p>
-    <pre class="code-block">CREATE TABLE 学生(
-  学号 CHAR(9) PRIMARY KEY,
-  姓名 CHAR(20) NOT NULL,
-  系 CHAR(20),
-  UNIQUE(姓名)
+    <div class="topic-h"><h3>涓夈€佹暟鎹畾涔夛紙DDL锛?/h3></div>
+    <p><strong>寤鸿〃</strong>锛欳REATE TABLE锛屽垪绾?琛ㄧ骇绾︽潫銆?strong>绱㈠紩</strong>锛欳REATE [UNIQUE] INDEX锛屽姞閫熸煡璇絾鍗犵┖闂淬€?/p>
+    <pre class="code-block">CREATE TABLE 瀛︾敓(
+  瀛﹀彿 CHAR(9) PRIMARY KEY,
+  濮撳悕 CHAR(20) NOT NULL,
+  绯?CHAR(20),
+  UNIQUE(濮撳悕)
 );
-CREATE INDEX 索引名 ON 表(列);</pre>
-    <p class="keyline">四类完整性约束：PRIMARY KEY（主键）、UNIQUE（唯一）、NOT NULL（非空）、FOREIGN KEY（外键）。</p>
+CREATE INDEX 绱㈠紩鍚?ON 琛?鍒?;</pre>
+    <p class="keyline">鍥涚被瀹屾暣鎬х害鏉燂細PRIMARY KEY锛堜富閿級銆乁NIQUE锛堝敮涓€锛夈€丯OT NULL锛堥潪绌猴級銆丗OREIGN KEY锛堝閿級銆?/p>
   </section>
 
   <section class="topic" id="sec-k2-4">
-    <div class="topic-h"><h3>四、数据控制（DCL）</h3></div>
-    <p><strong>GRANT</strong> 授权，<strong>REVOKE</strong> 收权。</p>
-    <pre class="code-block">GRANT SELECT ON TABLE 学生 TO U1 WITH GRANT OPTION;
-REVOKE SELECT ON TABLE 学生 FROM U1 CASCADE;</pre>
-    <div class="tbl-wrap"><table>
-      <tr><th>关键字</th><th>含义</th></tr>
-      <tr><td>WITH GRANT OPTION</td><td>允许被授权者再转给别人</td></tr>
-      <tr><td>CASCADE</td><td>级联收回（连转给别人的一起收）</td></tr>
-      <tr><td>RESTRICT</td><td>限制收回（若已转授则拒绝执行）</td></tr>
+    <div class="topic-h"><h3>鍥涖€佹暟鎹帶鍒讹紙DCL锛?/h3></div>
+    <p><strong>GRANT</strong> 鎺堟潈锛?strong>REVOKE</strong> 鏀舵潈銆?/p>
+    <pre class="code-block">GRANT SELECT ON TABLE 瀛︾敓 TO U1 WITH GRANT OPTION;
+REVOKE SELECT ON TABLE 瀛︾敓 FROM U1 CASCADE;</pre>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>鍏抽敭瀛?/th><th>鍚箟</th></tr>
+      <tr><td>WITH GRANT OPTION</td><td>鍏佽琚巿鏉冭€呭啀杞粰鍒汉</td></tr>
+      <tr><td>CASCADE</td><td>绾ц仈鏀跺洖锛堣繛杞粰鍒汉鐨勪竴璧锋敹锛?/td></tr>
+      <tr><td>RESTRICT</td><td>闄愬埗鏀跺洖锛堣嫢宸茶浆鎺堝垯鎷掔粷鎵ц锛?/td></tr>
     </table></div>
-    <p class="keyline">角色（Role）：把一组权限打包成角色，授予用户，方便批量管理。</p>
+    <p class="keyline">瑙掕壊锛圧ole锛夛細鎶婁竴缁勬潈闄愭墦鍖呮垚瑙掕壊锛屾巿浜堢敤鎴凤紝鏂逛究鎵归噺绠＄悊銆?/p>
   </section>
 </section>
 
-<!-- ==================== 考点3 ==================== -->
+<!-- ==================== 鑰冪偣3 ==================== -->
 <section class="sec-block" id="sec-k3">
-  <div class="sec-h"><h2>考点3 · 数据库运维设计</h2><span class="years">事务安全 · 性能优化</span></div>
+  <div class="sec-h"><h2>鑰冪偣3 路 鏁版嵁搴撹繍缁磋璁?/h2><span class="years">浜嬪姟瀹夊叏 路 鎬ц兘浼樺寲</span></div>
 
   <section class="topic" id="sec-k3-safe">
-    <div class="topic-h"><h3>3.A 事务与安全运维</h3></div>
+    <div class="topic-h"><h3>3.A 浜嬪姟涓庡畨鍏ㄨ繍缁?/h3></div>
 
-    <p><strong>事前：事务与并发控制</strong></p>
-    <p>事务 = 一组操作，要么全做要么全不做。四个属性（ACID）：</p>
-    <div class="tbl-wrap"><table>
-      <tr><th>属性</th><th>含义</th></tr>
-      <tr><td>A 原子性</td><td>不可分割，全做或全不做</td></tr>
-      <tr><td>C 一致性</td><td>执行前后数据库从一个一致状态到另一个</td></tr>
-      <tr><td>I 隔离性</td><td>多事务并发，互不干扰</td></tr>
-      <tr><td>D 持久性</td><td>提交后永久生效，崩溃也不丢</td></tr>
+    <p><strong>浜嬪墠锛氫簨鍔′笌骞跺彂鎺у埗</strong></p>
+    <p>浜嬪姟 = 涓€缁勬搷浣滐紝瑕佷箞鍏ㄥ仛瑕佷箞鍏ㄤ笉鍋氥€傚洓涓睘鎬э紙ACID锛夛細</p>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>灞炴€?/th><th>鍚箟</th></tr>
+      <tr><td>A 鍘熷瓙鎬?/td><td>涓嶅彲鍒嗗壊锛屽叏鍋氭垨鍏ㄤ笉鍋?/td></tr>
+      <tr><td>C 涓€鑷存€?/td><td>鎵ц鍓嶅悗鏁版嵁搴撲粠涓€涓竴鑷寸姸鎬佸埌鍙︿竴涓?/td></tr>
+      <tr><td>I 闅旂鎬?/td><td>澶氫簨鍔″苟鍙戯紝浜掍笉骞叉壈</td></tr>
+      <tr><td>D 鎸佷箙鎬?/td><td>鎻愪氦鍚庢案涔呯敓鏁堬紝宕╂簝涔熶笉涓?/td></tr>
     </table></div>
-    <p>并发问题：丢失修改、脏读、不可重复读（UPDATE引起）、幻读（INSERT/DELETE引起）。</p>
-    <p>封锁机制：X锁（排他/写，独占）、S锁（共享/读，可并发读）、U锁（更新，避免死锁）。</p>
+    <p>骞跺彂闂锛氫涪澶变慨鏀广€佽剰璇汇€佷笉鍙噸澶嶈锛圲PDATE寮曡捣锛夈€佸够璇伙紙INSERT/DELETE寮曡捣锛夈€?/p>
+    <p>灏侀攣鏈哄埗锛歑閿侊紙鎺掍粬/鍐欙紝鐙崰锛夈€丼閿侊紙鍏变韩/璇伙紝鍙苟鍙戣锛夈€乁閿侊紙鏇存柊锛岄伩鍏嶆閿侊級銆?/p>
 
-    <p><strong>事前：内部安全访问控制</strong></p>
-    <div class="tbl-wrap"><table>
-      <tr><th>层级</th><th>措施</th></tr>
-      <tr><td>身份鉴别</td><td>强密码、IP白名单、多因素认证</td></tr>
-      <tr><td>角色 RBAC</td><td>先建角色绑权限，用户关联角色批量授权</td></tr>
-      <tr><td>行级 RLS</td><td>不同人只看本分片数据，敏感字段脱敏</td></tr>
+    <p><strong>浜嬪墠锛氬唴閮ㄥ畨鍏ㄨ闂帶鍒?/strong></p>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>灞傜骇</th><th>鎺柦</th></tr>
+      <tr><td>韬唤閴村埆</td><td>寮哄瘑鐮併€両P鐧藉悕鍗曘€佸鍥犵礌璁よ瘉</td></tr>
+      <tr><td>瑙掕壊 RBAC</td><td>鍏堝缓瑙掕壊缁戞潈闄愶紝鐢ㄦ埛鍏宠仈瑙掕壊鎵归噺鎺堟潈</td></tr>
+      <tr><td>琛岀骇 RLS</td><td>涓嶅悓浜哄彧鐪嬫湰鍒嗙墖鏁版嵁锛屾晱鎰熷瓧娈佃劚鏁?/td></tr>
     </table></div>
-    <p class="keyline">四大原则：最小权限、权限随岗位变动回收、职责分离、高危操作双人复核。</p>
+    <p class="keyline">鍥涘ぇ鍘熷垯锛氭渶灏忔潈闄愩€佹潈闄愰殢宀椾綅鍙樺姩鍥炴敹銆佽亴璐ｅ垎绂汇€侀珮鍗辨搷浣滃弻浜哄鏍搞€?/p>
 
-    <p><strong>事前：整体安全控制体系</strong></p>
-    <p>网络隔离（防火墙、堡垒机）+ 传输加密（SSL/TLS）+ 透明数据加密（TDE）+ 全量审计日志 + 高危变更审批（CR+CCB）。</p>
+    <p><strong>浜嬪墠锛氭暣浣撳畨鍏ㄦ帶鍒朵綋绯?/strong></p>
+    <p>缃戠粶闅旂锛堥槻鐏銆佸牎鍨掓満锛? 浼犺緭鍔犲瘑锛圫SL/TLS锛? 閫忔槑鏁版嵁鍔犲瘑锛圱DE锛? 鍏ㄩ噺瀹¤鏃ュ織 + 楂樺嵄鍙樻洿瀹℃壒锛圕R+CCB锛夈€?/p>
 
-    <p><strong>事中：运维监测体系</strong></p>
-    <div class="tbl-wrap"><table>
-      <tr><th>监控项</th><th>盯什么</th></tr>
-      <tr><td>资源指标</td><td>CPU、内存、磁盘 IO、连接数、锁等待</td></tr>
-      <tr><td>异常行为</td><td>异地登录、爆破、全表导出、慢 SQL</td></tr>
-      <tr><td>故障链路</td><td>主从同步、主库宕机、备份文件完整性</td></tr>
-      <tr><td>操作留痕</td><td>堡垒机全程录屏、SQL 日志全记录</td></tr>
+    <p><strong>浜嬩腑锛氳繍缁寸洃娴嬩綋绯?/strong></p>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>鐩戞帶椤?/th><th>鐩粈涔?/th></tr>
+      <tr><td>璧勬簮鎸囨爣</td><td>CPU銆佸唴瀛樸€佺鐩?IO銆佽繛鎺ユ暟銆侀攣绛夊緟</td></tr>
+      <tr><td>寮傚父琛屼负</td><td>寮傚湴鐧诲綍銆佺垎鐮淬€佸叏琛ㄥ鍑恒€佹參 SQL</td></tr>
+      <tr><td>鏁呴殰閾捐矾</td><td>涓讳粠鍚屾銆佷富搴撳畷鏈恒€佸浠芥枃浠跺畬鏁存€?/td></tr>
+      <tr><td>鎿嶄綔鐣欑棔</td><td>鍫″瀿鏈哄叏绋嬪綍灞忋€丼QL 鏃ュ織鍏ㄨ褰?/td></tr>
     </table></div>
 
-    <p><strong>事后：备份与恢复体系</strong></p>
-    <p>行业 <strong>3-2-1 原则</strong>：至少 3 份副本、2 种介质、1 份异地。</p>
-    <div class="tbl-wrap"><table>
-      <tr><th>备份方式</th><th>备份内容</th><th>特点</th></tr>
-      <tr><td>全量备份</td><td>整个库</td><td>恢复最简单，慢、占空间大</td></tr>
-      <tr><td>增量备份</td><td>上次备份后变化</td><td>快、小，恢复要按顺序串</td></tr>
-      <tr><td>差异备份</td><td>上次全量后所有变化</td><td>恢复只需全量+最近一次差异</td></tr>
-      <tr><td>日志归档</td><td>事务日志</td><td>最小粒度，支持任意时间点回退</td></tr>
+    <p><strong>浜嬪悗锛氬浠戒笌鎭㈠浣撶郴</strong></p>
+    <p>琛屼笟 <strong>3-2-1 鍘熷垯</strong>锛氳嚦灏?3 浠藉壇鏈€? 绉嶄粙璐ㄣ€? 浠藉紓鍦般€?/p>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>澶囦唤鏂瑰紡</th><th>澶囦唤鍐呭</th><th>鐗圭偣</th></tr>
+      <tr><td>鍏ㄩ噺澶囦唤</td><td>鏁翠釜搴?/td><td>鎭㈠鏈€绠€鍗曪紝鎱€佸崰绌洪棿澶?/td></tr>
+      <tr><td>澧為噺澶囦唤</td><td>涓婃澶囦唤鍚庡彉鍖?/td><td>蹇€佸皬锛屾仮澶嶈鎸夐『搴忎覆</td></tr>
+      <tr><td>宸紓澶囦唤</td><td>涓婃鍏ㄩ噺鍚庢墍鏈夊彉鍖?/td><td>鎭㈠鍙渶鍏ㄩ噺+鏈€杩戜竴娆″樊寮?/td></tr>
+      <tr><td>鏃ュ織褰掓。</td><td>浜嬪姟鏃ュ織</td><td>鏈€灏忕矑搴︼紝鏀寔浠绘剰鏃堕棿鐐瑰洖閫€</td></tr>
     </table></div>
-    <p class="keyline">恢复分级：误删表 → 备份+日志回退；硬盘损坏 → 异地副本整库还原；机房灾难 → 跨机房灾备。</p>
+    <p class="keyline">鎭㈠鍒嗙骇锛氳鍒犺〃 鈫?澶囦唤+鏃ュ織鍥為€€锛涚‖鐩樻崯鍧?鈫?寮傚湴鍓湰鏁村簱杩樺師锛涙満鎴跨伨闅?鈫?璺ㄦ満鎴跨伨澶囥€?/p>
   </section>
 
   <section class="topic" id="sec-k3-opt">
-    <div class="topic-h"><h3>3.B 性能优化（7招）</h3></div>
+    <div class="topic-h"><h3>3.B 鎬ц兘浼樺寲锛?鎷涳級</h3></div>
 
-    <p><strong>一、索引设计优化</strong></p>
-    <p>索引是 B+ 树结构，用额外空间换查询速度。五类索引：主键、唯一、普通、联合（复合）、覆盖。</p>
-    <p class="keyline">黄金原则：高频查询/排序/分组字段优先建；低区分度字段（性别）别建；避免索引列上用函数/运算；联合索引遵循最左前缀。</p>
+    <p><strong>涓€銆佺储寮曡璁′紭鍖?/strong></p>
+    <p>绱㈠紩鏄?B+ 鏍戠粨鏋勶紝鐢ㄩ澶栫┖闂存崲鏌ヨ閫熷害銆備簲绫荤储寮曪細涓婚敭銆佸敮涓€銆佹櫘閫氥€佽仈鍚堬紙澶嶅悎锛夈€佽鐩栥€?/p>
+    <p class="keyline">榛勯噾鍘熷垯锛氶珮棰戞煡璇?鎺掑簭/鍒嗙粍瀛楁浼樺厛寤猴紱浣庡尯鍒嗗害瀛楁锛堟€у埆锛夊埆寤猴紱閬垮厤绱㈠紩鍒椾笂鐢ㄥ嚱鏁?杩愮畻锛涜仈鍚堢储寮曢伒寰渶宸﹀墠缂€銆?/p>
 
-    <p><strong>二、SQL 查询优化</strong></p>
-    <p>别 SELECT *；用 WHERE 先缩小范围；大分页用主键回溯；小表驱动大表；避免大事务和慢 SQL。</p>
+    <p><strong>浜屻€丼QL 鏌ヨ浼樺寲</strong></p>
+    <p>鍒?SELECT *锛涚敤 WHERE 鍏堢缉灏忚寖鍥达紱澶у垎椤电敤涓婚敭鍥炴函锛涘皬琛ㄩ┍鍔ㄥぇ琛紱閬垮厤澶т簨鍔″拰鎱?SQL銆?/p>
 
-    <p><strong>三、数据库缓存优化</strong></p>
-    <p>磁盘 IO 是最大瓶颈，把高频热点数据、查询结果预存到内存，下次直接从内存取，不用读磁盘。</p>
+    <p><strong>涓夈€佹暟鎹簱缂撳瓨浼樺寲</strong></p>
+    <p>纾佺洏 IO 鏄渶澶х摱棰堬紝鎶婇珮棰戠儹鐐规暟鎹€佹煡璇㈢粨鏋滈瀛樺埌鍐呭瓨锛屼笅娆＄洿鎺ヤ粠鍐呭瓨鍙栵紝涓嶇敤璇荤鐩樸€?/p>
     <div class="stage-svg">
-      <svg viewBox="0 0 700 160" width="700" height="160" role="img" aria-label="数据库缓存架构">
+      <svg viewBox="0 0 700 160" width="700" height="160" role="img" aria-label="鏁版嵁搴撶紦瀛樻灦鏋?>
         <rect x="20" y="55" width="120" height="50" rx="6" fill="none" stroke="var(--brand-1)" stroke-width="1.5"/>
-        <text x="80" y="78" text-anchor="middle" font-size="12" fill="var(--t1)">应用请求</text>
-        <text x="80" y="95" text-anchor="middle" font-size="10" fill="var(--t3)">高频重复查询</text>
+        <text x="80" y="78" text-anchor="middle" font-size="12" fill="var(--t1)">搴旂敤璇锋眰</text>
+        <text x="80" y="95" text-anchor="middle" font-size="10" fill="var(--t3)">楂橀閲嶅鏌ヨ</text>
         <rect x="200" y="20" width="150" height="50" rx="6" fill="none" stroke="var(--green-1)" stroke-width="1.5"/>
-        <text x="275" y="42" text-anchor="middle" font-size="12" fill="var(--t1)">内存缓存</text>
-        <text x="275" y="59" text-anchor="middle" font-size="10" fill="var(--t3)">命中 → 直接返回</text>
+        <text x="275" y="42" text-anchor="middle" font-size="12" fill="var(--t1)">鍐呭瓨缂撳瓨</text>
+        <text x="275" y="59" text-anchor="middle" font-size="10" fill="var(--t3)">鍛戒腑 鈫?鐩存帴杩斿洖</text>
         <rect x="200" y="95" width="150" height="50" rx="6" fill="none" stroke="var(--purple-1)" stroke-width="1.5"/>
-        <text x="275" y="117" text-anchor="middle" font-size="12" fill="var(--t1)">数据库磁盘</text>
-        <text x="275" y="134" text-anchor="middle" font-size="10" fill="var(--t3)">未命中 → 读磁盘</text>
+        <text x="275" y="117" text-anchor="middle" font-size="12" fill="var(--t1)">鏁版嵁搴撶鐩?/text>
+        <text x="275" y="134" text-anchor="middle" font-size="10" fill="var(--t3)">鏈懡涓?鈫?璇荤鐩?/text>
         <line x1="140" y1="70" x2="200" y2="45" stroke="var(--t3)" stroke-width="1.4"/>
-        <text x="155" y="55" font-size="10" fill="var(--green-1)">命中</text>
+        <text x="155" y="55" font-size="10" fill="var(--green-1)">鍛戒腑</text>
         <line x1="140" y1="90" x2="200" y2="120" stroke="var(--t3)" stroke-width="1.4"/>
-        <text x="150" y="115" font-size="10" fill="var(--purple-1)">未命中</text>
+        <text x="150" y="115" font-size="10" fill="var(--purple-1)">鏈懡涓?/text>
         <line x1="350" y1="45" x2="500" y2="45" stroke="var(--green-1)" stroke-width="1.4"/>
-        <text x="425" y="38" text-anchor="middle" font-size="10.5" fill="var(--green-1)">极快：内存读写</text>
+        <text x="425" y="38" text-anchor="middle" font-size="10.5" fill="var(--green-1)">鏋佸揩锛氬唴瀛樿鍐?/text>
         <line x1="350" y1="120" x2="500" y2="120" stroke="var(--purple-1)" stroke-width="1.4"/>
-        <text x="425" y="113" text-anchor="middle" font-size="10.5" fill="var(--purple-1)">慢：磁盘 IO</text>
+        <text x="425" y="113" text-anchor="middle" font-size="10.5" fill="var(--purple-1)">鎱細纾佺洏 IO</text>
       </svg>
     </div>
-    <div class="tbl-wrap"><table>
-      <tr><th>层级</th><th>技术</th><th>缓存什么</th></tr>
-      <tr><td>内置缓存</td><td>InnoDB Buffer Pool</td><td>表页、索引热点页，占物理内存 50%~80%</td></tr>
-      <tr><td>分布式缓存</td><td>Redis</td><td>热点业务数据、高频查询结果、会话</td></tr>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>灞傜骇</th><th>鎶€鏈?/th><th>缂撳瓨浠€涔?/th></tr>
+      <tr><td>鍐呯疆缂撳瓨</td><td>InnoDB Buffer Pool</td><td>琛ㄩ〉銆佺储寮曠儹鐐归〉锛屽崰鐗╃悊鍐呭瓨 50%~80%</td></tr>
+      <tr><td>鍒嗗竷寮忕紦瀛?/td><td>Redis</td><td>鐑偣涓氬姟鏁版嵁銆侀珮棰戞煡璇㈢粨鏋溿€佷細璇?/td></tr>
     </table></div>
-    <p class="keyline">缓存三原则：① 只读热点优先，频繁变更少缓存；② 设合理有效期；③ 杜绝缓存与数据库长期不一致。</p>
+    <p class="keyline">缂撳瓨涓夊師鍒欙細鈶?鍙鐑偣浼樺厛锛岄绻佸彉鏇村皯缂撳瓨锛涒憽 璁惧悎鐞嗘湁鏁堟湡锛涒憿 鏉滅粷缂撳瓨涓庢暟鎹簱闀挎湡涓嶄竴鑷淬€?/p>
 
-    <p><strong>四、数据表分区优化</strong></p>
-    <p>大表拆成多个物理分区，逻辑上还是一张表。四种方式：范围（按时间/数值）、列表（按枚举值）、哈希（均匀打散）、键分区。</p>
+    <p><strong>鍥涖€佹暟鎹〃鍒嗗尯浼樺寲</strong></p>
+    <p>澶ц〃鎷嗘垚澶氫釜鐗╃悊鍒嗗尯锛岄€昏緫涓婅繕鏄竴寮犺〃銆傚洓绉嶆柟寮忥細鑼冨洿锛堟寜鏃堕棿/鏁板€硷級銆佸垪琛紙鎸夋灇涓惧€硷級銆佸搱甯岋紙鍧囧寑鎵撴暎锛夈€侀敭鍒嗗尯銆?/p>
 
-    <p><strong>五、读写分离架构优化</strong></p>
-    <p>主库负责写，从库负责读，通过 binlog 实时同步。一主多从，中间件自动路由。</p>
+    <p><strong>浜斻€佽鍐欏垎绂绘灦鏋勪紭鍖?/strong></p>
+    <p>涓诲簱璐熻矗鍐欙紝浠庡簱璐熻矗璇伙紝閫氳繃 binlog 瀹炴椂鍚屾銆備竴涓诲浠庯紝涓棿浠惰嚜鍔ㄨ矾鐢便€?/p>
 
-    <p><strong>六、负载均衡优化</strong></p>
-    <p>读均衡：多从库按权重分发请求。写均衡：分库分表拆写入压力。垂直扩容（升硬件）+ 水平扩容（加节点）。</p>
+    <p><strong>鍏€佽礋杞藉潎琛′紭鍖?/strong></p>
+    <p>璇诲潎琛★細澶氫粠搴撴寜鏉冮噸鍒嗗彂璇锋眰銆傚啓鍧囪　锛氬垎搴撳垎琛ㄦ媶鍐欏叆鍘嬪姏銆傚瀭鐩存墿瀹癸紙鍗囩‖浠讹級+ 姘村钩鎵╁锛堝姞鑺傜偣锛夈€?/p>
 
-    <p><strong>七、服务与存储层优化</strong></p>
-    <p>监控 CPU/内存/磁盘/连接数；数据文件、日志、索引分到不同高性能磁盘；短期靠升级硬件，长期靠架构优化。</p>
+    <p><strong>涓冦€佹湇鍔′笌瀛樺偍灞備紭鍖?/strong></p>
+    <p>鐩戞帶 CPU/鍐呭瓨/纾佺洏/杩炴帴鏁帮紱鏁版嵁鏂囦欢銆佹棩蹇椼€佺储寮曞垎鍒颁笉鍚岄珮鎬ц兘纾佺洏锛涚煭鏈熼潬鍗囩骇纭欢锛岄暱鏈熼潬鏋舵瀯浼樺寲銆?/p>
   </section>
 </section>
 
-<!-- ==================== 考点4 ==================== -->
+<!-- ==================== 鑰冪偣4 ==================== -->
 <section class="sec-block" id="sec-k4">
-  <div class="sec-h"><h2>考点4 · 数据仓库与数据挖掘算法</h2><span class="years">OLTP vs OLAP · 算法 · 评估</span></div>
+  <div class="sec-h"><h2>鑰冪偣4 路 鏁版嵁浠撳簱涓庢暟鎹寲鎺樼畻娉?/h2><span class="years">OLTP vs OLAP 路 绠楁硶 路 璇勪及</span></div>
 
   <section class="topic" id="sec-k4-1">
-    <div class="topic-h"><h3>一、数据仓库</h3></div>
-    <div class="tbl-wrap"><table>
-      <tr><th>维度</th><th>OLTP（联机事务处理）</th><th>OLAP（联机分析处理）</th></tr>
-      <tr><td>面向</td><td>具体业务（存钱、下单）</td><td>宏观分析（销售趋势、风险）</td></tr>
-      <tr><td>数据</td><td>细节、当前、经常更新</td><td>综合、历史、相对稳定</td></tr>
-      <tr><td>单次量</td><td>小</td><td>大</td></tr>
-      <tr><td>响应</td><td>要求极高</td><td>相对宽松</td></tr>
+    <div class="topic-h"><h3>涓€銆佹暟鎹粨搴?/h3></div>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>缁村害</th><th>OLTP锛堣仈鏈轰簨鍔″鐞嗭級</th><th>OLAP锛堣仈鏈哄垎鏋愬鐞嗭級</th></tr>
+      <tr><td>闈㈠悜</td><td>鍏蜂綋涓氬姟锛堝瓨閽便€佷笅鍗曪級</td><td>瀹忚鍒嗘瀽锛堥攢鍞秼鍔裤€侀闄╋級</td></tr>
+      <tr><td>鏁版嵁</td><td>缁嗚妭銆佸綋鍓嶃€佺粡甯告洿鏂?/td><td>缁煎悎銆佸巻鍙层€佺浉瀵圭ǔ瀹?/td></tr>
+      <tr><td>鍗曟閲?/td><td>灏?/td><td>澶?/td></tr>
+      <tr><td>鍝嶅簲</td><td>瑕佹眰鏋侀珮</td><td>鐩稿瀹芥澗</td></tr>
     </table></div>
-    <p class="keyline">四种存储：关系库（OLTP）、数据仓库（OLAP）、图数据库（Neo4j，社交网络/反洗钱）、流数据库（实时流）。</p>
+    <p class="keyline">鍥涚瀛樺偍锛氬叧绯诲簱锛圤LTP锛夈€佹暟鎹粨搴擄紙OLAP锛夈€佸浘鏁版嵁搴擄紙Neo4j锛岀ぞ浜ょ綉缁?鍙嶆礂閽憋級銆佹祦鏁版嵁搴擄紙瀹炴椂娴侊級銆?/p>
   </section>
 
   <section class="topic" id="sec-k4-2">
-    <div class="topic-h"><h3>二、数据挖掘</h3></div>
-    <p><strong>监督学习</strong>：有标签，预测新样本。<strong>无监督学习</strong>：无标签，发现结构。</p>
-    <div class="tbl-wrap"><table>
-      <tr><th>任务</th><th>类型</th><th>代表算法</th><th>干什么</th></tr>
-      <tr><td>分类</td><td>监督</td><td>决策树、Logistic、SVM、朴素贝叶斯</td><td>预测类别（垃圾邮件？）</td></tr>
-      <tr><td>回归</td><td>监督</td><td>线性回归、岭回归</td><td>预测连续值（房价？）</td></tr>
-      <tr><td>聚类</td><td>无监督</td><td>K-means、DBSCAN</td><td>自动分组（用户分群）</td></tr>
-      <tr><td>关联分析</td><td>无监督</td><td>Apriori</td><td>发现共购（买A常买B）</td></tr>
-      <tr><td>降维</td><td>无监督</td><td>PCA</td><td>高维转低维，减少维度灾难</td></tr>
+    <div class="topic-h"><h3>浜屻€佹暟鎹寲鎺?/h3></div>
+    <p><strong>鐩戠潱瀛︿範</strong>锛氭湁鏍囩锛岄娴嬫柊鏍锋湰銆?strong>鏃犵洃鐫ｅ涔?/strong>锛氭棤鏍囩锛屽彂鐜扮粨鏋勩€?/p>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>浠诲姟</th><th>绫诲瀷</th><th>浠ｈ〃绠楁硶</th><th>骞蹭粈涔?/th></tr>
+      <tr><td>鍒嗙被</td><td>鐩戠潱</td><td>鍐崇瓥鏍戙€丩ogistic銆丼VM銆佹湸绱犺礉鍙舵柉</td><td>棰勬祴绫诲埆锛堝瀮鍦鹃偖浠讹紵锛?/td></tr>
+      <tr><td>鍥炲綊</td><td>鐩戠潱</td><td>绾挎€у洖褰掋€佸箔鍥炲綊</td><td>棰勬祴杩炵画鍊硷紙鎴夸环锛燂級</td></tr>
+      <tr><td>鑱氱被</td><td>鏃犵洃鐫?/td><td>K-means銆丏BSCAN</td><td>鑷姩鍒嗙粍锛堢敤鎴峰垎缇わ級</td></tr>
+      <tr><td>鍏宠仈鍒嗘瀽</td><td>鏃犵洃鐫?/td><td>Apriori</td><td>鍙戠幇鍏辫喘锛堜拱A甯镐拱B锛?/td></tr>
+      <tr><td>闄嶇淮</td><td>鏃犵洃鐫?/td><td>PCA</td><td>楂樼淮杞綆缁达紝鍑忓皯缁村害鐏鹃毦</td></tr>
     </table></div>
-    <p class="keyline">K-means 步骤：选 K 个中心 → 样本归最近中心 → 重算中心 → 迭代到收敛。</p>
+    <p class="keyline">K-means 姝ラ锛氶€?K 涓腑蹇?鈫?鏍锋湰褰掓渶杩戜腑蹇?鈫?閲嶇畻涓績 鈫?杩唬鍒版敹鏁涖€?/p>
   </section>
 
   <section class="topic" id="sec-k4-3">
-    <div class="topic-h"><h3>三、模型评估</h3></div>
-    <p>二分类用<strong>混淆矩阵</strong>：</p>
-    <div class="tbl-wrap"><table>
-      <tr><th></th><th>预测正</th><th>预测负</th></tr>
-      <tr><td><strong>实际正</strong></td><td>TP 真正例</td><td>FN 假负例</td></tr>
-      <tr><td><strong>实际负</strong></td><td>FP 假正例</td><td>TN 真负例</td></tr>
+    <div class="topic-h"><h3>涓夈€佹ā鍨嬭瘎浼?/h3></div>
+    <p>浜屽垎绫荤敤<strong>娣锋穯鐭╅樀</strong>锛?/p>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th></th><th>棰勬祴姝?/th><th>棰勬祴璐?/th></tr>
+      <tr><td><strong>瀹為檯姝?/strong></td><td>TP 鐪熸渚?/td><td>FN 鍋囪礋渚?/td></tr>
+      <tr><td><strong>瀹為檯璐?/strong></td><td>FP 鍋囨渚?/td><td>TN 鐪熻礋渚?/td></tr>
     </table></div>
-    <div class="tbl-wrap"><table>
-      <tr><th>指标</th><th>公式</th><th>含义</th></tr>
-      <tr><td>准确率 Accuracy</td><td>(TP+TN)/总数</td><td>整体猜对比例</td></tr>
-      <tr><td>精确率 Precision</td><td>TP/(TP+FP)</td><td>预测为正中，真对的比例</td></tr>
-      <tr><td>召回率 Recall</td><td>TP/(TP+FN)</td><td>真样本中，被找出来的比例</td></tr>
-      <tr><td>F1</td><td>2×P×R/(P+R)</td><td>精确率与召回率的调和平均</td></tr>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>鎸囨爣</th><th>鍏紡</th><th>鍚箟</th></tr>
+      <tr><td>鍑嗙‘鐜?Accuracy</td><td>(TP+TN)/鎬绘暟</td><td>鏁翠綋鐚滃姣斾緥</td></tr>
+      <tr><td>绮剧‘鐜?Precision</td><td>TP/(TP+FP)</td><td>棰勬祴涓烘涓紝鐪熷鐨勬瘮渚?/td></tr>
+      <tr><td>鍙洖鐜?Recall</td><td>TP/(TP+FN)</td><td>鐪熸牱鏈腑锛岃鎵惧嚭鏉ョ殑姣斾緥</td></tr>
+      <tr><td>F1</td><td>2脳P脳R/(P+R)</td><td>绮剧‘鐜囦笌鍙洖鐜囩殑璋冨拰骞冲潎</td></tr>
     </table></div>
-    <p class="keyline">ROC 曲线：横轴假正例率（FPR），纵轴真正例率（TPR=召回率）。越靠左上角越好。AUC 是 ROC 下面积，0.5=瞎猜，&gt;0.8=好，&gt;0.9=优秀。不平衡数据集用 AUC 比准确率稳。</p>
+    <p class="keyline">ROC 鏇茬嚎锛氭í杞村亣姝ｄ緥鐜囷紙FPR锛夛紝绾佃酱鐪熸渚嬬巼锛圱PR=鍙洖鐜囷級銆傝秺闈犲乏涓婅瓒婂ソ銆侫UC 鏄?ROC 涓嬮潰绉紝0.5=鐬庣寽锛?gt;0.8=濂斤紝&gt;0.9=浼樼銆備笉骞宠　鏁版嵁闆嗙敤 AUC 姣斿噯纭巼绋炽€?/p>
   </section>
 </section>
 
