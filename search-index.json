@@ -593,5 +593,10 @@
     "title": "数据库与数据治理",
     "url": "pages/computer/database.html",
     "keywords": "数据库 DB DBMS DBA DBS 范式 1NF 2NF 3NF 三级模式 外模式 模式 内模式 数据独立性 逻辑独立性 物理独立性 E-R模型 实体 联系 属性 候选码 完整性约束 实体完整性 参照完整性 SQL SELECT FROM WHERE GROUP BY HAVING ORDER BY 嵌套查询 多表连接 INNER JOIN LEFT JOIN RIGHT JOIN GRANT REVOKE 索引 唯一索引 联合索引 事务 ACID 原子性 一致性 隔离性 持久性 脏读 不可重复读 幻读 丢失修改 封锁 X锁 S锁 U锁 备份 全量备份 增量备份 差异备份 日志归档 3-2-1 性能优化 内存缓存 Buffer Pool Redis 缓存优化 表分区 读写分离 分库分表 OLTP OLAP 数据仓库 数据挖掘 监督学习 无监督学习 分类 回归 聚类 K-means Apriori 决策树 Logistic SVM 朴素贝叶斯 PCA 主成分分析 混淆矩阵 准确率 精确率 召回率 F1 ROC AUC"
+  },
+  {
+    "title": "资料分析错题本",
+    "url": "errors/data-analysis.html",
+    "keywords": "资料分析 错题 比重 基期 增长率 增长量 增量排序 平均数 单位面积产量 每百元营业收入成本 综合分析 速算 饼图"
   }
 ]

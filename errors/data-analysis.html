@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>资料分析错题 · 错题本 · 公考备考笔记</title>
+<link rel="stylesheet" href="../css/style.css">
+<script>window.SITE_ROOT='../';window.PAGE_PATH='errors/data-analysis.html';</script>
+<style>
+/* ===== 言语错题卡（三层渐进 · details/summary；下列 class 与 data-* 为跨 AI 契约，不可改名） ===== */
+.err-card>summary{cursor:pointer;list-style:none;user-select:none}
+.err-card>summary::-webkit-details-marker{display:none}
+.sumline{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.edate{font-family:ui-monospace,SFMono-Regular,"Cascadia Mono",Consolas,Menlo,monospace;font-size:12px;color:var(--t3);letter-spacing:.4px}
+.esec{font-weight:700;font-size:13.5px;color:var(--t1)}
+.chip{display:inline-block;border-radius:999px;padding:0 10px;line-height:19px;font-size:11.5px;font-weight:500;background:var(--bg);border:1px solid var(--divider);color:var(--t2);white-space:nowrap}
+.chip-brand{background:var(--green-soft);border-color:rgba(24,121,78,.35);color:var(--green-1)}
+.sample-tag{font-size:11px;line-height:19px;color:var(--t3);border:1px dashed var(--divider);border-radius:6px;padding:0 7px;white-space:nowrap}
+.mastery{margin-left:auto;display:inline-flex;align-items:center;gap:2px;font-size:12px;color:var(--t3);white-space:nowrap}
+.mastery b{color:var(--green-1);font-weight:400}
+.mastery i{font-style:normal}
+.ecause{margin-top:9px;font-size:13.5px;font-weight:600;color:var(--t1);line-height:1.7}
+.vs{margin-top:5px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;font-size:13px;line-height:1.7}
+.vs .mine{color:var(--red-1)}
+.vs .arrow{color:var(--t3)}
+.vs .ok{color:var(--green-1);font-weight:700}
+.vs .vwhy{color:var(--t3);font-size:12.5px}
+.l3{margin-top:10px;padding-top:10px;border-top:1px dashed var(--divider)}
+.wtab{width:100%;border-collapse:collapse;font-size:12.5px;margin:2px 0 10px}
+.wtab th{text-align:left;font-size:11.5px;font-weight:600;color:var(--t3);padding:2px 8px 4px;border-bottom:1px solid var(--divider);white-space:nowrap}
+.wtab td{padding:4px 8px;border-bottom:1px solid var(--divider);color:var(--t2)}
+.wtab tr:last-child td{border-bottom:none}
+.wtab td:first-child{font-weight:700;color:var(--t1);white-space:nowrap}
+.wtab td.ok{color:var(--green-1);font-weight:600;white-space:nowrap}
+.wtab td.bad{color:var(--red-1);white-space:nowrap}
+.next{font-size:13px;color:var(--t2);margin-bottom:4px}
+.next b{color:var(--green-1)}
+.backlink{font-size:12.5px;color:var(--t3)}
+.tag-none{font-size:12.5px;color:var(--t3);padding:4px 2px}
+.err-empty{border:1px dashed var(--divider);border-radius:10px;padding:16px;text-align:center;color:var(--t3);font-size:13px;line-height:1.8}
+</style>
+
+<body>
+
+<div class="nav">
+  <div class="menu-btn" onclick="toggleSidebar()" title="展开/收起导航">☰</div>
+  <a href="../notes.html" style="display:flex;align-items:center;gap:16px;color:inherit"><div class="logo">谱</div><div class="nav-title">公考备考笔记</div></a>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="搜索本页关键词…">
+  </div>
+  <button id="editBtn" onclick="toggleEdit()" style="margin-left:12px;padding:4px 12px;border:1px solid var(--divider);border-radius:6px;background:var(--bg);cursor:pointer;font-size:13px">编辑</button>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="side-toggle" onclick="toggleSidebar()" title="收起导航">◀</div>
+  <div id="sidebarNav"></div>
+</div>
+<div class="sidebar-resize" id="sidebarResize"></div>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<div class="content">
+<div class="doc">
+
+<div class="crumb"><a href="../notes.html">首页</a> › <a href="overview.html">错题本</a> › 资料分析错题</div>
+
+<div class="doc-head">
+  <h1>资料分析错题本</h1>
+  <p>每张卡只记三件事：我选的、正确的、算错在哪一步。算式栏直接比对两边，比看解析快。</p>
+  <div class="stat">来源：预测卷 第六部分 资料分析（116—135）· 共 11 道错题 · 顶部按错因筛选</div>
+</div>
+
+<div class="hub-filters" id="tagFilters"></div>
+
+<div class="sec-block" id="sec-bizhong" data-sec="sec-bizhong">
+  <div class="sec-h"><h2>比重与占比</h2><span class="years">现期比重 / 基期比重 / 饼图判读</span></div>
+
+<details class="err-card" id="err-zl-01" data-tags="数据错位 概念混淆" data-sec="sec-bizhong" data-mastery="0">
+  <summary>
+    <span class="sumline"><span class="edate">11-12</span><span class="esec">资料分析 · 比重与占比 · 预测卷第116题</span><span class="chip chip-brand">数据错位</span><span class="chip">概念混淆</span><span class="mastery">掌握 <b class="on">●</b><i>◐</i><i>○</i></span></span>
+    <p class="ecause">拿 7 月单月住宅投资 6347 除以 1—7 月总投资 60877，期间不一致</p>
+    <p class="vs"><span class="mine">我选 <s>D</s></span><span class="arrow">→</span><span class="ok">正确 C</span><span class="vwhy">46230/60877≈75.9%</span></p>
+  </summary>
+  <div class="l3">
+    <table class="wtab">
+      <thead><tr><th>项</th><th>算式 / 数据</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>正解</td><td>46230 / 60877</td><td class="ok">✓ 75.9% → C 76%</td></tr>
+        <tr><td>你的</td><td>6347 / 60877</td><td class="bad">✗ 得 10.4%，分子是单月、分母是累计</td></tr>
+      </tbody>
+    </table>
+    <p class="next">下次第一动作：<b>先圈题干时间"1—7月"，再回头找同期间的数，累计题绝不用单月数</b></p>
+  </div>
+</details>
+
+
+<details class="err-card" id="err-zl-02" data-tags="图形判读 数据错位" data-sec="sec-bizhong" data-mastery="0">
+  <summary>
+    <span class="sumline"><span class="edate">11-12</span><span class="esec">资料分析 · 比重与占比 · 预测卷第125题</span><span class="chip chip-brand">图形判读</span><span class="chip">数据错位</span><span class="mastery">掌握 <b class="on">●</b><i>◐</i><i>○</i></span></span>
+    <p class="ecause">直接凭视觉挑图，没先把稻谷/小麦/玉米面积由大到小排一遍</p>
+    <p class="vs"><span class="mine">我选 <s>C</s></span><span class="arrow">→</span><span class="ok">正确 A</span><span class="vwhy">玉米约46% > 稻谷约30% > 小麦约24%</span></p>
+  </summary>
+  <div class="l3">
+    <table class="wtab">
+      <thead><tr><th>项</th><th>算式 / 数据</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>排序</td><td>玉米 4474 > 稻谷 2901 > 小麦 2359</td><td class="ok">✓ 玉米最大块，约一半</td></tr>
+        <tr><td>你的</td><td>凭视觉选 C</td><td class="bad">✗ 没核对最大块是否占约 46%</td></tr>
+      </tbody>
+    </table>
+    <p class="next">下次第一动作：<b>饼图题先算占比排序，再看哪张图的最大块与第一名对得上</b></p>
+  </div>
+</details>
+
+
+<details class="err-card" id="err-zl-03" data-tags="基期还原 数据错位" data-sec="sec-bizhong" data-mastery="0">
+  <summary>
+    <span class="sumline"><span class="edate">11-12</span><span class="esec">资料分析 · 比重与占比 · 预测卷第130题</span><span class="chip chip-brand">基期还原</span><span class="chip">数据错位</span><span class="mastery">掌握 <b class="on">●</b><i>◐</i><i>○</i></span></span>
+    <p class="ecause">只把可支配收入还原到 2023，没同时把工资性收入还原</p>
+    <p class="vs"><span class="mine">我选 <s>D</s></span><span class="arrow">→</span><span class="ok">正确 B</span><span class="vwhy">11295/19671≈57.4%</span></p>
+  </summary>
+  <div class="l3">
+    <table class="wtab">
+      <thead><tr><th>项</th><th>算式 / 数据</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>工资</td><td>11950 / (1+5.8%) ≈ 11295</td><td class="ok">✓ 分子也要还原</td></tr>
+        <tr><td>收入</td><td>20733 / (1+5.4%) ≈ 19671</td><td class="ok">✓ 分母同样还原</td></tr>
+        <tr><td>你的</td><td>11950 / 20733 = 57.6%</td><td class="bad">✗ 用现期算，接近 B 但不是</td></tr>
+      </tbody>
+    </table>
+    <p class="next">下次第一动作：<b>基期比重＝分子分母同时还原到基期，只还原一个必错</b></p>
+  </div>
+</details>
+
+</div>
+
+<div class="sec-block" id="sec-zengzhang" data-sec="sec-zengzhang">
+  <div class="sec-h"><h2>增长率与增长量</h2><span class="years">增速比较 / 增量排序 / 现期求基期</span></div>
+
+<details class="err-card" id="err-zl-04" data-tags="增速≠比值 概念混淆" data-sec="sec-zengzhang" data-mastery="0">
+  <summary>
+    <span class="sumline"><span class="edate">11-12</span><span class="esec">资料分析 · 增长率与增长量 · 预测卷第118题</span><span class="chip chip-brand">增速≠比值</span><span class="chip">概念混淆</span><span class="mastery">掌握 <b class="on">●</b><i>◐</i><i>○</i></span></span>
+    <p class="ecause">把销售额增速当均价增速，没做"销售额/面积"两率相除</p>
+    <p class="vs"><span class="mine">我选 <s>C</s></span><span class="arrow">→</span><span class="ok">正确 A</span><span class="vwhy">(1-24.3%)/(1-18.6%)-1≈-7%</span></p>
+  </summary>
+  <div class="l3">
+    <table class="wtab">
+      <thead><tr><th>项</th><th>算式 / 数据</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>正解</td><td>(1-24.3%)÷(1-18.6%)-1</td><td class="ok">✓ -7.0% → A</td></tr>
+        <tr><td>你的</td><td>直接取 -7.5%</td><td class="bad">✗ 均价是比值，要两率相除</td></tr>
+      </tbody>
+    </table>
+    <p class="next">下次第一动作：<b>均价/单位产量这类"比值"增速，一律用 (1+a)÷(1+b)-1</b></p>
+  </div>
+</details>
+
+
+<details class="err-card" id="err-zl-05" data-tags="增量非增速 概念混淆" data-sec="sec-zengzhang" data-mastery="0">
+  <summary>
+    <span class="sumline"><span class="edate">11-12</span><span class="esec">资料分析 · 增长率与增长量 · 预测卷第124题</span><span class="chip chip-brand">增量非增速</span><span class="chip">概念混淆</span><span class="mastery">掌握 <b class="on">●</b><i>◐</i><i>○</i></span></span>
+    <p class="ecause">按增速排（夏粮 2.6% 最高），题目要的是增量大小</p>
+    <p class="vs"><span class="mine">我选 <s>C</s></span><span class="arrow">→</span><span class="ok">正确 B</span><span class="vwhy">秋粮+729 > 玉米+606 > 夏粮+378 > 稻谷+103</span></p>
+  </summary>
+  <div class="l3">
+    <table class="wtab">
+      <thead><tr><th>项</th><th>算式 / 数据</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>秋粮</td><td>52843×1.4%÷1.014 ≈ 729</td><td class="ok">✓ 第一</td></tr>
+        <tr><td>玉米</td><td>29492×2.1%÷1.021 ≈ 606</td><td class="ok">✓ 第二</td></tr>
+        <tr><td>夏粮</td><td>14989×2.6%÷1.026 ≈ 378</td><td class="ok">✓ 第三</td></tr>
+        <tr><td>你的</td><td>按增速 2.6%>2.1%>1.4% 排</td><td class="bad">✗ 增速大≠增量大</td></tr>
+      </tbody>
+    </table>
+    <p class="next">下次第一动作：<b>问"增量"就用 现期×增速/(1+增速)，别拿增速直接排</b></p>
+  </div>
+</details>
+
+
+<details class="err-card" id="err-zl-06" data-tags="增量非增速 概念混淆" data-sec="sec-zengzhang" data-mastery="0">
+  <summary>
+    <span class="sumline"><span class="edate">11-12</span><span class="esec">资料分析 · 增长率与增长量 · 预测卷第129题</span><span class="chip chip-brand">增量非增速</span><span class="chip">概念混淆</span><span class="mastery">掌握 <b class="on">●</b><i>◐</i><i>○</i></span></span>
+    <p class="ecause">看增速 11.6% 选了交通通信却停在表面，实际要算基数×增速</p>
+    <p class="vs"><span class="mine">我选 <s>B</s></span><span class="arrow">→</span><span class="ok">正确 A</span><span class="vwhy">1819×11.6%≈211 最大</span></p>
+  </summary>
+  <div class="l3">
+    <table class="wtab">
+      <thead><tr><th>项</th><th>算式 / 数据</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>交通通信</td><td>1819×11.6% ≈ 211</td><td class="ok">✓ 最大</td></tr>
+        <tr><td>教育文化</td><td>1340×11.2% ≈ 150</td><td class="ok">第二位</td></tr>
+        <tr><td>你的</td><td>选 738×2.2% 的生活用品</td><td class="bad">✗ 基数小，增量仅 16</td></tr>
+      </tbody>
+    </table>
+    <p class="next">下次第一动作：<b>增量比较＝基数×增速，先挑基数最大的两三项粗算</b></p>
+  </div>
+</details>
+
+
+<details class="err-card" id="err-zl-07" data-tags="基期还原 数据错位" data-sec="sec-zengzhang" data-mastery="0">
+  <summary>
+    <span class="sumline"><span class="edate">11-12</span><span class="esec">资料分析 · 增长率与增长量 · 预测卷第131题</span><span class="chip chip-brand">基期还原</span><span class="chip">数据错位</span><span class="mastery">掌握 <b class="on">●</b><i>◐</i><i>○</i></span></span>
+    <p class="ecause">求 2024 年（基期）用成了现期数据或除反了增长率方向</p>
+    <p class="vs"><span class="mine">我选 <s>B</s></span><span class="arrow">→</span><span class="ok">正确 A</span><span class="vwhy">21170.2/(1+1.4%)≈20878</span></p>
+  </summary>
+  <div class="l3">
+    <table class="wtab">
+      <thead><tr><th>项</th><th>算式 / 数据</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>正解</td><td>21170.2 ÷ 1.014</td><td class="ok">✓ 20878 → A</td></tr>
+        <tr><td>你的</td><td>21230 附近</td><td class="bad">✗ 基期要除以(1+增长率)</td></tr>
+      </tbody>
+    </table>
+    <p class="next">下次第一动作：<b>"2024年"是上一期＝基期，基期＝现期÷(1+增长率)</b></p>
+  </div>
+</details>
+
+</div>
+
+<div class="sec-block" id="sec-pingjun" data-sec="sec-pingjun">
+  <div class="sec-h"><h2>平均数与单位</h2><span class="years">单位面积产量 / 百元营收成本</span></div>
+
+<details class="err-card" id="err-zl-08" data-tags="概念混淆 数据错位" data-sec="sec-pingjun" data-mastery="0">
+  <summary>
+    <span class="sumline"><span class="edate">11-12</span><span class="esec">资料分析 · 平均数与单位 · 预测卷第121题</span><span class="chip chip-brand">概念混淆</span><span class="chip">数据错位</span><span class="mastery">掌握 <b class="on">●</b><i>◐</i><i>○</i></span></span>
+    <p class="ecause">估算取值偏差，70650/11932 精算到 5.92 就能定 A</p>
+    <p class="vs"><span class="mine">我选 <s>C</s></span><span class="arrow">→</span><span class="ok">正确 A</span><span class="vwhy">70650/11932≈5.92</span></p>
+  </summary>
+  <div class="l3">
+    <table class="wtab">
+      <thead><tr><th>项</th><th>算式 / 数据</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>正解</td><td>70650 ÷ 11932</td><td class="ok">✓ 5.92 → A</td></tr>
+        <tr><td>你的</td><td>估成 5.85</td><td class="bad">✗ 选项间距只有 0.04，必须精算</td></tr>
+      </tbody>
+    </table>
+    <p class="next">下次第一动作：<b>选项间距小于 1% 时放弃估算，直接除到小数点后两位</b></p>
+  </div>
+</details>
+
+
+<details class="err-card" id="err-zl-09" data-tags="概念混淆 数据错位" data-sec="sec-pingjun" data-mastery="0">
+  <summary>
+    <span class="sumline"><span class="edate">11-12</span><span class="esec">资料分析 · 平均数与单位 · 预测卷第135题</span><span class="chip chip-brand">概念混淆</span><span class="chip">数据错位</span><span class="mastery">掌握 <b class="on">●</b><i>◐</i><i>○</i></span></span>
+    <p class="ecause">拿利润 21170 当成本，题目要的是 成本/营业收入×100</p>
+    <p class="vs"><span class="mine">我选 <s>A</s></span><span class="arrow">→</span><span class="ok">正确 B</span><span class="vwhy">37.16/43.44×100≈85.5 元</span></p>
+  </summary>
+  <div class="l3">
+    <table class="wtab">
+      <thead><tr><th>项</th><th>算式 / 数据</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>正解</td><td>37.16 ÷ 43.44 × 100</td><td class="ok">✓ 85.5 元 → B</td></tr>
+        <tr><td>你的</td><td>用利润总额去算</td><td class="bad">✗ 成本是 37.16 万亿</td></tr>
+      </tbody>
+    </table>
+    <p class="next">下次第一动作：<b>"每百元营业收入中的成本"＝营业成本÷营业收入×100，先定位成本数</b></p>
+  </div>
+</details>
+
+</div>
+
+<div class="sec-block" id="sec-zonghe" data-sec="sec-zonghe">
+  <div class="sec-h"><h2>综合分析</h2><span class="years">逐项验证 / 期间与口径核对</span></div>
+
+<details class="err-card" id="err-zl-10" data-tags="数据错位 概念混淆" data-sec="sec-zonghe" data-mastery="0">
+  <summary>
+    <span class="sumline"><span class="edate">11-12</span><span class="esec">资料分析 · 综合分析 · 预测卷第120题</span><span class="chip chip-brand">数据错位</span><span class="chip">概念混淆</span><span class="mastery">掌握 <b class="on">●</b><i>◐</i><i>○</i></span></span>
+    <p class="ecause">A 项"上半年下降 9.4%"，材料只有 1—7 月 -10.2%，期间对不上</p>
+    <p class="vs"><span class="mine">我选 <s>A</s></span><span class="arrow">→</span><span class="ok">正确 B</span><span class="vwhy">2023 中部13418 > 西部12108</span></p>
+  </summary>
+  <div class="l3">
+    <table class="wtab">
+      <thead><tr><th>项</th><th>算式 / 数据</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>B 项</td><td>中部 11954/0.891≈13418；西部 10655/0.88≈12108</td><td class="ok">✓ 中部更高</td></tr>
+        <tr><td>你的 A</td><td>上半年 -9.4%</td><td class="bad">✗ 材料是 1—7月 -10.2%</td></tr>
+      </tbody>
+    </table>
+    <p class="next">下次第一动作：<b>综合题每项都先核对"时间口径"，期间不符直接排除</b></p>
+  </div>
+</details>
+
+
+<details class="err-card" id="err-zl-11" data-tags="概念混淆 数据错位" data-sec="sec-zonghe" data-mastery="0">
+  <summary>
+    <span class="sumline"><span class="edate">11-12</span><span class="esec">资料分析 · 综合分析 · 预测卷第134题</span><span class="chip chip-brand">概念混淆</span><span class="chip">数据错位</span><span class="mastery">掌握 <b class="on">●</b><i>◐</i><i>○</i></span></span>
+    <p class="ecause">把"由亏转盈"没计入上升，少数一个行业，差从 3 变 1</p>
+    <p class="vs"><span class="mine">我选 <s>D</s></span><span class="arrow">→</span><span class="ok">正确 C</span><span class="vwhy">上升 9（含黑色扭亏）－下降 6＝3</span></p>
+  </summary>
+  <div class="l3">
+    <table class="wtab">
+      <thead><tr><th>项</th><th>算式 / 数据</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>上升</td><td>农副/有色/电气/专用/通用/计算机/电力/纺织/黑色扭亏 = 9</td><td class="ok">✓</td></tr>
+        <tr><td>下降</td><td>非金属/化学/汽车/石油天然气/煤炭/石油煤炭其他 = 6</td><td class="ok">✓</td></tr>
+        <tr><td>你的</td><td>扭亏不算上升 → 8-6=2</td><td class="bad">✗ 选项无 2，说明扭亏要计</td></tr>
+      </tbody>
+    </table>
+    <p class="next">下次第一动作：<b>数个数题逐行打勾，扭亏为盈按"上升"计；算完对不上选项就回查漏项</b></p>
+  </div>
+</details>
+
+</div>
+
+</div>
+</div>
+
+<script src="../js/nav.js"></script>
+<script src="../js/app.js"></script>
+<script>
+// 顶部标签筛选：扫描 .err-card[data-tags] 自动去重生成 chips（含"全部"）；点筛选、再点取消；无卡片显示"暂无标签"
+(function(){
+  const bar=document.getElementById('tagFilters');
+  const cards=Array.from(document.querySelectorAll('.err-card[data-tags]'));
+  const tags=[];
+  cards.forEach(c=>(c.dataset.tags||'').split(/\s+/).forEach(t=>{if(t&&!tags.includes(t))tags.push(t);}));
+  if(!tags.length){bar.innerHTML='<span class="tag-none">暂无标签</span>';return;}
+  const mk=(label,val)=>{
+    const b=document.createElement('button');
+    b.type='button';b.className='hub-chip'+(val==='all'?' on':'');b.textContent=label;b.dataset.t=val;
+    return b;
+  };
+  bar.appendChild(mk('全部','all'));
+  tags.forEach(t=>bar.appendChild(mk(t,t)));
+  const showAll=()=>cards.forEach(c=>c.style.display='');
+  bar.addEventListener('click',e=>{
+    const chip=e.target.closest('.hub-chip');if(!chip)return;
+    if(chip.dataset.t!=='all'&&chip.classList.contains('on')){ // 再点已选标签 → 取消筛选
+      bar.querySelectorAll('.hub-chip').forEach(c=>c.classList.toggle('on',c.dataset.t==='all'));
+      showAll();return;
+    }
+    bar.querySelectorAll('.hub-chip').forEach(c=>c.classList.toggle('on',c===chip));
+    const t=chip.dataset.t;
+    if(t==='all'){showAll();return;}
+    cards.forEach(c=>{
+      const ts=(c.dataset.tags||'').split(/\s+/);
+      c.style.display=ts.includes(t)?'':'none';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

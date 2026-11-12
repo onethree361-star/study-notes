@@ -264,6 +264,7 @@ const NAV_DATA = [
       { t: '经济', u: 'errors/economy.html' },
       { t: '金融', u: 'errors/finance.html' },
       { t: '言语', u: 'errors/verbal.html' },
+      { t: '资料分析', u: 'errors/data-analysis.html' },
       { t: '计算机/信息安全', u: 'errors/computer.html' },
     ]},
   ]},
